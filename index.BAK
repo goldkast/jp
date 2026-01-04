@@ -33,11 +33,11 @@
           </button>
           メニュー
         </li>
-        <li><a href="index.html" class="current">ホーム</a></li>
-        <li><a href="./label/index.html">ラベルについて</a></li>
-        <li><a href="../download/index.html">ダウンロード</a></li>
-        <li><a href="../user/index.html">ご利用者様へ</a></li>
-        <li><a href="../mission/index.html">ミッション</a></li>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/label/index.html">ラベルについて</a></li>
+        <li><a href="/download/index.html">ダウンロード</a></li>
+        <li><a href="/user/index.html">ご利用者様へ</a></li>
+        <li><a href="/mission/index.html">ミッション</a></li>
         <li class="lang-menu">
           <a href="#" id="langToggle">
             <span class="fi fi-jp"></span>
@@ -86,31 +86,31 @@
 
     <ul class="mobile-menu-list">
       <li>
-        <a href="index.html">
+        <a href="/">
           <img src="img/home.png" alt="ホーム">
           <span>ホーム</span>
         </a>
       </li>
       <li>
-        <a href="/label/">
+        <a href="/label/index.html">
           <img src="img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
       </li>
       <li>
-        <a href="../download/index.html">
+        <a href="/download/index.html">
           <img src="img/label-dl.png" alt="ダウンロード">
           <span>ダウンロード</span>
         </a>
       </li>
       <li>
-        <a href="../user/index.html">
+        <a href="/user/index.html">
           <img src="img/user.png" alt="ご利用者様へ">
           <span>ご利用者様へ</span>
         </a>
       </li>
       <li>
-        <a href="../mission/index.html">
+        <a href="/mission/index.html">
           <img src="img/mission.png" alt="ミッション">
           <span>ミッション</span>
         </a>
@@ -124,46 +124,46 @@
         <span class="arrow">▼</span>
       </div>
       <ul class="lang-dropdown" id="mobileLangDropdown">
-        <li><a href="/en/"><span class="fi fi-us"></span> 英語</a></li>
-        <li><a href="/cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
-        <li><a href="/tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
-        <li><a href="/kr/"><span class="fi fi-kr"></span> 한국어</a></li>
-        <li><a href="/id/"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
-        <li><a href="/vn/"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
-        <li><a href="/es/"><span class="fi fi-es"></span> Español</a></li>
-        <li><a href="/fr/"><span class="fi fi-fr"></span> Français</a></li>
-        <li><a href="/de/"><span class="fi fi-de"></span> Deutsch</a></li>
-        <li><a href="/ru/"><span class="fi fi-ru"></span> Русский</a></li>
+        <li><a href="../en/"><span class="fi fi-us"></span> 英語</a></li>
+        <li><a href="../cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
+        <li><a href="../tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
+        <li><a href="../kr/"><span class="fi fi-kr"></span> 한국어</a></li>
+        <li><a href="../id/"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
+        <li><a href="../vn/"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
+        <li><a href="../es/"><span class="fi fi-es"></span> Español</a></li>
+        <li><a href="../fr/"><span class="fi fi-fr"></span> Français</a></li>
+        <li><a href="../de/"><span class="fi fi-de"></span> Deutsch</a></li>
+        <li><a href="../ru/"><span class="fi fi-ru"></span> Русский</a></li>
       </ul>
     </div>
 
     <ul class="mobile-submenu">
       <li>
-        <a href="../terms/index.html">
+        <a href="/terms_of_condition/index.html">
           <img src="img/TnC.png" alt="利用規約">
           <span>利用規約</span>
         </a>
       </li>
       <li>
-        <a href="../privacy-policy/index.html">
+        <a href="/privacy_policy/index.html">
           <img src="img/privacy_policy.png" alt="プライバシーポリシー">
           <span>プライバシーポリシー</span>
         </a>
       </li>
       <li>
-        <a href="../cookie-policy/index.html">
+        <a href="/cookie-policy/index.html">
           <img src="img/cookie.png" alt="Cookieポリシー">
           <span>Cookieポリシー</span>
         </a>
       </li>
       <li>
-        <a href="../faq/index.html">
+        <a href="/faq/index.html">
           <img src="img/FAQ.png" alt="FAQ">
           <span>FAQ（質問と回答）</span>
         </a>
       </li>
       <li>
-        <a href="../contact/index.html">
+        <a href="/contact/index.html">
           <img src="img/contact.png" alt="お問い合わせ">
           <span>お問い合わせ</span>
         </a>
@@ -428,15 +428,15 @@
 
 <footer class="agml-footer">
   <div class="footer-menu">
-    <a href="/terms">利用規約</a>
+    <a href="/terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="/privacy">プライバシーポリシー</a>
+    <a href="/privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="/cookie">Cookieポリシー</a>
+    <a href="/cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="/faq">FAQ（質問と回答）</a>
+    <a href="/faq/index.html">FAQ（質問と回答）</a>
     <span class="divider"></span>
-    <a href="/contact">お問い合わせ</a>
+    <a href="/contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -444,6 +444,8 @@
 </div>
 </footer>
 
+<script src="./js/file-protocol-fix.js"></script>
+<script src="./js/nav-current.js"></script>
 <script src="js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
 </body>
