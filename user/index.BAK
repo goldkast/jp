@@ -17,7 +17,7 @@
   <nav class="global-nav">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/">
+        <a href="../index.html">
           <img src="../img/AGML_LOGO.svg" alt="AI生成音楽ラベル" class="logo-image nav-logo-img">
         </a>
       </div>
@@ -31,8 +31,8 @@
         </li>
         <li><a href="../index.html">ホーム</a></li>
         <li><a href="../label/index.html">ラベルについて</a></li>
-        <li><a href="index.html" class="current">ダウンロード</a></li>
-        <li><a href="../user/index.html">ご利用者様へ</a></li>
+        <li><a href="index.html">ダウンロード</a></li>
+        <li><a href="../user/index.html" class="current">ご利用者様へ</a></li>
         <li><a href="../mission/index.html">ミッション</a></li>
         <li class="lang-menu">
           <a href="#" id="langToggle">
@@ -63,7 +63,7 @@
   <header class="mobile-header">
     <div class="mobile-header-inner">
       <div class="logo-center">
-        <a href="/">
+        <a href="../index.html">
           <img src="../img/AGML_LOGO.svg" alt="AGML" class="mobile-logo-image">
         </a>
       </div>
@@ -88,7 +88,7 @@
         </a>
       </li>
       <li>
-        <a href="../label/indexhtml">
+        <a href="../label/index.html">
           <img src="../img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
@@ -135,7 +135,7 @@
 
     <ul class="mobile-submenu">
       <li>
-        <a href="../terms/index.html">
+        <a href="../terms_of_condition/index.html">
           <img src="../img/TnC.png" alt="利用規約">
           <span>利用規約</span>
         </a>
@@ -173,13 +173,11 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="../img/label4.svg" alt="" class="h1-icon">AI生成音楽ラベル（AGML）とは？
+      <img src="../img/user.svg" alt="ご利用者様へ" class="h1-icon">ご利用者様へ
     </h1>
     <p>
-      AI生成音楽ラベル（AGML）は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
-      このラベルは、AIが生成した音楽であることをリスナーや配信プラットフォームに正しく伝え、音楽文化における透明性と信頼性を高めます。<br>
-      AGMLは、AI音楽の出所を明示し、クリエイターとリスナーが安心してAI技術を活用できる環境を整えることを目的としています。<br>
-      人間が作曲した音楽とAIが生成した音楽が共存し、健全に発展する新しい音楽文化の形成を目指しています。
+	AI生成音楽ラベルは、制作者・レーベルの方とリスナーの双方にとって分かりやすく安心できる仕組みとして設けられています。<br>
+	ここでは、それぞれの立場に応じた目的やメリット、理解のポイントをまとめています。
     </p>
 
 <h2 class="section-title" data-num="1">
@@ -306,15 +304,15 @@
 
 <footer class="agml-footer">
   <div class="footer-menu">
-    <a href="/terms">利用規約</a>
+    <a href="../terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="/privacy">プライバシーポリシー</a>
+    <a href="../privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="/cookie">Cookieポリシー</a>
+    <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="/faq">FAQ（質問と回答）</a>
+    <a href="../faq/index.html">FAQ（質問と回答）</a>
     <span class="divider"></span>
-    <a href="/contact">お問い合わせ</a>
+    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -322,8 +320,41 @@
 </div>
 </footer>
 
-<script src="../js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
+
+<script>
+// Cookieバナーの制御
+(function() {
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAllow = document.getElementById('cookie-allow');
+  const cookieDeny = document.getElementById('cookie-deny');
+  
+  if (!cookieBanner) return;
+  
+  // 既に選択済みの場合はバナーを非表示
+  const consentStatus = localStorage.getItem('cookieConsentStatus');
+  if (consentStatus) {
+    cookieBanner.style.display = 'none';
+    return;
+  }
+  
+  // 許可ボタンのクリック処理
+  if (cookieAllow) {
+    cookieAllow.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'allowed');
+      cookieBanner.style.display = 'none';
+    });
+  }
+  
+  // 拒否ボタンのクリック処理
+  if (cookieDeny) {
+    cookieDeny.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'denied');
+      cookieBanner.style.display = 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>
 
