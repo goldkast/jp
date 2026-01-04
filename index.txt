@@ -33,7 +33,7 @@
           </button>
           メニュー
         </li>
-        <li><a href="index.html" class="current">ホーム</a></li>
+        <li><a href="/">ホーム</a></li>
         <li><a href="./label/index.html">ラベルについて</a></li>
         <li><a href="./download/index.html">ダウンロード</a></li>
         <li><a href="./user/index.html">ご利用者様へ</a></li>
@@ -86,7 +86,7 @@
 
     <ul class="mobile-menu-list">
       <li>
-        <a href="index.html">
+        <a href="/">
           <img src="img/home.png" alt="ホーム">
           <span>ホーム</span>
         </a>
@@ -139,31 +139,31 @@
 
     <ul class="mobile-submenu">
       <li>
-        <a href="./terms/index.html">
+        <a href="/terms_of_condition/index.html">
           <img src="img/TnC.png" alt="利用規約">
           <span>利用規約</span>
         </a>
       </li>
       <li>
-        <a href="./privacy-policy/index.html">
+        <a href="/privacy_policy/index.html">
           <img src="img/privacy_policy.png" alt="プライバシーポリシー">
           <span>プライバシーポリシー</span>
         </a>
       </li>
       <li>
-        <a href="./cookie-policy/index.html">
+        <a href="/cookie-policy/index.html">
           <img src="img/cookie.png" alt="Cookieポリシー">
           <span>Cookieポリシー</span>
         </a>
       </li>
       <li>
-        <a href="./faq/index.html">
+        <a href="/faq/index.html">
           <img src="img/FAQ.png" alt="FAQ">
           <span>FAQ（質問と回答）</span>
         </a>
       </li>
       <li>
-        <a href="./contact/index.html">
+        <a href="/contact/index.html">
           <img src="img/contact.png" alt="お問い合わせ">
           <span>お問い合わせ</span>
         </a>
@@ -428,15 +428,15 @@
 
 <footer class="agml-footer">
   <div class="footer-menu">
-    <a href="/terms">利用規約</a>
+    <a href="/terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="/privacy">プライバシーポリシー</a>
+    <a href="/privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="/cookie">Cookieポリシー</a>
+    <a href="/cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="/faq">FAQ（質問と回答）</a>
+    <a href="/faq/index.html">FAQ（質問と回答）</a>
     <span class="divider"></span>
-    <a href="/contact">お問い合わせ</a>
+    <a href="/contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -444,6 +444,8 @@
 </div>
 </footer>
 
+<script src="./js/file-protocol-fix.js"></script>
+<script src="./js/nav-current.js"></script>
 <script src="js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
 </body>
