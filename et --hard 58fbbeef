@@ -1,0 +1,96 @@
+[33m2d53f00[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to 2d53f00acddf5ac09fce4d648352e5191945f167
+[33m58fbbee[m HEAD@{1}: reset: moving to 58fbbeef45f25b03a8042baa213704b80e8d2491
+[33m43d690a[m HEAD@{2}: reset: moving to 43d690a06c128b02e187845da98532b0eea261c6
+[33m7d403dd[m HEAD@{3}: reset: moving to 7d403dd74f597ccf3ad82b6f7b2f35ddda933f99
+[33m1401cda[m HEAD@{4}: reset: moving to 1401cda581c4172a623fd55a5eceaaa2a4dc42be
+[33m94a846e[m HEAD@{5}: reset: moving to 94a846ef3d8461c409fbc5eea61951f681e67dfd
+[33m176a796[m HEAD@{6}: reset: moving to 176a79683a5e9402ecfbd7155f6493674fbcd793
+[33m42ce3fc[m HEAD@{7}: reset: moving to 42ce3fc34eb9d6014d7d32eecef75172f27f8797
+[33m904fb3d[m HEAD@{8}: reset: moving to 904fb3d9408ebde7372e17f96e2133f0b8bb7055
+[33m484e1b0[m HEAD@{9}: reset: moving to 484e1b0d9292d482cde205a0bdc2807f71ed416d
+[33mbd8f1ca[m HEAD@{10}: reset: moving to bd8f1ca45f2bf5bd70cc91452bbee3f9d4fb8a0d
+[33mbf69d8e[m HEAD@{11}: reset: moving to bf69d8e6e4c1644b5918b157794a5946f2db0449
+[33ma4332da[m HEAD@{12}: reset: moving to a4332dabb852059ff94d5ec30362cb1ffd0c8268
+[33m64ce618[m HEAD@{13}: reset: moving to 64ce6182a4e66af2d6e99af4204eec0f6459e088
+[33m1960d17[m HEAD@{14}: reset: moving to 1960d179fb66c48ccdfa17dd2fd61fbf5ab8fd1f
+[33m0168c91[m HEAD@{15}: reset: moving to 0168c917893b2223d9ff1a3878d52c8cd8465e60
+[33mcadea62[m HEAD@{16}: reset: moving to cadea625bcf844e1170d0cf5aa53f041d0b1b598
+[33mda4b8c2[m HEAD@{17}: reset: moving to da4b8c239b278967328ca93f86253b621f590943
+[33m3b7ba70[m HEAD@{18}: reset: moving to 3b7ba7007be354e9ebb5950fb2076a801c41387d
+[33mb0c4b4b[m HEAD@{19}: reset: moving to b0c4b4bcc296461415e62aa5a0586b7faf814d81
+[33m619f67d[m HEAD@{20}: reset: moving to 619f67d010068f9f68d4eea6212f4482d7d907c4
+[33mc45df89[m HEAD@{21}: reset: moving to c45df89bcdea0a75c82c6d0eba5f6fa80c6e51e2
+[33m1b53a05[m HEAD@{22}: reset: moving to 1b53a056bc9bff398c4ed9da2f8bfc9259fb0e4b
+[33mb5b6ff8[m HEAD@{23}: reset: moving to b5b6ff82fb9f33c9012d52b7966363dcc0ef02f6
+[33mee7068e[m HEAD@{24}: reset: moving to ee7068e22e7a3768c41ffa71d1cbbbf249925385
+[33mb7e0447[m HEAD@{25}: reset: moving to b7e0447459fabb40dce789bc59a90aea71ad6363
+[33m9f92255[m HEAD@{26}: reset: moving to 9f922550b02faeeb371a6e94c5c40bc15e9900d5
+[33mb984fd3[m HEAD@{27}: reset: moving to b984fd34284f5cc6bdbb2d1139113b3e2644bb21
+[33m26cec6a[m HEAD@{28}: reset: moving to 26cec6ade1ee3344d0dea2db9aeea4e5733cda5d
+[33me6eb2f5[m HEAD@{29}: reset: moving to e6eb2f5001f65d07bca6be0068e569baa5585c66
+[33m47f2efe[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{30}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33m5517fae[m HEAD@{31}: reset: moving to 5517fae4000ec1c47d2a0a117808c03459a8847a
+[33mc8c6887[m HEAD@{32}: reset: moving to c8c688771f6c0fd1465d893a6fae6594371b284b
+[33m40de43f[m HEAD@{33}: reset: moving to 40de43f71d00d10951425f8dc40a383e21d60f6c
+[33mf9223d8[m HEAD@{34}: reset: moving to f9223d835c6e91fd02a94f9bf9549b3b7bd7faac
+[33mdadcbf5[m HEAD@{35}: reset: moving to dadcbf51f3185b43264ef806a6034514485e3d57
+[33m3ea2bea[m HEAD@{36}: reset: moving to 3ea2bea9360432051915789244d985b2579677b7
+[33mc9b384d[m HEAD@{37}: reset: moving to c9b384d50afa3502e631df45b82c77ba5779efde
+[33m0e50a19[m HEAD@{38}: reset: moving to 0e50a19e35fb49a201d08a254271b3f1e0f9b06c
+[33m4512ac6[m HEAD@{39}: reset: moving to 4512ac69861c16bfda095f04d60a66bf9aac6071
+[33m178448e[m HEAD@{40}: reset: moving to 178448e9f78045b155e83a9c8f0a3a77bc8d32d2
+[33m0987435[m HEAD@{41}: reset: moving to 09874350ab90f5f2656e1f6984af3fab9044a9e3
+[33m6b0a862[m HEAD@{42}: reset: moving to 6b0a86276d91b0cc3528f2b9a1c50b9959d99bd2
+[33m20dbdfb[m HEAD@{43}: reset: moving to 20dbdfb
+[33m9e94eac[m HEAD@{44}: reset: moving to 9e94eac
+[33m9afa912[m HEAD@{45}: reset: moving to 9afa912
+[33m41bfd9a[m HEAD@{46}: reset: moving to 41bfd9a
+[33m47f2efe[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{47}: commit: update
+[33m092cd61[m HEAD@{48}: commit: update
+[33m310e924[m HEAD@{49}: commit: update
+[33mc36b65c[m HEAD@{50}: commit: update
+[33m41bfd9a[m HEAD@{51}: commit: update
+[33m9afa912[m HEAD@{52}: commit: update
+[33m45d882c[m HEAD@{53}: commit: update
+[33m9e94eac[m HEAD@{54}: commit: update
+[33m20dbdfb[m HEAD@{55}: commit: update
+[33m6b0a862[m HEAD@{56}: commit: update
+[33m0987435[m HEAD@{57}: commit: update
+[33m178448e[m HEAD@{58}: commit: update
+[33m4512ac6[m HEAD@{59}: commit: update
+[33m517f8ce[m HEAD@{60}: commit: update
+[33m0e50a19[m HEAD@{61}: commit: update
+[33mc9b384d[m HEAD@{62}: commit: update
+[33m3ea2bea[m HEAD@{63}: commit: update
+[33mdadcbf5[m HEAD@{64}: commit: update
+[33mf9223d8[m HEAD@{65}: commit: update
+[33m40de43f[m HEAD@{66}: commit: update
+[33mc8c6887[m HEAD@{67}: commit: update
+[33m5517fae[m HEAD@{68}: commit: update
+[33mc9c2820[m HEAD@{69}: commit: update
+[33me6eb2f5[m HEAD@{70}: commit: update
+[33m26cec6a[m HEAD@{71}: commit: update
+[33mb984fd3[m HEAD@{72}: commit: update
+[33m9f92255[m HEAD@{73}: commit: update
+[33mb7e0447[m HEAD@{74}: commit: update
+[33mee7068e[m HEAD@{75}: commit: updadte
+[33mb5b6ff8[m HEAD@{76}: commit: update
+[33m1b53a05[m HEAD@{77}: commit: update
+[33mc45df89[m HEAD@{78}: commit: update
+[33m619f67d[m HEAD@{79}: commit: update
+[33mb0c4b4b[m HEAD@{80}: commit: update
+[33m3b7ba70[m HEAD@{81}: commit: update
+[33mda4b8c2[m HEAD@{82}: commit: Set up auto deploy to AGML
+[33mcadea62[m HEAD@{83}: commit: update
+[33m0168c91[m HEAD@{84}: commit: update
+[33m1960d17[m HEAD@{85}: commit: update
+[33m64ce618[m HEAD@{86}: commit: update
+[33ma4332da[m HEAD@{87}: commit: update
+[33mbf69d8e[m HEAD@{88}: commit: update
+[33mbd8f1ca[m HEAD@{89}: commit: update
+[33m484e1b0[m HEAD@{90}: commit: update
+[33m904fb3d[m HEAD@{91}: commit: update
+[33m42ce3fc[m HEAD@{92}: commit: update
+[33m176a796[m HEAD@{93}: commit: update
+[33m94a846e[m HEAD@{94}: commit: update
+[33m1401cda[m HEAD@{95}: clone: from https://github.com/goldkast/AGML.git

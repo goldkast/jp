@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="150mm" height="150mm" version="1.1" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+ <path d="m150.01 75.201a75 75 0 0 1-75 75 75 75 0 0 1-75-75 75 75 0 0 1 75-75 75 75 0 0 1 75 75z" fill="#00d8ff" opacity=".5" stroke-width=".25297"/>
+ <path transform="scale(.96027 1.0414)" d="m36.85 107.08h72.304q5.4798 0 9.7473-4.025 4.025-4.2675 4.025-9.7473 0-7.8075 0-16.342 0-5.4798-4.025-9.7473-4.2675-4.025-9.7473-4.025h-58.484v-10.426h67.116v-15.421t-70.607 0q-5.7223 0-9.7473 4.025-4.025 4.025-4.025 9.7473 0 6.6437 0 13.724 0 5.4798 4.025 9.7473 4.2675 4.025 9.7473 4.025 31.473 0 58.532 0v13.045h-68.861z" fill="#fff" stroke-width=".68969" aria-label="5"/>
+ <g fill="#00d8ff" font-family="'002 zou ver.2'" font-size="99.316px" stroke-width=".68969">
+  <text transform="scale(.96027 1.0414)" x="107.90212" y="221.16052" xml:space="preserve"><tspan x="107.90212" y="221.16052" fill="#ffffff" font-family="'Fear Robot'" stroke-width=".68969">4</tspan></text>
+  <text transform="scale(.96027 1.0414)" x="-91.533829" y="139.34967" xml:space="preserve"><tspan x="-91.533829" y="139.34967" fill="#ffffff" font-family="'Fear Robot'" stroke-width=".68969">1</tspan></text>
+  <text transform="scale(.96027 1.0414)" x="24.094501" y="222.93901" xml:space="preserve"><tspan x="24.094501" y="222.93901" fill="#ffffff" font-family="'Fear Robot'" stroke-width=".68969">3</tspan></text>
+  <text transform="scale(.96027 1.0414)" x="-73.855515" y="222.68494" xml:space="preserve"><tspan x="-73.855515" y="222.68494" fill="#ffffff" font-family="'Fear Robot'" stroke-width=".68969">2</tspan></text>
+ </g>
+</svg>

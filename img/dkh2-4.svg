@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="150mm"
+   height="150mm"
+   viewBox="0 0 150 150"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="dkh2-4.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1"
+     inkscape:cx="397"
+     inkscape:cy="399.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1129"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="98.954164,96.181253"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="13.758333,340.01876"
+       orientation="0,-1"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="1.0583333,74.858333"
+       orientation="0,-1"
+       id="guide8"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="75.141666,61.629166"
+       orientation="1,0"
+       id="guide9"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.9958333,111.63542"
+       orientation="0,-1"
+       id="guide10"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.7312499,38.875"
+       orientation="0,-1"
+       id="guide11"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g11">
+      <path
+         id="path1"
+         style="opacity:0.5;fill:#00d8ff;stroke-width:0.252973"
+         d="M 150.01463,75.200958 A 75,75 0 0 1 75.014626,150.20096 75,75 0 0 1 0.01462555,75.200958 75,75 0 0 1 75.014626,0.20095825 75,75 0 0 1 150.01463,75.200958 Z" />
+      <path
+         style="font-size:99.3155px;font-family:'Fear Robot';-inkscape-font-specification:'Fear Robot';fill:#ffffff;stroke-width:0.689693"
+         d="M 101.85395,67.509158 H 54.572398 V 37.345955 H 37.308571 q 0,0 0,31.811996 0,5.72228 4.024994,9.747273 4.024993,4.024993 9.747273,4.024993 28.465916,0 50.773112,0 v 24.149963 h 17.26382 V 37.345955 h -17.26382 z"
+         id="text1"
+         transform="scale(0.96026822,1.0413757)"
+         aria-label="4" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:99.3155px;font-family:'002 zou ver.2';-inkscape-font-specification:'002 zou ver.2';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#00d8ff;fill-opacity:1;stroke-width:0.689693"
+       x="-91.533829"
+       y="139.34967"
+       id="text1-1"
+       transform="scale(0.96026822,1.0413757)"><tspan
+         sodipodi:role="line"
+         id="tspan1-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Fear Robot';-inkscape-font-specification:'Fear Robot';fill:#ffffff;fill-opacity:1;stroke-width:0.689693"
+         x="-91.533829"
+         y="139.34967">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:99.3155px;font-family:'002 zou ver.2';-inkscape-font-specification:'002 zou ver.2';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#00d8ff;fill-opacity:1;stroke-width:0.689693"
+       x="24.094501"
+       y="222.93901"
+       id="text1-6"
+       transform="scale(0.96026822,1.0413757)"><tspan
+         sodipodi:role="line"
+         id="tspan1-14"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Fear Robot';-inkscape-font-specification:'Fear Robot';fill:#ffffff;fill-opacity:1;stroke-width:0.689693"
+         x="24.094501"
+         y="222.93901">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:99.3155px;font-family:'002 zou ver.2';-inkscape-font-specification:'002 zou ver.2';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#00d8ff;fill-opacity:1;stroke-width:0.689693"
+       x="-73.855515"
+       y="222.68494"
+       id="text1-7"
+       transform="scale(0.96026822,1.0413757)"><tspan
+         sodipodi:role="line"
+         id="tspan1-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Fear Robot';-inkscape-font-specification:'Fear Robot';fill:#ffffff;fill-opacity:1;stroke-width:0.689693"
+         x="-73.855515"
+         y="222.68494">2</tspan></text>
+  </g>
+</svg>

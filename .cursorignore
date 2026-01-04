@@ -1,0 +1,67 @@
+# 依存関係
+node_modules/
+vendor/
+bower_components/
+
+# ビルド成果物
+dist/
+build/
+*.min.js
+*.min.css
+
+# ログファイル
+*.log
+logs/
+
+# 環境設定ファイル
+.env
+.env.local
+.env.*.local
+
+# キャッシュ
+.cache/
+*.cache
+
+# OS関連
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ関連
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 一時ファイル
+*.tmp
+*.temp
+tmp/
+temp/
+
+# バックアップファイル
+*.bak
+*.backup
+backup/
+
+# 圧縮ファイル
+*.zip
+*.tar.gz
+*.rar
+
+# データベース
+*.sql
+*.db
+*.sqlite
+
+# WordPress関連（参考用のため除外）
+plugin/
+*.php
+
+# メディアファイル（必要に応じて調整）
+# *.jpg
+# *.png
+# *.gif
+# *.mp4
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>讀懃ｴ｢繝・せ繝茨ｼ育ｴ邱壼ｯｾ蠢懃沿・・/title>
+
+<style>
+  body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    padding: 30px;
+    line-height: 1.8;
+    background: #f5f4f0;
+    color: #999;
+  }
+
+  /* 讀懃ｴ｢繝懊ャ繧ｯ繧ｹ */
+  .search-box {
+    position: relative;
+    width: 260px;
+    margin-bottom: 20px;
+  }
+
+  #searchBox {
+    width: 100%;
+    padding: 10px 10px 10px 36px;
+    font-size: 16px;
+    border: 2px solid #999;
+    border-radius: 6px;
+    outline: none;
+    background: #f5f4f0;
+    color: #999;
+  }
+
+  #searchBox::placeholder {
+    color: #ccc;
+  }
+
+  /* 陌ｫ逵ｼ髀｡繧｢繧､繧ｳ繝ｳ */
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* H2 縺ｨ繧｢繧､繧ｳ繝ｳ */
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  h2 a {
+    color: #39F;
+    text-decoration: none;
+    font-weight: bold;
+    top: -2px;
+    position: relative;
+  }
+
+  .h2-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  /* 遐ｴ邱夲ｼ域､懃ｴ｢繝偵ャ繝医＠縺・H2 縺ｮ蠕後↓ JS 縺ｧ霑ｽ蜉・・*/
+  .hit-line {
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 25px;
+  }
+
+  /* 繝上う繝ｩ繧､繝・*/
+  mark {
+    background: #d9ebfc;
+    color: inherit;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>讀懃ｴ｢繝・せ繝茨ｼ亥ｮ牙ｮ夂沿・・/h1>
+
+<!-- 讀懃ｴ｢蜈･蜉帶ｬ・-->
+<div class="search-box">
+  <img src="./img/search.svg" class="search-icon">
+  <input type="text" id="searchBox" placeholder="讀懃ｴ｢">
+</div>
+
+
+<!-- ===== 繧ｳ繝ｳ繝・Φ繝・===== -->
+
+<div id="content">
+
+  <div class="section" id="section1">
+    <h2>
+      <img src="./img/search-result.svg" class="h2-icon">
+      <a href="#section1">AI逕滓・髻ｳ讌ｽ繝ｩ繝吶Ν・・GML・・/a>
+    </h2>
+    <p>
+      AI逕滓・髻ｳ讌ｽ繝ｩ繝吶Ν・・GML・峨・縲∫函謌植I繧貞茜逕ｨ縺励◆髻ｳ讌ｽ蛻ｶ菴懊↓縺翫￠繧矩乗・諤ｧ繝ｻ菫｡鬆ｼ諤ｧ繧堤｢ｺ菫昴☆繧九◆繧√・隱崎ｨｼ蛻ｶ蠎ｦ縺ｧ縺吶・
+      髻ｳ讌ｽ繧ｯ繝ｪ繧ｨ繧､繧ｿ繝ｼ縺後←縺ｮ遞句ｺｦAI繧貞茜逕ｨ縺励※縺・ｋ縺九ｒ譏守｢ｺ縺ｫ縺励∪縺吶・
+    </p>
+  </div>
+
+  <div class="section" id="section2">
+    <h2>
+      <img src="./img/search-result.svg" class="h2-icon">
+      <a href="#section2">AI蛻ｩ逕ｨ繝ｬ繝吶Ν縺ｮ閠・∴譁ｹ</a>
+    </h2>
+    <p>
+      AI蛻ｩ逕ｨ繝ｬ繝吶Ν縺ｯ縲梧ｭ瑚ｩ樒函謌舌阪御ｽ懈峇陬懷勧縲阪檎ｷｨ譖ｲ縲阪後・繝ｼ繧ｫ繝ｫ蜉蟾･縲阪↑縺ｩ縲・
+      髻ｳ讌ｽ蛻ｶ菴懷ｷ･遞九↓縺翫￠繧帰I縺ｮ髢｢繧上ｊ譁ｹ繧呈焚蛟､蛹悶＠縺ｾ縺吶・
+    </p>
+  </div>
+
+  <div class="section" id="section3">
+    <h2>
+      <img src="./img/search-result.svg" class="h2-icon">
+      <a href="#section3">隱榊ｮ夊ｨｼ縺ｮ蠖ｹ蜑ｲ</a>
+    </h2>
+    <p>
+      隱榊ｮ夊ｨｼ縺ｯ繧ｯ繝ｪ繧ｨ繧､繧ｿ繝ｼ譛ｬ莠ｺ縺瑚・霄ｫ縺ｮ菴懷刀縺ｫ蟇ｾ縺励※AI蛻ｩ逕ｨ繝ｬ繝吶Ν繧貞ｮ｣險縺励・
+      騾乗・諤ｧ繧堤｢ｺ菫昴☆繧九◆繧√・驥崎ｦ√↑蠖ｹ蜑ｲ繧呈棡縺溘＠縺ｾ縺吶・
+    </p>
+  </div>
+
+</div>
+
+
+<script>
+/* 蜈・HTML 菫晄戟 */
+const content = document.getElementById("content");
+const originalHTML = content.innerHTML;
+
+/* 蜈ｨ繝上う繝ｩ繧､繝・+ 遐ｴ邱壼・逅・*/
+function highlightAndLines(query) {
+
+  /* 豈主屓蛻晄悄蛹・*/
+  content.innerHTML = originalHTML;
+
+  if (!query) return;
+
+  /* ========= 1) 蜈ｨ繝上う繝ｩ繧､繝茨ｼ亥ｮ牙ｮ夂沿・・========= */
+  const regex = new RegExp(`(${query})`, "gi");
+  content.innerHTML = content.innerHTML.replace(regex, `<mark>$1</mark>`);
+
+  /* ========= 2) 繝偵ャ繝医＠縺・section 繧呈､懷・ ========= */
+  const sections = content.querySelectorAll(".section");
+  const lastIndex = sections.length - 1;
+
+  sections.forEach((section, index) => {
+
+    const text = section.innerText.toLowerCase();
+
+    if (text.includes(query.toLowerCase())) {
+
+      /* 譛蠕後・ section 縺ｫ縺ｯ遐ｴ邱壹ｒ蜈･繧後↑縺・*/
+      if (index !== lastIndex) {
+        const line = document.createElement("div");
+        line.className = "hit-line";
+        section.appendChild(line);
+      }
+    }
+
+  });
+
+  /* ========= 3) 譛蛻昴・繝偵ャ繝医∈繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ ========= */
+  const first = content.querySelector("mark");
+  if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+
+/* 蜈･蜉帙う繝吶Φ繝・*/
+document.getElementById("searchBox").addEventListener("input", e => {
+  highlightAndLines(e.target.value);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,730 @@
+/* ============================
+   AGML AI Level Checker CSS
+   frontend.css
+   ============================ */
+
+/* ===============================
+   フィールドセット（Cocoon対応）
+   =============================== */
+.entry-content #agml-app fieldset,
+#agml-app fieldset {
+  border: 1px solid #ccc !important;
+  background: #eee !important;
+  border-radius: 12px !important;
+  padding: 16px 18px !important;
+  margin: 10px 0 30px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+}
+
+.entry-content #agml-app legend,
+#agml-app legend {
+  font-weight: 700 !important;
+  margin-bottom: 6px !important;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+.entry-content #agml-app label,
+#agml-app label {
+  display: block !important;
+  line-height: 1.4 !important;
+}
+
+.entry-content #agml-app input[type="radio"],
+#agml-app input[type="radio"] {
+  transform: translateY(1px);
+  margin-right: 6px;
+}
+
+/* ===============================
+   ダウンロードボタン
+   =============================== */
+#result .result-media { text-align: center !important; margin-top: 50px; }
+#download-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #0a66c2 !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin: 14px auto 36px;
+}
+#download-btn:hover { background: #0556a6 !important; transform: translateY(-1px); }
+#download-btn:active { transform: translateY(0); }
+
+/* ===============================
+   常時表示バー（agreementBar）
+   =============================== */
+#agreementBar {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  margin-top: -10px;
+  margin-bottom: 0px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* 背景青帯 */
+#agreementBar .bar-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,180,255,0.65),
+    rgba(0,80,200,0.65),
+    rgba(0,50,120,0.65),
+    rgba(0,180,255,0.65)
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 6s ease infinite;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* 薄青ゲージ */
+#agreementBar .bar-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  width: var(--scroll-progress, 0%);
+  background: linear-gradient(90deg,
+    rgba(0,170,255,0.3) 0%,
+    rgba(0,255,238,0.3) 100%);
+  border-radius: 12px;
+  z-index: 2;
+  transition: width 0.25s ease;
+}
+
+/* 中央テキスト */
+#agreementBar .bar-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   フォーム開閉
+   =============================== */
+#formContainer.form-lock {
+  height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  margin-top: 0 !important;
+  transition: all 0.4s ease;
+}
+#formContainer.form-unlocked {
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  margin-top: 20px !important;
+  transition: all 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   リード文スタイル
+   =============================== */
+.lead-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0 20px 0;
+}
+
+/* ===============================
+   フォーム展開後（チェック後）に青いバー下へ余白を追加
+   =============================== */
+#agreementBar + #formContainer.form-unlocked {
+  margin-top: 50px !important;
+}
+
+/* ===============================
+   「1. 歌詞の制作プロセス」下の余白を追加
+   =============================== */
+#agml-app fieldset:first-of-type {
+  margin-bottom: 50px !important;
+}
+
+/* ===============================
+   ダウンロード手順リスト余白調整（3と4の間を詰める）
+   =============================== */
+#download-step-lead {
+  display: list-item !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+#download-step-lead + li {
+  margin-top: 0 !important;
+}
+
+/* ===============================
+   ポインターをチェックボックスの上に配置
+   =============================== */
+.agree-box {
+  position: relative; /* ← 子要素の pointer-hand の基準にする */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pointer-hand {
+  position: absolute;
+  bottom: 10%;       /* ← チェックボックスの上に配置 */
+  left: 10px;         /* ← 横位置（□の中央に合わせる）調整可 */
+  width: 70px;        /* ← 画像サイズ */
+  height: auto;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.pointer-hand.active {
+  opacity: 1;
+  transform: translateY(-10px);
+  animation: tapMotion 0.8s ease-in-out infinite;
+}
+
+@keyframes tapMotion {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ===============================
+   ボタン共通
+   =============================== */
+button {
+  background: #3399FF;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover { background: #069; }
+
+/* ===============================
+   フィールドセット（Cocoon対応）
+   =============================== */
+.entry-content #agml-app fieldset,
+#agml-app fieldset {
+  border: 1px solid #ccc !important;
+  background: #eee !important;
+  border-radius: 12px !important;
+  padding: 16px 18px !important;
+  margin: 10px 0 30px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+}
+.entry-content #agml-app legend,
+#agml-app legend {
+  font-weight: 700 !important;
+  color: #3399FF !important;
+  margin-bottom: 6px !important;
+  padding: 0 10px;
+  font-size: 18px;
+}
+.entry-content #agml-app label,
+#agml-app label {
+  display: block !important;
+  line-height: 1.4 !important;
+  color: #999999 !important;
+}
+.entry-content #agml-app input[type="radio"],
+#agml-app input[type="radio"] {
+  transform: translateY(1px);
+  margin-right: 6px;
+}
+
+
+/* ===============================
+   ダウンロードボタン
+   =============================== */
+#result .result-media { text-align: center !important; margin-top: 50px; }
+#download-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #39F !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin: 14px auto 36px;
+}
+#download-btn:hover { background: #069 !important; transform: translateY(-1px); }
+#download-btn:active { transform: translateY(0); }
+
+/* ===============================
+   判定結果エリア（ライン付き）
+   =============================== */
+#result {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border-radius: 6px;
+}
+#result h3 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #333;
+}
+#result .info-card {
+  margin: 0 auto 30px;
+  padding: 10px 16px;
+  max-width: 100%;
+  border: 1px solid #3399FF;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   常時表示バー（agreementBar）
+   =============================== */
+#agreementBar {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  margin-top: -10px;
+  margin-bottom: 0px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* 背景青帯 */
+#agreementBar .bar-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,180,255,0.65),
+    rgba(0,80,200,0.65),
+    rgba(0,50,120,0.65),
+    rgba(0,180,255,0.65)
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 6s ease infinite;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* 薄青ゲージ */
+#agreementBar .bar-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  width: var(--scroll-progress, 0%);
+  background: linear-gradient(90deg,
+    rgba(0,170,255,0.3) 0%,
+    rgba(0,255,238,0.3) 100%);
+  border-radius: 12px;
+  z-index: 2;
+  transition: width 0.25s ease;
+}
+
+/* 中央テキスト */
+#agreementBar .bar-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   フォーム開閉
+   =============================== */
+#formContainer.form-lock {
+  height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  margin-top: 0 !important;
+  transition: all 0.4s ease;
+}
+#formContainer.form-unlocked {
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  margin-top: 20px !important;
+  transition: all 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   リード文スタイル
+   =============================== */
+.lead-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0 20px 0;
+}
+
+/* ===============================
+   フォーム展開後（チェック後）に青いバー下へ余白を追加
+   =============================== */
+#agreementBar + #formContainer.form-unlocked {
+  margin-top: 50px !important;
+}
+
+/* ===============================
+   「1. 歌詞の制作プロセス」下の余白を追加
+   =============================== */
+#agml-app fieldset:first-of-type {
+  margin-bottom: 50px !important;
+}
+
+
+/* ===============================
+   ダウンロード手順リスト余白調整（3と4の間を詰める）
+   =============================== */
+#download-step-lead {
+  display: list-item !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+#download-step-lead + li {
+  margin-top: 0 !important;
+}
+
+/* ===============================
+   質問フォーム（fieldset）
+   =============================== */
+  body.page #formContainer fieldset {
+  border: 1px solid #3399FF !important;
+  background: #f9f9f9 !important;
+  border-radius: 10px !important;
+  padding: 20px 10px 30px 20px!important;
+  line-height: 25px;
+  margin-bottom: 40px !important;
+  margin-top: 0 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+  line-height: 25px;
+  margin-bottom: 40px !important;
+  margin-top: 0 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ===============================
+   共通設定
+   =============================== */
+#spinner.hidden,
+#result.hidden { display: none; }
+
+.rotate {
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#spinner.hidden,
+#result.hidden { display: none; }
+
+.rotate {
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===============================
+   判定ボタン右横スピナー
+   =============================== */
+#spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}s
+#spinner .agml-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #0073aa;
+  border-radius: 50%;
+  animation: agml-spin 0.8s linear infinite;
+  margin: 0;
+}
+@keyframes agml-spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===============================
+   スピナーの強制表示修正版（確実に見えるようにする）
+   =============================== */
+#spinner .agml-spinner {
+  display: inline-block !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 3px solid rgba(0, 0, 0, 0.1) !important;
+  border-top-color: #0073aa !important;
+  border-radius: 50% !important;
+  animation: agml-spin 0.8s linear infinite !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* ===============================
+   判定ボタン右横スピナー（横並び＋初期非表示）
+   =============================== */
+#spinner.hidden {
+  display: none !important; /* 初期状態は完全非表示 */
+}
+#spinner {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  gap: 6px;
+  vertical-align: middle;
+}
+
+/* スピナー位置微調整 */
+#spinner .agml-spinner {
+  position: relative;
+  top: 1px;
+}
+
+@keyframes agml-spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+#spinner span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===============================
+   スピナーの強制表示修正版（確実に見えるようにする）
+   =============================== */
+#spinner .agml-spinner {
+  display: inline-block !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 3px solid rgba(0, 0, 0, 0.1) !important;
+  border-top-color: #0073aa !important;
+  border-radius: 50% !important;
+  animation: agml-spin 0.8s linear infinite !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* ===== AGML AI Level Checker: strong色指定 ===== */
+.step p > strong {
+  color: #3399FF !important;
+}
+
+/* ===============================
+   レベルアイコン／著作権星アイコン配置
+   =============================== */
+.lv-icons img,
+.cp-stars img {
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 6px;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 600px) {
+  .lv-icons img,
+  .cp-stars img {
+    height: 18px;
+    margin-left: 4px;
+  }
+}
+
+/* ====== AGML Result Badges (LV/CP) ====== */
+#result .agml-lv-wrap,
+#result .agml-cp-img {
+  display: inline-block;
+}
+
+#result .agml-lv-wrap {
+  margin-left: 8px;               /* 「レベル5」から少し空ける */
+  vertical-align: middle;
+}
+#result .agml-lv-wrap .agml-lv-img {
+  width: 18px;                    /* 小さな四角アイコン用 */
+  height: 18px;
+  margin-right: 4px;
+  vertical-align: -3px;
+}
+
+#result p.agml-cp-title {
+  margin: 10px 0 6px;
+}
+#result p.agml-cp-title strong {
+  margin-right: 8px;
+}
+#result p.agml-cp-title .agml-cp-img {
+  height: 20px;                   /* ★画像の高さ。必要に応じて調整 */
+  vertical-align: middle;
+}
+
+/* 既存の不要な重複見出しが出た場合の保険（旧JSの名残を非表示） */
+#result > p:empty { display:none; }
+
+/* ===============================
+   AI使用総合レベル／著作権主張レベルのアイコン横並び調整
+   =============================== */
+#result p:has(#overall-lv),
+#result p:has(#copyright-stars) {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px; /* 文字と画像の間隔 */
+}
+
+#overall-lv,
+#copyright-stars {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.agml-lv-img,
+.agml-cp-img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  width: auto;
+  margin-left: 6px;
+}
+
+/* ===============================
+   LV/CPアイコン間隔微調整
+   =============================== */
+
+/* 「AI使用総合レベル」用（ブロックと文字の間を少し詰める） */
+.agml-lv-img {
+  height: 14px !important;
+  margin-left: 4px !important;  /* ← 少し狭く */
+  margin-right: 0 !important;
+  vertical-align: middle;
+}
+
+/* 「制作物の著作権主張について」用（★と文字の間を詰める） */
+.agml-cp-img {
+  height: 18px !important;
+  margin-left: -8px !important;  /* ← 余白を小さく */
+  margin-right: 0 !important;
+  vertical-align: middle;
+  position: relative;
+  top: -1px; /* ★をほんの少し下げて文字中央に揃える */
+}
+
+/* ===== 判定開始ボタンを中央寄せ（Cocoon上書き対策版） ===== */
+div.judge-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 20px !important;
+  margin-bottom: 40px !important;
+  text-align: center !important;
+}
+div.judge-wrapper > button#generate-result,
+div.judge-wrapper > #spinner {
+  margin: 0 5px !important;
+}
+
+.agml-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: agml-spin 0.8s linear infinite;
+}
+
+@keyframes agml-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

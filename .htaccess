@@ -1,0 +1,7 @@
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType video/mp4 .mp4
+AddType image/webp .webp
+AddType image/png .png
+AddType image/jpeg .jpg .jpeg
