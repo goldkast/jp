@@ -306,15 +306,15 @@
 
 <footer class="agml-footer">
   <div class="footer-menu">
-    <a href="/terms">利用規約</a>
+    <a href="../terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="/privacy">プライバシーポリシー</a>
+    <a href="../privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="/cookie">Cookieポリシー</a>
+    <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="/faq">FAQ（質問と回答）</a>
+    <a href="index.html">FAQ（質問と回答）</a>
     <span class="divider"></span>
-    <a href="/contact">お問い合わせ</a>
+    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -322,8 +322,41 @@
 </div>
 </footer>
 
-<script src="../js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
+
+<script>
+// Cookieバナーの制御
+(function() {
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAllow = document.getElementById('cookie-allow');
+  const cookieDeny = document.getElementById('cookie-deny');
+  
+  if (!cookieBanner) return;
+  
+  // 既に選択済みの場合はバナーを非表示
+  const consentStatus = localStorage.getItem('cookieConsentStatus');
+  if (consentStatus) {
+    cookieBanner.style.display = 'none';
+    return;
+  }
+  
+  // 許可ボタンのクリック処理
+  if (cookieAllow) {
+    cookieAllow.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'allowed');
+      cookieBanner.style.display = 'none';
+    });
+  }
+  
+  // 拒否ボタンのクリック処理
+  if (cookieDeny) {
+    cookieDeny.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'denied');
+      cookieBanner.style.display = 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>
 
