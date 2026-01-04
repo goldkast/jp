@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI生成音楽ラベル公式サイト (AGML) | AI利用レベル認証とダウンロード</title>
-  <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="./img/favicon.png" type="image/png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.svg">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.svg">
-  <link rel="shortcut icon" href="/img/favicon.svg">
-  <link rel="apple-touch-icon" href="/img/favicon.svg">
+  <link rel="icon" href="/AGML/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/AGML/img/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="dark-mode">
+<body class="dark-mode index2-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/">
-          <img src="img/AGML_LOGO.svg" alt="AI生成音楽ラベル" class="logo-image nav-logo-img">
+        <a href="../index.html">
+          <img src="../img/AGML_LOGO.svg" alt="AI生成音楽ラベル" class="logo-image nav-logo-img">
         </a>
       </div>
 
@@ -33,11 +29,11 @@
           </button>
           メニュー
         </li>
-        <li><a href="/">ホーム</a></li>
-        <li><a href="./label/index.html">ラベルについて</a></li>
-        <li><a href="./download/index.html">ダウンロード</a></li>
-        <li><a href="./user/index.html">ご利用者様へ</a></li>
-        <li><a href="./mission/index.html">ミッション</a></li>
+        <li><a href="../index.html">ホーム</a></li>
+        <li><a href="../label/index.html">ラベルについて</a></li>
+        <li><a href="index.html">ダウンロード</a></li>
+        <li><a href="../user/index.html" class="current">ご利用者様へ</a></li>
+        <li><a href="../mission/index.html">ミッション</a></li>
         <li class="lang-menu">
           <a href="#" id="langToggle">
             <span class="fi fi-jp"></span>
@@ -45,16 +41,16 @@
             <span class="arrow">▼</span>
           </a>
           <ul class="dropdown" id="langDropdown">
-            <li><a href="/en/"><span class="fi fi-us"></span> 英語</a></li>
-            <li><a href="/cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
-            <li><a href="/tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
-            <li><a href="/kr/"><span class="fi fi-kr"></span> 한국어</a></li>
-            <li><a href="/id/"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
-            <li><a href="/vn/"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
-            <li><a href="/es/"><span class="fi fi-es"></span> Español</a></li>
-            <li><a href="/fr/"><span class="fi fi-fr"></span> Français</a></li>
-            <li><a href="/de/"><span class="fi fi-de"></span> Deutsch</a></li>
-            <li><a href="/ru/"><span class="fi fi-ru"></span> Русский</a></li>
+            <li><a href="../en"><span class="fi fi-us"></span> 英語</a></li>
+            <li><a href="../cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
+            <li><a href="../tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
+            <li><a href="../kr/"><span class="fi fi-kr"></span> 한국어</a></li>
+            <li><a href="../id/"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
+            <li><a href="../vn/"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
+            <li><a href="../es/"><span class="fi fi-es"></span> Español</a></li>
+            <li><a href="../fr/"><span class="fi fi-fr"></span> Français</a></li>
+            <li><a href="../de/"><span class="fi fi-de"></span> Deutsch</a></li>
+            <li><a href="../ru/"><span class="fi fi-ru"></span> Русский</a></li>
           </ul>
         </li>
       </ul>
@@ -67,12 +63,12 @@
   <header class="mobile-header">
     <div class="mobile-header-inner">
       <div class="logo-center">
-        <a href="/">
-          <img src="img/AGML_LOGO.svg" alt="AGML" class="mobile-logo-image">
+        <a href="../index.html">
+          <img src="../img/AGML_LOGO.svg" alt="AGML" class="mobile-logo-image">
         </a>
       </div>
       <button class="mobile-menu-trigger" type="button" aria-label="メニューを開く">
-        <img src="img/burger.png" alt="メニュー" class="burger-icon">
+        <img src="../img/burger.png" alt="メニュー" class="burger-icon">
       </button>
     </div>
   </header>
@@ -80,38 +76,38 @@
   <!-- モバイルメニュー -->
   <nav class="mobile-menu">
     <div class="mobile-search">
-      <img src="img/search.png" alt="検索" class="search-icon">
+      <img src="../img/search.png" alt="検索" class="search-icon">
       <input type="text" id="mobile-search-input" placeholder="検索">
     </div>
-
+ 
     <ul class="mobile-menu-list">
       <li>
-        <a href="/">
-          <img src="img/home.png" alt="ホーム">
+        <a href="../index.html">
+          <img src="../img/home.png" alt="ホーム">
           <span>ホーム</span>
         </a>
       </li>
       <li>
-        <a href="./label/index.html">
-          <img src="img/label-dl.png" alt="ラベルについて">
+        <a href="../label/index.html">
+          <img src="../img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
       </li>
       <li>
-        <a href="./download/index.html">
-          <img src="img/label-dl.png" alt="ダウンロード">
+        <a href="index.html">
+          <img src="../img/label-dl.png" alt="ダウンロード">
           <span>ダウンロード</span>
         </a>
       </li>
       <li>
-        <a href="./user/index.html">
-          <img src="img/user.png" alt="ご利用者様へ">
+        <a href="../user/index.html">
+          <img src="../img/user.png" alt="ご利用者様へ">
           <span>ご利用者様へ</span>
         </a>
       </li>
       <li>
-        <a href="./mission/index.html">
-          <img src="img/mission.png" alt="ミッション">
+        <a href="../mission/index.html">
+          <img src="../img/mission.png" alt="ミッション">
           <span>ミッション</span>
         </a>
       </li>
@@ -139,32 +135,32 @@
 
     <ul class="mobile-submenu">
       <li>
-        <a href="/terms_of_condition/index.html">
-          <img src="img/TnC.png" alt="利用規約">
+        <a href="../terms_of_condition/index.html">
+          <img src="../img/TnC.png" alt="利用規約">
           <span>利用規約</span>
         </a>
       </li>
       <li>
-        <a href="/privacy_policy/index.html">
-          <img src="img/privacy_policy.png" alt="プライバシーポリシー">
+        <a href="../privacy-policy/index.html">
+          <img src="../img/privacy_policy.png" alt="プライバシーポリシー">
           <span>プライバシーポリシー</span>
         </a>
       </li>
       <li>
-        <a href="/cookie-policy/index.html">
-          <img src="img/cookie.png" alt="Cookieポリシー">
+        <a href="../cookie-policy/index.html">
+          <img src="../img/cookie.png" alt="Cookieポリシー">
           <span>Cookieポリシー</span>
         </a>
       </li>
       <li>
-        <a href="/faq/index.html">
-          <img src="img/FAQ.png" alt="FAQ">
+        <a href="../faq/index.html">
+          <img src="../img/FAQ.png" alt="FAQ">
           <span>FAQ（質問と回答）</span>
         </a>
       </li>
       <li>
-        <a href="/contact/index.html">
-          <img src="img/contact.png" alt="お問い合わせ">
+        <a href="../contact/index.html">
+          <img src="../img/contact.png" alt="お問い合わせ">
           <span>お問い合わせ</span>
         </a>
       </li>
@@ -173,176 +169,58 @@
     <div id="search-results"></div>
   </nav>
 
-  <!-- トップ動画 -->
-  <section class="hero-video">
-    <video autoplay muted loop playsinline>
-      <source src="./img/AGML.mp4" type="video/mp4">
-    </video>
-    <div class="video-mask"></div>
-    <div id="hero-type-wrapper">
-      <div id="hero-type-line1"></div>
-      <div id="hero-type-line2"></div>
-    </div>
-  </section>
-
-
-
-<!-- Simple CSS Waves -->
-<section class="wave-waves">
-  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-    <defs>
-      <path id="gentle-wave"
-        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-      <mask id="waveFadeMask" maskUnits="userSpaceOnUse">
-        <rect x="-1000" y="-1000" width="3000" height="3000" fill="white"/>
-        <ellipse class="wave-fade-ellipse" cx="0" cy="0" rx="10" ry="6" fill="black"/>
-      </mask>
-    </defs>
-    <g class="parallax">
-      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-      <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(245,244,240,var(--wave-base-opacity))" />
-    </g>
-  </svg>
-
-</section>
-
-
-
   <!-- H1 と説明 -->
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="img/label4.svg" alt="" class="h1-icon">AI利用レベル診断と認証ラベル発行
+      <img src="../img/user.svg" alt="ご利用者様へ" class="h1-icon">ご利用者様へ
     </h1>
     <p>
-      AI生成音楽ラベル（AGML）は、AI音楽の透明性を確保するための公式認証制度です。<br>
-      本ページでは、AI利用レベルを診断し、認証ラベルを発行・取得する方法を紹介しています。<br>
-      YouTube、Spotify、SNS投稿など、さまざまなプラットフォームでご利用いただけます。<br>
+	AI生成音楽ラベルは、制作者・レーベルの方とリスナーの双方にとって分かりやすく安心できる仕組みとして設けられています。<br>
+	ここでは、それぞれの立場に応じた目的やメリット、理解のポイントをまとめています。
     </p>
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
-    AGML認証ラベルの発行・ダウンロード手順
+    クリエイター・レーベル関係
 </h2>
 
     <p>
-      以下の手順に従って、AGML認証ラベルを発行・ダウンロードしてください。<br>
-      利用規約を最後まで確認し、「同意」にチェックを入れるとダウンロードボタンが有効になります。
+	このラベルは、AIによる制作活動を行う方々が安心して作品を公開できるように整備された仕組みです。<br>
+	制作者やレーベルが正しく活用することで、音楽文化全体の透明性が守られます。<br>
+	AI生成音楽ラベルの役割は、単に「AIで作られた」と示すだけではありません。<br>
+	制作者がどのような方法で音楽を生み出したのかを明確に提示し、作品の背景を正しく伝えることにあります。<br>
+	これにより、リスナーは作品の成り立ちを理解したうえで選択でき、制作者は自らの創作姿勢を表明することができます。<br>
+	結果として、音楽市場全体でAIと人間による制作の線引きが整い、公平で持続可能な環境づくりにつながります。
     </p>
-<h2 class="section-title" data-num="2">
+<h3 class="steps">
     <span class="dk-line"></span>
-	AI利用レベル診断と認証ラベル発行の流れ
-</h2>
+	利用時のメリット
+</h3>
 
-    <ul>
-      <li>利用規約の末尾までスクロールして内容を確認</li>
-      <li>「利用規約に同意します」にチェック</li>
-      <li>フォームが自動的に開き、質問に回答してAI利用レベルを判定</li>
-      <li>診断結果に応じた認証ラベルを自動発行し、ダウンロードできます</li>
-    </ul>
-  <!-- タイムライン（AI生成音楽ラベル説明） -->
-<div class="timeline">
+    <p>
+	ラベルを表示することで、人間による作品かAI生成かという疑問や誤解を防げます。<br>
+	AI作品を人間のオリジナルだと思い込んだり、その逆に誤解されるケースも避けられます。<br>
+	制作背景を明確に示すことは、リスナーの安心と正しい理解につながります。<br>
+	また、制作者にとっても創作姿勢を正しく伝える手段となり、信頼関係の構築に役立ちます。
+    </p>
 
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/1.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>AI利用レベル診断（AGML認証ラベル発行・ダウンロード）</h3>
-        <p>利用規約理解～AI利用レベル、著作権主張割合説明、SNSアカウントでユーザ登録必要</p>
-      </div>
-    </div>
+    </p>
+<h3 class="steps">
+    <span class="dk-line"></span>
+	利用上の注意点
+</h3>
 
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/2.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>ショートコード発行</h3>
-        <p>ショートコード発行、SNSへの貼り付け方説明入れる。</p>
-      </div>
-    </div>
+    <p>
+	AI生成音楽ラベルを使用する際は、必ず正しい形で表示する必要がります。<br>
+	ラベルの色や文字を勝手に変更したり、AI生成ではない作品に貼り付けたりすることはできません。<br>
+	こうした誤用は、ラベルの意味を損ない、利用者全体の信頼を失わせる原因になります。<br>
+	基本的なルールや表示方法の詳細は、ダウンロードページの<strong><a href="../index.html/#label-usage">「ラベル貼り付け例」</a></strong>でご案内しています。利用にあたってはそちらもあわせてご確認ください。
+    </p>
 
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/3.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>AI利用率認定証の発行</h3>
-        <p>AI利用率認定証についての説明入れる。</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/4.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>AI生成音楽ラベルDL</h3>
-        <p class="timeline-text">AI生成音楽ラベルDLについての説明入れる。</p>
-      </div>
-        <div class="explain-image-wrapper" style="width: 100%; max-width: 472px; margin: 0 auto 30px; box-sizing: border-box; display: block;">
-          <img src="img/label_explain.png" class="explain-image" style="width: 100%; height: auto; display: block;">
-        </div>
-
-        <div class="example-image-wrapper">
-          <img src="img/AGMLabel_Placement_Example4.png" class="example-image">
-        </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/5.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>サムネイルへのラベル配置方法</h3>
-        <p>サムネイルを取り込み、ラベルの貼り付ける方法を説明する。</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-number">
-        <img src="img/6.png">
-        <div class="bubbles-container">
-          <img src="img/bubble.svg" class="bubble bubble-1" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-2" alt="">
-          <img src="img/bubble.svg" class="bubble bubble-3" alt="">
-        </div>
-      </div>
-      <div class="timeline-content">
-        <h3>ラベル、認定書の編集・管理</h3>
-        <p>過去作成したラベル、認定書の編集・管理する方法を説明する。</p>
-      </div>
-    </div>
-  <div class="timeline-end"></div>
+    <!-- Label-Attachment画像 -->
+    <div class="label-attachment-wrapper">
+      <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
     </div>
   </div>
 </div>
@@ -380,8 +258,8 @@
 
   <!-- Instagram -->
 <a href="#" class="sns-icon instagram">
-  <img src="./img/instagram.svg" class="instagram-light" alt="Instagram">
-  <img src="./img/instagram.svg" class="instagram-dark" alt="Instagram dark">
+  <img src="../img/instagram.svg" class="instagram-light" alt="Instagram">
+  <img src="../img/instagram.svg" class="instagram-dark" alt="Instagram dark">
 </a>
 
   <!-- TikTok -->
@@ -428,15 +306,15 @@
 
 <footer class="agml-footer">
   <div class="footer-menu">
-    <a href="/terms_of_condition/index.html">利用規約</a>
+    <a href="../terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="/privacy_policy/index.html">プライバシーポリシー</a>
+    <a href="../privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="/cookie-policy/index.html">Cookieポリシー</a>
+    <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="/faq/index.html">FAQ（質問と回答）</a>
+    <a href="../faq/index.html">FAQ（質問と回答）</a>
     <span class="divider"></span>
-    <a href="/contact/index.html">お問い合わせ</a>
+    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -444,9 +322,41 @@
 </div>
 </footer>
 
-<script src="./js/file-protocol-fix.js"></script>
-<script src="./js/nav-current.js"></script>
-<script src="js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
+
+<script>
+// Cookieバナーの制御
+(function() {
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAllow = document.getElementById('cookie-allow');
+  const cookieDeny = document.getElementById('cookie-deny');
+  
+  if (!cookieBanner) return;
+  
+  // 既に選択済みの場合はバナーを非表示
+  const consentStatus = localStorage.getItem('cookieConsentStatus');
+  if (consentStatus) {
+    cookieBanner.style.display = 'none';
+    return;
+  }
+  
+  // 許可ボタンのクリック処理
+  if (cookieAllow) {
+    cookieAllow.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'allowed');
+      cookieBanner.style.display = 'none';
+    });
+  }
+  
+  // 拒否ボタンのクリック処理
+  if (cookieDeny) {
+    cookieDeny.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'denied');
+      cookieBanner.style.display = 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>
+
