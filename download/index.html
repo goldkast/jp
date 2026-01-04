@@ -323,6 +323,40 @@
 </footer>
 
 <div class="mobile-menu-overlay-bottom"></div>
+
+<script>
+// Cookieバナーの制御
+(function() {
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAllow = document.getElementById('cookie-allow');
+  const cookieDeny = document.getElementById('cookie-deny');
+  
+  if (!cookieBanner) return;
+  
+  // 既に選択済みの場合はバナーを非表示
+  const consentStatus = localStorage.getItem('cookieConsentStatus');
+  if (consentStatus) {
+    cookieBanner.style.display = 'none';
+    return;
+  }
+  
+  // 許可ボタンのクリック処理
+  if (cookieAllow) {
+    cookieAllow.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'allowed');
+      cookieBanner.style.display = 'none';
+    });
+  }
+  
+  // 拒否ボタンのクリック処理
+  if (cookieDeny) {
+    cookieDeny.addEventListener('click', function() {
+      localStorage.setItem('cookieConsentStatus', 'denied');
+      cookieBanner.style.display = 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>
 
