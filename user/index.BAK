@@ -264,12 +264,12 @@
 ラベルは「AIによって作られた楽曲」であることを示す印です。<br>
 作品の価値を否定するものではなく、音楽をより正しく理解するための補助的な情報です。<br>
 表示の有無によって作品の楽しみ方や感じ方を自由に選べる指標としてご活用ください。<br>
-詳しくは <strong><a href="../label/" target="_blank">「ラベルについて」</a></strong> や <strong><a href="../download/" target="_blank">「ダウンロードページ」</a></strong> もご覧ください。
+詳しくは <strong><a href="../label/" target="_blank">「ラベルについて」</a></strong> や <strong><a href="../download/" target="_blank">「ダウンロードページ」</a></strong> もご覧ください。 
 </p>
 
     <!-- Label-Attachment画像 -->
     <div class="label-attachment-wrapper">
-      <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
+      <img src="../img/user_lecture-jp.png" alt="ラベル貼り付け例" class="label-attachment-image">
     </div>
   </div>
 </div>
