@@ -2887,7 +2887,7 @@ h3.steps .dk-line {
 .alert-box {
   max-width: 1200px;
   margin-top: -20px;
-  margin-bottom: 0px;
+  margin-bottom: -10px;
 
   min-height: 138px;
   box-sizing: border-box;
