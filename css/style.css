@@ -2754,3 +2754,34 @@ h3.steps .dk-line {
   }
 }
 
+/* =========================
+   AGML ALERT TEST（表示確認用）
+========================= */
+
+.agml-alert-test {
+  max-width: 1200px;
+  margin: 40px auto;
+  background-radius: 6px;
+
+  /* 背景色（rgb:46,255,255 / 透過1.0） */
+  background-color: rgba(46, 255, 255, 0.1);
+
+  /* dot 背景を重ねる */
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+
+  /* 内側余白（画像想定） */
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.agml-alert-test p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
