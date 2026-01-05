@@ -82,43 +82,26 @@ body {
   z-index: 1100;
 }
 
-.nav-menu * {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.nav-menu *:hover,
-.nav-menu *:focus,
-.nav-menu *:active,
-.nav-menu *:visited {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+/* nav 内のクリック要素のみを対象に限定 */
+.nav-menu a,
+.nav-menu li,
+.nav-menu button {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .nav-menu li {
   margin: 0;
   padding: 0;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
 }
 
 .nav-menu li:has(.current) {
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-width: 0 !important;
+  background-color: transparent;
 }
 
 .nav-menu li:has(.current) a.current {
   background-color: rgba(255, 255, 255, 0.2);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-width: 0 !important;
 }
 
 .nav-menu li.lang-menu {
@@ -136,35 +119,16 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
-  border: none !important;
   border-radius: 0;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.nav-menu a:focus,
-.nav-menu a:active,
-.nav-menu a:visited {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
 }
 
 .nav-menu li:hover {
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-width: 0 !important;
+  background-color: transparent;
 }
 
 /* 通常のメニュー項目のホバー（言語メニューを除外） */
 .nav-menu li:not(.lang-menu):hover a {
   background-color: rgba(0, 204, 255, 0.4);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-width: 0 !important;
 }
 
 /* 言語メニューの親要素（li）がhoverされても、日本語（a）が直接hoverされていない場合は透明 */
@@ -172,41 +136,12 @@ body {
   background-color: transparent !important;
 }
 
-.nav-menu li:focus,
-.nav-menu li:active,
-.nav-menu li:visited {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.nav-menu a:hover {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
 .nav-menu a.current {
   background-color: rgba(255, 255, 255, 0.2);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-width: 0 !important;
-}
-
-.nav-menu a.current:focus,
-.nav-menu a.current:active,
-.nav-menu a.current:visited {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
 }
 
 .nav-menu a.current:hover {
   background-color: rgba(0, 204, 255, 0.4);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
 }
 
 /* 言語メニュー（flag-icon-css使用） */
@@ -798,33 +733,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   padding: 0;
 }
 
-/* wave下方向のフェード帯（wrap上端に被せて境界を溶かす） */
-/* wave-waves::afterの透過グラデーション（一時的に無効化） */
-/*
-.wave-waves::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: calc(-1 * var(--wrap-fade-height, 20px));
-  height: var(--wrap-fade-height, 20px);
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 243, 240, 0),
-    rgba(245, 243, 240, var(--wrap-fade-opacity, 0.5))
-  );
-}
-
-.wave-waves::after {
-  background: linear-gradient(
-    to bottom,
-    rgba(17, 57, 98, 0),
-    rgba(17, 57, 98, var(--wrap-fade-opacity, 0.5))
-  );
-}
-*/
 
 .wave-waves .waves {
   position: relative;
@@ -911,7 +819,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   line-height: normal;
   position: relative;
   padding-top: 10px; /* デザインに合わせて調整OK */
-  background-color: #f5f3f0 !important;
+  background: transparent;
   z-index: 1;
 }
 
@@ -923,33 +831,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   padding-right: 20px;
 }
 
-/* wrap 上端フェード（wave側に被せて境界を溶かす） */
-/* wrapの透過グラデーション（一時的に無効化） */
-/*
-.wrap::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--wrap-fade-height, 50px);
-  pointer-events: none;
-  z-index: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 243, 240, 0.2) 0%,
-    rgba(245, 243, 240, 1.0) 100%
-  );
-}
-
-.wrap::before {
-  background: linear-gradient(
-    to bottom,
-    rgba(17, 57, 98, 0.2) 0%,
-    rgba(17, 57, 98, 1.0) 100%
-  );
-}
-*/
 
 /* wrap内コンテンツを前面に出す（明示） */
 .wrap > * {
@@ -2251,11 +2132,6 @@ body {
   background-size: 100% 100% !important;
 }
 
-/* wrap を完全透明に上書き（最終的に絶対勝つ） */
-.wrap {
-  background: transparent !important;
-  background-color: transparent !important;
-}
 
 /* ========================================
    ダークモード：タイトルとテキスト
@@ -2632,15 +2508,6 @@ body {
           contrast(101%);
 }
 
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  padding: 18px 0 12px;
-  margin-bottom: 120px; /* footerの上に配置（footer高さ分の余白） */
-  position: relative;
-  z-index: 10;
-}
 
 /* Dark Mode SNS Glow (#0cf) */
 
@@ -2893,14 +2760,14 @@ h3.steps .dk-line {
   box-sizing: border-box;
 
   /* 枠 */
-  border: 1px solid #00d8ff;
+  border: 1px solid #00d8ff !important;
   border-radius: 10px;
 
   /* 枠自体には背景を持たせない */
   background: none;
 
   /* 中身を包むため */
-  padding: 10px; /* ← 枠内の“予約余白” */
+  padding: 10px; /* ← 枠内の"予約余白" */
 }
 
 /* 内側レイヤー（背景ゾーン） */
@@ -2919,6 +2786,7 @@ h3.steps .dk-line {
 
   border-radius: 6px; /* 枠より一段小さく */
   padding: 12px 16px;
+  border: none !important;
 }
 
 /* アイコン */
