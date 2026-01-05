@@ -185,15 +185,21 @@
 	<!-- ALERT BOX：表示確認用 -->
 	<div class="alert-box-wrapper">
 	  <div class="alert-box">
-	    <span class="alert-box-left"></span>
-	    <span class="alert-box-center">
-	      test test test test test test test test test test test test test<br>
-	      test test test test test test test test test test test test test<br>
-	      test test test test test test test test test test test test test
-	    </span>
-	    <span class="alert-box-right"></span>
+	    <div class="alert-box-inner">
+	      <span class="alert-box-icon"></span>
+	      <div class="alert-box-content">
+	        <p>
+	          AI Generated Music Label（AGML）は、AI生成音楽の透明性と信頼性を守るために設計された公式ラベルです。<br>
+	          本ページでは、作者・レーベル・リスナーそれぞれの立場から、AI音楽ラベルの利用目的・活用方法・注意点をわかりやすく解説しています。<br>
+	          AI音楽時代の新しい共通理解を育て、クリエイターとリスナーが安心してAI音楽を共有できる環境づくりを目指します。
+	        </p>
+	      </div>
+	    </div>
 	  </div>
 	</div>
+
+
+
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
@@ -419,6 +425,9 @@
   }
 })();
 </script>
+<script src="../js/file-protocol-fix.js"></script>
+<script src="../js/nav-current.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
 
