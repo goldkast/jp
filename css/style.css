@@ -2745,7 +2745,7 @@ h3.steps .dk-line {
   background-color: rgba(46, 255, 255, 0.1);
 
   /* dot 背景を重ねる */
-  background-image: url("../img/dot.png");
+  background-image: url("/jp/img/dot.png") !important;
   background-repeat: repeat;
   background-position: center;
 
