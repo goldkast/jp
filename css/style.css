@@ -96,11 +96,11 @@ body {
   padding: 0;
 }
 
-.nav-menu li:has(.current) {
+.nav-menu a.current {
   background-color: transparent;
 }
 
-.nav-menu li:has(.current) a.current {
+.nav-menu a.current {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -1727,7 +1727,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 }
 
 /* 吹き出し三角（背景） */
-e.timeline-content h3::after {
+.timeline-content h3::after {
   content: "";
   position: absolute;
   left: -11px;
@@ -2761,7 +2761,6 @@ h3.steps .dk-line {
 .agml-alert-test {
   max-width: 1200px;
   margin: 40px auto;
-  background-radius: 6px;
 
   /* 背景色（rgb:46,255,255 / 透過1.0） */
   background-color: rgba(46, 255, 255, 0.1);
