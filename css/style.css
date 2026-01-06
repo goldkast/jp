@@ -2045,24 +2045,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   }
 }
 
-/* -----------------------
-   ダークモードボタン
-------------------------*/
-.darkmode-btn button {
-  background: transparent;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.darkmode-btn img.darkmode-icon {
-  width: 15px !important;
-  height: 22px !important;
-  object-fit: contain;
-  display: block;
-}
 
 
 .bottom-background {
@@ -2077,7 +2059,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 
 
 :root {
-  /* Dark Mode H2（番号つき見出し） - 詳細スタイル */
+  /* H2（番号つき見出し） - 詳細スタイル */
   --dk-h2-num-left: 12px;       /* 番号SVGの左位置 */
   --dk-h2-line-gap: 10px;       /* 番号 → 白線 の距離 */
   --dk-h2-line-left: 38px;      /* 白線の左位置基準（番号幅に応じて調整） */
@@ -2119,7 +2101,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 
 
 /* ========================================
-   ★ダークモード：基本設定★
+   基本設定
 ======================================== */
 
 /* === Background gradient === */
@@ -2140,7 +2122,7 @@ body {
 
 
 /* ========================================
-   ダークモード：タイトルとテキスト
+   タイトルとテキスト
 ======================================== */
 
 .wrap h1 {
@@ -2167,7 +2149,7 @@ body {
   color: #ddd !important;
 }
 
-/* ダークモード：wrap内のリンクスタイル */
+/* wrap内のリンクスタイル */
 .wrap a {
   color: #00d8ff !important;
   text-decoration: none !important;
@@ -2179,7 +2161,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：h1アイコン
+   h1アイコン
 ======================================== */
 
 .wrap h1 .h1-icon {
@@ -2190,7 +2172,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：セクションタイトル
+   セクションタイトル
 ======================================== */
 
 
@@ -2260,7 +2242,7 @@ body {
 .wrap .section-title[data-num="8"]::after { background-image: url("../img/dkh2-8.svg"); }
 .wrap .section-title[data-num="9"]::after { background-image: url("../img/dkh2-9.svg"); }
 
-/* Lightモードの丸番号を無効化（背景のみ） */
+/* 丸番号を無効化（背景のみ） */
 .section-title .title-number {
   background: none !important;
   width: auto;
@@ -2270,7 +2252,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：メインタイトル
+   メインタイトル
 ======================================== */
 
 .main-title {
@@ -2278,7 +2260,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：タイムライン
+   タイムライン
 ======================================== */
 
 .timeline::before {
@@ -2319,7 +2301,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：モバイルヘッダー
+   モバイルヘッダー
 ======================================== */
 
 .mobile-header {
@@ -2327,7 +2309,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：モバイルメニュー
+   モバイルメニュー
 ======================================== */
 
 .mobile-menu {
@@ -2357,7 +2339,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：フッター
+   フッター
 ======================================== */
 
 .agml-footer {
@@ -2378,7 +2360,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：Wave
+   Wave
 ======================================== */
 
 /* 1枚目（前面） — しっかり見える青 */
@@ -2402,7 +2384,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：ロゴ切替
+   ロゴ切替
 ======================================== */
 
 .nav-logo-img {
@@ -2410,7 +2392,7 @@ body {
 }
 
 /* ========================================
-   ダークモード：Cookieバナー
+   Cookieバナー
 ======================================== */
 
 .cookie-banner {
@@ -2445,7 +2427,7 @@ body {
 }
 
 
- /* Dark mode : 表示（背景は CSS の background-image で描画） */
+/* 表示（背景は CSS の background-image で描画） */
 .bottom-background {
   display: block !important;
   width: 100%;
@@ -2465,7 +2447,7 @@ body {
 }
 
 
-/* SNSシェア ダークモード */
+/* SNSシェア */
 
 .sns-svg { 
   color: #00CCFF !important;
@@ -2474,9 +2456,6 @@ body {
 
 /* =====================================================
    SNSシェアアイコン 最終確定CSS（重複なし）
-   - ライト：公式カラー
-   - ダーク：全て #00CCFF
-   - Instagram：ライトはカラフルSVG / ダークは青SVG
 ===================================================== */
 
 
@@ -2499,12 +2478,12 @@ body {
   transform: scale(1.12);
 }
 
-/* Instagram SNS dark mode */
+/* Instagram */
 .instagram .instagram-light {
   display: none !important;
 }
 
-/* ダークモード：Instagramを #0cf に */
+/* Instagramを #0cf に */
 .instagram img {
   filter: brightness(0) saturate(100%)
           invert(62%) sepia(93%)
@@ -2515,7 +2494,7 @@ body {
 }
 
 
-/* Dark Mode SNS Glow (#0cf) */
+/* SNS Glow (#0cf) */
 
 /* SVG系（X / FB / LINE / LinkedIn / Pinterest） */
 .footer-social .sns-svg {
@@ -2559,7 +2538,7 @@ body {
 }
 
 
-/* ダークモード：タイムライン番号内のバブルを完全に無効化 */
+/* タイムライン番号内のバブルを完全に無効化 */
 .timeline-number .bubbles-container,
 .timeline-number .bubble,
 .timeline-number .bubble-1,
