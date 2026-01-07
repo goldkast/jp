@@ -2781,7 +2781,7 @@ h3.steps .dk-line {
   display: flex;
   align-items: center;
 
-  background-color: rgba(46, 255, 255, 1.0);
+  background-color: rgba(46, 255, 255, 0.1);
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
