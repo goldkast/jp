@@ -2763,3 +2763,51 @@ h3.steps .dk-line {
   text-align: left;
 }
 
+/* =========================
+   AGML NOTICE（干渉回避・user専用）
+========================= */
+
+.agml-notice {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 10px;
+
+  border: 2px solid #00d8ff;
+  border-radius: 10px;
+}
+
+.agml-notice-inner {
+  min-height: 138px;
+  display: flex;
+  align-items: center;
+
+  background-color: rgba(46, 255, 255, 1.0);
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+
+  border-radius: 6px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.agml-notice-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  margin-right: 16px;
+
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.agml-notice-text p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
