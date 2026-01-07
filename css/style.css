@@ -2819,9 +2819,9 @@ h3.steps .dk-line {
 /* 縦線（独立要素・疑似要素不使用） */
 .agml-notice-divider {
   width: 2px;
-  height: 60px;
+  height: 110px;
 
-  background-color: #00d8ff;
+  background-color: #03b1d0;
 
   margin-right: 16px;
   flex-shrink: 0;
