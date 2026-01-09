@@ -2789,7 +2789,7 @@ h3.steps .dk-line {
   align-items: center;
 
   /* ★ 背景は必ず描画される構成 */
-  background-color: rgba(46, 255, 255, 0.8);
+  background-color: rgba(46, 255, 255, 0.7);
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
