@@ -2767,94 +2767,68 @@ h3.steps .dk-line {
    AGML NOTICE（干渉回避・user専用）
 ========================= */
 
-/* 外枠 - より具体的なセレクタで確実に適用 */
-.wrap .agml-notice,
-.wrap-inner .agml-notice,
-body.index2-page .agml-notice,
+/* 外枠 */
 .agml-notice {
-  max-width: 1200px !important;
-  margin: 40px auto !important;
-  padding: 10px !important;
-
-  border: 2px solid #00d8ff !important;
-  border-radius: 10px !important;
-
-  box-sizing: border-box !important;
-  background: none !important;
-  display: block !important;
-  position: relative !important;
-  z-index: 1 !important;
+  max-width: 1200px;
+  margin: 40px auto;
+  border: 2px solid #00d8ff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: none;
 }
 
-/* 内側背景レイヤー - より具体的なセレクタで確実に適用 */
-.wrap .agml-notice-inner,
-.wrap-inner .agml-notice-inner,
-body.index2-page .agml-notice-inner,
+/* 内側背景レイヤー */
 .agml-notice-inner {
-  min-height: 138px !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  align-items: center !important;
-  background-image: url("../img/dot.png") !important;
-  background-repeat: repeat !important;
-  background-position: center !important;
-  border-radius: 6px !important;
-  padding: 14px 18px !important;
+  min-height: 138px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+  border-radius: 6px;
+  padding: 14px 18px;
 
   /* レイヤー安定化（重要） */
-  position: relative !important;
-  z-index: 0 !important;
+  position: relative;
+  z-index: 0;
 }
 
-/* アイコン - より具体的なセレクタで確実に適用 */
-.wrap .agml-notice-icon,
-.wrap-inner .agml-notice-icon,
-body.index2-page .agml-notice-icon,
+/* アイコン */
 .agml-notice-icon {
-  width: 36px !important;
-  height: 36px !important;
-  flex-shrink: 0 !important;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 
-  background-image: url("../img/info-icon.png") !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-position: center !important;
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 
-  margin-right: 14px !important;
-  display: block !important;
+  margin-right: 14px;
 }
 
-/* 縦線（独立要素・疑似要素不使用） - より具体的なセレクタで確実に適用 */
-.wrap .agml-notice-divider,
-.wrap-inner .agml-notice-divider,
-body.index2-page .agml-notice-divider,
+/* 縦線（独立要素・疑似要素不使用） */
 .agml-notice-divider {
-  width: 2px !important;
-  height: 110px !important;
+  width: 2px;
+  height: 110px;
 
-  background-color: #03b1d0 !important;
+  background-color: #03b1d0;
 
-  margin-right: 16px !important;
-  flex-shrink: 0 !important;
-  display: block !important;
+  margin-right: 16px;
+  flex-shrink: 0;
 }
 
-/* テキスト - より具体的なセレクタで確実に適用 */
-.wrap .agml-notice-text,
-.wrap-inner .agml-notice-text,
-body.index2-page .agml-notice-text,
+/* テキスト */
 .agml-notice-text {
-  display: flex !important;
-  align-items: center !important;
+  display: flex;
+  align-items: center;
 }
 
-.wrap .agml-notice-text p,
-.wrap-inner .agml-notice-text p,
-body.index2-page .agml-notice-text p,
 .agml-notice-text p {
-  margin: 0 !important;
-  color: #ffffff !important;
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-  text-align: left !important;
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
 }
