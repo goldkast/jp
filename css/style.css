@@ -2784,16 +2784,14 @@ h3.steps .dk-line {
 .agml-notice-inner {
   min-height: 138px;
   box-sizing: border-box;
-
   display: flex;
   align-items: center;
-
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
-
   border-radius: 6px;
   padding: 14px 18px;
+}
 
   /* レイヤー安定化（重要） */
   position: relative;
