@@ -2769,69 +2769,72 @@ h3.steps .dk-line {
 
 /* 外枠 */
 .agml-notice {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 10px;
+  max-width: 1200px !important;
+  margin: 40px auto !important;
+  padding: 10px !important;
 
-  border: 2px solid #00d8ff;
-  border-radius: 10px;
+  border: 2px solid #00d8ff !important;
+  border-radius: 10px !important;
 
-  box-sizing: border-box;
-  background: none;
+  box-sizing: border-box !important;
+  background: none !important;
+  display: block !important;
 }
 
 /* 内側背景レイヤー */
 .agml-notice-inner {
-  min-height: 138px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  background-image: url("../img/dot.png");
-  background-repeat: repeat;
-  background-position: center;
-  border-radius: 6px;
-  padding: 14px 18px;
+  min-height: 138px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  background-image: url("../img/dot.png") !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  border-radius: 6px !important;
+  padding: 14px 18px !important;
 
   /* レイヤー安定化（重要） */
-  position: relative;
-  z-index: 0;
+  position: relative !important;
+  z-index: 0 !important;
 }
 
 /* アイコン */
 .agml-notice-icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0 !important;
 
-  background-image: url("../img/info-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url("../img/info-icon.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  background-position: center !important;
 
-  margin-right: 14px;
+  margin-right: 14px !important;
+  display: block !important;
 }
 
 /* 縦線（独立要素・疑似要素不使用） */
 .agml-notice-divider {
-  width: 2px;
-  height: 110px;
+  width: 2px !important;
+  height: 110px !important;
 
-  background-color: #03b1d0;
+  background-color: #03b1d0 !important;
 
-  margin-right: 16px;
-  flex-shrink: 0;
+  margin-right: 16px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
 }
 
 /* テキスト */
 .agml-notice-text {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .agml-notice-text p {
-  margin: 0;
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.6;
-  text-align: left;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
 }
