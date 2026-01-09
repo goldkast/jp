@@ -1922,7 +1922,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 
 .cookie-banner__text {
   color: #999;
-  margin-bottom: 14px;
+  margin-bottom: 14px 0;
 }
 
 .cookie-banner__actions {
