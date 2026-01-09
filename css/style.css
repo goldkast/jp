@@ -2767,7 +2767,10 @@ h3.steps .dk-line {
    AGML NOTICE（干渉回避・user専用）
 ========================= */
 
-/* 外枠 */
+/* 外枠 - より具体的なセレクタで確実に適用 */
+.wrap .agml-notice,
+.wrap-inner .agml-notice,
+body.index2-page .agml-notice,
 .agml-notice {
   max-width: 1200px !important;
   margin: 40px auto !important;
@@ -2779,9 +2782,14 @@ h3.steps .dk-line {
   box-sizing: border-box !important;
   background: none !important;
   display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
-/* 内側背景レイヤー */
+/* 内側背景レイヤー - より具体的なセレクタで確実に適用 */
+.wrap .agml-notice-inner,
+.wrap-inner .agml-notice-inner,
+body.index2-page .agml-notice-inner,
 .agml-notice-inner {
   min-height: 138px !important;
   box-sizing: border-box !important;
@@ -2798,7 +2806,10 @@ h3.steps .dk-line {
   z-index: 0 !important;
 }
 
-/* アイコン */
+/* アイコン - より具体的なセレクタで確実に適用 */
+.wrap .agml-notice-icon,
+.wrap-inner .agml-notice-icon,
+body.index2-page .agml-notice-icon,
 .agml-notice-icon {
   width: 36px !important;
   height: 36px !important;
@@ -2813,7 +2824,10 @@ h3.steps .dk-line {
   display: block !important;
 }
 
-/* 縦線（独立要素・疑似要素不使用） */
+/* 縦線（独立要素・疑似要素不使用） - より具体的なセレクタで確実に適用 */
+.wrap .agml-notice-divider,
+.wrap-inner .agml-notice-divider,
+body.index2-page .agml-notice-divider,
 .agml-notice-divider {
   width: 2px !important;
   height: 110px !important;
@@ -2825,12 +2839,18 @@ h3.steps .dk-line {
   display: block !important;
 }
 
-/* テキスト */
+/* テキスト - より具体的なセレクタで確実に適用 */
+.wrap .agml-notice-text,
+.wrap-inner .agml-notice-text,
+body.index2-page .agml-notice-text,
 .agml-notice-text {
   display: flex !important;
   align-items: center !important;
 }
 
+.wrap .agml-notice-text p,
+.wrap-inner .agml-notice-text p,
+body.index2-page .agml-notice-text p,
 .agml-notice-text p {
   margin: 0 !important;
   color: #ffffff !important;
