@@ -2774,6 +2774,7 @@ body.index2-page .agml-notice,
 .agml-notice {
   max-width: 1200px !important;
   margin: 40px auto !important;
+  padding: 0 !important;
   border: 2px solid #00d8ff !important;
   border-radius: 10px !important;
   box-sizing: border-box !important;
