@@ -2767,7 +2767,7 @@ h3.steps .dk-line {
    AGML NOTICE
 ========================= */
 
-/* 外枠 - より具体的なセレクタで確実に適用 */
+/* 外枠 - より具体的なセレクタで確実に適用 */ 
 .wrap .agml-notice,
 .wrap-inner .agml-notice,
 body.index2-page .agml-notice,
@@ -2778,7 +2778,7 @@ body.index2-page .agml-notice,
   border-radius: 10px !important;
   box-sizing: border-box !important;
   background: none !important;
-  display: block !important;
+  display: block !important; 
   position: relative !important;
   z-index: 1 !important;
 }
