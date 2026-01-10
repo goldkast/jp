@@ -2789,7 +2789,6 @@ body.index2-page .agml-notice,
 .wrap-inner .agml-notice-inner,
 body.index2-page .agml-notice-inner,
 .agml-notice-inner {
-  min-height: 138px !important;
   box-sizing: border-box !important;
   display: flex !important;
   align-items: center !important;
@@ -2815,7 +2814,7 @@ body.index2-page .agml-notice-icon,
   background-repeat: no-repeat !important;
   background-size: contain !important;
   background-position: center !important;
-  margin-right: 14px !important;
+  margin: 0 14px !important;
   display: block !important;
 }
 
