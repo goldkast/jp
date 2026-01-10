@@ -1908,7 +1908,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   border: 1px solid #d0e0ff;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0, 45, 112, 0.2);
-  padding: 0px 22px 18px;
+  padding: 10px 22px 18px;
   z-index: 99999 !important;
   display: flex;
   flex-direction: column;
@@ -2221,7 +2221,7 @@ body {
   content: "";
   position: absolute;
   top: 50%;
-  left: 3px;
+  left: 4px;
   transform: translateY(-50%);
   width: 26px;     /* 必ず固定幅 → 画像にフィット */
   height: 26px;
