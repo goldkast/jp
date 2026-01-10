@@ -2808,7 +2808,7 @@ h3.steps .dk-line {
   width: 1px;
   height: 110px;
   background-color: #03b1d0;
-  margin-right: 16px;
+  margin-right: 16px; 
   flex-shrink: 0;
   display: block;
 }
