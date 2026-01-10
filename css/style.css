@@ -2734,7 +2734,7 @@ h3.steps .dk-line {
 }
 
 /*Alert Box*/
-.wrap .alert-box {
+.wrap .wrap-inner .alert-box {
 max-width: 1200px;
 border: 1px solid #00ccff!important;
 border-radius: 6px!important;
