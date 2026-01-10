@@ -2734,10 +2734,10 @@ h3.steps .dk-line {
 }
 
 /*Alert Box*/
-#alert-box {
+.wrap p.alert-box {
 border: 1px solid #00ccff!important;
 border-radius: 10px!important;
-padding: 10px!important;
+padding: 6px!important;
 background-image: url("../img/dot.png")!important;
 background-repeat: repeat!important;
 }
