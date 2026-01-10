@@ -2777,11 +2777,6 @@ body.index2-page .agml-notice,
   padding: 0 !important;
   border: 2px solid #00d8ff !important;
   border-radius: 10px !important;
-  box-sizing: border-box !important;
-  background: none !important;
-  display: block !important;
-  position: relative !important;
-  z-index: 1 !important;
 }
 
 /* 内側背景レイヤー - より具体的なセレクタで確実に適用 */
