@@ -655,8 +655,8 @@ h3.steps .dk-line {
 
 /* アイコンを文字として扱う */
 .alert-inline-icon {
-  width: 32px;
-  height: 32px;
+  width: 18px;
+  height: 18px;
   vertical-align: -3px;
   margin-right: 6px;
 }
