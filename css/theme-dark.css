@@ -637,61 +637,53 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
-/* Alert Box（ライブ環境完全対応・疑似要素方式） */
 .alert-box {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 10px 16px 10px 54px; /* 左に余白を確保 */
+  padding: 10px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
-
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
-
-  position: relative;
-  color: #ffffff;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  color: #FFF;
 }
 
-/* 左アイコン（疑似要素） */
-.alert-box::before {
-  content: "i";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-
-  background: rgba(255,255,255,0.9);
-  color: #1f6fb2;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: center;
-
-  pointer-events: none;
+.alert-box-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  flex-shrink: 0;
+  margin-left:5px;
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-right: 14px;
+  align-self: center;
 }
 
-/* 縦 divider（疑似要素） */
-.alert-box::after {
-  content: "";
-  position: absolute;
-  left: 46px;
-  top: 50%;
-  transform: translateY(-50%);
-
+.alert-box-divider {
   width: 1px;
-  height: 60%;
-  background: rgba(255,255,255,0.5);
-
-  pointer-events: none;
+  background-color: #00d8ff;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-right: 16px;
 }
 
-/* テキスト */
 .alert-box-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.alert-box-text p {
+  margin: 0;
+  color: #ffffff;
   font-size: 15px;
   line-height: 1.6;
+  text-align: left;
 }
