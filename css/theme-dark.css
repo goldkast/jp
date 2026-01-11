@@ -636,43 +636,6 @@ h3.steps .dk-line {
   }
 }
 
-/* Alert Box（h2方式） */
-.alert-box {
-  position: relative;
-
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 12px 14px 12px 54px; /* ← 左に余白を確保 */
-
-  border: 1px solid #00d8ff;
-  border-radius: 6px;
-
-  background-image: url("../img/dot.png");
-  background-repeat: repeat;
-  background-position: center;
-
-  color: #ffffff;
-}
-
-/* Alert Box：h2方式・z-index修正版 */
-.alert-box {
-  position: relative;
-  z-index: 2;              /* ★ これが決定打 */
-
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 12px 14px 12px 54px;
-
-  border: 1px solid #00d8ff;
-  border-radius: 6px;
-
-  background-image: url("../img/dot.png");
-  background-repeat: repeat;
-  background-position: center;
-
-  color: #ffffff;
-}
-
 /* Alert Box：確定版（span方式） */
 .alert-box {
   position: relative;
