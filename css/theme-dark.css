@@ -640,40 +640,48 @@ h3.steps .dk-line {
 .alert-box {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 10px;
+  padding: 10px 14px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
+
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
+
   display: flex;
-  align-items: stretch;
-  gap: 0;
-  color: #FFF;
+  align-items: center;
+  gap: 10px;
+
+  color: #ffffff;
 }
 
+/* アイコン（フラット・背景なし） */
 .alert-box-icon {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
   flex-shrink: 0;
-  margin-left:5px;
+
   background-image: url("../img/info-icon.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  margin-right: 14px;
-  align-self: center;
+
+  background-color: transparent;
+  border-radius: 0;
+  margin-left: 2px;
 }
 
+/* ★ divider を自然に復活（主張しすぎない） */
 .alert-box-divider {
   width: 1px;
-  background-color: #00d8ff;
+  height: 60%;              /* フル高さにしないのがポイント */
+  background-color: rgba(255, 255, 255, 0.45);
+  margin: 0 10px;
   flex-shrink: 0;
-  align-self: stretch;
-  margin-right: 16px;
 }
 
+/* テキスト */
 .alert-box-text {
   flex: 1;
   display: flex;
