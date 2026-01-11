@@ -672,7 +672,6 @@ h3.steps .dk-line {
   margin-left: 2px;
 }
 
-/* ★ divider を自然に復活（主張しすぎない） */
 .alert-box-divider {
   width: 1px;
   height: 60%;              /* フル高さにしないのがポイント */
@@ -694,4 +693,19 @@ h3.steps .dk-line {
   font-size: 15px;
   line-height: 1.6;
   text-align: left;
+}
+
+/* === DEBUG: alert-box 強制可視化 === */
+.alert-box-icon,
+.alert-box-divider {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 縦線は必ず見える高さを強制 */
+.alert-box-divider {
+  width: 2px !important;
+  min-height: 32px !important;
+  background-color: #ffffff !important;
 }
