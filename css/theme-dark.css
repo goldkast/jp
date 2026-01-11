@@ -659,10 +659,9 @@ h3.steps .dk-line {
 .alert-inline-icon {
   width: 22px;
   height: 22px;
-  flex: 0 0 22px;          /* 固定幅 */
-  display: block;          /* imgはblockでOK */
-  margin-left: 6px;        /* 左余白 */
-  margin-right: 6px;       /* 右余白 */
+  flex: 0 0 22px;
+  display: block;
+  object-fit: contain;
 }
 
 /* テキスト */
