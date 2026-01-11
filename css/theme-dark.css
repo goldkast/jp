@@ -640,51 +640,27 @@ h3.steps .dk-line {
 .alert-box {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 10px;
+  padding: 10px 14px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
   background-image: url("../img/dot.png");
   background-repeat: repeat;
-  background-position: center;
   display: flex;
-  align-items: stretch;
-  gap: 0;
-  color: #FFF;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
 }
 
+/* アイコン：置換要素なので消えない */
 .alert-box-icon {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-  margin-left:5px;
-  background-image: url("../img/info-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  margin-right: 14px;
-  align-self: center;
-  z-index:10;
+  margin-top: 2px;
 }
 
-.alert-box-divider {
-  width: 1px;
-  background-color: #00d8ff;
-  flex-shrink: 0;
-  align-self: stretch;
-  margin-right: 16px;
-}
-
+/* テキスト */
 .alert-box-text {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.alert-box-text p {
-  margin: 0;
-  color: #ffffff;
   font-size: 15px;
   line-height: 1.6;
-  text-align: left;
 }
