@@ -646,28 +646,37 @@ h3.steps .dk-line {
 
   background-image: url("../img/dot.png");
   background-repeat: repeat;
-  background-position: center;
 
-  display: flex;
-  align-items: center;          /* ★ 縦センター */
+  display: flex;                 /* ★ flex固定 */
+  align-items: center;           /* ★ アイコン上下センター */
+  gap: 16px;                     /* ★ アイコンとテキスト間隔 */
+
   color: #ffffff;
 }
 
-/* アイコン：左右余白＋縦中央 */
+/* アイコン：完全に独立した列 */
 .alert-inline-icon {
   width: 22px;
   height: 22px;
+  flex-shrink: 0;                /* ★ 縮まない */
 
-  flex-shrink: 0;
+  display: flex;                 /* ★ 中央寄せ */
+  align-items: center;
+  justify-content: center;
 
-  margin-left: 8px;             /* ★ 左余白 */
-  margin-right: 14px;           /* ★ 右余白 */
-
-  display: inline-block;
+  margin: 0 4px;                 /* 左右余白 */
 }
 
-/* テキスト */
+/* テキスト：回り込み禁止 */
 .alert-box-text {
+  flex: 1;                       /* ★ 残り幅を全部使う */
+  min-width: 0;                  /* ★ 折返し事故防止 */
+
   font-size: 15px;
   line-height: 1.6;
+}
+
+/* 念のため：中の img に回り込み禁止 */
+.alert-box-text img {
+  float: none !important;
 }
