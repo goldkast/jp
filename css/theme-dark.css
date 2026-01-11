@@ -636,13 +636,53 @@ h3.steps .dk-line {
   }
 }
 
-/*Alert Box*/
+/* Alert Box */
 .alert-box {
-max-width: 1200px;
-border: 1px solid #00ccff!important;
-border-radius: 6px!important;
-padding: 6px!important;
-background-image: url("../img/dot.png")!important;
-background-repeat: repeat!important;
-color: #fff;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 10px;
+  border: 2px solid #00d8ff;
+  border-radius: 10px;
+  background-color: rgba(46, 255, 255, 1.0);
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.alert-box-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  flex-shrink: 0;
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-right: 16px;
+  align-self: center;
+}
+
+.alert-box-divider {
+  width: 1px;
+  background-color: #00d8ff;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-right: 16px;
+}
+
+.alert-box-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.alert-box-text p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
 }
