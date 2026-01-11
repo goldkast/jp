@@ -638,6 +638,7 @@ h3.steps .dk-line {
 
 /* Alert Box */
 .alert-box {
+  align-items: flex-start;
   max-width: 1200px;
   margin: 40px auto;
   padding: 12px 16px;
@@ -656,6 +657,7 @@ h3.steps .dk-line {
 
 /* アイコン：完全に独立した列 */
 .alert-inline-icon {
+  margin-top: 2px;
   width: 22px;
   height: 22px;
   flex-shrink: 0;                /* ★ 縮まない */
