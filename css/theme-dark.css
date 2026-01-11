@@ -664,6 +664,7 @@ h3.steps .dk-line {
   background-position: center;
   margin-right: 14px;
   align-self: center;
+  z-index:10;
 }
 
 .alert-box-divider {
