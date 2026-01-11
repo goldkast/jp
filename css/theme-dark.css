@@ -655,37 +655,31 @@ h3.steps .dk-line {
 }
 
 /* 左アイコン（h2の番号SVGと同じ仕組み） */
+.alert-box {
+  position: relative;
+  padding-left: 54px;
+}
+
+/* アイコン */
 .alert-box::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 14px;
   transform: translateY(-50%);
-
   width: 24px;
   height: 24px;
-
-  background-image: url("../img/info-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background: url("..//img/info-icon.png") no-repeat center / contain;
 }
 
-/* 縦線（h2のdk-line相当） */
+/* 縦線 */
 .alert-box::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 44px;
   transform: translateY(-50%);
-
   width: 1px;
   height: 60%;
   background: rgba(255,255,255,0.45);
-}
-
-/* テキスト */
-.alert-box-text {
-  font-size: 15px;
-  line-height: 1.6;
 }
