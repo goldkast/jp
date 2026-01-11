@@ -643,24 +643,32 @@ h3.steps .dk-line {
   padding: 10px 14px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
+
   background-image: url("../img/dot.png");
   background-repeat: repeat;
+  background-position: center;
+
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;     /* ★ 明示 */
+  align-items: flex-start; /* ★ 上揃えで安定 */
   gap: 10px;
-  color: #fff;
+
+  color: #ffffff;
 }
 
-/* アイコン：置換要素なので消えない */
+/* アイコン（img） */
 .alert-box-icon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  display: inline-block;   /* ★ block → inline-block */
   margin-top: 2px;
 }
 
-/* テキスト */
+/* テキスト：横に流す */
 .alert-box-text {
+  flex: 1;
+  display: block;          /* flexにしない */
   font-size: 15px;
   line-height: 1.6;
 }
