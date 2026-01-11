@@ -637,10 +637,11 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
+/* Alert Box（ライブ環境完全対応・疑似要素方式） */
 .alert-box {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 10px 14px;
+  padding: 10px 16px 10px 54px; /* 左に余白を確保 */
   border: 1px solid #00d8ff;
   border-radius: 6px;
 
@@ -648,64 +649,49 @@ h3.steps .dk-line {
   background-repeat: repeat;
   background-position: center;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
+  position: relative;
   color: #ffffff;
 }
 
-/* アイコン（フラット・背景なし） */
-.alert-box-icon {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  flex-shrink: 0;
+/* 左アイコン（疑似要素） */
+.alert-box::before {
+  content: "i";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 
-  background-image: url("../img/info-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
 
-  background-color: transparent;
-  border-radius: 0;
-  margin-left: 2px;
+  background: rgba(255,255,255,0.9);
+  color: #1f6fb2;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+
+  pointer-events: none;
 }
 
-.alert-box-divider {
+/* 縦 divider（疑似要素） */
+.alert-box::after {
+  content: "";
+  position: absolute;
+  left: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+
   width: 1px;
-  height: 60%;              /* フル高さにしないのがポイント */
-  background-color: rgba(255, 255, 255, 0.45);
-  margin: 0 10px;
-  flex-shrink: 0;
+  height: 60%;
+  background: rgba(255,255,255,0.5);
+
+  pointer-events: none;
 }
 
 /* テキスト */
 .alert-box-text {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.alert-box-text p {
-  margin: 0;
-  color: #ffffff;
   font-size: 15px;
   line-height: 1.6;
-  text-align: left;
-}
-
-/* === DEBUG: alert-box 強制可視化 === */
-.alert-box-icon,
-.alert-box-divider {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* 縦線は必ず見える高さを強制 */
-.alert-box-divider {
-  width: 2px !important;
-  min-height: 32px !important;
-  background-color: #ffffff !important;
 }
