@@ -636,11 +636,14 @@ h3.steps .dk-line {
   }
 }
 
-/* Alert Box */
+/* Alert Box（h2方式） */
 .alert-box {
+  position: relative;
+
   max-width: 1200px;
   margin: 40px auto;
-  padding: 10px 14px;
+  padding: 12px 14px 12px 54px; /* ← 左に余白を確保 */
+
   border: 1px solid #00d8ff;
   border-radius: 6px;
 
@@ -648,27 +651,41 @@ h3.steps .dk-line {
   background-repeat: repeat;
   background-position: center;
 
-  display: flex;
-  flex-direction: row;     /* ★ 明示 */
-  align-items: flex-start; /* ★ 上揃えで安定 */
-  gap: 10px;
-
   color: #ffffff;
 }
 
-/* アイコン（img） */
-.alert-box-icon {
+/* 左アイコン（h2の番号SVGと同じ仕組み） */
+.alert-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+
   width: 24px;
   height: 24px;
-  flex-shrink: 0;
-  display: inline-block;   /* ★ block → inline-block */
-  margin-top: 2px;
+
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
-/* テキスト：横に流す */
+/* 縦線（h2のdk-line相当） */
+.alert-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 44px;
+  transform: translateY(-50%);
+
+  width: 1px;
+  height: 60%;
+  background: rgba(255,255,255,0.45);
+}
+
+/* テキスト */
 .alert-box-text {
-  flex: 1;
-  display: block;          /* flexにしない */
   font-size: 15px;
   line-height: 1.6;
 }
