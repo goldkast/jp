@@ -638,48 +638,25 @@ h3.steps .dk-line {
 
 /* Alert Box：確定版（span方式） */
 .alert-box {
-  position: relative;
   max-width: 1200px;
   margin: 40px auto;
   padding: 12px 14px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
-
   background-image: url("../img/dot.png");
   background-repeat: repeat;
-
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-
-  color: #ffffff;
+  color: #fff;
 }
 
-/* アイコン：h2のdkh2と同じ発想 */
-.alert-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-top: 2px;
-
-  background-image: url("/img/info-icon.png"); /* 絶対パス */
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-/* 縦線：spanで実体を持たせる */
-.alert-divider {
-  width: 1px;
-  height: 28px;
-  margin-top: 2px;
-  background: rgba(255,255,255,0.45);
-  flex-shrink: 0;
-}
-
-/* テキスト */
 .alert-box-text {
-  flex: 1;
   font-size: 15px;
   line-height: 1.6;
+}
+
+/* アイコンを文字として扱う */
+.alert-inline-icon {
+  width: 32px;
+  height: 32px;
+  vertical-align: -3px;
+  margin-right: 6px;
 }
