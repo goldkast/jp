@@ -659,7 +659,9 @@ h3.steps .dk-line {
 .alert-inline-icon {
   width: 22px;
   height: 22px;
+  min-width: 22px;
   flex: 0 0 22px;
+  flex-shrink: 0;
   display: block;
   object-fit: contain;
 }
@@ -670,4 +672,5 @@ h3.steps .dk-line {
   min-width: 0;
   font-size: 15px;
   line-height: 1.6;
+  display: block;
 }
