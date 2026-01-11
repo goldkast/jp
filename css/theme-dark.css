@@ -654,22 +654,42 @@ h3.steps .dk-line {
   color: #ffffff;
 }
 
-/* 左アイコン（h2の番号SVGと同じ仕組み） */
+/* Alert Box：h2方式・z-index修正版 */
 .alert-box {
   position: relative;
-  padding-left: 54px;
+  z-index: 2;              /* ★ これが決定打 */
+
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 12px 14px 12px 54px;
+
+  border: 1px solid #00d8ff;
+  border-radius: 6px;
+
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+
+  color: #ffffff;
 }
 
-/* アイコン */
+/* アイコン（疑似要素） */
 .alert-box::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 14px;
   transform: translateY(-50%);
+
   width: 24px;
   height: 24px;
-  background: url("..//img/info-icon.png") no-repeat center / contain;
+
+  background-image: url("/img/info-icon.png"); /* ★ 絶対パス */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  z-index: 3;             /* ★ 必須 */
 }
 
 /* 縦線 */
@@ -679,7 +699,16 @@ h3.steps .dk-line {
   top: 50%;
   left: 44px;
   transform: translateY(-50%);
+
   width: 1px;
   height: 60%;
   background: rgba(255,255,255,0.45);
+
+  z-index: 3;             /* ★ 必須 */
+}
+
+/* テキスト */
+.alert-box-text {
+  font-size: 15px;
+  line-height: 1.6;
 }
