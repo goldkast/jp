@@ -652,7 +652,7 @@ h3.steps .dk-line {
   gap: 0;
 }
 
-.alert-box-icon {
+.wrap .alert-box-icon {
   width: 36px;
   height: 36px;
   min-width: 36px;
