@@ -641,9 +641,8 @@ h3.steps .dk-line {
   max-width: 1200px;
   margin: 40px auto;
   padding: 10px;
-  border: 2px solid #00d8ff;
-  border-radius: 10px;
-  background-color: rgba(46, 255, 255, 1.0);
+  border: 1px solid #00d8ff;
+  border-radius: 6px;
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
@@ -652,7 +651,7 @@ h3.steps .dk-line {
   gap: 0;
 }
 
-.wrap .alert-box-icon {
+.alert-box-icon {
   width: 36px;
   height: 36px;
   min-width: 36px;
