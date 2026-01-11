@@ -638,7 +638,6 @@ h3.steps .dk-line {
 
 /* Alert Box */
 .alert-box {
-  align-items: flex-start;
   max-width: 1200px;
   margin: 40px auto;
   padding: 12px 16px;
@@ -647,38 +646,29 @@ h3.steps .dk-line {
 
   background-image: url("../img/dot.png");
   background-repeat: repeat;
+  background-position: center;
 
-  display: flex;                 /* ★ flex固定 */
-  align-items: center;           /* ★ アイコン上下センター */
-  gap: 16px;                     /* ★ アイコンとテキスト間隔 */
+  display: flex;
+  align-items: center;     /* アイコン上下センター */
+  gap: 14px;               /* アイコンとテキストの間隔 */
 
-  color: #ffffff;
+  color: #fff;
 }
 
-/* アイコン：完全に独立した列 */
+/* アイコン */
 .alert-inline-icon {
-  margin-top: 2px;
   width: 22px;
   height: 22px;
-  flex-shrink: 0;                /* ★ 縮まない */
-
-  display: flex;                 /* ★ 中央寄せ */
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 4px;                 /* 左右余白 */
+  flex: 0 0 22px;          /* 固定幅 */
+  display: block;          /* imgはblockでOK */
+  margin-left: 6px;        /* 左余白 */
+  margin-right: 6px;       /* 右余白 */
 }
 
-/* テキスト：回り込み禁止 */
+/* テキスト */
 .alert-box-text {
-  flex: 1;                       /* ★ 残り幅を全部使う */
-  min-width: 0;                  /* ★ 折返し事故防止 */
-
+  flex: 1;
+  min-width: 0;
   font-size: 15px;
   line-height: 1.6;
-}
-
-/* 念のため：中の img に回り込み禁止 */
-.alert-box-text img {
-  float: none !important;
 }
