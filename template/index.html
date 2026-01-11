@@ -18,11 +18,19 @@
       if (path && path !== '/') {
         level = path.split('/').filter(function(s) { return s && s !== ''; }).length;
       }
-      var cssPath = level === 0 ? './css/style.css' : '../'.repeat(level) + 'css/style.css';
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = cssPath;
-      (document.head || document.getElementsByTagName('head')[0]).appendChild(link);
+      var basePath = level === 0 ? './css/' : '../'.repeat(level) + 'css/';
+      var baseLink = document.createElement('link');
+      baseLink.rel = 'stylesheet';
+      baseLink.href = basePath + 'base.css';
+      (document.head || document.getElementsByTagName('head')[0]).appendChild(baseLink);
+      var layoutLink = document.createElement('link');
+      layoutLink.rel = 'stylesheet';
+      layoutLink.href = basePath + 'layout.css';
+      (document.head || document.getElementsByTagName('head')[0]).appendChild(layoutLink);
+      var themeLink = document.createElement('link');
+      themeLink.rel = 'stylesheet';
+      themeLink.href = basePath + 'theme-dark.css';
+      (document.head || document.getElementsByTagName('head')[0]).appendChild(themeLink);
     })();
   </script>
 </head>
