@@ -636,27 +636,38 @@ h3.steps .dk-line {
   }
 }
 
-/* Alert Box：確定版（span方式） */
+/* Alert Box */
 .alert-box {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 12px 14px;
+  padding: 12px 16px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
+
   background-image: url("../img/dot.png");
   background-repeat: repeat;
-  color: #fff;
+  background-position: center;
+
+  display: flex;
+  align-items: center;          /* ★ 縦センター */
+  color: #ffffff;
 }
 
+/* アイコン：左右余白＋縦中央 */
+.alert-inline-icon {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  margin-left: 8px;             /* ★ 左余白 */
+  margin-right: 14px;           /* ★ 右余白 */
+
+  display: inline-block;
+}
+
+/* テキスト */
 .alert-box-text {
   font-size: 15px;
   line-height: 1.6;
-}
-
-/* アイコンを文字として扱う */
-.alert-inline-icon {
-  width: 18px;
-  height: 18px;
-  vertical-align: -3px;
-  margin-right: 6px;
 }
