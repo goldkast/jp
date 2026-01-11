@@ -649,6 +649,7 @@ h3.steps .dk-line {
   display: flex;
   align-items: stretch;
   gap: 0;
+  color: #FFF;
 }
 
 .alert-box-icon {

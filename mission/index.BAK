@@ -9,12 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
-<style>
-p.alert-box {
-  border: 5px solid lime !important;
-}
-</style>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/theme-dark.css">
 </head>
 <body class="dark-mode index2-page">
 
@@ -186,10 +183,16 @@ p.alert-box {
     </p>
 
 
-      <p class="alert-box">
-        AI生成音楽ラベル（AGML） は、AI生成音楽の透明性と創作の自由を守る非営利プロジェクトです。<br>
-        本ページでは、AI音楽がもたらす新しい価値と文化的可能性について、3つの視点から解説しています。
-      </p>
+      <div class="alert-box">
+        <div class="alert-box-icon"></div>
+        <div class="alert-box-divider"></div>
+        <div class="alert-box-text">
+          <p>
+            AI生成音楽ラベル（AGML） は、AI生成音楽の透明性と創作の自由を守る非営利プロジェクトです。<br>
+            本ページでは、AI音楽がもたらす新しい価値と文化的可能性について、3つの視点から解説しています。
+          </p>
+        </div>
+      </div>
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
