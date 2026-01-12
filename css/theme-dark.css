@@ -1,8 +1,3 @@
-body {
-  color: #333;
-  background-color: #f5f3f0 !important;
-}
-
 /* ========================================
    基本設定
 ======================================== */
@@ -11,16 +6,15 @@ body {
 body {
   background: linear-gradient(
     to bottom,
-    #255594 0%,     /* wave直下：新しい開始色（深い青） */
-    #1d5b99 25%,    /* 中層：より深い青、自然な遷移 */
-    #113962 50%,    /* 下層：深海手前の暗部 */
-    #071c33 80%,    /* 最下層：深海紺 */
-    #000000 100%    /* 最下層：深海ブラック */
-  ) !important;
-
-  background-attachment: scroll !important;
-  background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
+    #255594 0%,
+    #1d5b99 25%,
+    #113962 50%,
+    #071c33 80%,
+    #000000 100%
+  );
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 
@@ -28,50 +22,50 @@ body {
    タイトルとテキスト
 ======================================== */
 
-.wrap h1 {
-  color: #00d8ff !important;
+.wrap-inner h1 {
+  color: #00d8ff;
 }
 
-.wrap h2 {
-  color: #eee !important;
+.wrap-inner h2 {
+  color: #eee;
 }
 
-.wrap h3 {
-  color: #eee !important;
+.wrap-inner h3 {
+  color: #eee;
 }
 
-.wrap p {
-  color: #ddd !important;
+.wrap-inner p {
+  color: #ddd;
 }
 
-.wrap ul {
-  color: #ddd !important;
+.wrap-inner ul {
+  color: #ddd;
 }
 
-.wrap li {
-  color: #ddd !important;
+.wrap-inner li {
+  color: #ddd;
 }
 
-/* wrap内のリンクスタイル */
-.wrap a {
-  color: #00d8ff !important;
-  text-decoration: none !important;
+/* wrap-inner内のリンクスタイル */
+.wrap-inner a {
+  color: #00d8ff;
+  text-decoration: none;
 }
 
-.wrap a:hover {
-  color: #3399ff !important;
-  text-decoration: none !important;
+.wrap-inner a:hover {
+  color: #3399ff;
+  text-decoration: none;
 }
 
 /* ========================================
    h1アイコン
 ======================================== */
 
-.wrap h1 .h1-icon {
+.wrap-inner h1 .h1-icon {
   /* アイコンの色を#00d8ffに統一 */
-  filter: invert(64%) sepia(100%) saturate(748%) hue-rotate(160deg) brightness(100%) contrast(97%) !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  filter: invert(64%) sepia(100%) saturate(748%) hue-rotate(160deg) brightness(100%) contrast(97%);
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ========================================
@@ -80,17 +74,8 @@ body {
 
 
 
-.wrap .section-title {
-  background: rgba(0, 216, 255, 0.5) !important;
-  color: #eee !important;
-}
-
-.wrap .section-title .title-number {
-  background: #555 !important;
-}
-
 /* セクションタイトル：新デザイン */
-.wrap .section-title {
+.wrap-inner .section-title {
   position: relative;
 
   /* ▼ 左 #00ccff（50%透明）→ 右に薄くフェードアウトする帯 */
@@ -101,17 +86,17 @@ body {
     rgba(0, 204, 255, 0.20) 60%,   /* さらに薄く */
     rgba(0, 204, 255, 0.10) 80%,   /* 右側：かなり薄い */
     rgba(0, 204, 255, 0.00) 100%   /* 完全透明 */
-  ) !important;
+  );
 
-  color: #fff !important;
-  border-radius: 50px !important;
-  border: 1px solid #00CCFF !important;
+  color: #fff;
+  border-radius: 50px;
+  border: 1px solid #00CCFF;
 
   /* 番号 + 白線 + テキスト分の余白 */
-  padding: 5px 12px 4px calc(var(--dk-h2-line-left) + 4px) !important;
+  padding: 5px 12px 4px calc(var(--dk-h2-line-left) + 4px);
 
-  margin: 2.2em 0 1.5em !important;
-  font-size: 16px !important;
+  margin: 2.2em 0 1.5em;
+  font-size: 16px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -119,8 +104,12 @@ body {
   overflow: visible;
 }
 
+.wrap-inner .section-title .title-number {
+  background: #555;
+}
+
 /* 番号SVG（左側） */
-.wrap .section-title::after {
+.wrap-inner .section-title::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -134,20 +123,20 @@ body {
 }
 
 /* data-numによる画像切替 */
-.wrap .section-title[data-num="0"]::after { background-image: url("../img/dkh2-0.svg"); }
-.wrap .section-title[data-num="1"]::after { background-image: url("../img/dkh2-1.svg"); }
-.wrap .section-title[data-num="2"]::after { background-image: url("../img/dkh2-2.svg"); }
-.wrap .section-title[data-num="3"]::after { background-image: url("../img/dkh2-3.svg"); }
-.wrap .section-title[data-num="4"]::after { background-image: url("../img/dkh2-4.svg"); }
-.wrap .section-title[data-num="5"]::after { background-image: url("../img/dkh2-5.svg"); }
-.wrap .section-title[data-num="6"]::after { background-image: url("../img/dkh2-6.svg"); }
-.wrap .section-title[data-num="7"]::after { background-image: url("../img/dkh2-7.svg"); }
-.wrap .section-title[data-num="8"]::after { background-image: url("../img/dkh2-8.svg"); }
-.wrap .section-title[data-num="9"]::after { background-image: url("../img/dkh2-9.svg"); }
+.wrap-inner .section-title[data-num="0"]::after { background-image: url("../img/dkh2-0.svg"); }
+.wrap-inner .section-title[data-num="1"]::after { background-image: url("../img/dkh2-1.svg"); }
+.wrap-inner .section-title[data-num="2"]::after { background-image: url("../img/dkh2-2.svg"); }
+.wrap-inner .section-title[data-num="3"]::after { background-image: url("../img/dkh2-3.svg"); }
+.wrap-inner .section-title[data-num="4"]::after { background-image: url("../img/dkh2-4.svg"); }
+.wrap-inner .section-title[data-num="5"]::after { background-image: url("../img/dkh2-5.svg"); }
+.wrap-inner .section-title[data-num="6"]::after { background-image: url("../img/dkh2-6.svg"); }
+.wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/dkh2-7.svg"); }
+.wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/dkh2-8.svg"); }
+.wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/dkh2-9.svg"); }
 
 /* 丸番号を無効化（背景のみ） */
 .section-title .title-number {
-  background: none !important;
+  background: none;
   width: auto;
   height: auto;
   position: static;
@@ -159,7 +148,7 @@ body {
 ======================================== */
 
 .main-title {
-  color: #eee !important;
+  color: #eee;
 }
 
 /* ========================================
@@ -183,24 +172,24 @@ body {
   background-image: 
     linear-gradient(
       to right,
-      #00ccff 0%,      /* 左端：#00ccff */
-      #1f5c99 100%     /* 右端：#1f5c99 */
-    ) !important;
-  background-repeat: no-repeat !important;
-  border: 1px solid #00CCFF !important;
-  color: #eee !important;
+      #00ccff 0%,
+      #1f5c99 100%
+    );
+  background-repeat: no-repeat;
+  border: 1px solid #00CCFF;
+  color: #eee;
 }
 
 .timeline-content h3::before {
-  border-right-color: #00ccff !important;
+  border-right-color: #00ccff;
 }
 
 .timeline-content h3::after {
-  border-right-color: #00ccff !important;
+  border-right-color: #00ccff;
 }
 
 .timeline-content p {
-  color: #ddd !important;
+  color: #ddd;
 }
 
 /* ========================================
@@ -208,7 +197,7 @@ body {
 ======================================== */
 
 .mobile-header {
-  background: #1a1a2e !important;
+  background: #1a1a2e;
 }
 
 /* ========================================
@@ -216,29 +205,29 @@ body {
 ======================================== */
 
 .mobile-menu {
-  background: #1a1a1a !important;
+  background: #1a1a1a;
 }
 
 .mobile-search {
-  background: #2a2a2a !important;
-  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  background: #2a2a2a;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-search #mobile-search-input {
-  color: #eee !important;
+  color: #eee;
 }
 
 .mobile-search #mobile-search-input::placeholder {
-  color: #999 !important;
+  color: #999;
 }
 
 .mobile-menu-list a,
 .mobile-submenu a {
-  color: #eee !important;
+  color: #eee;
 }
 
 .mobile-lang {
-  color: #eee !important;
+  color: #eee;
 }
 
 /* ========================================
@@ -246,45 +235,22 @@ body {
 ======================================== */
 
 .agml-footer {
-  background: #011c37 !important;
-  color: #eee !important;
+  background: #011c37;
+  color: #eee;
 }
 
 .footer-menu a {
-  color: #eee !important;
+  color: #eee;
 }
 
 .footer-menu .divider {
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .footer-copy {
-  color: #ddd !important;
+  color: #ddd;
 }
 
-/* ========================================
-   Wave
-======================================== */
-
-/* 1枚目（前面） — しっかり見える青 */
-.wave-waves .parallax use:nth-child(1) {
-  fill: rgba(41,124,207,0.5) !important;
-}
-
-/* 2枚目 — 中くらいに見える青 */
-.wave-waves .parallax use:nth-child(2) {
-  fill: rgba(41,124,207,0.3) !important;
-}
-
-/* 3枚目 — 薄めの青 */
-.wave-waves .parallax use:nth-child(3) {
-  fill: rgba(41,124,207,0.8) !important;
-}
-
-/* 4枚目 — 背面レイヤー（背景色と統一） */
-.wave-waves .parallax use:nth-child(4) {
-  fill: rgb(30, 86, 143) !important;
-}
 
 /* ========================================
    ロゴ切替
@@ -299,62 +265,62 @@ body {
 ======================================== */
 
 .cookie-banner {
-  background: rgba(25, 56, 89) !important;
-  border: 1px solid #00ccff !important;
+  background: rgba(25, 56, 89);
+  border: 1px solid #00ccff;
 }
 
 .cookie-banner__text {
-  color: #fff !important;
+  color: #fff;
 }
 
 .cookie-banner__link {
-  border: 1px solid #00ccff !important;
-  color: #00ccff !important;
-  background: transparent !important;
+  border: 1px solid #00ccff;
+  color: #00ccff;
+  background: transparent;
 }
 
 .cookie-banner__link:hover {
   opacity: 0.85;
-  background: rgba(0, 204, 255, 0.1) !important;
+  background: rgba(0, 204, 255, 0.1);
 }
 
 .cookie-banner__button {
-  border: none !important;
-  color: #ffffff !important;
-  background: #00ccff !important;
+  border: none;
+  color: #ffffff;
+  background: #00ccff;
 }
 
 .cookie-banner__button:hover {
   opacity: 0.85;
-  background: rgba(0, 204, 255, 0.8) !important;
+  background: rgba(0, 204, 255, 0.8);
 }
 
 
 /* 表示（背景は CSS の background-image で描画） */
 .bottom-background {
-  display: block !important;
+  display: block;
   width: 100%;
-   position: relative !important; /* ★絶対必須：内部absoluteの基準 */
-   margin: -34px 0;
+  position: relative;
+  margin: -34px 0;
   padding: 0;
-   overflow: hidden !important; /* フェードアウト効果のためhiddenに変更 */
+  overflow: hidden;
  
-   /* 背景表示は維持 */
-   background-image: url("../img/bottom-background.png");
-   background-size: 100% auto;        /* 横幅に合わせて縦は自動（巨大化防止） */
-   background-repeat: no-repeat;
-   background-position: center bottom;/* 画面下に吸着させる */
+  /* 背景表示は維持 */
+  background-image: url("../img/bottom-background.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
  
-   /* 高さが潰れないように最低限確保 */
-   min-height: 80px;
+  /* 高さが潰れないように最低限確保 */
+  min-height: 80px;
 }
 
 
 /* SNSシェア */
 
 .sns-svg { 
-  color: #00CCFF !important;
-  opacity: 1 !important;
+  color: #00CCFF;
+  opacity: 1;
 }
 
 /* =====================================================
@@ -383,7 +349,7 @@ body {
 
 /* Instagram */
 .instagram .instagram-light {
-  display: none !important;
+  display: none;
 }
 
 /* Instagramを #0cf に */
@@ -422,22 +388,13 @@ body {
 
 
 /* H2をwrap内に収める（wrapのmax-width:1200pxに従う） */
-.wrap .section-title {
+.wrap-inner .section-title {
   box-sizing: border-box;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   overflow: hidden; /* 右だけ突き抜ける事故止め */
-}
-
-.wrap .section-title {
-  box-sizing: border-box;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  overflow: hidden;
 }
 
 
@@ -447,25 +404,22 @@ body {
 .timeline-number .bubble-1,
 .timeline-number .bubble-2,
 .timeline-number .bubble-3 {
-  display: none !important;
-  animation: none !important;
-  opacity: 0 !important;
+  display: none;
+  animation: none;
+  opacity: 0;
 }
 
 
 /* ===========================
-   FIX: 二重スクロール防止
-   - 縦スクロールは body だけ
+   スクロール制御
 =========================== */
-html, body {
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
+html {
+  overflow-x: hidden;
 }
 
-.wrap,
-.bottom-background,
-.wave-waves {
-  overflow-y: visible !important;  /* 内部スクロールを禁止 */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* =========================
@@ -483,8 +437,8 @@ html, body {
   justify-content: center;
   gap: 40px;
 
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 
   z-index: 20;
 }
@@ -637,44 +591,39 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
-.alert-box {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 12px 16px;
-  border: 1px solid #00d8ff;
-  border-radius: 6px;
-
-  background-image: url("../img/dot.png");
-  background-repeat: repeat;
-  background-position: center;
-
+.wrap .alert-box {
   display: flex;
-  align-items: center;        /* 上下センター */
+  align-items: center;
   gap: 20px;
-
-  color: #fff;
 }
 
-/* 左カラム（アイコン枠）：幅を固定 */
-.alert-icon {
-  flex: 0 0 44px;             /* ★ 列幅を明示 */
+/* 左カラム（アイコン枠） */
+.wrap .alert-box > .alert-icon {
+  flex: 0 0 44px;
   display: flex;
-  align-items: center;        /* ★ 縦センター */
-  justify-content: center;    /* ★ 横センター */
+  align-items: center;
+  justify-content: center;
 }
 
-/* アイコン本体（サイズはここで制御） */
-.alert-inline-icon {
-  width: 20px;                /* ← ここを変えればサイズ変更 */
-  height: 20px;
+/* アイコン画像：img汎用ルールを無効化 */
+.wrap .alert-box > .alert-icon > .alert-inline-icon {
+  width: 16px;
+  height: 16px;
+  max-width: none;
+  max-height: none;
   display: block;
-  object-fit: contain;
 }
 
-/* 右カラム（テキスト） */
-.alert-box-text {
+/* テキストブロック */
+.wrap .alert-box > .alert-box-text {
   flex: 1;
-  min-width: 0;               /* ★ 折り返し事故防止 */
+  min-width: 0;
   font-size: 15px;
   line-height: 1.6;
+}
+
+/* ★ 重要：wrap p の影響を遮断 */
+.wrap .alert-box p {
+  margin-left: 0;
+  margin-bottom: 0;
 }

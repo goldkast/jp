@@ -788,17 +788,11 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 /* コンテンツラッパー */
 .wrap {
   width: 100%;
-  margin: 20px auto 0; /* 40px - 50px = -10px（上に50px移動して動画にかぶせる） */
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  color: #999;
-  line-height: normal;
+  margin: 20px auto 0;
   position: relative;
-  padding-top: 10px; /* デザインに合わせて調整OK */
-  background: transparent;
   z-index: 1;
 }
+
 
 /* wrap内コンテンツ用（max-width + padding） */
 .wrap-inner {
@@ -821,7 +815,12 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   text-align: center;
 }
 
-.wrap h1 {
+/* index2.html専用：.wrap-inner h1の上マージン */
+.index2-page .wrap-inner h1 {
+  margin-top: 80px;
+}
+
+.wrap-inner h1 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 0.5em;
@@ -831,12 +830,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   gap: 10px;
 }
 
-/* index2.html専用：.wrap h1の上マージン */
-.index2-page .wrap h1 {
-  margin-top: 80px;
-}
-
-.wrap h1 .h1-icon {
+.wrap-inner h1 .h1-icon {
   width: 30px;
   height: 30px;
   min-width: 30px;
@@ -854,19 +848,18 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   /* アイコンの色を#00d8ffに変更 */
   filter: invert(64%) sepia(100%) saturate(748%) hue-rotate(160deg) brightness(100%) contrast(97%);
   
-  opacity: 1 !important;
-  visibility: visible !important;
+  opacity: 1;
+  visibility: visible;
 }
 
-.wrap p {
+.wrap-inner p {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 50px;
-  margin-left: 20px;
   color: #999;
 }
 
-.wrap .section-title {
+.wrap-inner .section-title {
   position: relative;
   background: #e3e3e3;
   min-height: 30px;
@@ -881,7 +874,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   margin-bottom: 1.5em;
 }
 
-.wrap .section-title .title-number {
+.wrap-inner .section-title .title-number {
   position: absolute;
   left: -4px;
   top: 50%;
@@ -896,32 +889,32 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   z-index: 2;
 }
 
-.wrap .section-title .title-number img {
+.wrap-inner .section-title .title-number img {
   width: 24px;
   height: auto;
 }
 
-.wrap ul {
+.wrap-inner ul {
   list-style: disc;
-  padding-left: 46px;
+  padding-left: 26px;
   margin-bottom: 30px;
   color: #999;
 }
 
-.wrap li {
+.wrap-inner li {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 10px;
   color: #999;
 }
 
-/* wrap内のリンクスタイル（全ページ共通） */
-.wrap a {
+/* wrap-inner内のリンクスタイル（全ページ共通） */
+.wrap-inner a {
   color: #00d8ff;
   text-decoration: none;
 }
 
-.wrap a:hover {
+.wrap-inner a:hover {
   color: #3399ff;
   text-decoration: none;
 }
@@ -2010,17 +2003,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   display: block;
 }
 
-/* モバイル時（開閉問わず）wave と wrap の隙間を消す */
-@media (max-width: 900px) {
-  .wave-waves {
-    margin-top: -58px !important; /* wave を動画へ食い込ませる */
-    margin-bottom: 0 !important;
-  }
-  
-  .wrap {
-    margin-top: -30px !important; /* 上に50px移動（20px - 50px = -30px） */
-  }
-}
 
 
 
