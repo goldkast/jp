@@ -1,3 +1,5 @@
+/* Theme: Dark mode colors, gradients, visual styles */
+
 /* ========================================
    基本設定
 ======================================== */
@@ -253,30 +255,6 @@ body {
 
 
 /* ========================================
-   Wave
-======================================== */
-
-/* 1枚目（前面） — しっかり見える青 */
-.wave-waves .parallax use:nth-child(1) {
-  fill: rgba(41, 124, 207, 0.5);
-}
-
-/* 2枚目 — 中くらいに見える青 */
-.wave-waves .parallax use:nth-child(2) {
-  fill: rgba(41, 124, 207, 0.3);
-}
-
-/* 3枚目 — 薄めの青 */
-.wave-waves .parallax use:nth-child(3) {
-  fill: rgba(41, 124, 207, 0.8);
-}
-
-/* 4枚目 — 背面レイヤー（背景色と統一） */
-.wave-waves .parallax use:nth-child(4) {
-  fill: rgb(30, 86, 143);
-}
-
-/* ========================================
    ロゴ切替
 ======================================== */
 
@@ -371,11 +349,6 @@ body {
   transform: scale(1.12);
 }
 
-/* Instagram */
-.instagram .instagram-light {
-  display: none;
-}
-
 /* Instagramを #0cf に */
 .instagram img {
   filter: brightness(0) saturate(100%)
@@ -423,11 +396,12 @@ body {
 
 
 /* タイムライン番号内のバブルを完全に無効化 */
-.timeline-number .bubbles-container,
-.timeline-number .bubble,
-.timeline-number .bubble-1,
-.timeline-number .bubble-2,
-.timeline-number .bubble-3 {
+/* バブル演出を無効化（JSやクラス切替で制御可能な設計） */
+.timeline-number:not(.bubble-active) .bubbles-container,
+.timeline-number:not(.bubble-active) .bubble,
+.timeline-number:not(.bubble-active) .bubble-1,
+.timeline-number:not(.bubble-active) .bubble-2,
+.timeline-number:not(.bubble-active) .bubble-3 {
   display: none;
   animation: none;
   opacity: 0;
@@ -545,8 +519,8 @@ h3.steps .dk-line {
    userページ：メイン画像の下端を背景に自然に溶け込ませる
 =========================== */
 
-/* メイン画像ブロック */
-.bottom-background {
+/* userページのみ：メイン画像ブロック */
+.user-page .bottom-background {
   position: relative;
   overflow: hidden;
 
@@ -570,8 +544,8 @@ h3.steps .dk-line {
   );
 }
 
-/* label-attachment-wrapper にも同じ処理を適用 */
-.label-attachment-wrapper {
+/* userページのみ：label-attachment-wrapper にも同じ処理を適用 */
+.user-page .label-attachment-wrapper {
   position: relative;
   overflow: hidden;
 
@@ -594,8 +568,8 @@ h3.steps .dk-line {
 
 /* モバイル用微調整 */
 @media (max-width: 768px) {
-  .bottom-background,
-  .label-attachment-wrapper {
+  .user-page .bottom-background,
+  .user-page .label-attachment-wrapper {
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 0%,
@@ -615,22 +589,20 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
-.wrap .alert-box {
+.alert-box {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* 左カラム（アイコン枠） */
-.wrap .alert-box > .alert-icon {
+.alert-box > .alert-icon {
   flex: 0 0 44px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* アイコン画像：img汎用ルールを無効化 */
-.wrap .alert-box > .alert-icon > .alert-inline-icon {
+.alert-box > .alert-icon > .alert-inline-icon {
   width: 16px;
   height: 16px;
   max-width: none;
@@ -638,16 +610,14 @@ h3.steps .dk-line {
   display: block;
 }
 
-/* テキストブロック */
-.wrap .alert-box > .alert-box-text {
+.alert-box > .alert-box-text {
   flex: 1;
   min-width: 0;
   font-size: 15px;
   line-height: 1.6;
 }
 
-/* ★ 重要：wrap p の影響を遮断 */
-.wrap .alert-box p {
+.alert-box-text p {
   margin-left: 0;
   margin-bottom: 0;
 }

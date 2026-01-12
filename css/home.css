@@ -1,0 +1,232 @@
+/* Home-only: Hero, wave, video, special animations */
+
+/* ========================================
+   Hero Video
+======================================== */
+
+/* [A] トップ動画＋マスク表示 */
+.hero-video {
+  position: relative;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-top: 40px;
+  margin-bottom: 0;
+  min-height: calc(100vh - 40px);
+  overflow: visible !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.hero-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-mask {
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/video_dot_mask.svg');
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.9;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* タイプアニメーション用テキストブロック */
+#hero-type-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#hero-type-line1 {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+#hero-type-line2 {
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1080px;
+  font-size: 26px;
+  line-height: 1.55;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 200;
+}
+
+/* ========================================
+   Wave
+======================================== */
+
+/* Simple CSS Waves */
+.wave-waves {
+  background: transparent;
+  width: 100% !important;
+  margin-left: 0 !important;
+  overflow: visible !important;
+  position: relative;
+  z-index: 10;
+  margin-top: -60px;
+  margin-bottom: -4px;
+  line-height: 0;
+  font-size: 0;
+  padding: 0;
+}
+
+.wave-waves .waves {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  min-height: 60px;
+  max-height: 80px;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 0;
+  display: block;
+  padding: 0;
+  z-index: 7;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+.wave-waves svg {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 7;
+}
+
+/* wave透過マスク用の楕円スタイル */
+.wave-waves .waves .wave-fade-ellipse {
+  transform: translate(var(--wave-fade-x), var(--wave-fade-y)) scale(
+    calc(var(--wave-fade-w) / 20),
+    calc(var(--wave-fade-h) / 12)
+  );
+  transform-origin: 0 0;
+
+  fill: #000;
+  opacity: var(--wave-fade-strength);
+}
+
+/* Wave Color (青の透過) */
+.wave-waves .parallax use:nth-child(1) {
+  fill: rgba(41, 124, 207, 0.5);
+}
+
+.wave-waves .parallax use:nth-child(2) {
+  fill: rgba(41, 124, 207, 0.3);
+}
+
+.wave-waves .parallax use:nth-child(3) {
+  fill: rgba(41, 124, 207, 0.8);
+}
+
+.wave-waves .parallax use:nth-child(4) {
+  fill: rgb(30, 86, 143);
+}
+
+/* ========================================
+   Responsive
+======================================== */
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  #hero-type-line1 {
+    top: 14%;
+    font-size: 26px;
+    white-space: nowrap;
+  }
+
+  #hero-type-line2 {
+    top: 66%;
+    font-size: 20px;
+    width: 72%;
+    padding: 0 20px;
+    white-space: normal;
+  }
+
+  .wave-waves .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero-type-line1 {
+    top: 22%;
+    font-size: 24px;
+    white-space: nowrap;
+  }
+
+  #hero-type-line2 {
+    top: 52%;
+    font-size: 16px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-video {
+    margin-top: 50px;
+    min-height: calc(100vh - 50px);
+  }
+}
+
