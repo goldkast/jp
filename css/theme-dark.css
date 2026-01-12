@@ -599,6 +599,24 @@ h3.steps .dk-line {
 }
 
 /* 左カラム：アイコン（CSS管理） */
+.alert-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  padding: 14px 10px;
+  border: 1px solid rgba(0, 216, 255, 0.6);
+  border-radius: 6px;
+
+  background:
+    linear-gradient(
+      rgba(0, 216, 255, 0.08),
+      rgba(0, 216, 255, 0.08)
+    ),
+    url("../img/dot.png");
+}
+
 .alert-box-icon {
   flex: 0 0 44px;
   height: 44px;
@@ -613,7 +631,6 @@ h3.steps .dk-line {
   background-size: 24px 24px;
 }
 
-/* テキスト */
 .alert-box-text {
   flex: 1;
   min-width: 0;
