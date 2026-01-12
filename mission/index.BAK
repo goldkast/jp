@@ -183,8 +183,8 @@
     </p>
 
 <div class="alert-box">
+  <img src="../img/info-icon.png" alt="" class="alert-inline-icon">
   <div class="alert-box-text">
-    <img src="../img/info-icon.png" alt="" class="alert-inline-icon">
     AI生成音楽ラベル（AGML）は、AI生成音楽の透明性と創作の自由を守る非営利プロジェクトです。<br>
     本ページでは、AI音楽がもたらす新しい価値と文化的可能性について、3つの視点から解説しています。
   </div>
