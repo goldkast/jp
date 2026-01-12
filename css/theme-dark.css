@@ -649,28 +649,32 @@ h3.steps .dk-line {
   background-position: center;
 
   display: flex;
-  align-items: center;     /* アイコン上下センター */
-  gap: 14px;               /* アイコンとテキストの間隔 */
+  align-items: center;        /* 上下センター */
+  gap: 20px;
 
   color: #fff;
 }
 
-/* アイコン */
+/* 左カラム（アイコン枠）：幅を固定 */
+.alert-icon {
+  flex: 0 0 44px;             /* ★ 列幅を明示 */
+  display: flex;
+  align-items: center;        /* ★ 縦センター */
+  justify-content: center;    /* ★ 横センター */
+}
+
+/* アイコン本体（サイズはここで制御） */
 .alert-inline-icon {
-  width: 22px;
-  height: 22px;
-  min-width: 16px;
-  flex: 0 0 16px;
-  flex-shrink: 0;
+  width: 20px;                /* ← ここを変えればサイズ変更 */
+  height: 20px;
   display: block;
   object-fit: contain;
 }
 
-/* テキスト */
+/* 右カラム（テキスト） */
 .alert-box-text {
   flex: 1;
-  min-width: 0;
+  min-width: 0;               /* ★ 折り返し事故防止 */
   font-size: 15px;
   line-height: 1.6;
-  display: block;
 }
