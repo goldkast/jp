@@ -373,6 +373,22 @@ body {
 }
 
 
+/* =========================
+   SNS share layout (final)
+   ========================= */
+
+.footer-social {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sns-gap, 16px);
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* H2をwrap内に収める（wrapのmax-width:1200pxに従う） */
 .wrap-inner .section-title {
   box-sizing: border-box;

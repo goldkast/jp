@@ -1821,6 +1821,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 
   /* ==== SNS Share ==== */
   --sns-size: 28px;             /* SNSアイコンサイズ（全SNS共通） */
+  --sns-gap: 36px;               /* SNSアイコン間の間隔（調整可能） */
   --sns-offset-bottom: 150px;   /* footerの上に配置（footer高さ分を考慮） */
 }
 
