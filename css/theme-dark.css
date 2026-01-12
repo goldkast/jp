@@ -610,7 +610,7 @@ h3.steps .dk-line {
   background-image: url("../img/info-icon.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 24p24px; /* ← アイコンサイズはここだけ触る */
+  background-size: 24px 24px;
 }
 
 /* テキスト */
@@ -619,5 +619,5 @@ h3.steps .dk-line {
   min-width: 0;
   font-size: 15px;
   line-height: 1.6;
-  color: #FFF;
+  color: #fff;
 }
