@@ -583,7 +583,7 @@ h3.steps .dk-line {
 .alert-box {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* ← これが重要 */
+  justify-content: flex-start;
   gap: 10px;
 
   padding: 14px 10px;
@@ -598,19 +598,19 @@ h3.steps .dk-line {
     url("../img/dot.png");
 }
 
-/* 左カラム：アイコン */
+/* 左カラム：アイコン（CSS管理） */
 .alert-box-icon {
   flex: 0 0 44px;
+  height: 44px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-/* アイコン画像 */
-.alert-box-icon img {
-  width: 24px;
-  height: 24px;
-  display: block;
+  background-image: url("../img/info-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24p24px; /* ← アイコンサイズはここだけ触る */
 }
 
 /* テキスト */
