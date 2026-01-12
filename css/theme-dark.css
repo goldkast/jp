@@ -648,9 +648,39 @@ h3.steps .dk-line {
 
 :root {
   --sns-gap: 28px;
-  --sns-offset-bottom: 140px;
+  --sns-offset-bottom: 120px;
 }
 
 .agml-footer {
   margin-top: 120px !important;
+}
+
+/* =========================
+   FORCE SNS LAYOUT (LIVE FIX)
+   ========================= */
+
+.agml-footer {
+  margin-top: 120px !important;
+  padding-bottom: 0 !important;
+}
+
+.agml-footer .footer-social {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 90px !important;
+  transform: translateX(-50%) !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 28px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.agml-footer .footer-social a {
+  display: inline-flex !important;
+  margin: 0 !important;
 }
