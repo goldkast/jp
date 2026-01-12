@@ -642,3 +642,15 @@ h3.steps .dk-line {
   line-height: 1.6;
 }
 
+/* =========================
+   SNS Share: normalize
+========================= */
+
+:root {
+  --sns-gap: 28px;
+  --sns-offset-bottom: 140px;
+}
+
+.agml-footer {
+  margin-top: 120px !important;
+}
