@@ -32,9 +32,9 @@
           メニュー
         </li>
         <li><a href="../index.html">ホーム</a></li>
-        <li><a href="index.html" class="current">ラベルについて</a></li>
-        <li><a href="../download/index.html">ダウンロード</a></li>
-        <li><a href="../user/index.html">ご利用者様へ</a></li>
+        <li><a href="../label/index.html">ラベルについて</a></li>
+        <li><a href="index.html">ダウンロード</a></li>
+        <li><a href="../user/index.html" class="current">ご利用者様へ</a></li>
         <li><a href="../mission/index.html">ミッション</a></li>
         <li class="lang-menu">
           <a href="#" id="langToggle">
@@ -43,7 +43,7 @@
             <span class="arrow">▼</span>
           </a>
           <ul class="dropdown" id="langDropdown">
-            <li><a href="../en/"><span class="fi fi-us"></span> 英語</a></li>
+            <li><a href="../en"><span class="fi fi-us"></span> 英語</a></li>
             <li><a href="../cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
             <li><a href="../tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
             <li><a href="../kr/"><span class="fi fi-kr"></span> 한국어</a></li>
@@ -90,13 +90,13 @@
         </a>
       </li>
       <li>
-        <a href="index.html">
+        <a href="../label/index.html">
           <img src="../img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
       </li>
       <li>
-        <a href="../download/index.html">
+        <a href="index.html">
           <img src="../img/label-dl.png" alt="ダウンロード">
           <span>ダウンロード</span>
         </a>
@@ -174,55 +174,113 @@
   <!-- H1 と説明 -->
   <div class="wrap">
     <div class="wrap-inner">
+
     <h1>
-      <img src="../img/label4.svg" alt="" class="h1-icon">AI生成音楽ラベル（AGML）とは？
+      <img src="../img/user.svg" alt="ご利用者様へ" class="h1-icon">ご利用者様へ
     </h1>
+
     <p>
-      <span class="bold-spot">AI生成音楽ラベル（AGML）</span>は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
-      このラベルは、AIが生成した音楽であることをリスナーや配信プラットフォームに正しく伝え、音楽文化における透明性と信頼性を高めます。<br>
-      AGMLは、AI音楽の出所を明示し、クリエイターとリスナーが安心してAI技術を活用できる環境を整えることを目的としています。<br>
-      人間が作曲した音楽とAIが生成した音楽が共存し、健全に発展する新しい音楽文化の形成を目指しています。
+	<span class="bold-spot">AI生成音楽ラベルは</span>、制作者・レーベルの方とリスナーの双方にとって分かりやすく安心できる仕組みとして設けられています。<br>
+	ここでは、それぞれの立場に応じた目的やメリット、理解のポイントをまとめています。
     </p>
+
+    <div class="alert-box">
+	<div  class="alert-inline-icon"><img src="../img/info-icon.png" alt="案内アラート"></div>
+	<div class="alert-box-text">
+		<span class="bold-spot">AI Generated Music Label（AGML）</span>は、AI生成音楽の透明性と信頼性を守るために設計された公式ラベルです。<br>
+		本ページでは、作者・レーベル・リスナーそれぞれの立場から、AI音楽ラベルの利用目的・活用方法・注意点をわかりやすく解説しています。<br>
+		AI音楽時代の新しい共通理解を育て、クリエイターとリスナーが安心してAI音楽を共有できる環境づくりを目指します。
+	</div>
+	</div>
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
-    サイト概要
+    クリエイター・レーベル関係
 </h2>
 
     <p>
-      当サイトは、<span class="bold-spot">AI生成音楽ラベル</span>の概要や利用方法を正しく理解していただくための公式情報を提供します。<br>
-      ラベルの目的や意義、活用方法をわかりやすく発信し、クリエイター・リスナー・関連団体が安心して利用できる環境を整えています。<br>
-      誰もがラベルを通じて音楽の成り立ちを理解できるようにし、健全な音楽文化の普及に寄与します。<br>
-      また、概要欄に長い説明を記載する代わりに、<strong><a href="../index.html/#platform">表記例（各プラットフォーム共通）</a></strong> を参照することで、制作者は簡潔かつ統一的な表現を実装でき、リスナーには分かりやすく正確な情報を届けることが可能になります。
+	このラベルは、AIによる制作活動を行う方々が安心して作品を公開できるように整備された仕組みです。<br>
+	制作者やレーベルが正しく活用することで、音楽文化全体の透明性が守られます。<br>
+	AI生成音楽ラベルの役割は、単に「AIで作られた」と示すだけではありません。<br>
+	制作者がどのような方法で音楽を生み出したのかを明確に提示し、作品の背景を正しく伝えることにあります。<br>
+	これにより、リスナーは作品の成り立ちを理解したうえで選択でき、制作者は自らの創作姿勢を表明することができます。<br>
+	結果として、音楽市場全体でAIと人間による制作の線引きが整い、公平で持続可能な環境づくりにつながります。
     </p>
+
+<h3 class="steps">
+    <span class="dk-line"></span>
+	利用時のメリット
+</h3>
+
+    <p>
+	<span class="bold-spot">AI生成音楽ラベル</span>を表示することで、人間による作品かAI生成かという疑問や誤解を防げます。<br>
+	AI作品を人間のオリジナルだと思い込んだり、その逆に誤解されるケースも避けられます。<br>
+	制作背景を明確に示すことは、リスナーの安心と正しい理解につながります。<br>
+	また、制作者にとっても創作姿勢を正しく伝える手段となり、信頼関係の構築に役立ちます。
+    </p>
+
+    </p>
+<h3 class="steps">
+    <span class="dk-line"></span>
+	利用上の注意点
+</h3>
+
+    <p>
+	<span class="bold-spot">AI生成音楽ラベル</span>を使用する際は、必ず正しい形で表示する必要がります。<br>
+	ラベルの色や文字を勝手に変更したり、AI生成ではない作品に貼り付けたりすることはできません。<br>
+	こうした誤用は、ラベルの意味を損ない、利用者全体の信頼を失わせる原因になります。<br>
+	基本的なルールや表示方法の詳細は、ダウンロードページの<strong><a href="../index.html/#label-usage">「ラベル貼り付け例」</a></strong>でご案内しています。利用にあたってはそちらもあわせてご確認ください。
+    </p>
+
 <h2 class="section-title" data-num="2">
     <span class="dk-line"></span>
-	全な音楽流通と透明性の確保
+    リスナーの方へ
 </h2>
 
     <p>
-      <span class="bold-spot">AI生成音楽ラベル</span>は、AIによる創作活動の広がりに対応し、健全な音楽流通と文化的調和を実現するための枠組みです。<br>
-      A作品の制作背景を明示することで透明性を高め、リスナーは安心感を得られ、クリエイターは誤解を防ぎ、安心して活動できます。<br>
-      Aこれにより、人が自ら作詞作曲した音楽とAI生成曲が共存する次世代の音楽文化の発展に寄与します。
+	AI生成音楽ラベルは、音楽を楽しむ皆さまが作品の背景を正しく理解できるように設けられています。<br>
+	ラベルを見ることで、作品の成り立ちを知り、より安心して音楽に触れることができます。
     </p>
 
-    </p>
-<h2 class="section-title" data-num="3">
+<h3 class="steps">
     <span class="dk-line"></span>
-	シンプルで負担のないラベル運用
-</h2>
+	ラベルが示す意味
+</h3>
 
     <p>
-      AI生成音楽ラベルには、複雑な発行手続きや審査はありません。<br>
-     クリエイター自身が作品のサムネイルにラベルアイコンを配置するだけで、AIによる制作であることを誰もが直感的に理解できます。<br>
-     これにより、概要欄などに毎回「AIで作成しました」と記載する必要がなくなり、利用者の負担を軽減します。<br>
-     また、希望する人は当サイトへのリンクを併記することで、リスナーがラベルの意義を正しく理解できるようになり、クリエイターとリスナーの双方が活動しやすい環境を整えることを目指しています。<br>
-     実際の使用例については <strong><a href="../index.html/#label-usage">ラベル貼り付け例</a></strong> をご覧ください。
+	このラベルは、楽曲制作にAIが関与していることを示す公式の目印です。<br>
+	作詞・作曲・編曲・歌声合成など、一部またはすべてがAIによって生成・支援された作品を識別できます。<br>
+	品質評価やジャンル区分ではなく、人間アーティストが関与していてもAI利用があれば表示されます。<br>
+	制作背景を正しく伝えることで、リスナーの理解と制作者の創作姿勢の明示に役立ちます。
     </p>
+
+<h3 class="steps">
+    <span class="dk-line"></span>
+	リスナーにとってのメリット
+</h3>
+
+    <p>
+	このラベルは、楽曲の制作にAIが関与していることを明示する目印です。<br>
+	作詞・作曲・編曲・歌声合成などの一部または全部がAIで生成・支援された作品をひと目で識別できます。<br>
+	品質評価やジャンル区分を示すものではなく、人間アーティストが関与していてもAI利用があれば表示されます。<br>
+	制作背景を正しく伝えることで、リスナーには選択や鑑賞の参考に、制作者には創作姿勢の表明に役立ちます。 
+    </p>
+
+<h3 class="steps">
+    <span class="dk-line"></span>
+	ラベルを見かけたときの理解
+</h3>
+
+<p>
+ラベルは「AIによって作られた楽曲」であることを示す印です。<br>
+作品の価値を否定するものではなく、音楽をより正しく理解するための補助的な情報です。<br>
+表示の有無によって作品の楽しみ方や感じ方を自由に選べる指標としてご活用ください。<br>
+詳しくは <strong><a href="../label/" target="_blank">「ラベルについて」</a></strong> や <strong><a href="../download/" target="_blank">「ダウンロードページ」</a></strong> もご覧ください。
+</p>
 
     <!-- Label-Attachment画像 -->
     <div class="label-attachment-wrapper">
-      <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
+      <img src="../img/user_lecture-jp.png" alt="ラベル貼り付け例" class="label-attachment-image">
     </div>
   </div>
 </div>

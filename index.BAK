@@ -13,9 +13,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/theme-dark.css?v=20260106">
+  <link rel="stylesheet" href="./css/home.css">
 </head>
-<body class="dark-mode">
+<body class="dark-mode home-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
@@ -218,7 +221,7 @@
       <img src="img/label4.svg" alt="" class="h1-icon">AI利用レベル診断と認証ラベル発行
     </h1>
     <p>
-      AI生成音楽ラベル（AGML）は、AI音楽の透明性を確保するための公式認証制度です。<br>
+      <span class="bold-spot">AI生成音楽ラベル（AGML）</span>は、AI音楽の透明性を確保するための公式認証制度です。<br>
       本ページでは、AI利用レベルを診断し、認証ラベルを発行・取得する方法を紹介しています。<br>
       YouTube、Spotify、SNS投稿など、さまざまなプラットフォームでご利用いただけます。<br>
     </p>
@@ -380,8 +383,7 @@
 
   <!-- Instagram -->
 <a href="#" class="sns-icon instagram">
-  <img src="./img/instagram.svg" class="instagram-light" alt="Instagram">
-  <img src="./img/instagram.svg" class="instagram-dark" alt="Instagram dark">
+  <img src="./img/instagram.svg" alt="Instagram">
 </a>
 
   <!-- TikTok -->
@@ -479,5 +481,7 @@
   }
 })();
 </script>
+<script src="js/main.js"></script>
+<div class="mobile-menu-overlay-bottom"></div>
 </body>
 </html>

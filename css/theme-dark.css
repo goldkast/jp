@@ -36,15 +36,7 @@ body {
   color: #eee;
 }
 
-.wrap-inner p {
-  color: #ddd;
-}
-
 .wrap-inner ul {
-  color: #ddd;
-}
-
-.wrap-inner li {
   color: #ddd;
 }
 
@@ -454,7 +446,7 @@ h3.steps {
   --line-align-y: -2px;     /* ラインの縦位置調整（上に移動: 負の値、下に移動: 正の値） */
 
   padding: var(--title-padding-y) var(--title-padding-x);
-  margin: 2.5em 0 1.2em;
+  margin: -50px 0 0 0;
 
   font-size: 18px;
   font-weight: 600;
@@ -607,14 +599,13 @@ h3.steps .dk-line {
 .alert-box {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 12px 16px;
+  margin: -70px 0 0 0;
+  padding: 12px 10px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
-
   background-image: url("../img/dot.png");
   background-repeat: repeat;
   background-position: center;
@@ -647,12 +638,8 @@ h3.steps .dk-line {
 ========================= */
 
 :root {
-  --sns-gap: 28px;
-  --sns-offset-bottom: 120px;
-}
-
-.agml-footer {
-  margin-top: 120px !important;
+  --sns-gap: 50px;
+  --sns-offset-bottom: 160px;
 }
 
 /* =========================
@@ -660,8 +647,8 @@ h3.steps .dk-line {
    ========================= */
 
 .agml-footer {
-  margin-top: 120px !important;
-  padding-bottom: 0 !important;
+  margin-top: 130px !important;
+  padding-bottom: 30px;
 }
 
 .agml-footer .footer-social {
@@ -683,4 +670,11 @@ h3.steps .dk-line {
 .agml-footer .footer-social a {
   display: inline-flex !important;
   margin: 0 !important;
+}
+
+/* =========================
+   スポット太字
+   ========================= */
+.bold-spot {
+  font-weight: 700 !important;
 }

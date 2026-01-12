@@ -659,8 +659,14 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 .wrap-inner p {
   font-size: 16px;
   line-height: 1.8;
-  margin-bottom: 50px;
-  color: #999;
+  margin-bottom: 100px;
+  margin-left: 20px;
+  color: #FFF;
+}
+
+/*利用規約用P調整*/
+.terms-content p {
+  margin-bottom: 40px;
 }
 
 /* 注: 構造（position, display, flex, padding）のみ。
@@ -709,7 +715,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 10px;
-  color: #999;
 }
 
 /* wrap-inner内のリンクスタイル（全ページ共通） */
@@ -733,10 +738,10 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 }
 
 .label-attachment-image {
-  width: 90%;
+  width: 70%;
   height: auto;
   display: block;
-  margin: 50px auto 0;
+  margin: 0 auto;
 }
 
 .main-title {
@@ -851,7 +856,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 .terms-content {
   font-size: 14px;
   line-height: 1.8;
-  color: #999;
+  color: #FFF;
 }
 
 .terms-content p {
@@ -1841,7 +1846,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 100px;
 
   margin: 0;
   padding: 0;
@@ -1849,4 +1854,9 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   z-index: 120; /* Footer social icons (above background) */
 }
 
-
+/* =========================
+   インデント
+========================= */
+.indent-50 {
+  margin-left: 50px;
+}
