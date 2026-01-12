@@ -579,56 +579,39 @@ h3.steps .dk-line {
   }
 }
 
-/* Alert Box */
+/* ===========================
+   Alert Box（情報表示UI）
+   最終確定・単一定義
+=========================== */
 .alert-box {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
+  gap: 20px;
 
-  padding: 14px 10px;
-  border: 1px solid rgba(0, 216, 255, 0.6);
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 12px 16px;
+  border: 1px solid #00d8ff;
   border-radius: 6px;
 
-  background:
-    linear-gradient(
-      rgba(0, 216, 255, 0.08),
-      rgba(0, 216, 255, 0.08)
-    ),
-    url("../img/dot.png");
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+  color: #fff;
 }
 
-/* 左カラム：アイコン（CSS管理） */
-.alert-box {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-
-  padding: 14px 10px;
-  border: 1px solid rgba(0, 216, 255, 0.6);
-  border-radius: 6px;
-
-  background:
-    linear-gradient(
-      rgba(0, 216, 255, 0.08),
-      rgba(0, 216, 255, 0.08)
-    ),
-    url("../img/dot.png");
-}
-
-.alert-box-icon {
+.alert-inline-icon {
   flex: 0 0 44px;
-  height: 44px;
-
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  background-image: url("../img/info-icon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px 24px;
+.alert-inline-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
 }
 
 .alert-box-text {
@@ -636,5 +619,5 @@ h3.steps .dk-line {
   min-width: 0;
   font-size: 15px;
   line-height: 1.6;
-  color: #fff;
 }
+
