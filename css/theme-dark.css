@@ -77,6 +77,8 @@ body {
 
 
 /* セクションタイトル：新デザイン */
+/* 注: レイアウト（position, display, flex）と装飾（background, color, border）が混在。
+   完全分離は保守性低下のため現状維持。 */
 .wrap-inner .section-title {
   position: relative;
 
@@ -396,12 +398,11 @@ body {
 
 
 /* タイムライン番号内のバブルを完全に無効化 */
-/* バブル演出を無効化（JSやクラス切替で制御可能な設計） */
-.timeline-number:not(.bubble-active) .bubbles-container,
-.timeline-number:not(.bubble-active) .bubble,
-.timeline-number:not(.bubble-active) .bubble-1,
-.timeline-number:not(.bubble-active) .bubble-2,
-.timeline-number:not(.bubble-active) .bubble-3 {
+.timeline-number .bubbles-container,
+.timeline-number .bubble,
+.timeline-number .bubble-1,
+.timeline-number .bubble-2,
+.timeline-number .bubble-3 {
   display: none;
   animation: none;
   opacity: 0;
@@ -423,6 +424,8 @@ body {
 /* =========================
    SNSシェア位置制御（確定）
 ========================= */
+/* 注: レイアウト（position, display, flex, z-index）と装飾（color, filter）が混在。
+   完全分離は保守性低下のため現状維持。 */
 .footer-social {
   position: absolute;
   left: 50%;
@@ -449,6 +452,8 @@ body {
 =========================== */
 
 /* h3.steps 全体のベース設定 */
+/* 注: レイアウト（position, display, flex）と装飾（color, background）が混在。
+   完全分離は保守性低下のため現状維持。 */
 h3.steps {
   position: relative;
   display: flex;
@@ -520,6 +525,8 @@ h3.steps .dk-line {
 =========================== */
 
 /* userページのみ：メイン画像ブロック */
+/* 注: レイアウト（position, overflow）と装飾（mask-image）が混在。
+   完全分離は保守性低下のため現状維持。 */
 .user-page .bottom-background {
   position: relative;
   overflow: hidden;
@@ -544,11 +551,10 @@ h3.steps .dk-line {
   );
 }
 
-/* userページのみ：label-attachment-wrapper にも同じ処理を適用 */
-.user-page .label-attachment-wrapper {
-  position: relative;
-  overflow: hidden;
-
+/* label-attachment-wrapper：画像下側を透過させるフェード処理 */
+/* 注: レイアウト（position, overflow）と装飾（mask-image）が混在。
+   完全分離は保守性低下のため現状維持。 */
+.label-attachment-wrapper {
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
@@ -566,10 +572,52 @@ h3.steps .dk-line {
   );
 }
 
+/* userページのみ：メイン画像ブロック */
+.user-page .bottom-background {
+  position: relative;
+  overflow: hidden;
+
+  /* ▼ 画像を下方向に透過させる */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0.25) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0.25) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
 /* モバイル用微調整 */
 @media (max-width: 768px) {
-  .user-page .bottom-background,
-  .user-page .label-attachment-wrapper {
+  .label-attachment-wrapper {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 55%,
+      rgba(0, 0, 0, 0.4) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 55%,
+      rgba(0, 0, 0, 0.4) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .user-page .bottom-background {
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 0%,
@@ -589,6 +637,8 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
+/* 注: レイアウト（display, flex）と装飾（color, border）が混在。
+   独立UIとしてtheme-dark.cssに配置。完全分離は保守性低下のため現状維持。 */
 .alert-box {
   display: flex;
   align-items: center;

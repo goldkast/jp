@@ -1,6 +1,8 @@
 /* Layout: Navigation, wrap, footer, structural layout */
 
 /* グローバルナビ */
+/* 注: 構造（position/fixed, z-index）と装飾（background-gradient）が混在。
+   完全分離は保守性低下のため現状維持。 */
 .global-nav {
   position: fixed;
   top: 0;
@@ -591,10 +593,12 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
 }
 
 /* コンテンツラッパー */
+/* 構造専用：width, margin, position, z-index のみ */
 .wrap {
   width: 100%;
   margin: 20px auto 0;
   position: relative;
+  z-index: 1;
 }
 
 
@@ -1814,16 +1818,6 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   /* SNSシェアサイズ */
   --sns-size: 28px; /* ← ここだけで全SNSサイズ調整 */
   --sns-offset-bottom: 150px;/* footerの上に配置（footer高さ分を考慮） */
-}
-
-/* home 専用 */
-.home-page {
-  /* wave透過マスク調整用（SVG mask方式） */
-  --wave-fade-x: 145px;        /* 位置X（SVG座標） */
-  --wave-fade-y: 40px;         /* 位置Y（SVG座標） */
-  --wave-fade-w: 20;           /* 範囲幅（単位なし：非常に小さく設定） */
-  --wave-fade-h: 8;            /* 範囲高（単位なし：非常に小さく設定） */
-  --wave-fade-strength: 0;     /* 薄さ：一旦0に設定して効果を無効化（0=変化なし） */
 }
 
 
