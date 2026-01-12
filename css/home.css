@@ -1,4 +1,4 @@
-/* Home-only: Hero, wave, video, special animations */
+/* Home-only: Hero, wave, video, animations */
 
 /* ========================================
    Hero Video
@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 0;
+  z-index: 0; /* Hero video (base layer) */
 }
 
 .hero-video video {
@@ -91,12 +91,12 @@
   margin-left: 0 !important;
   overflow: visible !important;
   position: relative;
-  z-index: 10;
   margin-top: -60px;
   margin-bottom: -4px;
   line-height: 0;
   font-size: 0;
   padding: 0;
+  z-index: 10; /* Wave container (above hero) */
 }
 
 .wave-waves .waves {
@@ -151,7 +151,7 @@
   margin: 0;
   padding: 0;
   position: relative;
-  z-index: 7;
+  z-index: 7; /* Wave SVG (above base) */
 }
 
 /* wave透過マスク用の楕円スタイル */
@@ -188,7 +188,7 @@
 ======================================== */
 
 /* home 専用：wave透過マスク調整用（SVG mask方式） */
-:root {
+.home-page {
   --wave-fade-x: 145px;        /* 位置X（SVG座標） */
   --wave-fade-y: 40px;         /* 位置Y（SVG座標） */
   --wave-fade-w: 20;           /* 範囲幅（単位なし：非常に小さく設定） */

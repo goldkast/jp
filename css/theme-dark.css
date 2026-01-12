@@ -1,4 +1,4 @@
-/* Theme: Dark mode colors, gradients, visual styles */
+/* Theme (Dark): Colors, gradients, visual styles */
 
 /* ========================================
    基本設定
@@ -76,12 +76,10 @@ body {
 
 
 
-/* セクションタイトル：新デザイン */
-/* 注: レイアウト（position, display, flex）と装飾（background, color, border）が混在。
-   完全分離は保守性低下のため現状維持。 */
+/* セクションタイトル：新デザイン（装飾のみ） */
+/* 注: 構造（position, display, flex, padding）はlayout.cssに分離済み。
+   ここでは装飾（background, color, border）のみを定義。 */
 .wrap-inner .section-title {
-  position: relative;
-
   /* ▼ 左 #00ccff（50%透明）→ 右に薄くフェードアウトする帯 */
   background: linear-gradient(
     to right,
@@ -95,17 +93,6 @@ body {
   color: #fff;
   border-radius: 50px;
   border: 1px solid #00CCFF;
-
-  /* 番号 + 白線 + テキスト分の余白 */
-  padding: 5px 12px 4px calc(var(--dk-h2-line-left) + 4px);
-
-  margin: 2.2em 0 1.5em;
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  line-height: 1.5;
-  overflow: visible;
 }
 
 .wrap-inner .section-title .title-number {
@@ -422,27 +409,10 @@ body {
 }
 
 /* =========================
-   SNSシェア位置制御（確定）
+   SNSシェア：装飾（theme-dark.css）
 ========================= */
-/* 注: レイアウト（position, display, flex, z-index）と装飾（color, filter）が混在。
-   完全分離は保守性低下のため現状維持。 */
-.footer-social {
-  position: absolute;
-  left: 50%;
-  bottom: var(--sns-offset-bottom);
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-
-  margin: 0;
-  padding: 0;
-
-  z-index: 20;
-}
+/* 注: レイアウト（position, display, flex, z-index）はlayout.cssに分離済み。
+   ここでは装飾（color, filter）のみを定義。 */
 
 /* ===========================
    userページ：ステップ見出し（h3.steps）
@@ -524,37 +494,10 @@ h3.steps .dk-line {
    userページ：メイン画像の下端を背景に自然に溶け込ませる
 =========================== */
 
-/* userページのみ：メイン画像ブロック */
+/* label-attachment-wrapper：画像下側を透過させるフェード処理（user-page限定） */
 /* 注: レイアウト（position, overflow）と装飾（mask-image）が混在。
    完全分離は保守性低下のため現状維持。 */
-.user-page .bottom-background {
-  position: relative;
-  overflow: hidden;
-
-  /* ▼ 画像を下方向に透過させる */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0.6) 75%,
-    rgba(0, 0, 0, 0.25) 88%,
-    rgba(0, 0, 0, 0) 100%
-  );
-
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0.6) 75%,
-    rgba(0, 0, 0, 0.25) 88%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-/* label-attachment-wrapper：画像下側を透過させるフェード処理 */
-/* 注: レイアウト（position, overflow）と装飾（mask-image）が混在。
-   完全分離は保守性低下のため現状維持。 */
-.label-attachment-wrapper {
+.user-page .label-attachment-wrapper {
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
@@ -572,7 +515,7 @@ h3.steps .dk-line {
   );
 }
 
-/* userページのみ：メイン画像ブロック */
+/* userページのみ：メイン画像ブロック（PC用） */
 .user-page .bottom-background {
   position: relative;
   overflow: hidden;
@@ -599,7 +542,7 @@ h3.steps .dk-line {
 
 /* モバイル用微調整 */
 @media (max-width: 768px) {
-  .label-attachment-wrapper {
+  .user-page .label-attachment-wrapper {
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 0%,
@@ -637,37 +580,44 @@ h3.steps .dk-line {
 }
 
 /* Alert Box */
-/* 注: レイアウト（display, flex）と装飾（color, border）が混在。
-   独立UIとしてtheme-dark.cssに配置。完全分離は保守性低下のため現状維持。 */
 .alert-box {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-start; /* ← これが重要 */
+  gap: 10px;
+
+  padding: 14px 10px;
+  border: 1px solid rgba(0, 216, 255, 0.6);
+  border-radius: 6px;
+
+  background:
+    linear-gradient(
+      rgba(0, 216, 255, 0.08),
+      rgba(0, 216, 255, 0.08)
+    ),
+    url("../img/dot.png");
 }
 
-.alert-box > .alert-icon {
+/* 左カラム：アイコン */
+.alert-box-icon {
   flex: 0 0 44px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.alert-box > .alert-icon > .alert-inline-icon {
-  width: 16px;
-  height: 16px;
-  max-width: none;
-  max-height: none;
+/* アイコン画像 */
+.alert-box-icon img {
+  width: 24px;
+  height: 24px;
   display: block;
 }
 
-.alert-box > .alert-box-text {
+/* テキスト */
+.alert-box-text {
   flex: 1;
   min-width: 0;
   font-size: 15px;
   line-height: 1.6;
-}
-
-.alert-box-text p {
-  margin-left: 0;
-  margin-bottom: 0;
+  color: #FFF;
 }
