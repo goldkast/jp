@@ -116,6 +116,9 @@ body {
 .wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/dkh2-7.svg"); }
 .wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/dkh2-8.svg"); }
 .wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/dkh2-9.svg"); }
+.wrap-inner .section-title[data-num="10"]::after { background-image: url("../img/dkh2-10.svg"); }
+.wrap-inner .section-title[data-num="11"]::after { background-image: url("../img/dkh2-11.svg"); }
+.wrap-inner .section-title[data-num="12"]::after { background-image: url("../img/dkh2-12.svg"); }
 
 /* 丸番号を無効化（背景のみ） */
 .section-title .title-number {
