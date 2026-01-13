@@ -684,7 +684,7 @@ h3.steps .dk-line {
 =========================== */
 .faq-wrapper {
   width: 100%;
-  padding: 89px 0 60px;
+  padding: 10px 0 60px;
 }
 
 .faq-container {
@@ -766,6 +766,64 @@ h3.steps .dk-line {
   top: 0;
 }
 
+/* ===========================
+   FAQ – Question Bar (Image Match)
+=========================== */
+
+.faq-btn.faq-q {
+  position: relative;
+  width: 100%;
+  padding: 10px 56px 10px 14px;
+  border-radius: 4px;
+  border: 1px solid #66e4ff;
+
+  background: linear-gradient(
+    to right,
+    #0bb7e5 0%,
+    #098ec6 100%
+  );
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* 右端の斜め台形 */
+.faq-btn.faq-q::before {
+  content: "";
+  position: absolute;
+  right: -26px;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background: #00d8ff;
+  transform: skew(-25deg);
+}
+
+/* ＋ / −（既存JSと連動） */
+.faq-btn.faq-q::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 2;
+}
+
+.faq-btn.faq-q:not(.collapsed)::after {
+  content: "−";
+}
+
+.faq-q-text {
+  position: relative;
+  z-index: 1;
+}
+
 .faq-collapse {
   display: none;
 }
@@ -802,6 +860,48 @@ h3.steps .dk-line {
   bottom: 0;
   background: #86bc42;
   z-index: 1;
+}
+
+/* ===========================
+   FAQ – Answer Box (Image Match)
+=========================== */
+
+.faq-card-body.faq-a {
+  padding: 8px 0 0;
+  background: transparent;
+  border: none;
+}
+
+.faq-card-body.faq-a:after,
+.faq-card-body.faq-a:before {
+  display: none;
+}
+
+/* ===========================
+   FAQ Answer Box (Isolated)
+   ※ alert-box とは完全無関係
+=========================== */
+
+.faq-answer-box {
+  display: flex;
+  align-items: center;
+
+  margin-top: -4px;
+  padding: 14px 16px;
+
+  border: 1px solid #66e4ff;
+  border-radius: 6px;
+
+  background-color: rgba(0, 180, 220, 0.25);
+  background-image: url("../img/dot.png");
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.faq-answer-text {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 /* モバイル対応 */

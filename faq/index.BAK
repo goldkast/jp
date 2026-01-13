@@ -182,11 +182,6 @@
       〇〇〇〇〇〇
     </p>
 
-    <!-- Label-Attachment画像 -->
-    <div class="label-attachment-wrapper">
-      <img src="../img/faq-jp4.png" alt="ラベル貼り付け例" class="label-attachment-image">
-    </div>
-
     <!-- FAQアコーディオン -->
     <div class="faq-wrapper">
       <div class="faq-container">
@@ -195,31 +190,55 @@
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-1">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn" type="button" data-toggle="collapse" data-target="#faq-collapse-1" aria-expanded="true" aria-controls="faq-collapse-1"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
-              <div id="faq-collapse-1" class="faq-collapse show" aria-labelledby="faq-heading-1" data-parent="#faq-accordion-1">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              <div id="faq-collapse-1" class="faq-collapse" aria-labelledby="faq-heading-1" data-parent="#faq-accordion-1">
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-2">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
               <div id="faq-collapse-2" class="faq-collapse" aria-labelledby="faq-heading-2" data-parent="#faq-accordion-1">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-3">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
               <div id="faq-collapse-3" class="faq-collapse" aria-labelledby="faq-heading-3" data-parent="#faq-accordion-1">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -229,31 +248,55 @@
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-4">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn" type="button" data-toggle="collapse" data-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
               <div id="faq-collapse-4" class="faq-collapse" aria-labelledby="faq-heading-4" data-parent="#faq-accordion-2">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-5">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
               <div id="faq-collapse-5" class="faq-collapse" aria-labelledby="faq-heading-5" data-parent="#faq-accordion-2">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="faq-card">
               <div class="faq-card-header" id="faq-heading-6">
                 <h5 class="faq-card-title">
-                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-6" aria-expanded="false" aria-controls="faq-collapse-6"> Frequently Asked Questions ? </button>
+                  <button class="faq-btn collapsed faq-q" type="button" data-toggle="collapse" data-target="#faq-collapse-6" aria-expanded="false" aria-controls="faq-collapse-6">
+                    <span class="faq-q-text">Q：これはテスト</span>
+                  </button>
                 </h5>
               </div>
-              <div id="faq-collapse-6" class="faq-collapse show" aria-labelledby="faq-heading-6" data-parent="#faq-accordion-2">
-                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              <div id="faq-collapse-6" class="faq-collapse" aria-labelledby="faq-heading-6" data-parent="#faq-accordion-2">
+                <div class="faq-card-body faq-a">
+                  <div class="faq-answer-box">
+                    <div class="faq-answer-text">
+                      A：テストの回答はこちら
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -262,6 +305,11 @@
     </div>
   </div>
 </div>
+
+    <!-- Label-Attachment画像 -->
+    <div class="label-attachment-wrapper">
+      <img src="../img/faq-jp4.png" alt="ラベル貼り付け例" class="label-attachment-image">
+    </div>
 
 <div class="footer-social">
   <!-- X -->

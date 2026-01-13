@@ -636,27 +636,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const targetId = this.getAttribute('data-target');
       const target = document.querySelector(targetId);
-      const parentId = target ? target.getAttribute('data-parent') : null;
-      const parent = parentId ? document.querySelector(parentId) : null;
-      
       if (!target) return;
-      
-      // 同じ親グループ内の他のアイテムを閉じる
-      if (parent) {
-        const siblings = parent.querySelectorAll('.faq-collapse.show');
-        siblings.forEach(function(sibling) {
-          if (sibling !== target) {
-            sibling.classList.remove('show');
-            const siblingButton = document.querySelector(
-              '[data-target="#' + sibling.id + '"]'
-            );
-            if (siblingButton) {
-              siblingButton.classList.add('collapsed');
-              siblingButton.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-      }
       
       // 現在のアイテムをトグル
       const isExpanded = target.classList.contains('show');
