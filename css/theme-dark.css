@@ -693,14 +693,14 @@ h3.steps .dk-line {
 .faq-container {
   display: flex;
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .faq-column {
   flex: 1;
-  min-width: 0;
+  min-width: 500px;
 }
 
 .faq-accordion {
@@ -825,6 +825,7 @@ h3.steps .dk-line {
 .faq-q-text {
   position: relative;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .faq-collapse {
@@ -919,6 +920,10 @@ h3.steps .dk-line {
     padding: 0 15px;
   }
 
+  .faq-column {
+    min-width: 0;
+  }
+
   .faq-card {
     margin-bottom: 20px;
   }
@@ -927,4 +932,36 @@ h3.steps .dk-line {
     font-size: 14px;
     padding: 10px 15px;
   }
+
+  .faq-q-text {
+    white-space: normal;
+  }
+}
+
+.cookie-list.flat {
+  list-style: disc;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.cookie-list.flat li {
+  margin-left: 50px;
+}
+
+/* ===========================
+   FAQページ：画像サイズ調整
+   label/index.htmlと同じサイズに
+=========================== */
+.faq-page .label-attachment-wrapper {
+  width: 80% !important;
+  margin: 50px auto !important;
+  max-width: 1200px;
+}
+
+.faq-page .label-attachment-image {
+  width: 70% !important;
+  max-width: 840px !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
