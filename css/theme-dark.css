@@ -446,7 +446,7 @@ h3.steps {
   --line-align-y: -2px;     /* ラインの縦位置調整（上に移動: 負の値、下に移動: 正の値） */
 
   padding: var(--title-padding-y) var(--title-padding-x);
-  margin: -50px 0 0 0;
+  margin: 0;
 
   font-size: 18px;
   font-weight: 600;
@@ -602,7 +602,7 @@ h3.steps .dk-line {
   gap: 10px;
 
   max-width: 1200px;
-  margin: -70px 0 0 0;
+  margin: -10px 0 0 0;
   padding: 12px 10px;
   border: 1px solid #00d8ff;
   border-radius: 6px;

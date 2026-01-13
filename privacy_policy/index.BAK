@@ -32,8 +32,8 @@
           メニュー
         </li>
         <li><a href="../index.html">ホーム</a></li>
-        <li><a href="index.html" class="current">ラベルについて</a></li>
-        <li><a href="../download/index.html">ダウンロード</a></li>
+        <li><a href="../label/index.html">ラベルについて</a></li>
+        <li><a href="index.html" class="current">ダウンロード</a></li>
         <li><a href="../user/index.html">ご利用者様へ</a></li>
         <li><a href="../mission/index.html">ミッション</a></li>
         <li class="lang-menu">
@@ -43,7 +43,7 @@
             <span class="arrow">▼</span>
           </a>
           <ul class="dropdown" id="langDropdown">
-            <li><a href="../en/"><span class="fi fi-us"></span> 英語</a></li>
+            <li><a href="../en"><span class="fi fi-us"></span> 英語</a></li>
             <li><a href="../cn/"><span class="fi fi-cn"></span> 简体中文</a></li>
             <li><a href="../tw/"><span class="fi fi-tw"></span> 繁體中文</a></li>
             <li><a href="../kr/"><span class="fi fi-kr"></span> 한국어</a></li>
@@ -90,13 +90,13 @@
         </a>
       </li>
       <li>
-        <a href="index.html">
+        <a href="../label/indexhtml">
           <img src="../img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
       </li>
       <li>
-        <a href="../download/index.html">
+        <a href="index.html">
           <img src="../img/label-dl.png" alt="ダウンロード">
           <span>ダウンロード</span>
         </a>
@@ -137,7 +137,7 @@
 
     <ul class="mobile-submenu">
       <li>
-        <a href="../terms_of_condition/index.html">
+        <a href="../terms/index.html">
           <img src="../img/TnC.png" alt="利用規約">
           <span>利用規約</span>
         </a>
@@ -175,54 +175,98 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="../img/label4.svg" alt="" class="h1-icon">AI生成音楽ラベル（AGML）とは？
+      <img src="../img/privacy_policy.svg" alt="プライバシーポリシー" class="h1-icon">プライバシーポリシー
     </h1>
     <p>
-      <span class="bold-spot">AI生成音楽ラベル（AGML）</span>は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
-      このラベルは、AIが生成した音楽であることをリスナーや配信プラットフォームに正しく伝え、音楽文化における透明性と信頼性を高めます。<br><br>
-      <span class="bold-spot">AGML</span>は、AI音楽の出所を明示し、クリエイターとリスナーが安心してAI技術を活用できる環境を整えることを目的としています。<br><br>
-      人間が作曲した音楽とAIが生成した音楽が共存し、健全に発展する新しい音楽文化の形成を目指しています。
+	当サイト（以下、「当サイト」といいます。）では、ユーザーの皆さまに安心してご利用いただけるよう、個人情報の取り扱いについて以下のとおりプライバシーポリシーを定めます。
     </p>
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
-    サイト概要
+    個人情報の収集について
 </h2>
 
     <p>
-      当サイトは、<span class="bold-spot">AI生成音楽ラベル</span>の概要や利用方法を正しく理解していただくための公式情報を提供します。<br>
-      ラベルの目的や意義、活用方法をわかりやすく発信し、クリエイター・リスナー・関連団体が安心して利用できる環境を整えています。<br>
-      誰もがラベルを通じて音楽の成り立ちを理解できるようにし、健全な音楽文化の普及に寄与します。<br><br>
-      また、概要欄に長い説明を記載する代わりに、<strong><a href="../index.html/#platform">表記例（各プラットフォーム共通）</a></strong> を参照することで、制作者は簡潔かつ統一的な表現を実装でき、リスナーには分かりやすく正確な情報を届けることが可能になります。
+	当サイトでは、お問い合わせフォームの送信時に、氏名、メールアドレス、その他ご記入いただいた情報を収集する場合があります。<br>
+	収集した情報は、問い合わせ対応やサービス改善の目的にのみ使用いたします。
     </p>
 <h2 class="section-title" data-num="2">
     <span class="dk-line"></span>
-	全な音楽流通と透明性の確保
+	人情報の利用目的について
 </h2>
 
-    <p>
-      <span class="bold-spot">AI生成音楽ラベル</span>は、AIによる創作活動の広がりに対応し、健全な音楽流通と文化的調和を実現するための枠組みです。<br>
-      作品の制作背景を明示することで透明性を高め、リスナーは安心感を得られ、クリエイターは誤解を防ぎ、安心して活動できます。<br><br>
-      これにより、人が自ら作詞作曲した音楽とAI生成曲が共存する次世代の音楽文化の発展に寄与します。
-    </p>
+<p>
+  収集した個人情報は、以下の目的に限り利用します。
+</p>
+
+<ol class="indent-50">
+  <li>問い合わせへの回答や必要な情報提供のため</li>
+  <li>サービス運営上のご連絡のため</li>
+</ol>
 
     </p>
+
 <h2 class="section-title" data-num="3">
     <span class="dk-line"></span>
-	シンプルで負担のないラベル運用
+	人情報の管理について
 </h2>
 
     <p>
-      <span class="bold-spot">AI生成音楽ラベル</span>には、複雑な発行手続きや審査はありません。<br>
-     クリエイター自身が作品のサムネイルにラベルアイコンを配置するだけで、AIによる制作であることを誰もが直感的に理解できます。<br>
-     これにより、概要欄などに毎回「AIで作成しました」と記載する必要がなくなり、利用者の負担を軽減します。<br><br>
-     また、希望する人は当サイトへのリンクを併記することで、リスナーがラベルの意義を正しく理解できるようになり、クリエイターとリスナーの双方が活動しやすい環境を整えることを目指しています。<br><br>
-     実際の使用例については <strong><a href="../index.html/#label-usage">ラベル貼り付け例</a></strong> をご覧ください。
+	当サイトは、個人情報を適切に管理し、漏洩・改ざん・不正アクセスを防止するための安全対策を講じます。
     </p>
+
+<h2 class="section-title" data-num="4">
+    <span class="dk-line"></span>
+	個人情報の第三者提供について
+</h2>
+
+    <p>
+	法令に基づく場合を除き、本人の同意なく第三者に個人情報を提供することはありません。
+    </p>
+
+<h2 class="section-title" data-num="5">
+    <span class="dk-line"></span>
+	個人情報の開示・訂正・削除について
+</h2>
+
+    <p>
+	ユーザーご本人から個人情報の開示・訂正・削除の請求があった場合、本人確認を行った上で速やかに対応します。
+    </p>
+
+<h2 class="section-title" data-num="6">
+    <span class="dk-line"></span>
+	アクセス解析ツールについて
+</h2>
+
+    <p>
+	当サイトでは、アクセス状況を把握するためにGoogle Analytics等の解析ツールを利用する場合があります。<br>
+	これによりCookieを通じて匿名のデータを収集しますが、個人を特定する情報は含まれません
+    </p>
+
+<h2 class="section-title" data-num="7">
+    <span class="dk-line"></span>
+	プライバシーポリシーの変更について
+</h2>
+
+    <p>
+	当サイトは、本ポリシーの内容を必要に応じて見直し、予告なく変更することがあります。
+    </p>
+
+<h2 class="section-title" data-num="8">
+    <span class="dk-line"></span>
+	運営者情報
+</h2>
+<p>
+	当サイトは、以下の団体が運営しています。。<br><br>
+
+	<span class="bold-spot">リュズム国際文化継承ネットワーク</span><br>
+
+	プライバシーポリシーに関するお問い合わせは、当サイトの <a href="../contact/index.html">お問い合わせフォーム </a>よりご連絡ください。
+</p>
 
     <!-- Label-Attachment画像 -->
     <div class="label-attachment-wrapper">
-      <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
+      <img src="../img/Privacy_policy_en4.png" alt="ラベル貼り付け例" class="label-attachment-image">
     </div>
   </div>
 </div>
@@ -309,7 +353,7 @@
   <div class="footer-menu">
     <a href="../terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="../privacy_policy/index.html">プライバシーポリシー</a>
+    <a href="index.html">プライバシーポリシー</a>
     <span class="divider"></span>
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
