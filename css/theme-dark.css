@@ -678,3 +678,150 @@ h3.steps .dk-line {
 .bold-spot {
   font-weight: 700 !important;
 }
+
+/* ===========================
+   FAQアコーディオン
+=========================== */
+.faq-wrapper {
+  width: 100%;
+  padding: 89px 0 60px;
+}
+
+.faq-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.faq-accordion {
+  width: 100%;
+}
+
+.faq-card {
+  border: none;
+  margin-bottom: 30px;
+}
+
+.faq-card-header {
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
+}
+
+.faq-card-title {
+  margin: 0;
+}
+
+.faq-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  background: #242c42;
+  color: #fff;
+  border-radius: 0;
+  padding: 7px 15px 12px;
+  font-size: 16px;
+  overflow: hidden;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-btn:hover,
+.faq-btn:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.faq-btn:after {
+  position: absolute;
+  content: '\f068';
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.faq-btn.collapsed:after {
+  content: '\f067';
+}
+
+.faq-btn:before {
+  position: absolute;
+  content: '';
+  background: #86bc42;
+  transform: skew(-35deg);
+  height: 100%;
+  width: 50%;
+  left: 90%;
+  top: 0;
+}
+
+.faq-collapse {
+  display: none;
+}
+
+.faq-collapse.show {
+  display: block;
+}
+
+.faq-card-body {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.faq-card-body:after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #242c42;
+}
+
+.faq-card-body:before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 50%;
+  left: 0;
+  bottom: 0;
+  background: #86bc42;
+  z-index: 1;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .faq-wrapper {
+    padding: 60px 0 40px;
+  }
+
+  .faq-container {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 15px;
+  }
+
+  .faq-card {
+    margin-bottom: 20px;
+  }
+
+  .faq-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}

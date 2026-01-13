@@ -177,18 +177,88 @@
     <h1>
       <img src="../img/FAQ.svg" alt="FAQ（よくある質問と回答）" class="h1-icon">FAQ（よくある質問と回答）
     </h1>
+
     <p>
-      AI生成音楽ラベル（AGML）は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
-      このラベルは、AIが生成した音楽であることをリスナーや配信プラットフォームに正しく伝え、音楽文化における透明性と信頼性を高めます。<br>
-      AGMLは、AI音楽の出所を明示し、クリエイターとリスナーが安心してAI技術を活用できる環境を整えることを目的としています。<br>
-      人間が作曲した音楽とAIが生成した音楽が共存し、健全に発展する新しい音楽文化の形成を目指しています。
+      〇〇〇〇〇〇
     </p>
-
-
 
     <!-- Label-Attachment画像 -->
     <div class="label-attachment-wrapper">
       <img src="../img/faq-jp4.png" alt="ラベル貼り付け例" class="label-attachment-image">
+    </div>
+
+    <!-- FAQアコーディオン -->
+    <div class="faq-wrapper">
+      <div class="faq-container">
+        <div class="faq-column">
+          <div class="faq-accordion" id="faq-accordion-1">
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-1">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn" type="button" data-toggle="collapse" data-target="#faq-collapse-1" aria-expanded="true" aria-controls="faq-collapse-1"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-1" class="faq-collapse show" aria-labelledby="faq-heading-1" data-parent="#faq-accordion-1">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-2">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-2" class="faq-collapse" aria-labelledby="faq-heading-2" data-parent="#faq-accordion-1">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-3">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-3" class="faq-collapse" aria-labelledby="faq-heading-3" data-parent="#faq-accordion-1">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-column">
+          <div class="faq-accordion" id="faq-accordion-2">
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-4">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn" type="button" data-toggle="collapse" data-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-4" class="faq-collapse" aria-labelledby="faq-heading-4" data-parent="#faq-accordion-2">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-5">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-5" class="faq-collapse" aria-labelledby="faq-heading-5" data-parent="#faq-accordion-2">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-header" id="faq-heading-6">
+                <h5 class="faq-card-title">
+                  <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-collapse-6" aria-expanded="false" aria-controls="faq-collapse-6"> Frequently Asked Questions ? </button>
+                </h5>
+              </div>
+              <div id="faq-collapse-6" class="faq-collapse show" aria-labelledby="faq-heading-6" data-parent="#faq-accordion-2">
+                <div class="faq-card-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, numquam quis perferendis beatae? Alias reprehenderit ut voluptatem mollitia sit aut eum ratione laudantium soluta ipsam adipisci, molestias delectus iure. Recusandae? </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
