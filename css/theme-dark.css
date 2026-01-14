@@ -947,21 +947,3 @@ h3.steps .dk-line {
 .cookie-list.flat li {
   margin-left: 50px;
 }
-
-/* ===========================
-   FAQページ：画像サイズ調整
-   label/index.htmlと同じサイズに
-=========================== */
-.faq-page .label-attachment-wrapper {
-  width: 80% !important;
-  margin: 50px auto !important;
-  max-width: 1200px;
-}
-
-.faq-page .label-attachment-image {
-  width: 70% !important;
-  max-width: 840px !important;
-  height: auto !important;
-  display: block !important;
-  margin: 0 auto !important;
-}

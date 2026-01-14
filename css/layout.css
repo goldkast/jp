@@ -728,17 +728,16 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   text-decoration: none;
 }
 
-/* Label-Attachment画像のスタイル */
+/* Label-Attachment画像：全ページ共通・完全固定 */
 .label-attachment-wrapper {
-  width: 80%;
+  width: 100%;
   margin: 50px auto;
-  position: relative;
-  overflow: hidden;
   text-align: center;
 }
 
 .label-attachment-image {
-  width: 70%;
+  width: 100%;
+  max-width: 700px; /* ← この数値が基準 */
   height: auto;
   display: block;
   margin: 0 auto;
