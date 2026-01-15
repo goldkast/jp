@@ -106,19 +106,19 @@ body {
 }
 
 /* data-numによる画像切替 */
-.wrap-inner .section-title[data-num="0"]::after { background-image: url("../img/dkh2-0.svg"); }
-.wrap-inner .section-title[data-num="1"]::after { background-image: url("../img/dkh2-1.svg"); }
-.wrap-inner .section-title[data-num="2"]::after { background-image: url("../img/dkh2-2.svg"); }
-.wrap-inner .section-title[data-num="3"]::after { background-image: url("../img/dkh2-3.svg"); }
-.wrap-inner .section-title[data-num="4"]::after { background-image: url("../img/dkh2-4.svg"); }
-.wrap-inner .section-title[data-num="5"]::after { background-image: url("../img/dkh2-5.svg"); }
-.wrap-inner .section-title[data-num="6"]::after { background-image: url("../img/dkh2-6.svg"); }
-.wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/dkh2-7.svg"); }
-.wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/dkh2-8.svg"); }
-.wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/dkh2-9.svg"); }
-.wrap-inner .section-title[data-num="10"]::after { background-image: url("../img/dkh2-10.svg"); }
-.wrap-inner .section-title[data-num="11"]::after { background-image: url("../img/dkh2-11.svg"); }
-.wrap-inner .section-title[data-num="12"]::after { background-image: url("../img/dkh2-12.svg"); }
+.wrap-inner .section-title[data-num="0"]::after { background-image: url("../img/0.svg"); }
+.wrap-inner .section-title[data-num="1"]::after { background-image: url("../img/1.svg"); }
+.wrap-inner .section-title[data-num="2"]::after { background-image: url("../img/2.svg"); }
+.wrap-inner .section-title[data-num="3"]::after { background-image: url("../img/3.svg"); }
+.wrap-inner .section-title[data-num="4"]::after { background-image: url("../img/4.svg"); }
+.wrap-inner .section-title[data-num="5"]::after { background-image: url("../img/5.svg"); }
+.wrap-inner .section-title[data-num="6"]::after { background-image: url("../img/6.svg"); }
+.wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/7.svg"); }
+.wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/8.svg"); }
+.wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/9.svg"); }
+.wrap-inner .section-title[data-num="10"]::after { background-image: url("../img/10.svg"); }
+.wrap-inner .section-title[data-num="11"]::after { background-image: url("../img/11.svg"); }
+.wrap-inner .section-title[data-num="12"]::after { background-image: url("../img/12.svg"); }
 
 /* 丸番号を無効化（背景のみ） */
 .section-title .title-number {
@@ -643,6 +643,9 @@ h3.steps .dk-line {
 :root {
   --sns-gap: 50px;
   --sns-offset-bottom: 160px;
+  /* Go to Top ボタンの位置調整 */
+  --go-to-top-bottom: 40px;        /* 通常時の下からの距離 */
+  --go-to-top-footer-offset: 34px; /* ページ最下部時のfooter上からの距離（調整可能） */
 }
 
 /* =========================
@@ -946,4 +949,67 @@ h3.steps .dk-line {
 
 .cookie-list.flat li {
   margin-left: 50px;
+}
+
+/* Go to Top
+================================================== */
+
+.progress-wrap {
+	position: fixed;
+	right: 40px;
+	bottom: var(--go-to-top-bottom);
+	height: 49px;
+	width: 49px;
+	cursor: pointer;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 5px rgba(255,255,255,0.25);
+	z-index: 9999;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);
+	transition: all 200ms linear;
+	overflow: visible;
+}
+
+/* ページ最下部時の位置調整 */
+.progress-wrap.at-bottom {
+	bottom: var(--go-to-top-footer-offset);
+}
+
+.progress-wrap svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+.progress-wrap.active-progress {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.progress-arrow {
+	position: absolute;
+	top: 48%;
+	left: 46%;
+	transform: translate(-50%, -50%);
+	width: 40px;
+	height: 40px;
+	filter: brightness(0) saturate(100%) invert(62%) sepia(93%) saturate(749%) hue-rotate(153deg) brightness(101%) contrast(101%);
+	transition: 200ms;
+	z-index: 1;
+}
+
+.progress-wrap:hover .progress-arrow {
+	filter: brightness(0) saturate(100%) invert(62%) sepia(93%) saturate(749%) hue-rotate(153deg) brightness(110%) contrast(101%);
+}
+
+.progress-wrap svg path {
+	fill: none;
+	stroke: #00CCFF;
+	stroke-width: 8;
+	transition: 200ms;
 }

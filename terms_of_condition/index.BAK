@@ -298,8 +298,8 @@
 <p>
 	本規約に関するお問い合わせは、お問い合わせフォーム よりご連絡ください。<br><br>
 
-	施行日：2025年09月21日<br>
-	最終更新日：2025年09月21日<br><br>
+	<span class="bold-spot">施行日：2025年09月21日<br>
+	最終更新日：2025年09月21日</span><br><br>
 
 	補足：AI生成音楽ラベルの利用規約は、ラベルの配布・表示に関する個別の条件を定めています。
 </p>
@@ -400,8 +400,6 @@
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="../faq/index.html">FAQ（質問と回答）</a>
-    <span class="divider"></span>
-    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">

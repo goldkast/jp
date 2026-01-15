@@ -652,3 +652,51 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Go to Top
+$(function () {
+
+	const progressPath = document.querySelector('.progress-wrap path');
+	if (!progressPath) return;
+	
+	const pathLength = progressPath.getTotalLength();
+
+	progressPath.style.strokeDasharray = pathLength;
+	progressPath.style.strokeDashoffset = pathLength;
+
+	const updateProgress = () => {
+		const scroll = $(window).scrollTop();
+		const height = $(document).height() - $(window).height();
+		const progress = pathLength - (scroll * pathLength / height);
+		progressPath.style.strokeDashoffset = progress;
+	};
+
+	updateProgress();
+	$(window).on('scroll', updateProgress);
+
+	$(window).on('scroll', function () {
+		if ($(this).scrollTop() > 100) {
+			$('.progress-wrap').addClass('active-progress');
+		} else {
+			$('.progress-wrap').removeClass('active-progress');
+		}
+		
+		// ページ最下部時の位置調整
+		const windowHeight = $(window).height();
+		const documentHeight = $(document).height();
+		const scrollTop = $(window).scrollTop();
+		const scrollBottom = scrollTop + windowHeight;
+		
+		// ページの最下部に近づいたら（footerの上に配置）
+		if (scrollBottom >= documentHeight - 10) {
+			$('.progress-wrap').addClass('at-bottom');
+		} else {
+			$('.progress-wrap').removeClass('at-bottom');
+		}
+	});
+
+	$('.progress-wrap').on('click', function (e) {
+		e.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 500);
+	});
+});

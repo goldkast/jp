@@ -175,7 +175,7 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="../img/label4.svg" alt="" class="h1-icon">ミッション
+      <img src="../img/label.svg" alt="" class="h1-icon">ミッション
     </h1>
     <p>
 	私たちのミッションは、AIによる音楽生成を「創作の新しい形」として正しく伝え、アーティストやリスナーに安心して楽しめる環境をつくることです。<br>

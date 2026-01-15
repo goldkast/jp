@@ -218,7 +218,7 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="img/label4.svg" alt="" class="h1-icon">AI利用レベル診断と認証ラベル発行
+      <img src="img/label.svg" alt="" class="h1-icon">AI利用レベル診断と認証ラベル発行
     </h1>
     <p>
       <span class="bold-spot">AI生成音楽ラベル（AGML）</span>は、AI音楽の透明性を確保するための公式認証制度です。<br>
@@ -312,7 +312,7 @@
         </div>
 
         <div class="example-image-wrapper">
-          <img src="img/AGMLabel_Placement_Example4.png" class="example-image">
+          <img src="img/AGMLabel_Placement_Example.png" class="example-image">
         </div>
     </div>
 
@@ -437,8 +437,6 @@
     <a href="./cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="./faq/index.html">FAQ（質問と回答）</a>
-    <span class="divider"></span>
-    <a href="./contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -481,7 +479,15 @@
   }
 })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <div class="mobile-menu-overlay-bottom"></div>
+
+<!-- Go to Top -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" viewBox="4 4 92 92">
+    <path d="M50,20 a42,42 0 0,1 0,84 a42,42 0 0,1 0,-84"/>
+  </svg>
+</div>
 </body>
 </html>
