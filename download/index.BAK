@@ -9,9 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
 </head>
-<body class="dark-mode index2-page">
+<body class="dark-mode index2-page user-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
@@ -173,49 +175,34 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="../img/label-download.svg" alt="AI生成音楽ラベル（AGML）とは？" class="h1-icon">AI生成音楽ラベル（AGML）とは？
+      <img src="../img/label-download.svg" alt="AI生成音楽ラベル（AGML）ダウンロード" class="h1-icon">AI生成音楽ラベル（AGML）ダウンロード
     </h1>
-    <p>
-      AI生成音楽ラベル（AGML）は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
-      このラベルは、AIが生成した音楽であることをリスナーや配信プラットフォームに正しく伝え、音楽文化における透明性と信頼性を高めます。<br>
-      AGMLは、AI音楽の出所を明示し、クリエイターとリスナーが安心してAI技術を活用できる環境を整えることを目的としています。<br>
-      人間が作曲した音楽とAIが生成した音楽が共存し、健全に発展する新しい音楽文化の形成を目指しています。
+
+   <section class="lead">
+    <p class="lead-text">
+	AI生成音楽であるかどうかを説明する時代は、すでに終わりつつあります。<br><br>
+
+	AGML（AI Generated Music Label）は、<br>
+	<span class="bold-spot">楽曲制作におけるAIの関与度を「利用率」として可視化し、第三者にも伝えられる仕組み</span>です。<br><br>
+
+	制作者は質問フォームに制作プロセスを入力するだけで、<br>
+	AI利用率の判定結果と、それに基づいた認証ラベル・共有用ショートURLを自動で取得できます。<br><br>
+
+	YouTubeやSNSの説明欄にURLやラベルを貼るだけで、<br>
+	「AIをどの程度使った楽曲なのか」を、いちいち説明する必要はありません。<br><br>
+
+	AGMLは、AI音楽を隠すための仕組みではなく、<br>
+	<span class="bold-spot">創作の透明性を、正確かつ簡潔に伝えるための基準</span>です。
     </p>
+  </section>
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
-    サイト概要
+    xxxxxxx
 </h2>
 
     <p>
-      当サイトは、AI生成音楽ラベルの概要や利用方法を正しく理解していただくための公式情報を提供します。<br>
-      ラベルの目的や意義、活用方法をわかりやすく発信し、クリエイター・リスナー・関連団体が安心して利用できる環境を整えています。<br>
-      誰もがラベルを通じて音楽の成り立ちを理解できるようにし、健全な音楽文化の普及に寄与します。<br>
-      また、概要欄に長い説明を記載する代わりに、<strong><a href="../index.html/#platform">表記例（各プラットフォーム共通）</a></strong> を参照することで、制作者は簡潔かつ統一的な表現を実装でき、リスナーには分かりやすく正確な情報を届けることが可能になります。
-    </p>
-<h2 class="section-title" data-num="2">
-    <span class="dk-line"></span>
-	健全な音楽流通の推進
-</h2>
-
-    <p>
-      AI生成音楽ラベルは、AIによる創作活動の広がりに対応し、健全な音楽流通と文化的調和を実現するための枠組みです。<br>
-      A作品の制作背景を明示することで透明性を高め、リスナーは安心感を得られ、クリエイターは誤解を防ぎ、安心して活動できます。<br>
-      Aこれにより、人が自ら作詞作曲した音楽とAI生成曲が共存する次世代の音楽文化の発展に寄与します。
-    </p>
-
-    </p>
-<h2 class="section-title" data-num="3">
-    <span class="dk-line"></span>
-	健全な音楽流通の推進
-</h2>
-
-    <p>
-      AI生成音楽ラベルには、複雑な発行手続きや審査はありません。<br>
-     クリエイター自身が作品のサムネイルにラベルアイコンを配置するだけで、AIによる制作であることを誰もが直感的に理解できます。<br>
-     これにより、概要欄などに毎回「AIで作成しました」と記載する必要がなくなり、利用者の負担を軽減します。<br>
-     また、希望する人は当サイトへのリンクを併記することで、リスナーがラベルの意義を正しく理解できるようになり、クリエイターとリスナーの双方が活動しやすい環境を整えることを目指しています。<br>
-     実際の使用例については <strong><a href="../index.html/#label-usage">ラベル貼り付け例</a></strong> をご覧ください。
+      xxxxxxxxxxxxxxxxxxxxxx xxx xxxxxxxxxxxx
     </p>
 
     <!-- Label-Attachment画像 -->
@@ -258,8 +245,7 @@
 
   <!-- Instagram -->
 <a href="#" class="sns-icon instagram">
-  <img src="../img/instagram.svg" class="instagram-light" alt="Instagram">
-  <img src="../img/instagram.svg" class="instagram-dark" alt="Instagram dark">
+  <img src="../img/instagram.svg" alt="Instagram">
 </a>
 
   <!-- TikTok -->
@@ -313,8 +299,6 @@
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="../faq/index.html">FAQ（質問と回答）</a>
-    <span class="divider"></span>
-    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -357,6 +341,17 @@
   }
 })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="../js/main.js"></script>
+<div class="mobile-menu-overlay-bottom"></div>
+
+<!-- Go to Top -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" viewBox="4 4 92 92">
+    <path d="M50,8 a42,42 0 0,1 0,84 a42,42 0 0,1 0,-84"/>
+  </svg>
+  <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
+</div>
 </body>
 </html>
 

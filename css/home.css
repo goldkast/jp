@@ -243,3 +243,23 @@
   }
 }
 
+/* =========================
+   Home Lead Text
+   ========================= */
+
+.lead-text {
+  margin-top: 1.2em;
+  margin-bottom: 2.4em;
+
+  max-width: 680px;
+
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+
+  font-size: 1rem;
+}
+
+/* 定義文の強調（1か所のみ使う想定） */
+.lead-text strong {
+  font-weight: 600;
+}
