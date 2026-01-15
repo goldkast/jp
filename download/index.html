@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
+  <link rel="stylesheet" href="../css/home.css?v=20260106">
 </head>
 <body class="dark-mode index2-page user-page">
 
@@ -198,12 +199,23 @@
 
 <h2 class="section-title" data-num="1">
     <span class="dk-line"></span>
-    xxxxxxx
+    AI利用率の判定を行います
 </h2>
 
     <p>
-      xxxxxxxxxxxxxxxxxxxxxx xxx xxxxxxxxxxxx
+      楽曲の制作プロセスについて、該当する項目を選択してください。
     </p>
+
+    <!-- AGML Step Indicator -->
+    <div id="agml-stepper">
+      <ul class="agml-steps">
+        <li class="step is-active" data-step="1"><span>1</span><em>利用規約</em></li>
+        <li class="step" data-step="2"><span>2</span><em>AIレベル判定</em></li>
+        <li class="step" data-step="3"><span>3</span><em>判定結果</em></li>
+        <li class="step" data-step="4"><span>4</span><em>ラベルDL</em></li>
+        <li class="step" data-step="5"><span>5</span><em>スマート表示</em></li>
+      </ul>
+    </div>
 
     <!-- Label-Attachment画像 -->
     <!--     <div class="label-attachment-wrapper">
@@ -352,6 +364,26 @@
   </svg>
   <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
 </div>
+<script>
+  // Stepper test control (仮)
+  let currentStep = 1;
+
+  function setStep(step) {
+    document.querySelectorAll('#agml-stepper .step')
+      .forEach(el => el.classList.remove('is-active'));
+
+    const target = document.querySelector(
+      '#agml-stepper .step[data-step="' + step + '"]'
+    );
+    if (target) target.classList.add('is-active');
+  }
+
+  // 仮：3秒ごとに進める（確認用）
+  setInterval(() => {
+    currentStep = currentStep < 5 ? currentStep + 1 : 1;
+    setStep(currentStep);
+  }, 3000);
+</script>
 </body>
 </html>
 

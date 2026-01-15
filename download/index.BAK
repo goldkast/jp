@@ -206,9 +206,9 @@
     </p>
 
     <!-- Label-Attachment画像 -->
-    <div class="label-attachment-wrapper">
+    <!--     <div class="label-attachment-wrapper">
       <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
-    </div>
+    </div> -->
   </div>
 </div>
 
