@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
 </head>
-<body class="dark-mode index2-page user-page">
+<body class="cookie-policy-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
@@ -372,7 +372,7 @@
     <span class="divider"></span>
     <a href="../privacy_policy/index.html">プライバシーポリシー</a>
     <span class="divider"></span>
-    <a href="index.html">Cookieポリシー</a>
+    <a href="index.html" class="is-active">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="../faq/index.html">FAQ（質問と回答）</a>
   </div>

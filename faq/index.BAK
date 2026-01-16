@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
 </head>
-<body class="dark-mode index2-page user-page faq-page">
+<body class="faq-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
@@ -508,7 +508,7 @@
     <span class="divider"></span>
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
-    <a href="index.html">FAQ（質問と回答）</a>
+    <a href="index.html" class="is-active">FAQ（質問と回答）</a>
   </div>
 
 <div class="footer-copy">

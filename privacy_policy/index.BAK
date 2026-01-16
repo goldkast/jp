@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
 </head>
-<body class="dark-mode index2-page user-page">
+<body class="privacy_policy-page">
 
   <!-- グローバルナビ（PC用） -->
   <nav class="global-nav">
@@ -33,7 +33,7 @@
         </li>
         <li><a href="../index.html">ホーム</a></li>
         <li><a href="../label/index.html">ラベルについて</a></li>
-        <li><a href="index.html" class="current">ダウンロード</a></li>
+        <li><a href="index.html"ダウンロード</a></li>
         <li><a href="../user/index.html">ご利用者様へ</a></li>
         <li><a href="../mission/index.html">ミッション</a></li>
         <li class="lang-menu">
@@ -353,7 +353,7 @@
   <div class="footer-menu">
     <a href="../terms_of_condition/index.html">利用規約</a>
     <span class="divider"></span>
-    <a href="index.html">プライバシーポリシー</a>
+    <a href="index.html" class="is-active">プライバシーポリシー</a>
     <span class="divider"></span>
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
