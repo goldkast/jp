@@ -3,7 +3,7 @@
     <style>
       .cls-1 {
         font-size: 23px;
-        fill: #0779a3;
+        fill: #ccc;
         font-family: "Fear Robot";
       }
     </style>

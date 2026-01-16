@@ -3,10 +3,10 @@
     <style>
       .cls-1 {
         font-size: 23px;
-        fill: #0779a3;
+        fill: #ccc;
         font-family: "Fear Robot";
       }
     </style>
   </defs>
-  <text id="_1" data-name="1" class="cls-1" transform="translate(-8.602 74.709) scale(4.674)">1</text>
+  <text id="_1" data-name="1" class="cls-1" transform="translate(-9.602 74.709) scale(4.674)">1</text>
 </svg>

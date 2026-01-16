@@ -106,19 +106,19 @@ body {
 }
 
 /* data-numによる画像切替 */
-.wrap-inner .section-title[data-num="0"]::after { background-image: url("../img/0.svg"); }
-.wrap-inner .section-title[data-num="1"]::after { background-image: url("../img/1.svg"); }
-.wrap-inner .section-title[data-num="2"]::after { background-image: url("../img/2.svg"); }
-.wrap-inner .section-title[data-num="3"]::after { background-image: url("../img/3.svg"); }
-.wrap-inner .section-title[data-num="4"]::after { background-image: url("../img/4.svg"); }
-.wrap-inner .section-title[data-num="5"]::after { background-image: url("../img/5.svg"); }
-.wrap-inner .section-title[data-num="6"]::after { background-image: url("../img/6.svg"); }
-.wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/7.svg"); }
-.wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/8.svg"); }
-.wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/9.svg"); }
-.wrap-inner .section-title[data-num="10"]::after { background-image: url("../img/10.svg"); }
-.wrap-inner .section-title[data-num="11"]::after { background-image: url("../img/11.svg"); }
-.wrap-inner .section-title[data-num="12"]::after { background-image: url("../img/12.svg"); }
+.wrap-inner .section-title[data-num="0"]::after { background-image: url("../img/number/0.svg"); }
+.wrap-inner .section-title[data-num="1"]::after { background-image: url("../img/number/1.svg"); }
+.wrap-inner .section-title[data-num="2"]::after { background-image: url("../img/number/2.svg"); }
+.wrap-inner .section-title[data-num="3"]::after { background-image: url("../img/number/3.svg"); }
+.wrap-inner .section-title[data-num="4"]::after { background-image: url("../img/number/4.svg"); }
+.wrap-inner .section-title[data-num="5"]::after { background-image: url("../img/number/5.svg"); }
+.wrap-inner .section-title[data-num="6"]::after { background-image: url("../img/number/6.svg"); }
+.wrap-inner .section-title[data-num="7"]::after { background-image: url("../img/number/7.svg"); }
+.wrap-inner .section-title[data-num="8"]::after { background-image: url("../img/number/8.svg"); }
+.wrap-inner .section-title[data-num="9"]::after { background-image: url("../img/number/9.svg"); }
+.wrap-inner .section-title[data-num="10"]::after { background-image: url("../img/number/10.svg"); }
+.wrap-inner .section-title[data-num="11"]::after { background-image: url("../img/number/11.svg"); }
+.wrap-inner .section-title[data-num="12"]::after { background-image: url("../img/number/12.svg"); }
 
 /* 丸番号を無効化（背景のみ） */
 .section-title .title-number {
