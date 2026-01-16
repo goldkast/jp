@@ -689,3 +689,105 @@ $(function () {
 		$('html, body').animate({ scrollTop: 0 }, 500);
 	});
 });
+
+/* =========================================================
+   AGML AI利用率アンケート（Step1）
+========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+
+  const formSection = document.getElementById('ai-level-form');
+  const stepper = document.getElementById('agml-stepper');
+  const judgeBtn = document.getElementById('generate-result');
+  const spinner = document.getElementById('spinner');
+
+  if (!formSection || !judgeBtn) return;
+
+  // ステップ1を明示的にアクティブ
+  if (typeof setActiveStep === 'function') {
+    setActiveStep(1);
+  }
+
+  judgeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const lyric = document.querySelector('input[name="lyrics"]:checked');
+    const composition = document.querySelector('input[name="composition"]:checked');
+
+    if (!lyric || !composition) {
+      alert('歌詞・作曲の両方を選択してください。');
+      return;
+    }
+
+    // UI制御
+    judgeBtn.disabled = true;
+    spinner.classList.remove('hidden');
+
+    // スクロール位置をフォームの先頭に固定
+    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // 仮の判定処理（2秒後にStep2へ）
+    setTimeout(() => {
+      spinner.classList.add('hidden');
+      judgeBtn.disabled = false;
+
+      // Step2をアクティブに
+      if (typeof setActiveStep === 'function') {
+        setActiveStep(2);
+      }
+
+      // Step2（判定結果）へスクロール
+      const step2Title = document.querySelector('[data-num="2"]');
+      if (step2Title) {
+        step2Title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      console.log('AI利用率アンケート結果', {
+        lyrics: lyric.value,
+        composition: composition.value
+      });
+
+    }, 2000);
+  });
+});
+
+/* =========================
+   AGML Step Control
+========================= */
+(function () {
+  const steps = document.querySelectorAll('#agml-stepper .step-wrapper');
+  const contents = document.querySelectorAll('.step-content');
+
+  function setStep(stepNumber) {
+    // Step content切替
+    contents.forEach(section => {
+      section.classList.remove('is-active');
+    });
+
+    const active = document.getElementById(`step-content-${stepNumber}`);
+    if (active) active.classList.add('is-active');
+
+    // Stepper画像切替
+    steps.forEach(wrapper => {
+      const step = wrapper.dataset.step;
+      const img = wrapper.querySelector('.step-icon');
+      if (!img) return;
+
+      img.src =
+        step === String(stepNumber)
+          ? `../img/number/step${step}-1.svg`
+          : `../img/number/step${step}-2.svg`;
+    });
+  }
+
+  // 初期表示：Step1
+  document.addEventListener('DOMContentLoaded', () => {
+    setStep(1);
+  });
+
+  // 将来用：Stepperクリック
+  steps.forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+      setStep(wrapper.dataset.step);
+    });
+  });
+})();

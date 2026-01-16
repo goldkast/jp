@@ -362,3 +362,195 @@
   color: #ffffff;
 }
 
+
+/* ========================================
+   AGML Step Content (AI蛻ｩ逕ｨ邇・い繝ｳ繧ｱ繝ｼ繝・
+======================================== */
+
+/* Step繧ｳ繝ｳ繝・Φ繝・・騾・*/
+.step-content {
+  display: none;
+  max-width: 960px;
+  margin: 40px auto 0;
+  padding: 32px 36px;
+
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #00ccff;
+  border-radius: 14px;
+
+  color: #ffffff;
+}
+
+/* 陦ｨ遉ｺ荳ｭ縺ｮ繧ｹ繝・ャ繝・*/
+.step-content.is-active {
+  display: block;
+}
+
+/* 繧｢繝ｳ繧ｱ繝ｼ繝亥・菴・*/
+.ai-level-form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* 雉ｪ蝠上げ繝ｫ繝ｼ繝・*/
+.ai-question-group {
+  border: 1px solid rgba(0, 204, 255, 0.6);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+
+/* 雉ｪ蝠上ち繧､繝医Ν */
+.ai-question-group legend {
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ccff;
+}
+
+/* 驕ｸ謚櫁い */
+.ai-question-group label {
+  display: block;
+  margin-top: 12px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.ai-question-group input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+/* 蛻､螳壹・繧ｿ繝ｳ */
+.judge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+#generate-result {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #003344;
+  background: #00ccff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+#generate-result:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 蛻､螳壻ｸｭ */
+#spinner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00ccff;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ========================================
+   AGML Step Content (AI蛻ｩ逕ｨ邇・い繝ｳ繧ｱ繝ｼ繝・
+======================================== */
+
+/* Step繧ｳ繝ｳ繝・Φ繝・・騾・*/
+.step-content {
+  display: none;
+  max-width: 960px;
+  margin: 40px auto 0;
+  padding: 32px 36px;
+
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #00ccff;
+  border-radius: 14px;
+
+  color: #ffffff;
+}
+
+/* 陦ｨ遉ｺ荳ｭ縺ｮ繧ｹ繝・ャ繝・*/
+.step-content.is-active {
+  display: block;
+}
+
+/* 繧｢繝ｳ繧ｱ繝ｼ繝亥・菴・*/
+.ai-level-form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* 雉ｪ蝠上げ繝ｫ繝ｼ繝・*/
+.ai-question-group {
+  border: 1px solid rgba(0, 204, 255, 0.6);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+
+/* 雉ｪ蝠上ち繧､繝医Ν */
+.ai-question-group legend {
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ccff;
+}
+
+/* 驕ｸ謚櫁い */
+.ai-question-group label {
+  display: block;
+  margin-top: 12px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.ai-question-group input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+/* 蛻､螳壹・繧ｿ繝ｳ */
+.judge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+#generate-result {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #003344;
+  background: #00ccff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+#generate-result:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 蛻､螳壻ｸｭ */
+#spinner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00ccff;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
