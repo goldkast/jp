@@ -285,7 +285,7 @@
   left: 80px;         /* 最初の円の右端 */
   right: 80px;        /* 最後の円の左端 */
   height: 10px;
-  background-color: #0779a3;
+  background-color: #CCCCCC;
   z-index: 0;
 }
 
@@ -303,7 +303,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #0779a3;
+  background-color: #CCCCCC;
   position: relative;
   z-index: 1; /* バーより前面 */
   flex-shrink: 0;
