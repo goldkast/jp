@@ -175,7 +175,7 @@
   <div class="wrap">
     <div class="wrap-inner">
     <h1>
-      <img src="../img/label4.svg" alt="" class="h1-icon">AI生成音楽ラベル（AGML）とは？
+      <img src="../img/label.svg" alt="" class="h1-icon">AI生成音楽ラベル（AGML）とは？
     </h1>
     <p>
       <span class="bold-spot">AI生成音楽ラベル（AGML）</span>は、AIによって制作された音楽作品であることを明確に示すために設けられた公式表示です。<br>
@@ -215,8 +215,8 @@
     <p>
       <span class="bold-spot">AI生成音楽ラベル</span>には、複雑な発行手続きや審査はありません。<br>
      クリエイター自身が作品のサムネイルにラベルアイコンを配置するだけで、AIによる制作であることを誰もが直感的に理解できます。<br>
-     これにより、概要欄などに毎回「AIで作成しました」と記載する必要がなくなり、利用者の負担を軽減します。<br>
-     また、希望する人は当サイトへのリンクを併記することで、リスナーがラベルの意義を正しく理解できるようになり、クリエイターとリスナーの双方が活動しやすい環境を整えることを目指しています。<br>
+     これにより、概要欄などに毎回「AIで作成しました」と記載する必要がなくなり、利用者の負担を軽減します。<br><br>
+     また、希望する人は当サイトへのリンクを併記することで、リスナーがラベルの意義を正しく理解できるようになり、クリエイターとリスナーの双方が活動しやすい環境を整えることを目指しています。<br><br>
      実際の使用例については <strong><a href="../index.html/#label-usage">ラベル貼り付け例</a></strong> をご覧ください。
     </p>
 
@@ -314,8 +314,6 @@
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="../faq/index.html">FAQ（質問と回答）</a>
-    <span class="divider"></span>
-    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -358,7 +356,17 @@
   }
 })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="../js/main.js"></script>
+<div class="mobile-menu-overlay-bottom"></div>
+
+<!-- Go to Top -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" viewBox="4 4 92 92">
+    <path d="M50,8 a42,42 0 0,1 0,84 a42,42 0 0,1 0,-84"/>
+  </svg>
+  <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
+</div>
 </body>
 </html>
 

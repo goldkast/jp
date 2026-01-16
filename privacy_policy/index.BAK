@@ -257,7 +257,7 @@
 	運営者情報
 </h2>
 <p>
-	当サイトは、以下の団体が運営しています。。<br><br>
+	当サイトは、以下の団体が運営しています。<br><br>
 
 	<span class="bold-spot">リュズム国際文化継承ネットワーク</span><br>
 
@@ -358,8 +358,6 @@
     <a href="../cookie-policy/index.html">Cookieポリシー</a>
     <span class="divider"></span>
     <a href="../faq/index.html">FAQ（質問と回答）</a>
-    <span class="divider"></span>
-    <a href="../contact/index.html">お問い合わせ</a>
   </div>
 
 <div class="footer-copy">
@@ -402,7 +400,17 @@
   }
 })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="../js/main.js"></script>
+<div class="mobile-menu-overlay-bottom"></div>
+
+<!-- Go to Top -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" viewBox="4 4 92 92">
+    <path d="M50,8 a42,42 0 0,1 0,84 a42,42 0 0,1 0,-84"/>
+  </svg>
+  <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
+</div>
 </body>
 </html>
 

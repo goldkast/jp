@@ -619,32 +619,28 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   text-align: center;
 }
 
-/* index2.html専用：.wrap-inner h1の上マージン */
-.index2-page .wrap-inner h1 {
-  margin-top: 80px;
-}
 
 .wrap-inner h1 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 0.5em;
+  margin-top: 80px;
   color: #999;
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 10px;
+  line-height: 1.2;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .wrap-inner h1 .h1-icon {
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
+  width: 28px;
+  height: 28px;
   margin-right: 0px;
   margin-left: 6px;
+  display: block;
+  flex-shrink: 0;
   
   /* SVGを直接表示（maskを使わない） */
   object-fit: contain;
@@ -654,6 +650,9 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   
   opacity: 1;
   visibility: visible;
+  
+  /* 視覚的センター補正（重要） */
+  transform: translateY(-1.5px);
 }
 
 .wrap-inner p {
@@ -1849,6 +1848,7 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   z-index: 120; /* Footer social icons (above background) */
 }
 
+
 /* =========================
    インデント
 ========================= */
@@ -1856,4 +1856,13 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   margin-top: -30px;
   margin-left: 50px;
   color: #FFF;
+}
+
+/* =========================
+   Mission page: H1 icon visual adjustment
+   ========================= */
+
+/* missionページのみ、h1アイコンをさらに上へ */
+.mission-page .wrap-inner h1 .h1-icon {
+  transform: translateY(-5px);
 }
