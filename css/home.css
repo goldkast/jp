@@ -284,9 +284,9 @@
 #agml-stepper::before {
   content: "";
   position: absolute;
-  top: 14px;          /* 円の中心（40px / 2） */
-  left: 100px;         /* 最初の円の右端 */
-  right: 100px;        /* 最後の円の左端 */
+  top: 15px;          /* 円の中心（40px / 2） */
+  left: 80px;         /* 最初の円の右端 */
+  right: 80px;        /* 最後の円の左端 */
   height: 10px;
   background-color: #0779a3;
   z-index: 0;
@@ -319,10 +319,25 @@
 #agml-stepper .step-inner {
   border-radius: 50%;
   background-color: white;
-  margin-top: 20%;
-  margin-left: 20%;
-  width: 24px;
-  height: 24px;
+  margin-top: 18%;
+  margin-left: 18%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* =========================
+   Step Number (SVG only)
+   ========================= */
+
+#agml-stepper .step-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;
 }
 
 #agml-stepper .step-divider {

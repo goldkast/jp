@@ -208,41 +208,51 @@
 
     <!-- AGML Step Indicator -->
     <div id="agml-stepper" class="agml-stepper-container">
-      <div class="step-wrapper">
+      <div class="step-wrapper" data-step="1">
         <div class="step-circle">
-          <div class="step-inner"></div>
+          <div class="step-inner">
+            <img src="../img/number/step1-1.svg" class="step-icon" alt="Step 1">
+          </div>
         </div>
         <div class="step-overlay"></div>
         <div class="step-divider"></div>
         <div class="step-label">利用規約</div>
       </div>
-      <div class="step-wrapper">
+      <div class="step-wrapper" data-step="2">
         <div class="step-circle">
-          <div class="step-inner"></div>
+          <div class="step-inner">
+            <img src="../img/number/step2-2.svg" class="step-icon" alt="Step 2">
+          </div>
         </div>
         <div class="step-overlay"></div>
         <div class="step-divider"></div>
         <div class="step-label">AIレベル判定</div>
       </div>
-      <div class="step-wrapper">
+      <div class="step-wrapper" data-step="3">
         <div class="step-circle">
-          <div class="step-inner"></div>
+          <div class="step-inner">
+            <img src="../img/number/step3-2.svg" class="step-icon" alt="Step 3">
+          </div>
         </div>
         <div class="step-overlay"></div>
         <div class="step-divider"></div>
         <div class="step-label">判定結果</div>
       </div>
-      <div class="step-wrapper">
+      <div class="step-wrapper" data-step="4">
         <div class="step-circle">
-          <div class="step-inner"></div>
+          <div class="step-inner">
+            <img src="../img/number/step4-2.svg" class="step-icon" alt="Step 4">
+          </div>
         </div>
         <div class="step-overlay"></div>
         <div class="step-divider"></div>
         <div class="step-label">ラベルDL</div>
       </div>
-      <div class="step-wrapper">
+      <div class="step-wrapper" data-step="5">
         <div class="step-circle">
-          <div class="step-inner"></div>
+          <div class="step-inner">
+            <img src="../img/number/step5-2.svg" class="step-icon" alt="Step 5">
+          </div>
         </div>
         <div class="step-overlay"></div>
         <div class="step-label">スマート表示</div>
@@ -478,6 +488,24 @@
     update($(circleRef).first(), this);
   });
 })();
+</script>
+<script>
+  function setActiveStep(stepNumber) {
+    document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
+      const step = wrapper.dataset.step;
+      const img = wrapper.querySelector('.step-icon');
+      if (!img) return;
+
+      if (step === String(stepNumber)) {
+        img.src = `../img/number/step${step}-1.svg`; // active
+      } else {
+        img.src = `../img/number/step${step}-2.svg`; // inactive
+      }
+    });
+  }
+
+  // 初期状態
+  setActiveStep(1);
 </script>
 <div class="mobile-menu-overlay-bottom"></div>
 
