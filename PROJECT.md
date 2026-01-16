@@ -525,3 +525,48 @@ Google / Facebook / LINE などの SNS アカウントでログインし、過�
 - その他：ゲージの表示が5段階（20,40,60,80,100%）で視覚的に分かるように
 ```
 
+---
+
+## 14. コンポーネント仕様（削除・一時非表示中のもの）
+
+### 14.1 AGML Step Indicator
+
+**状態：一時削除済み（再実装予定）**
+
+**クラス名・ID・属性仕様（再実装時に使用）：**
+
+- **コンテナ要素：**
+  - ID: `#agml-stepper`
+  - クラス: `.agml-steps`（ステップリスト用）
+
+- **各ステップ項目：**
+  - クラス: `.step`
+  - クラス（アクティブ時）: `.step.is-active`
+  - 属性: `data-step="1"`, `data-step="2"`, `data-step="3"`, `data-step="4"`, `data-step="5"`
+
+- **内部要素：**
+  - `<span>` - ステップ番号（例: "1", "2", "3" など）
+  - `<em>` - ステップタイトル（例: "利用規約", "AIレベル判定" など）
+
+**HTML構造例：**
+```html
+<div id="agml-stepper">
+  <ul class="agml-steps">
+    <li class="step is-active" data-step="1"><span>1</span><em>利用規約</em></li>
+    <li class="step" data-step="2"><span>2</span><em>AIレベル判定</em></li>
+    <li class="step" data-step="3"><span>3</span><em>判定結果</em></li>
+    <li class="step" data-step="4"><span>4</span><em>ラベルDL</em></li>
+    <li class="step" data-step="5"><span>5</span><em>スマート表示</em></li>
+  </ul>
+</div>
+```
+
+**CSS定義場所：**
+- `css/home.css` に `#agml-stepper` 関連のスタイルを定義（再実装時に追加）
+
+**JavaScript制御（参考）：**
+- `setStep(step)` 関数 - アクティブステップを変更
+- `.step` 要素から `.is-active` を削除し、指定されたステップに追加
+
+---
+

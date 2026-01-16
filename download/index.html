@@ -207,14 +207,46 @@
     </p>
 
     <!-- AGML Step Indicator -->
-    <div id="agml-stepper">
-      <ul class="agml-steps">
-        <li class="step is-active" data-step="1"><span>1</span><em>利用規約</em></li>
-        <li class="step" data-step="2"><span>2</span><em>AIレベル判定</em></li>
-        <li class="step" data-step="3"><span>3</span><em>判定結果</em></li>
-        <li class="step" data-step="4"><span>4</span><em>ラベルDL</em></li>
-        <li class="step" data-step="5"><span>5</span><em>スマート表示</em></li>
-      </ul>
+    <div id="agml-stepper" class="agml-stepper-container">
+      <div class="step-wrapper">
+        <div class="step-circle">
+          <div class="step-inner"></div>
+        </div>
+        <div class="step-overlay"></div>
+        <div class="step-divider"></div>
+        <div class="step-label">利用規約</div>
+      </div>
+      <div class="step-wrapper">
+        <div class="step-circle">
+          <div class="step-inner"></div>
+        </div>
+        <div class="step-overlay"></div>
+        <div class="step-divider"></div>
+        <div class="step-label">AIレベル判定</div>
+      </div>
+      <div class="step-wrapper">
+        <div class="step-circle">
+          <div class="step-inner"></div>
+        </div>
+        <div class="step-overlay"></div>
+        <div class="step-divider"></div>
+        <div class="step-label">判定結果</div>
+      </div>
+      <div class="step-wrapper">
+        <div class="step-circle">
+          <div class="step-inner"></div>
+        </div>
+        <div class="step-overlay"></div>
+        <div class="step-divider"></div>
+        <div class="step-label">ラベルDL</div>
+      </div>
+      <div class="step-wrapper">
+        <div class="step-circle">
+          <div class="step-inner"></div>
+        </div>
+        <div class="step-overlay"></div>
+        <div class="step-label">スマート表示</div>
+      </div>
     </div>
 
     <!-- Label-Attachment画像 -->
@@ -355,6 +387,98 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="../js/main.js"></script>
+<script>
+// AGML Stepper control
+(function() {
+  var defaultBackground = '#00CCFF',
+      selectedBackground = '#0678a2',
+      backgroundCss = 'background-color',
+      circleRef = '#agml-stepper .step-circle',
+      overlayRef = '#agml-stepper .step-overlay';
+
+  // Is the circle selected
+  function isSelected($circle, defaultColor) {
+    return defaultColor !== $circle.css(backgroundCss);
+  }
+
+  // Return the overlay to animate
+  function getOverlay($circle) {
+    var $wrapper = $circle.closest('.step-wrapper');
+    var $overlay = $wrapper.find(overlayRef);
+    return $overlay.length > 0 ? $overlay : null;
+  }
+
+  // Reset overlay to its original state
+  function resetOverlay($overlay) {
+    if ($overlay && $overlay.length > 0) {
+      $overlay.hide();
+      $overlay.css('width', 0);
+    }
+  }
+
+  // Trigger the update for the circle
+  function update(circle, target) {
+    if (circle) {
+      $(circle).trigger('update', [target]);
+    }
+  }
+
+  $.each($(circleRef), function(index, circle) {
+    // Track default background color as it's returned as an RGB in most browsers
+    var defaultColor = $(circle).css(backgroundCss);
+    // Store a reference to the index to use when this circle is the click target
+    $(circle).data('index', index);
+
+    $(circle).on('update', function(event, target) {
+      var $circle = $(this),
+          targetIdx = $(target).data('index'),
+          circleNext = $circle.nextAll(circleRef).first()[0];
+
+      if (isSelected($circle, defaultColor)) {
+        // Don't deselect a circle that exists prior to the target circle
+        if (index >= targetIdx) {
+          var $overlay = getOverlay($circle);
+          if ($overlay && $overlay.length > 0) {
+            resetOverlay($overlay);
+          }
+          $circle.css(backgroundCss, defaultBackground);
+        }
+        // trigger update on the next circle
+        update(circleNext, target);
+      } else if (index <= targetIdx) {
+        var $overlay = getOverlay($circle);
+        var $wrapper = $circle.closest('.step-wrapper');
+        var $divider = $wrapper.find('.step-divider');
+        
+        if ($overlay && $overlay.length > 0 && $divider.length > 0) {
+          var dividerWidth = $divider.outerWidth();
+
+          $overlay.css('left', $divider.css('left'));
+          $overlay.css('top', $divider.css('top'));
+          $overlay.show();
+          $overlay.animate({
+            width: dividerWidth
+          }, {
+            duration: 200,
+            complete: function() {
+              $circle.css(backgroundCss, selectedBackground);
+              update(circleNext, target);
+            }
+          });
+        } else {
+          $circle.css(backgroundCss, selectedBackground);
+          update(circleNext, target);
+        }
+      }
+    });
+  });
+
+  $(circleRef).on('click', function(event) {
+    // Trigger update on the first circle
+    update($(circleRef).first(), this);
+  });
+})();
+</script>
 <div class="mobile-menu-overlay-bottom"></div>
 
 <!-- Go to Top -->
@@ -364,26 +488,7 @@
   </svg>
   <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
 </div>
-<script>
-  // Stepper test control (仮)
-  let currentStep = 1;
 
-  function setStep(step) {
-    document.querySelectorAll('#agml-stepper .step')
-      .forEach(el => el.classList.remove('is-active'));
-
-    const target = document.querySelector(
-      '#agml-stepper .step[data-step="' + step + '"]'
-    );
-    if (target) target.classList.add('is-active');
-  }
-
-  // 仮：3秒ごとに進める（確認用）
-  setInterval(() => {
-    currentStep = currentStep < 5 ? currentStep + 1 : 1;
-    setStep(currentStep);
-  }, 3000);
-</script>
 </body>
 </html>
 

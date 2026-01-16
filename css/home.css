@@ -268,64 +268,86 @@
    AGML Stepper (download only / isolated)
 ======================================== */
 
+/* AGML Step Indicator */
 #agml-stepper {
-  margin: 24px 0 36px;
-}
-
-#agml-stepper .agml-steps {
+  width: 100%;
+  max-width: 800px;
+  margin: 24px auto 36px;
+  position: relative;
+  text-align: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 720px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  align-items: flex-start;
 }
 
-#agml-stepper .step {
+#agml-stepper .step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   flex: 1;
+}
+
+#agml-stepper .step-circle {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #0779a3;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+#agml-stepper .step-wrapper:first-child .step-circle {
+  background-color: #00CCFF;
+}
+
+#agml-stepper .step-inner {
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 20%;
+  margin-left: 20%;
+  width: 24px;
+  height: 24px;
+}
+
+#agml-stepper .step-divider {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: 12px;
+  background-color: #0779a3;
+  z-index: 0;
+  margin-left: 20px;
+}
+
+#agml-stepper .step-wrapper:last-child .step-divider {
+  display: none;
+}
+
+#agml-stepper .step-overlay {
+  display: none;
+  width: 0;
+  height: 12px;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  background-color: #0678a2;
+  z-index: 1;
+  margin-left: 20px;
+}
+
+#agml-stepper .step-label {
+  display: block;
+  margin-top: 20px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
   text-align: center;
 }
 
-#agml-stepper .step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: -50%;
-  width: 100%;
-  height: 6px;
-  background: rgba(255,255,255,0.25);
-  z-index: 0;
-}
-
-#agml-stepper .step span {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  color: #fff;
-  font-weight: 600;
-}
-
-#agml-stepper .step em {
-  display: block;
-  margin-top: 8px;
-  font-size: 12px;
-  font-style: normal;
-  opacity: 0.6;
-}
-
-/* active */
-#agml-stepper .step.is-active span {
-  background: linear-gradient(135deg, #2fa4ff, #1c6fd5);
-}
-
-#agml-stepper .step.is-active em {
-  opacity: 1;
-}
