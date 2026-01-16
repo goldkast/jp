@@ -90,7 +90,7 @@
         </a>
       </li>
       <li>
-        <a href="../label/indexhtml">
+        <a href="../download/indexhtml">
           <img src="../img/label-dl.png" alt="ラベルについて">
           <span>ラベルについて</span>
         </a>
@@ -296,7 +296,10 @@
 	第12条：連絡・通知
 </h2>
 <p>
-	本規約に関するお問い合わせは、お問い合わせフォーム よりご連絡ください。<br><br>
+	本規約に関する公式な見解・告知は、以下のXアカウントにて、必要に応じて公開される場合があります。<br>
+	https://x.com/AGML_3106<br><br>
+
+	※個別対応は行っておりません。<br><br>
 
 	<span class="bold-spot">施行日：2025年09月21日<br>
 	最終更新日：2025年09月21日</span><br><br>
@@ -442,7 +445,17 @@
   }
 })();
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="../js/main.js"></script>
+<div class="mobile-menu-overlay-bottom"></div>
+
+<!-- Go to Top -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" viewBox="4 4 92 92">
+    <path d="M50,8 a42,42 0 0,1 0,84 a42,42 0 0,1 0,-84"/>
+  </svg>
+  <img src="../img/arrow.svg" alt="Go to top" class="progress-arrow">
+</div>
 </body>
 </html>
 
