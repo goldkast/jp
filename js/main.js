@@ -285,18 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // スクロール位置に応じて色を更新する関数
   function updateTimelineColors() {
-    // ダークモードでない場合は何もしない
-    if (!document.body.classList.contains("dark-mode")) {
-      // リセット
-      timelineNumbers.forEach(num => {
-        num.style.setProperty('--number-gradient', '');
-      });
-      if (timelineEnd) {
-        timelineEnd.style.backgroundColor = "";
-      }
-      timeline.style.setProperty('--timeline-gradient', '');
-      return;
-    }
+    // ダークテーマは常時ON（チェック不要）
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
