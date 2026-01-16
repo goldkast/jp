@@ -270,34 +270,45 @@
 
 /* AGML Step Indicator */
 #agml-stepper {
-  width: 100%;
-  max-width: 800px;
-  margin: 24px auto 36px;
   position: relative;
-  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto 48px;
+  padding-bottom: 28px; /* ラベル分の余白 */
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center; /* 上下センターに配置 */
+}
+
+/* 横バーはステッパー全体で1本描画（円の中心に完全一致） */
+#agml-stepper::before {
+  content: "";
+  position: absolute;
+  top: 14px;          /* 円の中心（40px / 2） */
+  left: 100px;         /* 最初の円の右端 */
+  right: 100px;        /* 最後の円の左端 */
+  height: 10px;
+  background-color: #0779a3;
+  z-index: 0;
 }
 
 #agml-stepper .step-wrapper {
+  position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  flex: 1;
+  height: auto;
+  background: none !important;
 }
 
 #agml-stepper .step-circle {
-  display: inline-block;
-  position: relative;
-  border-radius: 50%;
-  padding: 0;
-  margin: 0;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   background-color: #0779a3;
-  z-index: 2;
+  position: relative;
+  z-index: 1; /* バーより前面 */
   flex-shrink: 0;
 }
 
@@ -315,18 +326,7 @@
 }
 
 #agml-stepper .step-divider {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  width: calc(100% - 20px);
-  height: 12px;
-  background-color: #0779a3;
-  z-index: 0;
-  margin-left: 20px;
-}
-
-#agml-stepper .step-wrapper:last-child .step-divider {
-  display: none;
+  display: none !important; /* 既存のdividerを無効化 */
 }
 
 #agml-stepper .step-overlay {
@@ -342,12 +342,11 @@
 }
 
 #agml-stepper .step-label {
-  display: block;
-  margin-top: 20px;
+  margin-top: 10px; /* 円との距離 */
+  font-size: 13px;
+  line-height: 1.2;
   white-space: nowrap;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
   text-align: center;
+  color: #ffffff;
 }
 
