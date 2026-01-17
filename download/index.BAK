@@ -209,78 +209,6 @@
             <img src="../img/number/step1-1.svg" class="step-icon" alt="Step 1">
           </div>
         </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
         <div class="step-label">利用規約</div>
       </div>
       <div class="step-wrapper" data-step="2">
@@ -317,6 +245,84 @@
       </div>
     </div>
 
+    <!-- Step1 Content -->
+    <section id="step-content-1" class="step-content is-active">
+      <!-- AI利用率アンケート（Step1） -->
+      <section id="ai-level-form" class="ai-level-form">
+
+        <!-- 歌詞 -->
+      <fieldset class="ai-question-group">
+        <legend>1. 歌詞の制作プロセス</legend>
+
+        <label>
+          <input type="radio" name="lyrics" value="1">
+          ほぼAIが生成：AIが自動で歌詞をほぼすべて作成し、人の手をほとんど加えずに使用した
+        </label>
+
+        <label>
+          <input type="radio" name="lyrics" value="2">
+          主にAIが生成：AIが作成した歌詞をベースに、一部の語句や表現のみを修正した
+        </label>
+
+        <label>
+          <input type="radio" name="lyrics" value="3">
+          AI原案＋部分的改変：AIが作成した歌詞の原案をもとに、内容や構成を修正した
+        </label>
+
+        <label>
+          <input type="radio" name="lyrics" value="4">
+          AIを補助的に使用：自分で歌詞を構築し、AIに言葉・韻・翻訳などの提案のみをさせた
+        </label>
+
+        <label>
+          <input type="radio" name="lyrics" value="5">
+          創作主導：自分が歌詞を構想・作成し、AIは表現調整や自然さの補助にのみ使用した
+        </label>
+      </fieldset>
+
+      <!-- 作曲 -->
+      <fieldset class="ai-question-group">
+        <legend>2. 作曲（楽曲）の制作プロセス</legend>
+
+        <label>
+          <input type="radio" name="composition" value="1">
+          ほぼAIが生成：AIが全自動で曲を生成し、出力された楽曲をそのまま使用した
+        </label>
+
+        <label>
+          <input type="radio" name="composition" value="2">
+          主にAIが生成：AIが生成した曲をベースに、一部カットや簡単な音量調整のみを行った
+        </label>
+
+        <label>
+          <input type="radio" name="composition" value="3">
+          AI素材中心で構成：AIが生成した楽曲素材をもとに、曲の再構成や調整を行った
+        </label>
+
+        <label>
+          <input type="radio" name="composition" value="4">
+          AIを使いこなす：自分の構想をAIに詳細に指示し、生成と修正を繰り返して完成させた
+        </label>
+
+        <label>
+          <input type="radio" name="composition" value="5">
+          創作主導：自分で構成や方向性を設計し、AIに修正指示や編集補助をさせながら完成させた
+        </label>
+      </fieldset>
+
+        <!-- 判定開始 -->
+        <div class="judge-wrapper">
+          <button id="generate-result">判定開始</button>
+        </div>
+
+      </section>
+    </section>
+
+    <!-- Step2以降（今は空でOK） -->
+    <section id="step-content-2" class="step-content"></section>
+    <section id="step-content-3" class="step-content"></section>
+    <section id="step-content-4" class="step-content"></section>
+    <section id="step-content-5" class="step-content"></section>
     <!-- Label-Attachment画像 -->
     <!--     <div class="label-attachment-wrapper">
       <img src="../img/Label-Attachment.png" alt="ラベル貼り付け例" class="label-attachment-image">
@@ -414,7 +420,7 @@
   </div>
 
 <div class="footer-copy">
-© 2025 AI生成音楽ラベル公式サイト（AGML）｜ AI利用レベル認証とラベルダウンロード.
+© 2025 AI生成音楽ラベル公式サイト（AGML）
 </div>
 </footer>
 

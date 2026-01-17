@@ -289,6 +289,8 @@
   z-index: 0;
 }
 
+/* Step1とStep2の間の横線を青くする（Step2がアクティブな場合のみ） */
+
 #agml-stepper .step-wrapper {
   position: relative;
   flex: 1;
@@ -313,6 +315,23 @@
   background-color: #00CCFF;
 }
 
+/* Step1とStep2がアクティブな場合のスタイル */
+#agml-stepper .step-wrapper[data-step="2"].is-active .step-circle {
+  background-color: #00CCFF;
+}
+
+/* Step2がアクティブな場合、Step1とStep2の間の横線を青くする */
+#agml-stepper .step-wrapper[data-step="2"].is-active::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: calc(50% + 20px);
+  width: calc(100% - 40px);
+  height: 10px;
+  background-color: #00CCFF;
+  z-index: 1;
+}
+
 #agml-stepper .step-inner {
   border-radius: 50%;
   background-color: white;
@@ -335,6 +354,16 @@
   height: 16px;
   display: block;
   pointer-events: none;
+}
+
+/* クリック可能なステップのスタイル */
+#agml-stepper .step-wrapper {
+  cursor: default;
+}
+
+/* Step1は初期状態ではリンクなし（判定結果表示後にJavaScriptでpointerに変更） */
+#agml-stepper .step-wrapper[data-step="1"] {
+  cursor: default;
 }
 
 #agml-stepper .step-divider {
@@ -443,8 +472,15 @@
 
 /* 無効時の判定ボタン */
 #generate-result:disabled {
-  opacity: 0.6;
+  background: #00ccff;
   cursor: not-allowed;
+  opacity: 1;
+}
+
+/* スピナーアニメーション */
+@keyframes agml-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* 判定中スピナー */

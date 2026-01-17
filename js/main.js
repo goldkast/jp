@@ -708,6 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 元のボタンテキストを保存
   const originalButtonText = judgeBtn.textContent;
+  judgeBtn.setAttribute('data-original-text', originalButtonText);
 
   judgeBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -738,29 +739,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // スクロール位置をフォームの先頭に固定
     formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // 仮の判定処理（2秒後にStep2へ）
-    setTimeout(() => {
-      // ボタンテキストを元に戻す
-      judgeBtn.innerHTML = originalButtonText;
-      judgeBtn.disabled = false;
-
-      // Step2をアクティブに
-      if (typeof setActiveStep === 'function') {
-        setActiveStep(2);
-      }
-
-      // Step2（判定結果）へスクロール
-      const step2Title = document.querySelector('[data-num="2"]');
-      if (step2Title) {
-        step2Title.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      console.log('AI利用率アンケート結果', {
-        lyrics: lyric.value,
-        composition: composition.value
-      });
-
-    }, 2000);
+    // Step3の処理で判定結果を表示するため、ここではボタンテキストを戻さない
+    console.log('AI利用率アンケート結果', {
+      lyrics: lyric.value,
+      composition: composition.value
+    });
   });
 });
 
@@ -780,16 +763,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const active = document.getElementById(`step-content-${stepNumber}`);
     if (active) active.classList.add('is-active');
 
-    // Stepper画像切替
+    // Step1に戻る場合の特別処理
+    if (stepNumber === '1') {
+      const judgeBtn = document.getElementById('generate-result');
+      const originalButtonText = judgeBtn ? judgeBtn.getAttribute('data-original-text') || '判定開始' : '判定開始';
+      
+      // ボタンをリセット
+      if (judgeBtn) {
+        judgeBtn.innerHTML = originalButtonText;
+        judgeBtn.disabled = false;
+      }
+
+      // Step1のカーソルをリセット（Step1表示中はリンク不要）
+      const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
+      if (step1Wrapper) {
+        step1Wrapper.style.cursor = 'default';
+      }
+    }
+
+    // Stepper画像切替とスタイルリセット
     steps.forEach(wrapper => {
       const step = wrapper.dataset.step;
       const img = wrapper.querySelector('.step-icon');
+      const circle = wrapper.querySelector('.step-circle');
       if (!img) return;
 
-      img.src =
-        step === String(stepNumber)
-          ? `../img/number/step${step}-1.svg`
-          : `../img/number/step${step}-2.svg`;
+      if (step === String(stepNumber)) {
+        img.src = `../img/number/step${step}-1.svg`; // active
+        wrapper.classList.add('is-active');
+        if (circle) {
+          // Step1のみ常に#00CCFF、それ以外は条件付き
+          if (step === '1') {
+            circle.style.backgroundColor = '#00CCFF';
+          } else {
+            circle.style.backgroundColor = '#00CCFF';
+          }
+        }
+      } else {
+        img.src = `../img/number/step${step}-2.svg`; // inactive
+        wrapper.classList.remove('is-active');
+        if (circle) {
+          // Step1のみ常に#00CCFF、それ以外は#CCCCCC
+          if (step === '1') {
+            circle.style.backgroundColor = '#00CCFF';
+          } else {
+            circle.style.backgroundColor = '#CCCCCC';
+          }
+        }
+      }
     });
   }
 
@@ -798,10 +819,135 @@ document.addEventListener('DOMContentLoaded', () => {
     setStep(1);
   });
 
-  // 将来用：Stepperクリック
+  // Stepperクリック（条件付き）
   steps.forEach(wrapper => {
     wrapper.addEventListener('click', () => {
-      setStep(wrapper.dataset.step);
+      const step = wrapper.dataset.step;
+      const step3 = document.getElementById('step-content-3');
+      const hasResult = step3 && step3.dataset.rendered === 'true';
+
+      // Step1: 判定結果が表示された後のみクリック可能（過去ページへの戻りリンク）
+      // 初回アクセス時（Step1表示中）はリンク不要
+      if (step === '1' && hasResult) {
+        setStep(1);
+      }
+      // Step2: 判定結果表示時は現在アクティブなステップなのでリンク不要
+      // Step3, Step4, Step5: クリック不可（何もしない）
+      // Step3, Step4, Step5: クリック不可（何もしない）
     });
   });
 })();
+
+/* =========================================================
+   AGML 判定結果表示（Step3）＋ ラベル枠（仮）
+========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+
+  const judgeBtn = document.getElementById('generate-result');
+  const step3 = document.getElementById('step-content-3');
+
+  if (!judgeBtn || !step3) return;
+
+  judgeBtn.addEventListener('click', () => {
+
+    // すでに結果がある場合は二重生成しない
+    if (step3.dataset.rendered === 'true') return;
+
+    // 判定中 → 結果表示までの猶予（2秒）
+    setTimeout(() => {
+
+      // Step3 をアクティブに
+      document.querySelectorAll('.step-content').forEach(el => {
+        el.classList.remove('is-active');
+      });
+      step3.classList.add('is-active');
+
+      // Stepper を Step2 までアクティブに（Step1とStep2の両方をアクティブ）
+      document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
+        const step = wrapper.dataset.step;
+        const img = wrapper.querySelector('.step-icon');
+        const circle = wrapper.querySelector('.step-circle');
+        if (!img) return;
+
+        // Step1とStep2をアクティブ、それ以外を非アクティブ
+        if (step === '1' || step === '2') {
+          img.src = `../img/number/step${step}-1.svg`; // active
+          wrapper.classList.add('is-active');
+          if (circle) {
+            circle.style.backgroundColor = '#00CCFF';
+          }
+        } else {
+          img.src = `../img/number/step${step}-2.svg`; // inactive
+          wrapper.classList.remove('is-active');
+          if (circle) {
+            circle.style.backgroundColor = '#CCCCCC';
+          }
+        }
+      });
+
+      // 判定結果HTML（※ラベル画像は保留）
+      step3.innerHTML = `
+        <div class="agml-result-wrap">
+
+          <!-- リード文 -->
+          <div class="agml-result-lead">
+            <p>
+              以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
+              本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
+              この判定結果をもとに、AI生成音楽ラベル（AGML）をダウンロード・共有できます。
+            </p>
+          </div>
+
+          <div class="agml-result-box">
+            <p><strong>作詞AI使用割合：</strong>20%</p>
+            <p>人間が作曲設計・構成・音響処理の全てをコントロールし、AIは音色生成やリファレンス提案などに限定して使用されています。</p>
+          </div>
+
+          <div class="agml-result-box">
+            <p><strong>作曲AI使用割合：</strong>20%</p>
+            <p>人間が作曲設計・構成・音響処理の全てをコントロールし、AIは音色生成やリファレンス提案などに限定して使用されています。</p>
+          </div>
+
+          <div class="agml-result-box">
+            <p><strong>総合AI使用割合：</strong>20%</p>
+            <p>人が作品の構想から完成まで一貫して主導し、AIは創作支援技術として利用されています。</p>
+          </div>
+
+          <div class="agml-result-box">
+            <p><strong>著作権保存割合：</strong>100%</p>
+            <p>人の思想・感情の反映が明確であり、著作権法上の創作物として成立します。</p>
+          </div>
+
+          <!-- AGML ラベル枠（仮） -->
+          <div class="agml-label-card">
+            <div class="agml-label-title">AI生成音楽ラベル（AGML）</div>
+            <div class="agml-label-placeholder">
+              ラベル画像
+            </div>
+          </div>
+
+          <div class="agml-label-action">
+            <button class="agml-go-download">
+              ラベルダウンロードへ進む ▶
+            </button>
+          </div>
+
+        </div>
+      `;
+
+      step3.dataset.rendered = 'true';
+
+      // Step1をクリック可能にする（過去ページへの戻りリンク）
+      const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
+      if (step1Wrapper) {
+        step1Wrapper.style.cursor = 'pointer';
+      }
+
+      // Step3 へスクロール
+      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    }, 2000);
+
+  });
+
+});

@@ -1048,3 +1048,93 @@ h3.steps .dk-line {
   position: relative;
   z-index: 2;
 }
+
+/* =====================================================
+   AGML 判定結果（download専用）
+===================================================== */
+
+body.download-page .agml-result-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== 判定結果リード文 ===== */
+body.download-page .agml-result-lead {
+  margin-bottom: 10px;
+}
+
+body.download-page .agml-result-lead p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+body.download-page .agml-result-box {
+  border: 1px solid #00ccff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  background: rgba(0, 204, 255, 0.12);
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+body.download-page .agml-result-box strong {
+  color: #00d8ff;
+}
+
+/* ===== AGML ラベル枠（仮） ===== */
+
+body.download-page .agml-label-card {
+  max-width: 360px;
+  margin: 30px auto 10px;
+  border: 1px solid #00ccff;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+body.download-page .agml-label-title {
+  background: #00ccff;
+  color: #002b44;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+}
+
+body.download-page .agml-label-placeholder {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+  font-size: 13px;
+}
+
+/* ===== ダウンロード導線 ===== */
+
+body.download-page .agml-label-action {
+  text-align: center;
+  margin-top: 12px;
+}
+
+body.download-page .agml-go-download {
+  background: #00ccff;
+  color: #002b44;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body.download-page .agml-go-download:hover {
+  opacity: 0.85;
+}
