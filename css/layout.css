@@ -609,9 +609,8 @@ body.mobile-menu-open .mobile-menu-overlay-bottom {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 50px; /* SNSシェアとの間隔調整 */
 }
-
-
 
 /* [B] H1タイトル */
 .title-section {
