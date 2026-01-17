@@ -896,6 +896,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!judgeBtn || !step3) return;
 
+  // ===== コメント辞書（Step3で使用） =====
+  const AGML_LYRICS_COMMENTS = {
+    1: '歌詞の生成から構成、語彙選択に至るまで、制作工程の大部分をAIが担っています。人間による編集や構成判断はほとんど介在しておらず、歌詞表現はAIの生成ロジックや学習傾向がそのまま反映された状態です。創作的意思決定の主体はAI側にあり、人間の関与は極めて限定的と評価されます。',
+    2: '歌詞の基本構造や表現の大半はAIによって生成されており、人間は語句の微調整や表現の修正といった補助的な編集を行っています。全体のテーマ設計やストーリー展開はAI主導で進められており、人間の創作関与は限定的ながら一定程度認められる水準です。',
+    3: 'AIが生成した歌詞原案を出発点として、人間が内容や構成の一部を再設計しています。創作判断は人間とAIの双方にまたがっており、歌詞の完成度は人間による編集工程の影響を受けています。共同制作型の作詞プロセスと位置づけられます。',
+    4: '歌詞の構想、物語構成、表現方針は人間が主導しており、AIは語彙提案や韻構成、翻訳補助など限定的な役割で活用されています。表現の取捨選択や最終判断は人間が行っており、AIは創作支援ツールとして機能しています。',
+    5: '歌詞の構想立案から構成設計、表現選択までを人間が一貫して担っています。AIは自然さの調整や表現補助といった限定的用途にとどまっており、歌詞全体には制作者の思想や感情、創作意図が明確に反映されています。'
+  };
+
+  const AGML_COMPOSITION_COMMENTS = {
+    1: '楽曲はAIによって全自動で生成されており、人間は構成設計や音響的判断にほとんど関与していません。メロディ、リズム、展開はAIの生成アルゴリズムに依存しており、人間の創作的判断は認められない水準です。',
+    2: 'AIが生成した楽曲をベースに、人間が一部のカットや簡易的な音量調整のみを行っています。楽曲全体の構造や音楽的方向性はAI主導で決定されており、人間の関与は仕上げ工程に限定されています。',
+    3: 'AIが生成した楽曲素材を基に、人間が再構成や展開調整を行っています。制作判断は人間とAIが分担しており、構成編集の過程で人間の意図が一定程度反映されています。共同制作型の作曲プロセスと評価されます。',
+    4: '人間が明確な音楽的構想を持ち、AIに対して詳細な指示を与えながら生成と修正を繰り返しています。音楽的方向性や完成形の判断は人間が担っており、AIは制作を加速させる技術的手段として利用されています。',
+    5: '楽曲の構成設計、展開、音響処理に至るまで人間が主導して制作しています。AIは音色生成やリファレンス提案など補助的用途に限定されており、制作上の最終判断はすべて人間が行っています。'
+  };
+
+  const AGML_OVERALL_COMMENTS = {
+    1: '制作工程の大部分をAIが担っており、人間の創作的判断はほぼ介在していません。本作品はAI生成データとしての性質が極めて強いと評価されます。',
+    2: 'AIの生成結果を中心に制作が進められており、人間の関与は軽微な修正や選択にとどまっています。創作の主導権はAI側にあると整理されます。',
+    3: '人間とAIが制作工程を分担しており、双方の判断が作品に反映されています。共同制作型の位置づけとなり、評価は制作意図の所在によって左右されます。',
+    4: '制作全体の設計や意思決定は人間が担っており、AIは創作支援技術として活用されています。人間主導の制作プロセスと評価できます。',
+    5: '構想から完成まで人間が一貫して主導しており、AIは制作効率を高めるための補助的手段にとどまっています。創作の中心は明確に人間にあります。'
+  };
+
+  const AGML_COPYRIGHT_COMMENTS = {
+    1: '人間による創作的判断がほとんど認められず、著作権法上の「創作的表現」が成立しない可能性が高い水準です。',
+    2: '人間の関与は確認できますが、創作的寄与は限定的であり、著作権主張には慎重な整理が必要な状態です。',
+    3: '人間とAIの関与が混在しており、人間が関与した部分に限って著作権的評価が成立する可能性があります。',
+    4: '創作的判断の主体は人間にあり、一般的に著作権の成立が認められる水準と評価されます。',
+    5: '人間の思想、感情、創作意図が明確に反映されており、著作権法上の創作物として完全に成立します。'
+  };
+
+  // AI使用レベル → 使用割合％マップ
+  // レベル1（ほぼAI生成）→ 100%、レベル5（人が主導）→ 20%
+  const AGML_AI_PERCENT_MAP = {
+    1: 100,
+    2: 80,
+    3: 60,
+    4: 40,
+    5: 20
+  };
+
   judgeBtn.addEventListener('click', () => {
 
     // すでに結果がある場合は二重生成しない
@@ -933,37 +976,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // 選択値を取得
+      const lyric = document.querySelector('input[name="lyrics"]:checked');
+      const composition = document.querySelector('input[name="composition"]:checked');
+
+      if (!lyric || !composition) {
+        return; // Step1で弾いているが保険
+      }
+
+      const lyricsLv = parseInt(lyric.value, 10);
+      const compLv = parseInt(composition.value, 10);
+      const overallLv = Math.round((lyricsLv + compLv) / 2);
+
+      // コメント文を取得（辞書参照）
+      const lyricsComment = AGML_LYRICS_COMMENTS[lyricsLv] || '';
+      const compositionComment = AGML_COMPOSITION_COMMENTS[compLv] || '';
+      const overallComment = AGML_OVERALL_COMMENTS[overallLv] || '';
+      const copyrightComment = AGML_COPYRIGHT_COMMENTS[overallLv] || '';
+
+      // 各AI使用割合（％）
+      const lyricsPct = AGML_AI_PERCENT_MAP[lyricsLv];
+      const compPct = AGML_AI_PERCENT_MAP[compLv];
+
+      // 総合AI使用割合（平均を四捨五入して％化）
+      const overallPct = Math.round((lyricsPct + compPct) / 2);
+
+      // 著作権主張割合（AI使用割合の逆）
+      const copyrightPct = 100 - overallPct;
+
       // 判定結果HTML（※ラベル画像は保留）
       step3.innerHTML = `
         <div class="agml-result-wrap">
 
-          <!-- リード文 -->
-          <div class="agml-result-lead">
-            <p>
+          <!-- リード文（alert-box） -->
+          <div class="alert-box">
+            <div class="alert-inline-icon">
+              <img src="../img/info-icon.png" alt="案内アラート">
+            </div>
+            <div class="alert-box-text">
               以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
               本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
-              この判定結果をもとに、AI生成音楽ラベル（AGML）をダウンロード・共有できます。
-            </p>
+              この判定結果をもとに、<span class="bold-spot">AI生成音楽ラベル（AGML）</span>作成します。
+            </div>
           </div>
 
           <div class="agml-result-box">
-            <p><strong>作詞AI使用割合：</strong>20%</p>
-            <p>人間が作曲設計・構成・音響処理の全てをコントロールし、AIは音色生成やリファレンス提案などに限定して使用されています。</p>
+            <p><strong>作詞AI使用割合：${lyricsPct}%</strong></p>
+            <p>${lyricsComment}</p>
           </div>
 
           <div class="agml-result-box">
-            <p><strong>作曲AI使用割合：</strong>20%</p>
-            <p>人間が作曲設計・構成・音響処理の全てをコントロールし、AIは音色生成やリファレンス提案などに限定して使用されています。</p>
+            <p><strong>作曲AI使用割合：${compPct}%</strong></p>
+            <p>${compositionComment}</p>
           </div>
 
           <div class="agml-result-box">
-            <p><strong>総合AI使用割合：</strong>20%</p>
-            <p>人が作品の構想から完成まで一貫して主導し、AIは創作支援技術として利用されています。</p>
+            <p><strong>総合AI使用割合：${overallPct}%</strong></p>
+            <p>${overallComment}</p>
           </div>
 
           <div class="agml-result-box">
-            <p><strong>著作権保存割合：</strong>100%</p>
-            <p>人の思想・感情の反映が明確であり、著作権法上の創作物として成立します。</p>
+            <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
+            <p>${copyrightComment}</p>
           </div>
 
           <!-- AGML ラベル枠（仮） -->

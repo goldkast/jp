@@ -605,7 +605,7 @@ h3.steps .dk-line {
   gap: 10px;
 
   max-width: 1200px;
-  margin: -10px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 12px 10px;
   border: 1px solid #00d8ff;
   border-radius: 6px;
@@ -1086,6 +1086,7 @@ body.download-page .agml-result-box {
 
 body.download-page .agml-result-box strong {
   color: #00d8ff;
+  font-weight:	600;
 }
 
 /* ===== AGML ラベル枠（仮） ===== */
@@ -1101,10 +1102,10 @@ body.download-page .agml-label-card {
 
 body.download-page .agml-label-title {
   background: #00ccff;
-  color: #002b44;
+  color: #FFFFFF;
   font-weight: 700;
   font-size: 14px;
-  padding: 10px;
+  padding: 5px 20px;
   text-align: center;
 }
 
@@ -1126,7 +1127,7 @@ body.download-page .agml-label-action {
 
 body.download-page .agml-go-download {
   background: #00ccff;
-  color: #002b44;
+  color: #FFFFFF;
   border: none;
   border-radius: 999px;
   padding: 12px 26px;
@@ -1137,4 +1138,38 @@ body.download-page .agml-go-download {
 
 body.download-page .agml-go-download:hover {
   opacity: 0.85;
+}
+
+/* ========================================
+   Step1専用 alert-box 調整（download page）
+======================================== */
+
+/* 全体の余白を広げる */
+#alert-step1 {
+  margin-top: 16px;
+  margin-bottom: 28px;
+  padding: 18px 20px;
+}
+
+/* 中のテキスト行間を少し広げる */
+#alert-step1 .alert-box-text {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* アイコンとテキストの距離を調整 */
+#alert-step1 .alert-inline-icon {
+  margin-right: 14px;
+}
+
+/* モバイル時は少し詰める */
+@media (max-width: 768px) {
+  #alert-step1 {
+    padding: 14px 16px;
+  }
+
+  #alert-step1 .alert-box-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
 }
