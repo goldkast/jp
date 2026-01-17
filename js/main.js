@@ -698,7 +698,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSection = document.getElementById('ai-level-form');
   const stepper = document.getElementById('agml-stepper');
   const judgeBtn = document.getElementById('generate-result');
-  const spinner = document.getElementById('spinner');
 
   if (!formSection || !judgeBtn) return;
 
@@ -706,6 +705,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof setActiveStep === 'function') {
     setActiveStep(1);
   }
+
+  // 元のボタンテキストを保存
+  const originalButtonText = judgeBtn.textContent;
 
   judgeBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -718,16 +720,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // UI制御
+    // UI制御：ボタン内にスピナーと「判定中」を表示
     judgeBtn.disabled = true;
-    spinner.classList.remove('hidden');
+    judgeBtn.innerHTML = `
+      <div style="display:inline-flex;align-items:center;gap:8px;">
+        <div class="agml-spinner" style="
+          width:18px;height:18px;
+          border:3px solid rgba(255,255,255,0.4);
+          border-top-color:#fff;
+          border-radius:50%;
+          animation:agml-spin 0.8s linear infinite;
+        "></div>
+        <span>判定中</span>
+      </div>
+    `;
 
     // スクロール位置をフォームの先頭に固定
     formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // 仮の判定処理（2秒後にStep2へ）
     setTimeout(() => {
-      spinner.classList.add('hidden');
+      // ボタンテキストを元に戻す
+      judgeBtn.innerHTML = originalButtonText;
       judgeBtn.disabled = false;
 
       // Step2をアクティブに

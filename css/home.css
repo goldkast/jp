@@ -374,7 +374,6 @@
   padding: 32px 36px;
 
   background: rgba(0, 204, 225, 0.1);
-  border: 2px solid #00ccff;
   border-radius: 14px;
 
   color: #ffffff;
@@ -396,7 +395,7 @@
 .ai-question-group {
   border: 1px solid #00CCFF;  border-radius: 10px;
   padding: 20px 22px;
-   background: rgba(0, 0, 0, 0.2);
+   background: rgba(0, 204, 255, 0.18);
 }
 
 /* 質問タイトル（legend） */
@@ -435,7 +434,7 @@
   padding: 12px 28px;
   font-size: 16px;
   font-weight: 700;
-  color: #003344;
+  color: #FFFFFF;
   background: #00ccff;
   border: none;
   border-radius: 999px;
