@@ -768,9 +768,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const judgeBtn = document.getElementById('generate-result');
       const originalButtonText = judgeBtn ? judgeBtn.getAttribute('data-original-text') || '判定開始' : '判定開始';
       
-      // ボタンをリセット
+      // ボタンをリセット（○判定中から判定開始に戻す）
       if (judgeBtn) {
-        judgeBtn.innerHTML = originalButtonText;
+        // innerHTMLをクリアしてからテキストを設定
+        judgeBtn.innerHTML = '';
+        judgeBtn.textContent = originalButtonText;
         judgeBtn.disabled = false;
       }
 
@@ -830,9 +832,55 @@ document.addEventListener('DOMContentLoaded', () => {
       // 初回アクセス時（Step1表示中）はリンク不要
       if (step === '1' && hasResult) {
         setStep(1);
+        
+        // ボタンを確実にリセット（○判定中から判定開始に戻す）
+        const judgeBtn = document.getElementById('generate-result');
+        if (judgeBtn) {
+          const originalButtonText = judgeBtn.getAttribute('data-original-text') || '判定開始';
+          judgeBtn.innerHTML = '';
+          judgeBtn.textContent = originalButtonText;
+          judgeBtn.disabled = false;
+        }
+        
+        // Step2をクリック可能にする（判定結果に戻れるように）
+        const step2Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="2"]');
+        if (step2Wrapper && hasResult) {
+          step2Wrapper.style.cursor = 'pointer';
+        }
       }
-      // Step2: 判定結果表示時は現在アクティブなステップなのでリンク不要
-      // Step3, Step4, Step5: クリック不可（何もしない）
+      // Step2: 判定結果が表示された後のみクリック可能（判定結果に戻る）
+      else if (step === '2' && hasResult) {
+        // Step3を即座にアクティブに（キャッシュから表示）
+        contents.forEach(section => {
+          section.classList.remove('is-active');
+        });
+        step3.classList.add('is-active');
+
+        // StepperをStep2までアクティブに
+        steps.forEach(w => {
+          const s = w.dataset.step;
+          const img = w.querySelector('.step-icon');
+          const circle = w.querySelector('.step-circle');
+          if (!img) return;
+
+          if (s === '1' || s === '2') {
+            img.src = `../img/number/step${s}-1.svg`;
+            w.classList.add('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#00CCFF';
+            }
+          } else {
+            img.src = `../img/number/step${s}-2.svg`;
+            w.classList.remove('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#CCCCCC';
+            }
+          }
+        });
+
+        // Step3へスクロール
+        step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       // Step3, Step4, Step5: クリック不可（何もしない）
     });
   });
