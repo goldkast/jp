@@ -736,9 +736,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    // スクロール位置をフォームの先頭に固定
-    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
     // Step3の処理で判定結果を表示するため、ここではボタンテキストを戻さない
     console.log('AI利用率アンケート結果', {
       lyrics: lyric.value,
@@ -941,8 +938,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   judgeBtn.addEventListener('click', () => {
 
-    // すでに結果がある場合は二重生成しない
-    if (step3.dataset.rendered === 'true') return;
+    // すでに結果がある場合は、即座にStep3を表示（待機時間なし）
+    if (step3.dataset.rendered === 'true') {
+      // Step3 をアクティブに
+      document.querySelectorAll('.step-content').forEach(el => {
+        el.classList.remove('is-active');
+      });
+      step3.classList.add('is-active');
+
+      // Stepper を Step2 までアクティブに
+      document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
+        const step = wrapper.dataset.step;
+        const img = wrapper.querySelector('.step-icon');
+        const circle = wrapper.querySelector('.step-circle');
+        if (!img) return;
+
+        if (step === '1' || step === '2') {
+          img.src = `../img/number/step${step}-1.svg`;
+          wrapper.classList.add('is-active');
+          if (circle) {
+            circle.style.backgroundColor = '#00CCFF';
+          }
+        } else {
+          img.src = `../img/number/step${step}-2.svg`;
+          wrapper.classList.remove('is-active');
+          if (circle) {
+            circle.style.backgroundColor = '#CCCCCC';
+          }
+        }
+      });
+
+      // Step3へスクロール
+      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
 
     // 判定中 → 結果表示までの猶予（2秒）
     setTimeout(() => {
