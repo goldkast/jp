@@ -489,3 +489,32 @@ body.download-page #spinner {
 .hidden {
   display: none !important;
 }
+
+/* ============================
+   AGML ラベル表示ステージ
+============================ */
+
+.agml-label-stage {
+  width: 320px;
+  aspect-ratio: 1 / 1;
+  margin: 32px auto 24px;
+  background-image: url("../img/level/label-display-back.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+/* SVG 本体 */
+.agml-label-gauge svg {
+  width: 260px;
+  height: 260px;
+  display: block;
+  margin: 30px auto 0;
+}
+
+/* 初期状態（全ステップ薄色） */
+.gauge-step path {
+  fill: rgba(0, 204, 255, 0.2);
+  transition: fill 0.4s ease;
+}
