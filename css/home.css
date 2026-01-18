@@ -1,4 +1,4 @@
-/* Home-only: Hero, wave, video, animations */
+﻿/* Home-only: Hero, wave, video, animations */
 
 /* ========================================
    Hero Video
@@ -396,39 +396,41 @@
 ======================================== */
 
 /* Stepコンテンツ表示制御 */
-.step-content {
+body.download-page .step-content {
   display: none;
   max-width: 960px;
-  margin: -20px auto 0;
-  padding: 15px 30px 50px;
+  margin: 40px auto 0;
+  padding: 32px 36px;
 
-  background: rgba(0, 204, 225, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #00ccff;
   border-radius: 14px;
 
   color: #ffffff;
 }
 
 /* 表示中のステップ */
-.step-content.is-active {
-  display: block;
+body.download-page .step-content.is-active {
+  display: block !important;
 }
 
 /* アンケート全体フォーム */
-.ai-level-form {
+body.download-page .ai-level-form {
   display: flex;
   flex-direction: column;
   gap: 36px;
 }
 
 /* 質問グループ */
-.ai-question-group {
-  border: 1px solid #00CCFF;  border-radius: 10px;
+body.download-page .ai-question-group {
+  border: 1px solid rgba(0, 204, 255, 0.6);
+  border-radius: 10px;
   padding: 20px 22px;
-   background: rgba(0, 204, 255, 0.18);
+  background: rgba(0, 204, 255, 0.18);
 }
 
 /* 質問タイトル（legend） */
-.ai-question-group legend {
+body.download-page .ai-question-group legend {
   padding: 0 10px;
   font-size: 16px;
   font-weight: 700;
@@ -436,21 +438,22 @@
 }
 
 /* 選択肢ラベル */
-.ai-question-group label {
+body.download-page .ai-question-group label {
   display: block;
   margin-top: 12px;
   line-height: 1.7;
   cursor: pointer;
+  color: #ffffff;
 }
 
 /* ラジオボタン */
-.ai-question-group input[type="radio"] {
+body.download-page .ai-question-group input[type="radio"] {
   margin-right: 8px;
   transform: scale(1.1);
 }
 
 /* 判定ボタンエリア */
-.judge-wrapper {
+body.download-page .judge-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -459,11 +462,11 @@
 }
 
 /* 判定実行ボタン */
-#generate-result {
+body.download-page #generate-result {
   padding: 12px 28px;
   font-size: 16px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #003344;
   background: #00ccff;
   border: none;
   border-radius: 999px;
