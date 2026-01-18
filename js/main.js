@@ -1076,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="agml-label-action">
             <button class="agml-go-download">
-              ラベルダウンロードへ進む ▶
+              サムネイルを作成する ▶
             </button>
           </div>
 
