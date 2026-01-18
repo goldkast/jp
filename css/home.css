@@ -289,8 +289,6 @@
   z-index: 0;
 }
 
-/* Step1とStep2の間の横線を青くする（Step2がアクティブな場合のみ） */
-
 #agml-stepper .step-wrapper {
   position: relative;
   flex: 1;
@@ -315,23 +313,6 @@
   background-color: #00CCFF;
 }
 
-/* Step1とStep2がアクティブな場合のスタイル */
-#agml-stepper .step-wrapper[data-step="2"].is-active .step-circle {
-  background-color: #00CCFF;
-}
-
-/* Step2がアクティブな場合、Step1とStep2の間の横線を青くする */
-#agml-stepper .step-wrapper[data-step="2"].is-active::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: calc(50% + 20px);
-  width: calc(100% - 40px);
-  height: 10px;
-  background-color: #00CCFF;
-  z-index: 1;
-}
-
 #agml-stepper .step-inner {
   border-radius: 50%;
   background-color: white;
@@ -354,16 +335,6 @@
   height: 16px;
   display: block;
   pointer-events: none;
-}
-
-/* クリック可能なステップのスタイル */
-#agml-stepper .step-wrapper {
-  cursor: default;
-}
-
-/* Step1は初期状態ではリンクなし（判定結果表示後にJavaScriptでpointerに変更） */
-#agml-stepper .step-wrapper[data-step="1"] {
-  cursor: default;
 }
 
 #agml-stepper .step-divider {
@@ -391,10 +362,11 @@
   color: #ffffff;
 }
 
-/* ========================================
-   AGML Step Content（AI利用レベル判定アンケート）
-======================================== */
+/* ===========================
+   Step1 レイアウト安定化
+=========================== */
 
+<<<<<<< HEAD
 /* Stepコンテンツ表示制御 */
 body.download-page .step-content {
   display: none;
@@ -499,3 +471,21 @@ body.download-page #generate-result {
 .hidden {
   display: none !important;
 }
+=======
+.agml-stepper-container {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 80px;
+}
+
+.ai-level-form {
+  position: relative;
+  z-index: 2;
+}
+
+/* フォームとステップナビの間に必ず余白 */
+#agml-stepper + .ai-level-form,
+.ai-level-form + #agml-stepper {
+  margin-top: 80px;
+}
+>>>>>>> c48f53c58d64c40cb165340ab9e2acc626527bd0
