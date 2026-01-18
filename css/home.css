@@ -366,7 +366,27 @@
    Step1 レイアウト安定化
 =========================== */
 
-<<<<<<< HEAD
+.agml-stepper-container {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 80px;
+}
+
+.ai-level-form {
+  position: relative;
+  z-index: 2;
+}
+
+/* フォームとステップナビの間に必ず余白 */
+#agml-stepper + .ai-level-form,
+.ai-level-form + #agml-stepper {
+  margin-top: 80px;
+}
+
+/* ========================================
+   AGML Step Content（AI利用レベル判定アンケート）
+======================================== */
+
 /* Stepコンテンツ表示制御 */
 body.download-page .step-content {
   display: none;
@@ -446,7 +466,7 @@ body.download-page #generate-result {
 }
 
 /* 無効時の判定ボタン */
-#generate-result:disabled {
+body.download-page #generate-result:disabled {
   background: #00ccff;
   cursor: not-allowed;
   opacity: 1;
@@ -459,7 +479,7 @@ body.download-page #generate-result {
 }
 
 /* 判定中スピナー */
-#spinner {
+body.download-page #spinner {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -471,21 +491,3 @@ body.download-page #generate-result {
 .hidden {
   display: none !important;
 }
-=======
-.agml-stepper-container {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 80px;
-}
-
-.ai-level-form {
-  position: relative;
-  z-index: 2;
-}
-
-/* フォームとステップナビの間に必ず余白 */
-#agml-stepper + .ai-level-form,
-.ai-level-form + #agml-stepper {
-  margin-top: 80px;
-}
->>>>>>> c48f53c58d64c40cb165340ab9e2acc626527bd0

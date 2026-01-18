@@ -1089,33 +1089,21 @@ body.download-page .agml-result-box strong {
   font-weight:	600;
 }
 
-/* ===== AGML ラベル枠（仮） ===== */
+/* ===== AGML ラベル表示（画像版） ===== */
 
-body.download-page .agml-label-card {
-  max-width: 360px;
-  margin: 30px auto 10px;
-  border: 1px solid #00ccff;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-body.download-page .agml-label-title {
-  background: #00ccff;
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 5px 20px;
+body.download-page .agml-label-image {
   text-align: center;
+  margin: 30px auto 10px;
+  max-width: 500px;
+  display: block;
 }
 
-body.download-page .agml-label-placeholder {
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #cccccc;
-  font-size: 13px;
+body.download-page .agml-label-image img {
+  max-width: 100%;
+  height: auto;
+  display: block !important;
+  margin: 0 auto;
+  width: auto;
 }
 
 /* ===== ダウンロード導線 ===== */

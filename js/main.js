@@ -1069,12 +1069,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${copyrightComment}</p>
           </div>
 
-          <!-- AGML ラベル枠（仮） -->
-          <div class="agml-label-card">
-            <div class="agml-label-title">AI生成音楽ラベル（AGML）</div>
-            <div class="agml-label-placeholder">
-              ラベル画像
-            </div>
+          <!-- AGML ラベル表示（背景画像版） -->
+          <div class="agml-label-image">
+            <img src="../img/level/label-display-back.png" alt="AGMLラベル">
           </div>
 
           <div class="agml-label-action">
