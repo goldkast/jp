@@ -393,9 +393,7 @@ body.download-page .step-content {
   max-width: 960px;
   margin: 40px auto 0;
   padding: 32px 36px;
-
   background: rgba(0, 0, 0, 0.35);
-  border: 1px solid #00ccff;
   border-radius: 14px;
 
   color: #ffffff;
@@ -458,7 +456,7 @@ body.download-page #generate-result {
   padding: 12px 28px;
   font-size: 16px;
   font-weight: 700;
-  color: #003344;
+  color: #FFFFFF;
   background: #00ccff;
   border: none;
   border-radius: 999px;
