@@ -3,76 +3,76 @@
 ========================================================= */
 // 言語情報の定義
 const languageData = {
-    jp: { flag: 'jp', name: '日本語' },
-    en: { flag: 'us', name: 'English' },
-    cn: { flag: 'cn', name: '简体中文' },
-    tw: { flag: 'tw', name: '繁體中文' },
-    kr: { flag: 'kr', name: '한국어' },
-    id: { flag: 'id', name: 'Bahasa Indonesia' },
-    vn: { flag: 'vn', name: 'Tiếng Việt' },
-    es: { flag: 'es', name: 'Español' },
-    fr: { flag: 'fr', name: 'Français' },
-    de: { flag: 'de', name: 'Deutsch' },
-    ru: { flag: 'ru', name: 'Русский' }
+  jp: { flag: 'jp', name: '日本語' },
+  en: { flag: 'us', name: 'English' },
+  cn: { flag: 'cn', name: '简体中文' },
+  tw: { flag: 'tw', name: '繁體中文' },
+  kr: { flag: 'kr', name: '한국어' },
+  id: { flag: 'id', name: 'Bahasa Indonesia' },
+  vn: { flag: 'vn', name: 'Tiếng Việt' },
+  es: { flag: 'es', name: 'Español' },
+  fr: { flag: 'fr', name: 'Français' },
+  de: { flag: 'de', name: 'Deutsch' },
+  ru: { flag: 'ru', name: 'Русский' }
 };
 
 // 現在のURLパスから言語コードを取得
 function getCurrentLanguage() {
-    const path = window.location.pathname;
-    // /en/, /cn/, /tw/ などの形式を検出
-    const match = path.match(/^\/([a-z]{2})\//);
-    if (match && languageData[match[1]]) {
-        return match[1];
-    }
-    // デフォルトは日本語
-    return 'jp';
+  const path = window.location.pathname;
+  // /en/, /cn/, /tw/ などの形式を検出
+  const match = path.match(/^\/([a-z]{2})\//);
+  if (match && languageData[match[1]]) {
+    return match[1];
+  }
+  // デフォルトは日本語
+  return 'jp';
 }
 
 // 言語表示を更新する関数
 function updateLanguageDisplay() {
-    const currentLang = getCurrentLanguage();
-    const langInfo = languageData[currentLang];
-    
-    if (!langInfo) return;
-    
-    // PC用の言語表示を更新
-    const langToggle = document.getElementById("langToggle");
-    if (langToggle) {
-        const flagSpan = langToggle.querySelector('.fi');
-        const allSpans = langToggle.querySelectorAll('span');
-        
-        if (flagSpan) {
-            flagSpan.className = `fi fi-${langInfo.flag}`;
-        }
-        // .fi でも .arrow でもない最初のspanが言語名
-        allSpans.forEach(span => {
-            if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
-                span.textContent = langInfo.name;
-            }
-        });
+  const currentLang = getCurrentLanguage();
+  const langInfo = languageData[currentLang];
+
+  if (!langInfo) return;
+
+  // PC用の言語表示を更新
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    const flagSpan = langToggle.querySelector('.fi');
+    const allSpans = langToggle.querySelectorAll('span');
+
+    if (flagSpan) {
+      flagSpan.className = `fi fi-${langInfo.flag}`;
     }
-    
-    // モバイル用の言語表示を更新
-    const mobileLangToggle = document.getElementById("mobileLangToggle");
-    if (mobileLangToggle) {
-        const mobileFlagSpan = mobileLangToggle.querySelector('.fi');
-        const mobileAllSpans = mobileLangToggle.querySelectorAll('span');
-        
-        if (mobileFlagSpan) {
-            mobileFlagSpan.className = `fi fi-${langInfo.flag}`;
-        }
-        // .fi でも .arrow でもない最初のspanが言語名
-        mobileAllSpans.forEach(span => {
-            if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
-                span.textContent = langInfo.name;
-            }
-        });
+    // .fi でも .arrow でもない最初のspanが言語名
+    allSpans.forEach(span => {
+      if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
+        span.textContent = langInfo.name;
+      }
+    });
+  }
+
+  // モバイル用の言語表示を更新
+  const mobileLangToggle = document.getElementById("mobileLangToggle");
+  if (mobileLangToggle) {
+    const mobileFlagSpan = mobileLangToggle.querySelector('.fi');
+    const mobileAllSpans = mobileLangToggle.querySelectorAll('span');
+
+    if (mobileFlagSpan) {
+      mobileFlagSpan.className = `fi fi-${langInfo.flag}`;
     }
+    // .fi でも .arrow でもない最初のspanが言語名
+    mobileAllSpans.forEach(span => {
+      if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
+        span.textContent = langInfo.name;
+      }
+    });
+  }
 }
 
 // ページ読み込み時に言語表示を更新
-document.addEventListener("DOMContentLoaded", function() {
-    updateLanguageDisplay();
+document.addEventListener("DOMContentLoaded", function () {
+  updateLanguageDisplay();
 });
 
 const langToggle = document.getElementById("langToggle");
@@ -80,19 +80,19 @@ const langDropdown = document.getElementById("langDropdown");
 const langMenu = document.querySelector(".lang-menu");
 
 if (langToggle && langDropdown && langMenu) {
-    langToggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        langDropdown.classList.toggle("show");
-    });
+  langToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    langDropdown.classList.toggle("show");
+  });
 
-    langMenu.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
+  langMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 
-    document.addEventListener("click", function () {
-        langDropdown.classList.remove("show");
-    });
+  document.addEventListener("click", function () {
+    langDropdown.classList.remove("show");
+  });
 }
 
 // モバイル用の言語プルダウン
@@ -100,18 +100,18 @@ const mobileLangToggle = document.getElementById("mobileLangToggle");
 const mobileLangDropdown = document.getElementById("mobileLangDropdown");
 
 if (mobileLangToggle && mobileLangDropdown) {
-    mobileLangToggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        mobileLangDropdown.classList.toggle("show");
-    });
+  mobileLangToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    mobileLangDropdown.classList.toggle("show");
+  });
 
-    document.addEventListener("click", function (e) {
-        const mobileLang = document.querySelector(".mobile-lang");
-        if (mobileLang && !mobileLang.contains(e.target)) {
-            mobileLangDropdown.classList.remove("show");
-        }
-    });
+  document.addEventListener("click", function (e) {
+    const mobileLang = document.querySelector(".mobile-lang");
+    if (mobileLang && !mobileLang.contains(e.target)) {
+      mobileLangDropdown.classList.remove("show");
+    }
+  });
 }
 
 /* =========================================================
@@ -205,7 +205,7 @@ topButtons.forEach((btn) => {
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.getElementById("darkToggle");   // 新トグル
-  const knob   = document.getElementById("toggleKnob");   // ノブ画像
+  const knob = document.getElementById("toggleKnob");   // ノブ画像
 
   if (!toggle || !knob) return;
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ノブ画像切り替え
     // STEP1: Darkモードを常に有効に固定するため、常にdark-mode用のノブを表示
     // if (document.body.classList.contains("dark-mode")) {
-      knob.src = "./img/toggle-knob-on.png";      // ★ ダークモード用ノブ
+    knob.src = "./img/toggle-knob-on.png";      // ★ ダークモード用ノブ
     // } else {
     //   knob.src = "./img/toggle-knob-off.png";     // ★ 通常モード用ノブ
     // }
@@ -289,66 +289,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
-    
+
     // タイムライン全体の位置
     const timelineRect = timeline.getBoundingClientRect();
     const timelineTop = timelineRect.top + scrollTop;
-    
+
     // ★ 色変化の開始ポイント調整（この数値を変更してください）
     // 1.0 = 画面の一番下、0.75 = 3/4、0.5 = 中央、0.25 = 1/4、0.0 = 一番上
     const TRIGGER_POSITION = 0.75;
-    
+
     // ★ マウスの動きより早く反応させる倍率（1.0 = 同じ速度、1.2 = 20%早い、1.5 = 50%早い）
     const SPEED_MULTIPLIER = 1.1;
-    
+
     // 1番のステップボックスの位置を取得
     const firstNumberBox = timelineNumbers[0];
     if (!firstNumberBox) return;
-    
+
     const firstBoxRect = firstNumberBox.getBoundingClientRect();
     const firstBoxTop = firstBoxRect.top + scrollTop;
-    
+
     // 終端丸の位置を取得
     let endPosition = timelineTop + timelineRect.height;
     if (timelineEnd) {
       const endRect = timelineEnd.getBoundingClientRect();
       endPosition = endRect.top + scrollTop + endRect.height; // 終端丸の下端
     }
-    
+
     // 色変化のトリガー位置
     const viewportTrigger = scrollTop + (windowHeight * TRIGGER_POSITION);
-    
+
     // 色変化の開始：1番のステップがトリガー位置に来たとき
     const colorChangeStart = firstBoxTop;
-    
+
     // 色変化の終了：終端丸がトリガー位置に来たとき
     const colorChangeEnd = endPosition;
-    
+
     // 色変化の全体の範囲（距離）
     const totalDistance = colorChangeEnd - colorChangeStart;
-    
+
     // 現在のスクロール進行度（0～1以上）
     const scrollProgress = (viewportTrigger - colorChangeStart) / totalDistance;
-    
+
     // マウスの動きより早く反応させる（進行度を倍率で加速）
     const acceleratedProgress = scrollProgress * SPEED_MULTIPLIER;
-    
+
     // 縦線上での色変化の進行度（0～1にクランプ）
     const lineScrollProgress = Math.max(0, Math.min(1, acceleratedProgress));
-    
+
     // 縦線上の絶対位置（ピクセル）- 実際の色変化位置
     const currentLinePosition = firstBoxTop + (totalDistance * lineScrollProgress);
-    
+
     // 各番号ボックスの処理
     timelineNumbers.forEach((numberBox, index) => {
       const boxRect = numberBox.getBoundingClientRect();
       const boxTop = boxRect.top + scrollTop;
       const boxBottom = boxTop + boxRect.height;
       const boxMiddle = boxTop + (boxRect.height / 2);
-      
+
       // ボックスの中心位置での色変化の進行度
       let boxProgress = 0;
-      
+
       // 現在のライン位置がボックスのどの位置にあるか
       if (currentLinePosition < boxTop) {
         // ラインがボックスの上にある場合
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ラインがボックスを通過した場合
         boxProgress = 1;
       }
-      
+
       // ボックス内のグラデーション（上から下へ滑らかに色が変わる）
       const gradientPercent = Math.round(boxProgress * 100);
       const numberGradient = `linear-gradient(to bottom, 
@@ -368,9 +368,9 @@ document.addEventListener("DOMContentLoaded", () => {
         #00ccff ${gradientPercent}%, 
         #b5d7ff ${gradientPercent}%, 
         #b5d7ff 100%)`;
-      
+
       numberBox.style.setProperty('--number-gradient', numberGradient);
-      
+
       // バブルアニメーション：ボックスが色で満たされ始めたら（60%以上）バブルを表示
       if (boxProgress >= 0.6) {
         numberBox.classList.add('bubble-active');
@@ -378,22 +378,22 @@ document.addEventListener("DOMContentLoaded", () => {
         numberBox.classList.remove('bubble-active');
       }
     });
-    
+
     // 縦線のグラデーション（0%から100%まで）
     const currentScrollPercent = lineScrollProgress * 100;
-    
+
     const lineGradient = `linear-gradient(to bottom, 
       #00ccff 0%, 
       #00ccff ${currentScrollPercent}%, 
       #b5d7ff ${currentScrollPercent}%, 
       #b5d7ff 100%)`;
-    
+
     timeline.style.setProperty('--timeline-gradient', lineGradient);
-    
+
     // 終端丸の色を更新（縦線の色が100%到達したら変わる）
     if (timelineEnd) {
       let endProgress = 0;
-      
+
       // 縦線の進行度が100%に達したら終端丸の色を変える
       if (lineScrollProgress >= 1) {
         endProgress = 1;
@@ -401,18 +401,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // 95%～100%の間で徐々に色を変える
         endProgress = (lineScrollProgress - 0.95) / 0.05;
       }
-      
+
       const startColor = { r: 181, g: 215, b: 255 }; // #b5d7ff
       const endColor = { r: 0, g: 204, b: 255 };     // #00ccff
-      
+
       const r = Math.round(startColor.r + (endColor.r - startColor.r) * endProgress);
       const g = Math.round(startColor.g + (endColor.g - startColor.g) * endProgress);
       const b = Math.round(startColor.b + (endColor.b - startColor.b) * endProgress);
-      
+
       const color = `rgb(${r}, ${g}, ${b})`;
       timelineEnd.style.backgroundColor = color;
     }
-    
+
     // デバッグログ
     console.log('Timeline Debug:', {
       'トリガー位置': viewportTrigger.toFixed(1),
@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", updateTimelineColors);
-  
+
   // ダークモード切り替え時にも更新
   const darkToggle = document.getElementById("darkToggle");
   if (darkToggle) {
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
    - current 判定
 =============================== */
 
-(function() {
+(function () {
   'use strict';
 
   // ページパスから現在のページを判定
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getRelativePath(targetPath, currentLevel) {
     // パスを正規化（末尾のスラッシュを除去）
     targetPath = targetPath.replace(/\/$/, '') || '/';
-    
+
     // ルート（/）へのパス
     if (targetPath === '/') {
       if (currentLevel === 0) return './index.html';
@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const relativePath = '../'.repeat(currentLevel) + targetSegments.join('/') + '/index.html';
     return relativePath;
   }
-  
+
   // パスを正規化して比較する関数
   function normalizePath(path) {
     return path.replace(/\/$/, '') || '/';
@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // グローバルナビメニューのリンクを更新
   function updateGlobalNavLinks() {
     const navLinks = document.querySelectorAll('.nav-menu a[data-original-path]');
-    
+
     navLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -515,14 +515,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // パスを正規化
       let targetPath = normalizePath(originalPath);
-      
+
       // 相対パスを生成
       const relativePath = getRelativePath(targetPath, currentLevel);
       link.setAttribute('href', relativePath);
 
       // currentクラスの設定（既存のcurrentクラスを一度削除）
       link.classList.remove('current');
-      
+
       // 現在のパスと一致する場合のみcurrentクラスを追加
       const normalizedCurrentPath = normalizePath(currentPath);
       if (targetPath === normalizedCurrentPath) {
@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // モバイルメニューのリンクを更新
   function updateMobileMenuLinks() {
     const mobileLinks = document.querySelectorAll('.mobile-menu-list a[data-original-path]');
-    
+
     mobileLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // フッターメニューのリンクを更新
   function updateFooterLinks() {
     const footerLinks = document.querySelectorAll('.footer-menu a[data-original-path]');
-    
+
     footerLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -569,7 +569,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // モバイルサブメニュー（利用規約など）のリンクを更新
   function updateMobileSubmenuLinks() {
     const submenuLinks = document.querySelectorAll('.mobile-submenu a[data-original-path]');
-    
+
     submenuLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -583,7 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ロゴのリンクを更新
   function updateLogoLinks() {
     const logoLinks = document.querySelectorAll('.nav-logo a, .logo-center a');
-    
+
     logoLinks.forEach(link => {
       if (currentLevel === 0) {
         link.setAttribute('href', './index.html');
@@ -595,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOMContentLoadedで実行
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       updateGlobalNavLinks();
       updateMobileMenuLinks();
       updateFooterLinks();
@@ -616,17 +616,17 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================================================
    FAQアコーディオン
 ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const faqButtons = document.querySelectorAll('.faq-btn[data-toggle="collapse"]');
-  
-  faqButtons.forEach(function(button) {
-    button.addEventListener('click', function(e) {
+
+  faqButtons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
       e.preventDefault();
-      
+
       const targetId = this.getAttribute('data-target');
       const target = document.querySelector(targetId);
       if (!target) return;
-      
+
       // 現在のアイテムをトグル
       const isExpanded = target.classList.contains('show');
       if (isExpanded) {
@@ -645,49 +645,49 @@ document.addEventListener('DOMContentLoaded', function() {
 // Go to Top
 $(function () {
 
-	const progressPath = document.querySelector('.progress-wrap path');
-	if (!progressPath) return;
-	
-	const pathLength = progressPath.getTotalLength();
+  const progressPath = document.querySelector('.progress-wrap path');
+  if (!progressPath) return;
 
-	progressPath.style.strokeDasharray = pathLength;
-	progressPath.style.strokeDashoffset = pathLength;
+  const pathLength = progressPath.getTotalLength();
 
-	const updateProgress = () => {
-		const scroll = $(window).scrollTop();
-		const height = $(document).height() - $(window).height();
-		const progress = pathLength - (scroll * pathLength / height);
-		progressPath.style.strokeDashoffset = progress;
-	};
+  progressPath.style.strokeDasharray = pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
 
-	updateProgress();
-	$(window).on('scroll', updateProgress);
+  const updateProgress = () => {
+    const scroll = $(window).scrollTop();
+    const height = $(document).height() - $(window).height();
+    const progress = pathLength - (scroll * pathLength / height);
+    progressPath.style.strokeDashoffset = progress;
+  };
 
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 100) {
-			$('.progress-wrap').addClass('active-progress');
-		} else {
-			$('.progress-wrap').removeClass('active-progress');
-		}
-		
-		// ページ最下部時の位置調整
-		const windowHeight = $(window).height();
-		const documentHeight = $(document).height();
-		const scrollTop = $(window).scrollTop();
-		const scrollBottom = scrollTop + windowHeight;
-		
-		// ページの最下部に近づいたら（footerの上に配置）
-		if (scrollBottom >= documentHeight - 10) {
-			$('.progress-wrap').addClass('at-bottom');
-		} else {
-			$('.progress-wrap').removeClass('at-bottom');
-		}
-	});
+  updateProgress();
+  $(window).on('scroll', updateProgress);
 
-	$('.progress-wrap').on('click', function (e) {
-		e.preventDefault();
-		$('html, body').animate({ scrollTop: 0 }, 500);
-	});
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 100) {
+      $('.progress-wrap').addClass('active-progress');
+    } else {
+      $('.progress-wrap').removeClass('active-progress');
+    }
+
+    // ページ最下部時の位置調整
+    const windowHeight = $(window).height();
+    const documentHeight = $(document).height();
+    const scrollTop = $(window).scrollTop();
+    const scrollBottom = scrollTop + windowHeight;
+
+    // ページの最下部に近づいたら（footerの上に配置）
+    if (scrollBottom >= documentHeight - 10) {
+      $('.progress-wrap').addClass('at-bottom');
+    } else {
+      $('.progress-wrap').removeClass('at-bottom');
+    }
+  });
+
+  $('.progress-wrap').on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 500);
+  });
 });
 
 /* =========================================================
@@ -764,7 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (stepNumber === '1') {
       const judgeBtn = document.getElementById('generate-result');
       const originalButtonText = judgeBtn ? judgeBtn.getAttribute('data-original-text') || '判定開始' : '判定開始';
-      
+
       // ボタンをリセット（○判定中から判定開始に戻す）
       if (judgeBtn) {
         // innerHTMLをクリアしてからテキストを設定
@@ -829,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 初回アクセス時（Step1表示中）はリンク不要
       if (step === '1' && hasResult) {
         setStep(1);
-        
+
         // ボタンを確実にリセット（○判定中から判定開始に戻す）
         const judgeBtn = document.getElementById('generate-result');
         if (judgeBtn) {
@@ -838,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
           judgeBtn.textContent = originalButtonText;
           judgeBtn.disabled = false;
         }
-        
+
         // Step2をクリック可能にする（判定結果に戻れるように）
         const step2Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="2"]');
         if (step2Wrapper && hasResult) {
@@ -1033,8 +1033,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // 著作権主張割合（AI使用割合の逆）
       const copyrightPct = 100 - overallPct;
 
-// 判定結果HTML（AGMLラベル表示を含める）
-step3.innerHTML = `
+      // 判定結果HTML（AGMLラベル表示を含める）
+      step3.innerHTML = `
   <div class="agml-result-wrap">
 
     <!-- リード文（alert-box） -->
@@ -1092,12 +1092,12 @@ step3.innerHTML = `
   </div>
 `;
 
-step3.dataset.rendered = 'true';
+      step3.dataset.rendered = 'true';
 
-// ★ ラベルゲージを AI使用率に応じて切り替える
-requestAnimationFrame(() => {
-  renderAgmlLabel(overallPct);
-});
+      // ★ ラベルゲージを AI使用率に応じて切り替える
+      requestAnimationFrame(() => {
+        renderAgmlLabel(overallPct);
+      });
 
 
       // Step1をクリック可能にする（過去ページへの戻りリンク）
