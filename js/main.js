@@ -1120,30 +1120,17 @@ requestAnimationFrame(() => {
 });
 
 function renderAgmlLabel(aiPct) {
-  const obj = document.querySelector('.agml-label-gauge');
-  if (!obj) return;
+  const gauge = document.querySelector('.agml-label-gauge');
+  const percentEl = document.querySelector('.agml-label-indicator .percent');
+  if (!gauge) return;
 
-  const apply = () => {
-    const svgDoc = obj.contentDocument;
-    if (!svgDoc) return;
+  const level = Math.min(5, Math.max(1, Math.ceil(aiPct / 20)));
 
-    const level = Math.round(aiPct / 20);
-
-    for (let i = 1; i <= 5; i++) {
-      const step = svgDoc.getElementById(`step-${i}`);
-      if (!step) continue;
-
-      step.style.opacity = i <= level ? '1' : '0.2';
-    }
-  };
-
-  if (obj.contentDocument) {
-    apply();
-  } else {
-    obj.addEventListener('load', apply, { once: true });
-  }
+  gauge.src = `../img/level/agml-gauge-${level}.svg`;
+  if (percentEl) percentEl.textContent = `${aiPct}%`;
 }
-// ★ ラベルゲージを AI使用率に応じて切り替える
+
+// 実行
 renderAgmlLabel(overallPct);
 
 // Step1をクリック可能にする（過去ページへの戻りリンク）
