@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
       >
       <img
         class="agml-label-gauge"
-        src="../img/level/agml-gauge-5step.svg"
+        src=""
         alt=""
       >
     </div>
@@ -1107,8 +1107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // AGML ラベル表示（レベルを計算）
-      const resultLevel = Math.max(1, Math.ceil(overallPct / 20));
-      updateAgmlLabel(resultLevel);
+
 
       // Step3 へスクロール
       step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1124,20 +1123,15 @@ function renderAgmlLabel(aiPct) {
   const percentEl = document.querySelector('.agml-label-indicator .percent');
   if (!gauge) return;
 
-  const level = Math.min(5, Math.max(1, Math.ceil(aiPct / 20)));
+  // オリジナリティ（人間主導率）
+  const originalityPct = 100 - aiPct;
+
+  // オリジナリティ基準で5段階化
+  const level = Math.min(5, Math.max(1, Math.ceil(originalityPct / 20)));
 
   gauge.src = `../img/level/agml-gauge-${level}.svg`;
-  if (percentEl) percentEl.textContent = `${aiPct}%`;
+
+  if (percentEl) {
+    percentEl.textContent = `${originalityPct}%`;
+  }
 }
-
-// 実行
-renderAgmlLabel(overallPct);
-
-// Step1をクリック可能にする（過去ページへの戻りリンク）
-const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
-if (step1Wrapper) {
-  step1Wrapper.style.cursor = 'pointer';
-}
-
-// Step3 へスクロール
-step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
