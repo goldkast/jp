@@ -16,7 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 0; /* Hero video (base layer) */
+  z-index: 0;
+  /* Hero video (base layer) */
 }
 
 .hero-video video {
@@ -96,7 +97,8 @@
   line-height: 0;
   font-size: 0;
   padding: 0;
-  z-index: 10; /* Wave container (above hero) */
+  z-index: 10;
+  /* Wave container (above hero) */
 }
 
 .wave-waves .waves {
@@ -113,26 +115,26 @@
   z-index: 7;
 }
 
-.parallax > use {
+.parallax>use {
   animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
-.parallax > use:nth-child(1) {
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
-.parallax > use:nth-child(2) {
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
-.parallax > use:nth-child(3) {
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
-.parallax > use:nth-child(4) {
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
@@ -141,6 +143,7 @@
   0% {
     transform: translate3d(-90px, 0, 0);
   }
+
   100% {
     transform: translate3d(85px, 0, 0);
   }
@@ -151,15 +154,14 @@
   margin: 0;
   padding: 0;
   position: relative;
-  z-index: 7; /* Wave SVG (above base) */
+  z-index: 7;
+  /* Wave SVG (above base) */
 }
 
 /* wave透過マスク用の楕円スタイル */
 .wave-waves .waves .wave-fade-ellipse {
-  transform: translate(var(--wave-fade-x), var(--wave-fade-y)) scale(
-    calc(var(--wave-fade-w) / 20),
-    calc(var(--wave-fade-h) / 12)
-  );
+  transform: translate(var(--wave-fade-x), var(--wave-fade-y)) scale(calc(var(--wave-fade-w) / 20),
+      calc(var(--wave-fade-h) / 12));
   transform-origin: 0 0;
 
   fill: #000;
@@ -189,11 +191,16 @@
 
 /* home 専用：wave透過マスク調整用（SVG mask方式） */
 .home-page {
-  --wave-fade-x: 145px;        /* 位置X（SVG座標） */
-  --wave-fade-y: 40px;         /* 位置Y（SVG座標） */
-  --wave-fade-w: 20;           /* 範囲幅（単位なし：非常に小さく設定） */
-  --wave-fade-h: 8;            /* 範囲高（単位なし：非常に小さく設定） */
-  --wave-fade-strength: 0;     /* 薄さ：一旦0に設定して効果を無効化（0=変化なし） */
+  --wave-fade-x: 145px;
+  /* 位置X（SVG座標） */
+  --wave-fade-y: 40px;
+  /* 位置Y（SVG座標） */
+  --wave-fade-w: 20;
+  /* 範囲幅（単位なし：非常に小さく設定） */
+  --wave-fade-h: 8;
+  /* 範囲高（単位なし：非常に小さく設定） */
+  --wave-fade-strength: 0;
+  /* 薄さ：一旦0に設定して効果を無効化（0=変化なし） */
 }
 
 /* ========================================
@@ -271,19 +278,24 @@
   width: 100%;
   max-width: 900px;
   margin: 24px auto 48px;
-  padding-bottom: 28px; /* ラベル分の余白 */
+  padding-bottom: 28px;
+  /* ラベル分の余白 */
   display: flex;
   justify-content: space-between;
-  align-items: center; /* 上下センターに配置 */
+  align-items: center;
+  /* 上下センターに配置 */
 }
 
 /* 横バーはステッパー全体で1本描画（円の中心に完全一致） */
 #agml-stepper::before {
   content: "";
   position: absolute;
-  top: 15px;          /* 円の中心（40px / 2） */
-  left: 80px;         /* 最初の円の右端 */
-  right: 80px;        /* 最後の円の左端 */
+  top: 15px;
+  /* 円の中心（40px / 2） */
+  left: 80px;
+  /* 最初の円の右端 */
+  right: 80px;
+  /* 最後の円の左端 */
   height: 10px;
   background-color: #CCCCCC;
   z-index: 0;
@@ -305,7 +317,8 @@
   border-radius: 50%;
   background-color: #CCCCCC;
   position: relative;
-  z-index: 1; /* バーより前面 */
+  z-index: 1;
+  /* バーより前面 */
   flex-shrink: 0;
 }
 
@@ -338,7 +351,8 @@
 }
 
 #agml-stepper .step-divider {
-  display: none !important; /* 既存のdividerを無効化 */
+  display: none !important;
+  /* 既存のdividerを無効化 */
 }
 
 #agml-stepper .step-overlay {
@@ -354,7 +368,8 @@
 }
 
 #agml-stepper .step-label {
-  margin-top: 10px; /* 円との距離 */
+  margin-top: 10px;
+  /* 円との距離 */
   font-size: 13px;
   line-height: 1.2;
   white-space: nowrap;
@@ -378,8 +393,8 @@
 }
 
 /* フォームとステップナビの間に必ず余白 */
-#agml-stepper + .ai-level-form,
-.ai-level-form + #agml-stepper {
+#agml-stepper+.ai-level-form,
+.ai-level-form+#agml-stepper {
   margin-top: 80px;
 }
 
@@ -472,8 +487,13 @@ body.download-page #generate-result:disabled {
 
 /* スピナーアニメーション */
 @keyframes agml-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* 判定中スピナー */
@@ -503,11 +523,13 @@ body.download-page .agml-label-stage {
 
 /* 背景（必ず下） */
 body.download-page .agml-label-bg {
-  position: relative;   /* ★ 重要 */
+  position: relative;
+  /* ★ 重要 */
   width: 100%;
   height: 100%;
   display: block;
-  z-index: 1;           /* ★ 重要 */
+  z-index: 1;
+  /* ★ 重要 */
 }
 
 /* ゲージ（必ず上） */
@@ -517,12 +539,21 @@ body.download-page .agml-label-gauge {
   margin: auto;
   width: 200px;
   height: 200px;
-  z-index: 2;           /* ★ これが無いと絶対に出ない */
+  z-index: 2;
+  /* ★ これが無いと絶対に出ない */
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+body.download-page .agml-label-gauge.is-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* 念のための保険（今はOK） */
 body.download-page .agml-label-stage img {
   display: block !important;
-  opacity: 1 !important;
+  /* opacity: 1 !important;  <- アニメーション用に削除 */
   visibility: visible !important;
 }

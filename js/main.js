@@ -936,6 +936,22 @@ document.addEventListener('DOMContentLoaded', () => {
     5: 20
   };
 
+  const AGML_ORIGINALITY_COMMENTS = {
+    1: '創作の構想や方向性は主にAIによって形成されており、人間は生成結果の確認や選択といった限定的な判断にとどまっています。作品全体の発想源や表現の核はAI側にあり、人間の創作的関与は補助的な位置づけとなります。',
+    2: '作品の基礎的な構想や素材はAIによって提示され、人間はその内容を取捨選択しながら部分的な修正や調整を行っています。創作判断はAIを起点として進められており、人間の関与は方向修正や仕上げ工程に重点があります。',
+    3: '人間が一定の創作意図や構想を持ちながら制作を進めており、AIは発想補助や表現展開の支援として活用されています。作品には人間とAI双方の判断が反映されており、共同制作的なプロセスとして位置づけられます。',
+    4: '創作の発想、構成、方向性は人間が主導しており、AIは表現の補助や検討材料の提示といった支援的役割にとどまっています。作品の中心的なアイデアや表現選択には制作者の意図が明確に反映されています。',
+    5: '創作の構想立案から表現選択、完成形の判断に至るまで、すべて人間の意思と判断によって制作されています。AIは補助的ツールとして使用されていますが、作品の思想や表現の核は完全に人間に帰属しています。'
+  };
+
+  const AGML_ORIGINALITY_PERCENT_MAP = {
+    1: 20,
+    2: 40,
+    3: 60,
+    4: 80,
+    5: 100
+  };
+
   judgeBtn.addEventListener('click', () => {
 
     // すでに結果がある場合は、即座にStep3を表示（待機時間なし）
@@ -1033,19 +1049,24 @@ document.addEventListener('DOMContentLoaded', () => {
       // 著作権主張割合（AI使用割合の逆）
       const copyrightPct = 100 - overallPct;
 
+      // オリジナリティ算出（新規追加）
+      const originalityLevel = Math.round((lyricsLv + compLv) / 2);
+      const originalityPct = AGML_ORIGINALITY_PERCENT_MAP[originalityLevel] || 20;
+      const originalityComment = AGML_ORIGINALITY_COMMENTS[originalityLevel] || '';
+
       // 判定結果HTML（AGMLラベル表示を含める）
       step3.innerHTML = `
   <div class="agml-result-wrap">
 
     <!-- リード文（alert-box） -->
-    <div class="alert-box">
+    <div class="alert-box" id="alert-result">
       <div class="alert-inline-icon">
         <img src="../img/info-icon.png" alt="案内アラート">
       </div>
       <div class="alert-box-text">
-        以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
-        本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
-        この判定結果をもとに、<span class="bold-spot">AI生成音楽ラベル（AGML）</span>を作成します。
+以下は、入力された制作プロセスをもとに算出された<span class="bold-spot">オリジナリティ評価</span>です。<br>
+
+下部の <span class="bold-spot">AI生成音楽ラベル（AGML）</span> は、創作主体（オリジナリティ）を<span class="bold-spot">ブロックゲージで示した結論表示</span>です。
       </div>
     </div>
 
@@ -1067,6 +1088,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="agml-result-box">
       <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
       <p>${copyrightComment}</p>
+    </div>
+
+    <div class="agml-result-box">
+      <p><strong>オリジナリティ評価：${originalityPct}%</strong></p>
+      <p>${originalityComment}</p>
     </div>
 
     <!-- AGML ラベル表示（背景＋ゲージ重ね） -->
@@ -1094,9 +1120,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       step3.dataset.rendered = 'true';
 
-      // ★ ラベルゲージを AI使用率に応じて切り替える
+      // ★ ラベルゲージを アニメーションで表示 (オリジナリティレベル連動)
       requestAnimationFrame(() => {
-        renderAgmlLabel(overallPct);
+        animateAgmlLabel(originalityLevel);
       });
 
 
@@ -1118,20 +1144,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-function renderAgmlLabel(aiPct) {
+// アニメーション設定
+const ANIMATION_INTERVAL = 300; // ms
+
+function animateAgmlLabel(targetLevel, speed = 300) {
   const gauge = document.querySelector('.agml-label-gauge');
-  const percentEl = document.querySelector('.agml-label-indicator .percent');
   if (!gauge) return;
 
-  // オリジナリティ（人間主導率）
-  const originalityPct = 100 - aiPct;
+  const safeTarget = Math.min(5, Math.max(1, targetLevel));
+  let currentLevel = 0;
 
-  // オリジナリティ基準で5段階化
-  const level = Math.min(5, Math.max(1, Math.ceil(originalityPct / 20)));
+  const timer = setInterval(() => {
+    currentLevel++;
 
-  gauge.src = `../img/level/agml-gauge-${level}.svg`;
+    gauge.classList.remove('is-visible');
 
-  if (percentEl) {
-    percentEl.textContent = `${originalityPct}%`;
-  }
+    setTimeout(() => {
+      gauge.src = `../img/level/agml-gauge-${currentLevel}.svg`;
+      requestAnimationFrame(() => {
+        gauge.classList.add('is-visible');
+      });
+    }, 40);
+
+    if (currentLevel >= safeTarget) {
+      clearInterval(timer);
+    }
+  }, speed);
 }
+
+function renderAgmlLabel(aiPct) {
+  // 静的表示用（古いロジックだが、念のため残すなら更新が必要。
+  // 今回の要件では animateAgmlLabel への完全移行が指定されているため、
+  // 混乱を避けるため最小限にするか、削除が望ましいが、
+  // 指示にない削除は避ける。ただし、呼び出し元は animateAgmlLabel に変わったので
+  // この関数は実質使われない。）
+}
+

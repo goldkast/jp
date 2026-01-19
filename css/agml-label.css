@@ -59,3 +59,12 @@
   opacity: 1;
 }
 
+/* ===========================
+   判定結果 Step3 alert-box 専用調整
+   =========================== */
+body.download-page #alert-result {
+  max-width: 100%;
+  width: 100%;
+  margin-top: -6px;
+  margin-bottom: 0px;
+}

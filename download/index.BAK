@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
   <link rel="stylesheet" href="../css/home.css?v=20260107">
+  <link rel="stylesheet" href="../css/agml-label.css">
 </head>
 <body class="download-page">
 
@@ -334,7 +335,7 @@
    <!-- Step3：ラベル表示 -->
    <section id="step-content-3" class="step-content is-active">
 
-     <div class="agml-label-stage" id="agmlLabelStage">
+<div class="agml-label-stage" id="agmlLabelStage">
   <img
     class="agml-label-bg"
     src="../img/level/label-display-back.png"
