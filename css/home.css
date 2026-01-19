@@ -489,3 +489,40 @@ body.download-page #spinner {
 .hidden {
   display: none !important;
 }
+
+/* =========================
+   AGML ラベル表示（Step3）
+========================= */
+
+body.download-page .agml-label-stage {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 40px auto;
+}
+
+/* 背景（必ず下） */
+body.download-page .agml-label-bg {
+  position: relative;   /* ★ 重要 */
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;           /* ★ 重要 */
+}
+
+/* ゲージ（必ず上） */
+body.download-page .agml-label-gauge {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  z-index: 2;           /* ★ これが無いと絶対に出ない */
+}
+
+/* 念のための保険（今はOK） */
+body.download-page .agml-label-stage img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

@@ -1033,57 +1033,72 @@ document.addEventListener('DOMContentLoaded', () => {
       // 著作権主張割合（AI使用割合の逆）
       const copyrightPct = 100 - overallPct;
 
-      // 判定結果HTML（※ラベル画像は保留）
-      step3.innerHTML = `
-        <div class="agml-result-wrap">
+// 判定結果HTML（AGMLラベル表示を含める）
+step3.innerHTML = `
+  <div class="agml-result-wrap">
 
-          <!-- リード文（alert-box） -->
-          <div class="alert-box">
-            <div class="alert-inline-icon">
-              <img src="../img/info-icon.png" alt="案内アラート">
-            </div>
-            <div class="alert-box-text">
-              以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
-              本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
-              この判定結果をもとに、<span class="bold-spot">AI生成音楽ラベル（AGML）</span>作成します。
-            </div>
-          </div>
+    <!-- リード文（alert-box） -->
+    <div class="alert-box">
+      <div class="alert-inline-icon">
+        <img src="../img/info-icon.png" alt="案内アラート">
+      </div>
+      <div class="alert-box-text">
+        以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
+        本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
+        この判定結果をもとに、<span class="bold-spot">AI生成音楽ラベル（AGML）</span>を作成します。
+      </div>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>作詞AI使用割合：${lyricsPct}%</strong></p>
-            <p>${lyricsComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>作詞AI使用割合：${lyricsPct}%</strong></p>
+      <p>${lyricsComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>作曲AI使用割合：${compPct}%</strong></p>
-            <p>${compositionComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>作曲AI使用割合：${compPct}%</strong></p>
+      <p>${compositionComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>総合AI使用割合：${overallPct}%</strong></p>
-            <p>${overallComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>総合AI使用割合：${overallPct}%</strong></p>
+      <p>${overallComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
-            <p>${copyrightComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
+      <p>${copyrightComment}</p>
+    </div>
 
-          <!-- AGML ラベル表示（背景画像版） -->
-          <div class="agml-label-image">
-            <img src="../img/level/label-display-back.png" alt="AGMLラベル">
-          </div>
+    <!-- AGML ラベル表示（背景＋ゲージ重ね） -->
+    <div class="agml-label-stage" id="agmlLabelStage">
+      <img
+        class="agml-label-bg"
+        src="../img/level/label-display-back.png"
+        alt=""
+      >
+      <img
+        class="agml-label-gauge"
+        src="../img/level/agml-gauge-5step.svg"
+        alt=""
+      >
+    </div>
 
-          <div class="agml-label-action">
-            <button class="agml-go-download">
-              サムネイルを作成する ▶
-            </button>
-          </div>
+    <div class="agml-label-action">
+      <button class="agml-go-download">
+        サムネイルを作成する ▶
+      </button>
+    </div>
 
-        </div>
-      `;
+  </div>
+`;
 
-      step3.dataset.rendered = 'true';
+step3.dataset.rendered = 'true';
+
+// ★ ラベルゲージを AI使用率に応じて切り替える
+requestAnimationFrame(() => {
+  renderAgmlLabel(overallPct);
+});
+
 
       // Step1をクリック可能にする（過去ページへの戻りリンク）
       const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
@@ -1099,3 +1114,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+function renderAgmlLabel(aiPct) {
+  const obj = document.querySelector('.agml-label-gauge');
+  if (!obj) return;
+
+  const apply = () => {
+    const svgDoc = obj.contentDocument;
+    if (!svgDoc) return;
+
+    const level = Math.round(aiPct / 20);
+
+    for (let i = 1; i <= 5; i++) {
+      const step = svgDoc.getElementById(`step-${i}`);
+      if (!step) continue;
+
+      step.style.opacity = i <= level ? '1' : '0.2';
+    }
+  };
+
+  if (obj.contentDocument) {
+    apply();
+  } else {
+    obj.addEventListener('load', apply, { once: true });
+  }
+}
+// ★ ラベルゲージを AI使用率に応じて切り替える
+renderAgmlLabel(overallPct);
+
+// Step1をクリック可能にする（過去ページへの戻りリンク）
+const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
+if (step1Wrapper) {
+  step1Wrapper.style.cursor = 'pointer';
+}
+
+// Step3 へスクロール
+step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
