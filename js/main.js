@@ -1106,6 +1106,10 @@ requestAnimationFrame(() => {
         step1Wrapper.style.cursor = 'pointer';
       }
 
+      // AGML ラベル表示（レベルを計算）
+      const resultLevel = Math.max(1, Math.ceil(overallPct / 20));
+      updateAgmlLabel(resultLevel);
+
       // Step3 へスクロール
       step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
 

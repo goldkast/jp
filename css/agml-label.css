@@ -1,0 +1,61 @@
+/* ===== AGML LABEL (ISOLATED) ===== */
+
+.agml-label-wrap {
+  position: relative;
+  width: 360px;
+  margin: 30px auto;
+}
+
+.agml-label-base {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ブロック重ね用 */
+.agml-label-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* 共通ブロック */
+.agml-label-overlay .block {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  opacity: 0.2; /* 非アクティブは20% */
+}
+
+/* アクティブブロック */
+.agml-label-wrap[data-level="1"] .block-1,
+.agml-label-wrap[data-level="2"] .block-1,
+.agml-label-wrap[data-level="3"] .block-1,
+.agml-label-wrap[data-level="4"] .block-1,
+.agml-label-wrap[data-level="5"] .block-1 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="2"] .block-2,
+.agml-label-wrap[data-level="3"] .block-2,
+.agml-label-wrap[data-level="4"] .block-2,
+.agml-label-wrap[data-level="5"] .block-2 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="3"] .block-3,
+.agml-label-wrap[data-level="4"] .block-3,
+.agml-label-wrap[data-level="5"] .block-3 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="4"] .block-4,
+.agml-label-wrap[data-level="5"] .block-4 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="5"] .block-5 {
+  opacity: 1;
+}
+
