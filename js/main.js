@@ -1070,8 +1070,19 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
 
           <!-- AGML ラベル表示ステージ -->
-          <div class="agml-label-stage">
-            <div class="agml-label-gauge"></div>
+          <div class="agml-label-wrap" data-level="1">
+            <img
+              src="../img/agml/label-base.png"
+              alt="AGML Label"
+              class="agml-label-base"
+            />
+            <div class="agml-label-overlay">
+              <img src="../img/agml/block-1.png" class="block block-1" />
+              <img src="../img/agml/block-2.png" class="block block-2" />
+              <img src="../img/agml/block-3.png" class="block block-3" />
+              <img src="../img/agml/block-4.png" class="block block-4" />
+              <img src="../img/agml/block-5.png" class="block block-5" />
+            </div>
           </div>
 
           <div class="agml-label-action">
@@ -1091,8 +1102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // AGML ラベル描画（パーセントを渡す）
-      renderAgmlLabel(overallPct);
+      // AGML ラベル表示（レベルを計算）
+      const resultLevel = Math.max(1, Math.ceil(overallPct / 20));
+      updateAgmlLabel(resultLevel);
 
       // Step3 へスクロール
       step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1104,35 +1116,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ============================
-   AGML ラベル描画
+   AGML ラベル表示
 ============================ */
 
-function renderAgmlLabel(percent) {
-  const container = document.querySelector('.agml-label-gauge');
-  if (!container) return;
-
-  // 5段階に変換（20%刻み）
-  const level = Math.max(1, Math.round(percent / 20));
-
-  fetch('../img/level/agml-gauge-5step.svg.svg')
-    .then(res => res.text())
-    .then(svg => {
-      container.innerHTML = svg;
-
-      const ACTIVE = '#00CCFF';
-      const INACTIVE = 'rgba(0,204,255,0.2)';
-
-      // 全ブロックを薄色に
-      container.querySelectorAll('.gauge-step path').forEach(p => {
-        p.style.fill = INACTIVE;
-      });
-
-      // level 分だけ点灯
-      for (let i = 1; i <= level; i++) {
-        const step = container.querySelector(`#step-${i} path`);
-        if (step) {
-          step.style.fill = ACTIVE;
-        }
-      }
-    });
+function updateAgmlLabel(level) {
+  const label = document.querySelector('.agml-label-wrap');
+  if (!label) return;
+  label.setAttribute('data-level', level);
 }
