@@ -1097,15 +1097,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- AGML ラベル表示（背景＋ゲージ重ね） -->
     <div class="agml-label-stage" id="agmlLabelStage">
+      <!-- 既存：背景 -->
       <img
         class="agml-label-bg"
         src="../img/level/label-display-back.png"
         alt=""
       >
+      <!-- 既存：円ゲージ -->
       <img
         class="agml-label-gauge"
         src=""
         alt=""
+      >
+      <!-- ★ テスト用：レベルドット -->
+      <img
+        class="level-dot-test"
+        src="../img/level/level-dot.svg"
+        alt="level dot"
       >
     </div>
 
@@ -1119,6 +1127,14 @@ document.addEventListener('DOMContentLoaded', () => {
 `;
 
       step3.dataset.rendered = 'true';
+
+      // ★ レベルドットを初期化（確実に非表示）
+      requestAnimationFrame(() => {
+        const dot = document.querySelector('.level-dot-test');
+        if (dot) {
+          dot.classList.remove('is-visible');
+        }
+      });
 
       // ★ ラベルゲージを アニメーションで表示 (オリジナリティレベル連動)
       requestAnimationFrame(() => {
@@ -1151,6 +1167,12 @@ function animateAgmlLabel(targetLevel, speed = 300) {
   const gauge = document.querySelector('.agml-label-gauge');
   if (!gauge) return;
 
+  // ★ レベルドットを初期化（確実に非表示）
+  const dot = document.querySelector('.level-dot-test');
+  if (dot) {
+    dot.classList.remove('is-visible');
+  }
+
   const safeTarget = Math.min(5, Math.max(1, targetLevel));
   let currentLevel = 0;
 
@@ -1163,6 +1185,17 @@ function animateAgmlLabel(targetLevel, speed = 300) {
       gauge.src = `../img/level/agml-gauge-${currentLevel}.svg`;
       requestAnimationFrame(() => {
         gauge.classList.add('is-visible');
+        
+        // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
+        if (currentLevel >= safeTarget && safeTarget === 5) {
+          // 円ゲージのアニメーション完了を少し待つ
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot-test');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+          }, 100);
+        }
       });
     }, 40);
 

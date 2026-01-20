@@ -543,6 +543,31 @@ body.download-page .agml-label-stage {
   margin: 40px auto;
 }
 
+/* =========================
+   Level Dot（5段階目用）
+========================= */
+
+body.download-page .agml-label-stage {
+  position: relative;
+}
+
+body.download-page .agml-label-stage .level-dot-test {
+  position: absolute;
+  top: 24px;      /* 仮 */
+  left: 24px;     /* 仮 */
+  width: 16px;
+  height: 16px;
+  z-index: 10;
+  display: none !important;  /* ★ 初期は表示しない（!importantで上書き） */
+  visibility: hidden !important;  /* 念のためvisibilityも非表示 */
+}
+
+/* 表示トリガー */
+body.download-page .agml-label-stage .level-dot-test.is-visible {
+  display: block !important;  /* !importantで表示制御 */
+  visibility: visible !important;  /* visibilityも表示 */
+}
+
 /* 背景（必ず下） */
 body.download-page .agml-label-bg {
   position: relative;
