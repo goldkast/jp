@@ -718,6 +718,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!lyric || !composition) {
       alert('歌詞・作曲の両方を選択してください。');
+      // Step1に戻す処理を追加
+      const step1 = document.getElementById('step-content-1');
+      const step3 = document.getElementById('step-content-3');
+      if (step1 && step3) {
+        // Step3を非アクティブに
+        step3.classList.remove('is-active');
+        // Step1をアクティブに
+        step1.classList.add('is-active');
+        // ステップナビをStep1のみアクティブにリセット
+        document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
+          const step = wrapper.dataset.step;
+          const img = wrapper.querySelector('.step-icon');
+          const circle = wrapper.querySelector('.step-circle');
+          if (!img) return;
+          if (step === '1') {
+            img.src = `../img/number/step1-1.svg`;
+            wrapper.classList.add('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#00CCFF';
+            }
+          } else {
+            img.src = `../img/number/step${step}-2.svg`;
+            wrapper.classList.remove('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#CCCCCC';
+            }
+          }
+        });
+        // Step1の位置にスクロール
+        step1.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       return;
     }
 
@@ -953,6 +984,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   judgeBtn.addEventListener('click', () => {
+    // ラジオボタンのバリデーション（2つ目のリスナーでもチェック）
+    const lyric = document.querySelector('input[name="lyrics"]:checked');
+    const composition = document.querySelector('input[name="composition"]:checked');
+    
+    if (!lyric || !composition) {
+      // 既にアラートが表示されているので、ここでは何もしない
+      return;
+    }
 
     // すでに結果がある場合は、即座にStep3を表示（待機時間なし）
     if (step3.dataset.rendered === 'true') {
@@ -984,11 +1023,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // ステップナビ（トップ）へスクロール
-      const stepperTop = document.getElementById('agml-stepper');
-      if (stepperTop) {
-        const topPos = stepperTop.getBoundingClientRect().top + window.pageYOffset - 116; // 100px 余白 + 16px
-        window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+      // 判定結果（キャッシュ）表示時もページトップ付近にスクロール
+      const stepperTopCached = document.getElementById('agml-stepper');
+      if (stepperTopCached) {
+        // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
+        const topPosCached = Math.max(0, stepperTopCached.offsetTop - 100); // -100px★
+        window.scrollTo({ top: topPosCached, behavior: 'smooth' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -1026,6 +1066,16 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
+
+      // 判定結果（初回表示時）にもページトップ付近へスクロール
+      const stepperTopInitial = document.getElementById('agml-stepper');
+      if (stepperTopInitial) {
+        // offsetTop 基準で確実に位置を計算（調整用オフセット: -300px★）
+        const topPosInitial = Math.max(0, stepperTopInitial.offsetTop - 0);
+        window.scrollTo({ top: topPosInitial, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
       // 選択値を取得
       const lyric = document.querySelector('input[name="lyrics"]:checked');
@@ -1154,28 +1204,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // ★ ラベルゲージを アニメーションで表示 (オリジナリティレベル連動)
-      requestAnimationFrame(() => {
-        animateAgmlLabel(originalityLevel);
-      });
-
-
       // Step1をクリック可能にする（過去ページへの戻りリンク）
       const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
       if (step1Wrapper) {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // AGML ラベル表示（レベルを計算）
+      // AGML ラベル表示（レベルを計算）: IntersectionObserverで開始
+      observeAgmlLabelStart(originalityLevel);
 
-
-      // ステップナビ（トップ）へスクロール
-      const stepperTop2 = document.getElementById('agml-stepper');
-      if (stepperTop2) {
-        const topPos2 = stepperTop2.getBoundingClientRect().top + window.pageYOffset - 116; // 100px 余白 + 16px
-        window.scrollTo({ top: Math.max(0, topPos2), behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      // 判定結果表示時にステップナビがページトップ付近に来るようスクロール
+      const stepperTop = document.getElementById('agml-stepper');
+      if (stepperTop) {
+        // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
+        const topPosInitial = Math.max(0, stepperTop.offsetTop - 0); // -100px★
+        window.scrollTo({ top: topPosInitial, behavior: 'smooth' });
       }
 
     }, 2000);
@@ -1249,6 +1292,31 @@ function animateAgmlLabel(targetLevel, speed = 300) {
       clearInterval(timer);
     }
   }, speed);
+}
+
+function observeAgmlLabelStart(level) {
+  const target = document.getElementById('agmlLabelStage');
+  if (!target) return;
+
+  let started = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          animateAgmlLabel(level); // 既存の演出を開始
+          observer.disconnect();   // 1回だけ発火
+        }
+      });
+    },
+    {
+      root: null,        // viewport
+      threshold: 0.4     // 40%見えたら開始
+    }
+  );
+
+  observer.observe(target);
 }
 
 function renderAgmlLabel(aiPct) {
