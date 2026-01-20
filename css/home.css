@@ -553,8 +553,8 @@ body.download-page .agml-label-stage {
 
 body.download-page .agml-label-stage .level-dot-test {
   position: absolute;
-  top: 24px;      /* 仮 */
-  left: 24px;     /* 仮 */
+  top: 88px;      /* 仮 */
+  left: 106px;     /* 仮 */
   width: 16px;
   height: 16px;
   z-index: 10;

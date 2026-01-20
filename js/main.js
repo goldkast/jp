@@ -1188,13 +1188,13 @@ function animateAgmlLabel(targetLevel, speed = 300) {
         
         // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
         if (currentLevel >= safeTarget && safeTarget === 5) {
-          // 円ゲージのアニメーション完了を少し待つ
+          // 円ゲージのアニメーション完了を0.5秒待つ
           setTimeout(() => {
             const dot = document.querySelector('.level-dot-test');
             if (dot) {
               dot.classList.add('is-visible');
             }
-          }, 100);
+          }, 500);  // 0.5秒 = 500ms
         }
       });
     }, 40);
