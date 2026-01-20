@@ -984,8 +984,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Step3へスクロール
-      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // ステップナビ（トップ）へスクロール
+      const stepperTop = document.getElementById('agml-stepper');
+      if (stepperTop) {
+        const topPos = stepperTop.getBoundingClientRect().top + window.pageYOffset - 116; // 100px 余白 + 16px
+        window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       return;
     }
 
@@ -1163,8 +1169,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // AGML ラベル表示（レベルを計算）
 
 
-      // Step3 へスクロール
-      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // ステップナビ（トップ）へスクロール
+      const stepperTop2 = document.getElementById('agml-stepper');
+      if (stepperTop2) {
+        const topPos2 = stepperTop2.getBoundingClientRect().top + window.pageYOffset - 116; // 100px 余白 + 16px
+        window.scrollTo({ top: Math.max(0, topPos2), behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
     }, 2000);
 
