@@ -1023,13 +1023,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // 判定結果（キャッシュ）表示時もページトップ付近にスクロール
-      const stepperTopCached = document.getElementById('agml-stepper');
-      if (stepperTopCached) {
-        // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
-        const topPosCached = Math.max(0, stepperTopCached.offsetTop - 100); // -100px★
-        window.scrollTo({ top: topPosCached, behavior: 'smooth' });
-      } else {
+      // 判定結果表示時、ページナビは常に表示（強制）
+      const stepper = document.getElementById('agml-stepper');
+      if (stepper) {
+        stepper.style.display = 'flex';
+        stepper.style.visibility = 'visible';
+        stepper.style.opacity = '1';
+
+        // ページトップへスクロールしてナビを表示
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       return;
@@ -1067,13 +1068,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // 判定結果（初回表示時）にもページトップ付近へスクロール
-      const stepperTopInitial = document.getElementById('agml-stepper');
-      if (stepperTopInitial) {
-        // offsetTop 基準で確実に位置を計算（調整用オフセット: -300px★）
-        const topPosInitial = Math.max(0, stepperTopInitial.offsetTop - 0);
-        window.scrollTo({ top: topPosInitial, behavior: 'smooth' });
-      } else {
+      // 判定結果表示時、ページナビは常に表示（強制）
+      const stepper = document.getElementById('agml-stepper');
+      if (stepper) {
+        stepper.style.display = 'flex';
+        stepper.style.visibility = 'visible';
+        stepper.style.opacity = '1';
+
+        // ページトップへスクロールしてナビを表示
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
