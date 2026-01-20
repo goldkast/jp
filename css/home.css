@@ -280,10 +280,12 @@
   margin: 24px auto -40px;
   padding-bottom: 28px;
   /* ラベル分の余白 */
-  display: flex;
+  display: flex !important; /* Step2/Step3でも必ず表示 */
   justify-content: space-between;
   align-items: center;
   /* 上下センターに配置 */
+  visibility: visible !important; /* 非表示指定を上書き */
+  opacity: 1 !important; /* 透明化指定を上書き */
 }
 
 /* 横バーはステッパー全体で1本描画（円の中心に完全一致） */
@@ -407,6 +409,9 @@
   position: relative;
   z-index: 1;
   margin-bottom: 80px;
+  display: block !important; /* Step2/Step3でも必ず表示 */
+  visibility: visible !important; /* 非表示指定を上書き */
+  opacity: 1 !important; /* 透明化指定を上書き */
 }
 
 .ai-level-form {

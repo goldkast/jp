@@ -701,6 +701,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!formSection || !judgeBtn) return;
 
+  // ページ読み込み時にステップナビを確実に表示
+  if (stepper) {
+    stepper.style.display = 'flex';
+    stepper.style.visibility = 'visible';
+    stepper.style.opacity = '1';
+  }
+
   // ステップ1を明示的にアクティブ
   if (typeof setActiveStep === 'function') {
     setActiveStep(1);
@@ -746,8 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         });
-        // Step1の位置にスクロール
-        step1.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       return;
     }
@@ -784,9 +789,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setStep(stepNumber) {
     // Step content切替
-    contents.forEach(section => {
-      section.classList.remove('is-active');
-    });
+contents.forEach(section => {
+  section.classList.remove('is-active');
+});
 
     const active = document.getElementById(`step-content-${stepNumber}`);
     if (active) active.classList.add('is-active');
@@ -905,9 +910,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         });
-
-        // Step3へスクロール
-        step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       // Step3, Step4, Step5: クリック不可（何もしない）
     });
@@ -1001,6 +1003,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       step3.classList.add('is-active');
 
+      // ステップナビを強制表示（キャッシュ表示時）
+      const stepperCached = document.getElementById('agml-stepper');
+      if (stepperCached) {
+        // 即座に表示
+        stepperCached.style.display = 'flex';
+        stepperCached.style.visibility = 'visible';
+        stepperCached.style.opacity = '1';
+        // requestAnimationFrameで念押し
+        requestAnimationFrame(() => {
+          stepperCached.style.display = 'flex';
+          stepperCached.style.visibility = 'visible';
+          stepperCached.style.opacity = '1';
+        });
+      }
+
       // Stepper を Step2 までアクティブに
       document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
         const step = wrapper.dataset.step;
@@ -1023,12 +1040,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // Step2をアクティブ表示にする（念押し）
+      if (typeof setActiveStep === 'function') {
+        setActiveStep(2);
+      }
+
       // 判定結果（キャッシュ）表示時もページトップ付近にスクロール
       const stepperTopCached = document.getElementById('agml-stepper');
       if (stepperTopCached) {
         // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
-        const topPosCached = Math.max(0, stepperTopCached.offsetTop - 100); // -100px★
-        window.scrollTo({ top: topPosCached, behavior: 'smooth' });
+        const topPosCached = Math.max(0, stepperTopCached.offsetTop - 100); 
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -1043,6 +1064,21 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('is-active');
       });
       step3.classList.add('is-active');
+
+      // ステップナビを強制表示（判定結果表示時）
+      const stepper = document.getElementById('agml-stepper');
+      if (stepper) {
+        // 即座に表示
+        stepper.style.display = 'flex';
+        stepper.style.visibility = 'visible';
+        stepper.style.opacity = '1';
+        // requestAnimationFrameで念押し
+        requestAnimationFrame(() => {
+          stepper.style.display = 'flex';
+          stepper.style.visibility = 'visible';
+          stepper.style.opacity = '1';
+        });
+      }
 
       // Stepper を Step2 までアクティブに（Step1とStep2の両方をアクティブ）
       document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
@@ -1067,12 +1103,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // Step2をアクティブ表示にする（念押し）
+      if (typeof setActiveStep === 'function') {
+        setActiveStep(2);
+      }
+
       // 判定結果（初回表示時）にもページトップ付近へスクロール
       const stepperTopInitial = document.getElementById('agml-stepper');
       if (stepperTopInitial) {
         // offsetTop 基準で確実に位置を計算（調整用オフセット: -300px★）
         const topPosInitial = Math.max(0, stepperTopInitial.offsetTop - 0);
-        window.scrollTo({ top: topPosInitial, behavior: 'smooth' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
