@@ -987,7 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ラジオボタンのバリデーション（2つ目のリスナーでもチェック）
     const lyric = document.querySelector('input[name="lyrics"]:checked');
     const composition = document.querySelector('input[name="composition"]:checked');
-    
+
     if (!lyric || !composition) {
       // 既にアラートが表示されているので、ここでは何もしない
       return;
@@ -1152,6 +1152,38 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 
     <!-- AGML ラベル表示（背景＋ゲージ重ね） -->
+    <!-- 100%表示用CSS (JS注入) -->
+    <style>
+      .agml-percent-display {
+        position: absolute;
+        top: var(--percent-top, 24px);
+        left: var(--percent-left, 40px);
+
+        display: flex;
+        align-items: center;
+        gap: var(--percent-gap, 4px);
+
+        opacity: 0;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .agml-percent-display .num {
+        width: var(--percent-size, 18px);
+        height: auto;
+
+        opacity: 0;
+        transform: translateY(2px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .agml-percent-display .num.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
     <div class="agml-label-stage" id="agmlLabelStage">
       <!-- 既存：背景 -->
       <img
@@ -1177,6 +1209,14 @@ document.addEventListener('DOMContentLoaded', () => {
         type="image/svg+xml"
         data="../img/level/100-line.svg">
       </object>
+
+      <!-- 100% 数値表示 (画像アニメーション) -->
+      <div class="agml-percent-display" aria-hidden="true">
+        <img class="num num-1" src="../img/level/num-1.svg" alt="">
+        <img class="num num-0a" src="../img/level/num-0.svg" alt="">
+        <img class="num num-0b" src="../img/level/num-0.svg" alt="">
+        <img class="num num-p" src="../img/level/num-percent.svg" alt="">
+      </div>
     </div>
 
     <div class="agml-label-action">
@@ -1201,6 +1241,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lineObj) {
           lineObj.classList.remove('is-visible');
           lineObj.classList.remove('draw-line');
+        }
+        // ★ 100%表示を初期化
+        const percentContainer = document.querySelector('.agml-percent-display');
+        if (percentContainer) {
+          percentContainer.style.opacity = '0';
+          percentContainer.querySelectorAll('.num').forEach(el => el.classList.remove('is-visible'));
         }
       });
 
@@ -1247,6 +1293,13 @@ function animateAgmlLabel(targetLevel, speed = 300) {
     lineObj.classList.remove('draw-line');
   }
 
+  // ★ 100%表示を初期化
+  const percentContainer = document.querySelector('.agml-percent-display');
+  if (percentContainer) {
+    percentContainer.style.opacity = '0';
+    percentContainer.querySelectorAll('.num').forEach(el => el.classList.remove('is-visible'));
+  }
+
   const safeTarget = Math.min(5, Math.max(1, targetLevel));
   let currentLevel = 0;
 
@@ -1259,7 +1312,7 @@ function animateAgmlLabel(targetLevel, speed = 300) {
       gauge.src = `../img/level/agml-gauge-${currentLevel}.svg`;
       requestAnimationFrame(() => {
         gauge.classList.add('is-visible');
-        
+
         // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
         if (currentLevel >= safeTarget && safeTarget === 5) {
           // 円ゲージ完了後 0.5秒待ってドット表示
@@ -1279,6 +1332,11 @@ function animateAgmlLabel(targetLevel, speed = 300) {
                 lineObj.addEventListener('load', () => {
                   requestAnimationFrame(() => {
                     lineObj.classList.add('draw-line');
+
+                    // ★ ライン描画開始から 2.5秒後 (描画2s + 待機0.5s) に 100%表示
+                    setTimeout(() => {
+                      showAgmlPercentImage();
+                    }, 2500);
                   });
                 });
               }
@@ -1317,6 +1375,22 @@ function observeAgmlLabelStart(level) {
   );
 
   observer.observe(target);
+}
+
+// 100%画像表示アニメーション
+function showAgmlPercentImage() {
+  const container = document.querySelector('.agml-percent-display');
+  // img.num を取得
+  const nums = container?.querySelectorAll('.num');
+  if (!container || !nums || !nums.length) return;
+
+  container.style.opacity = '1';
+
+  nums.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add('is-visible');
+    }, i * 120);
+  });
 }
 
 function renderAgmlLabel(aiPct) {

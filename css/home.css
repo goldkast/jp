@@ -395,7 +395,7 @@
   display: none;
 }
 
-#agml-stepper .step-wrapper[data-step="1"].is-active ~ .step-wrapper[data-step="2"].is-active::before {
+#agml-stepper .step-wrapper[data-step="1"].is-active~.step-wrapper[data-step="2"].is-active::before {
   display: block;
 }
 
@@ -553,19 +553,25 @@ body.download-page .agml-label-stage {
 
 body.download-page .agml-label-stage .level-dot-test {
   position: absolute;
-  top: 88px;      /* 仮 */
-  left: 106px;     /* 仮 */
+  top: 88px;
+  /* 仮 */
+  left: 106px;
+  /* 仮 */
   width: 16px;
   height: 16px;
   z-index: 10;
-  display: none !important;  /* ★ 初期は表示しない（!importantで上書き） */
-  visibility: hidden !important;  /* 念のためvisibilityも非表示 */
+  display: none !important;
+  /* ★ 初期は表示しない（!importantで上書き） */
+  visibility: hidden !important;
+  /* 念のためvisibilityも非表示 */
 }
 
 /* 表示トリガー */
 body.download-page .agml-label-stage .level-dot-test.is-visible {
-  display: block !important;  /* !importantで表示制御 */
-  visibility: visible !important;  /* visibilityも表示 */
+  display: block !important;
+  /* !importantで表示制御 */
+  visibility: visible !important;
+  /* visibilityも表示 */
 }
 
 /* =========================
@@ -574,12 +580,16 @@ body.download-page .agml-label-stage .level-dot-test.is-visible {
 
 body.download-page .level-line-test {
   position: absolute;
-  top: 60px;     /* 仮 */
-  left: -2px;    /* 仮 */
-  width: 200px;  /* SVGに合わせる */
+  top: 60px;
+  /* 仮 */
+  left: -2px;
+  /* 仮 */
+  width: 200px;
+  /* SVGに合わせる */
   height: 40px;
   z-index: 9;
-  display: none; /* ★ 初期は表示しない */
+  display: none;
+  /* ★ 初期は表示しない */
 }
 
 /* 表示トリガー */
@@ -608,6 +618,36 @@ body.download-page .agml-label-bg {
   display: block;
   z-index: 1;
   /* ★ 重要 */
+}
+
+/* =========================
+   Percent Display (100%)
+========================= */
+
+.agml-percent-display {
+  position: absolute;
+  top: var(--percent-top, 28px);
+  left: var(--percent-left, 40px);
+  display: flex;
+  gap: var(--percent-gap, 4px);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  /* Add pointer-events none just in case */
+  z-index: 12;
+}
+
+.agml-percent-display .num {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.agml-percent-display .num.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ゲージ（必ず上） */
