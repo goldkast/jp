@@ -1256,8 +1256,8 @@ document.addEventListener('DOMContentLoaded', () => {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // AGML ラベル表示（レベルを計算）: IntersectionObserverで開始
-      observeAgmlLabelStart(originalityLevel);
+      // AGML ラベル表示（レベルを計算）: IntersectionObserverで監視開始
+      observeAgmlLabelAnimation(originalityLevel);
 
       // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
     }, 2000);
@@ -1345,29 +1345,25 @@ function animateAgmlLabel(targetLevel, speed = 300) {
   }, speed);
 }
 
-function observeAgmlLabelStart(level) {
+function observeAgmlLabelAnimation(level) {
   const target = document.getElementById('agmlLabelStage');
   if (!target) return;
 
-  // 監視の多重登録を防ぐため、既に監視中なら何もしない、または管理フラグを持つなどが理想だが
-  // ここではシンプルに新規作成。以前のobserverがあればdisconnectすべきだが、
-  // この関数は1回しか呼ばれない前提。
+  let started = false;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // 画面内に入ったらアニメーション開始
-          animateAgmlLabel(level);
-
-          // 1回だけ発火して終了
-          observer.disconnect();
+        if (entry.isIntersecting && !started) {
+          started = true;
+          animateAgmlLabel(level); // 既存アニメーション開始
+          observer.disconnect();   // 一度だけ実行
         }
       });
     },
     {
-      root: null,        // viewport
-      threshold: 0.4     // 40%見えたら開始
+      root: null,
+      threshold: 0.4 // ラベルが40%見えたら開始
     }
   );
 
