@@ -568,6 +568,37 @@ body.download-page .agml-label-stage .level-dot-test.is-visible {
   visibility: visible !important;  /* visibilityも表示 */
 }
 
+/* =========================
+   Level Line（スーッと表示）
+========================= */
+
+body.download-page .level-line-test {
+  position: absolute;
+  top: 40px;     /* 仮 */
+  left: 40px;    /* 仮 */
+  width: 200px;  /* SVGに合わせる */
+  height: 20px;
+  z-index: 9;
+  display: none; /* ★ 初期は表示しない */
+}
+
+/* 表示トリガー */
+body.download-page .level-line-test.is-visible {
+  display: block;
+}
+
+/* ライン描画準備（SVG内部） */
+body.download-page .level-line-test line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* 描画開始 */
+body.download-page .level-line-test.draw-line line {
+  stroke-dashoffset: 0;
+}
+
 /* 背景（必ず下） */
 body.download-page .agml-label-bg {
   position: relative;

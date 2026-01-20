@@ -1115,6 +1115,12 @@ document.addEventListener('DOMContentLoaded', () => {
         src="../img/level/level-dot.svg"
         alt="level dot"
       >
+      <!-- ライン（5段階目で表示・アニメーション） -->
+      <object
+        class="level-line-test"
+        type="image/svg+xml"
+        data="../img/level/100-line.svg">
+      </object>
     </div>
 
     <div class="agml-label-action">
@@ -1133,6 +1139,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const dot = document.querySelector('.level-dot-test');
         if (dot) {
           dot.classList.remove('is-visible');
+        }
+        // ★ ラインを初期化（確実に非表示）
+        const lineObj = document.querySelector('.level-line-test');
+        if (lineObj) {
+          lineObj.classList.remove('is-visible');
+          lineObj.classList.remove('draw-line');
         }
       });
 
@@ -1173,6 +1185,13 @@ function animateAgmlLabel(targetLevel, speed = 300) {
     dot.classList.remove('is-visible');
   }
 
+  // ★ ラインを初期化（確実に非表示）
+  const lineObj = document.querySelector('.level-line-test');
+  if (lineObj) {
+    lineObj.classList.remove('is-visible');
+    lineObj.classList.remove('draw-line');
+  }
+
   const safeTarget = Math.min(5, Math.max(1, targetLevel));
   let currentLevel = 0;
 
@@ -1193,6 +1212,19 @@ function animateAgmlLabel(targetLevel, speed = 300) {
             const dot = document.querySelector('.level-dot-test');
             if (dot) {
               dot.classList.add('is-visible');
+            }
+
+            // ★ ラインを表示して描画開始
+            const lineObj = document.querySelector('.level-line-test');
+            if (lineObj) {
+              lineObj.classList.add('is-visible');
+
+              // SVG読込後に描画
+              lineObj.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                  lineObj.classList.add('draw-line');
+                });
+              });
             }
           }, 500);  // 0.5秒 = 500ms
         }
