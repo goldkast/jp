@@ -377,6 +377,28 @@
   color: #ffffff;
 }
 
+/* Step1とStep2が両方アクティブの時、間の横線を#00CCFFに */
+#agml-stepper .step-wrapper[data-step="2"].is-active::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  /* Step1の円の右端からStep2の円の左端まで */
+  /* Step1がアクティブで、Step2もアクティブの時のみ表示 */
+  /* Step1の円の右端（-50% + 20px）から描画開始 */
+  left: calc(-50% + 20px);
+  /* Step1の円の右端からStep2の円の左端までの幅（100% - 40px） */
+  width: calc(100% - 40px);
+  height: 10px;
+  background-color: #00CCFF;
+  z-index: 0;
+  /* 円の後ろに表示（番号の上に被らないように） */
+  display: none;
+}
+
+#agml-stepper .step-wrapper[data-step="1"].is-active ~ .step-wrapper[data-step="2"].is-active::before {
+  display: block;
+}
+
 /* ===========================
    Step1 レイアウト安定化
 =========================== */
