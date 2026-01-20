@@ -1259,14 +1259,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // AGML ラベル表示（レベルを計算）: IntersectionObserverで開始
       observeAgmlLabelStart(originalityLevel);
 
-      // 判定結果表示時にステップナビがページトップ付近に来るようスクロール
-      const stepperTop = document.getElementById('agml-stepper');
-      if (stepperTop) {
-        // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
-        const topPosInitial = Math.max(0, stepperTop.offsetTop - 0); // -100px★
-        window.scrollTo({ top: topPosInitial, behavior: 'smooth' });
-      }
-
+      // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
     }, 2000);
 
   });
@@ -1333,10 +1326,10 @@ function animateAgmlLabel(targetLevel, speed = 300) {
                   requestAnimationFrame(() => {
                     lineObj.classList.add('draw-line');
 
-                    // ★ ライン描画開始から 2.5秒後 (描画2s + 待機0.5s) に 100%表示
+                    // ★ ライン描画開始から 0.3秒後に 100%表示
                     setTimeout(() => {
                       showAgmlPercentImage();
-                    }, 2500);
+                    }, 300);
                   });
                 });
               }
@@ -1356,15 +1349,19 @@ function observeAgmlLabelStart(level) {
   const target = document.getElementById('agmlLabelStage');
   if (!target) return;
 
-  let started = false;
+  // 監視の多重登録を防ぐため、既に監視中なら何もしない、または管理フラグを持つなどが理想だが
+  // ここではシンプルに新規作成。以前のobserverがあればdisconnectすべきだが、
+  // この関数は1回しか呼ばれない前提。
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !started) {
-          started = true;
-          animateAgmlLabel(level); // 既存の演出を開始
-          observer.disconnect();   // 1回だけ発火
+        if (entry.isIntersecting) {
+          // 画面内に入ったらアニメーション開始
+          animateAgmlLabel(level);
+
+          // 1回だけ発火して終了
+          observer.disconnect();
         }
       });
     },
