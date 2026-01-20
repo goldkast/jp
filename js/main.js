@@ -1207,26 +1207,28 @@ function animateAgmlLabel(targetLevel, speed = 300) {
         
         // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
         if (currentLevel >= safeTarget && safeTarget === 5) {
-          // 円ゲージのアニメーション完了を0.5秒待つ
+          // 円ゲージ完了後 0.5秒待ってドット表示
           setTimeout(() => {
             const dot = document.querySelector('.level-dot-test');
             if (dot) {
               dot.classList.add('is-visible');
             }
 
-            // ★ ラインを表示して描画開始
-            const lineObj = document.querySelector('.level-line-test');
-            if (lineObj) {
-              lineObj.classList.add('is-visible');
+            // ドット表示からさらに1秒待ってライン開始
+            setTimeout(() => {
+              const lineObj = document.querySelector('.level-line-test');
+              if (lineObj) {
+                lineObj.classList.add('is-visible');
 
-              // SVG読込後に描画
-              lineObj.addEventListener('load', () => {
-                requestAnimationFrame(() => {
-                  lineObj.classList.add('draw-line');
+                // SVG読込後に描画
+                lineObj.addEventListener('load', () => {
+                  requestAnimationFrame(() => {
+                    lineObj.classList.add('draw-line');
+                  });
                 });
-              });
-            }
-          }, 500);  // 0.5秒 = 500ms
+              }
+            }, 1000); // ドット表示から1秒後にライン開始
+          }, 500);  // 円ゲージ完了から0.5秒後にドット表示
         }
       });
     }, 40);
