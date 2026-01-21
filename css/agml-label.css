@@ -68,3 +68,38 @@ body.download-page #alert-result {
   margin-top: -6px;
   margin-bottom: 0px;
 }
+
+/* ======================================
+   AGML Label Block – Subtle Shade
+====================================== */
+
+/* 非アクティブブロック（沈んだ状態） */
+.agml-label-overlay .block {
+  filter: saturate(0.9);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* アクティブブロック（点灯＝浮き上がる） */
+.agml-label-wrap[data-level="1"] .block-1,
+.agml-label-wrap[data-level="2"] .block-1,
+.agml-label-wrap[data-level="3"] .block-1,
+.agml-label-wrap[data-level="4"] .block-1,
+.agml-label-wrap[data-level="5"] .block-1,
+.agml-label-wrap[data-level="2"] .block-2,
+.agml-label-wrap[data-level="3"] .block-2,
+.agml-label-wrap[data-level="4"] .block-2,
+.agml-label-wrap[data-level="5"] .block-2,
+.agml-label-wrap[data-level="3"] .block-3,
+.agml-label-wrap[data-level="4"] .block-3,
+.agml-label-wrap[data-level="5"] .block-3,
+.agml-label-wrap[data-level="4"] .block-4,
+.agml-label-wrap[data-level="5"] .block-4,
+.agml-label-wrap[data-level="5"] .block-5 {
+  filter: saturate(1.05);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
