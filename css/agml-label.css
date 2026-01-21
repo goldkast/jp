@@ -87,12 +87,12 @@ body.download-page[data-level="3"] .level-dot {
 
 /* 40%（2段階目） */
 body.download-page[data-level="2"] .level-dot {
-  top: 142px;   /* 仮：後で微調整 */
-  left: 138px;  /* 仮：後で微調整 */
+  top: 176px;   /* 仮：後で微調整 */
+  left: 227px;  /* 仮：後で微調整 */
 }
 
 /* 20%（1段階目） */
 body.download-page[data-level="1"] .level-dot {
-  top: 162px;   /* 仮：後で微調整 */
-  left: 148px;  /* 仮：後で微調整 */
+  top: 87px;   /* 仮：後で微調整 */
+  left: 198px;  /* 仮：後で微調整 */
 }
