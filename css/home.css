@@ -556,7 +556,7 @@ body.download-page .agml-label-stage {
   position: relative;
 }
 
-body.download-page .agml-label-stage .level-dot-test {
+body.download-page .agml-label-stage .level-dot {
   position: absolute;
   top: 88px;
   /* 仮 */
@@ -572,7 +572,7 @@ body.download-page .agml-label-stage .level-dot-test {
 }
 
 /* 表示トリガー */
-body.download-page .agml-label-stage .level-dot-test.is-visible {
+body.download-page .agml-label-stage .level-dot.is-visible {
   display: block !important;
   /* !importantで表示制御 */
   visibility: visible !important;
@@ -580,7 +580,7 @@ body.download-page .agml-label-stage .level-dot-test.is-visible {
 }
 
 /* 80%（4段階目）用の●位置（4番目ブロックの中心） */
-body.download-page[data-level="4"] .level-dot-test {
+body.download-page[data-level="4"] .level-dot {
   top: 104px;
   left: 118px;
 }

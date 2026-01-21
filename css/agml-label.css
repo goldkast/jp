@@ -68,3 +68,31 @@ body.download-page #alert-result {
   margin-top: -6px;
   margin-bottom: 0px;
 }
+
+/* =========================
+   Level Dot Position by %
+   ========================= */
+
+/* 80%（4段階目） */
+body.download-page[data-level="4"] .level-dot {
+  top: 176px;   /* 仮：後で微調整 */
+  left: 76px;  /* 仮：後で微調整 */
+}
+
+/* 60%（3段階目） */
+body.download-page[data-level="3"] .level-dot {
+  top: 230px;   /* 仮：後で微調整 */
+  left: 150px;  /* 仮：後で微調整 */
+}
+
+/* 40%（2段階目） */
+body.download-page[data-level="2"] .level-dot {
+  top: 142px;   /* 仮：後で微調整 */
+  left: 138px;  /* 仮：後で微調整 */
+}
+
+/* 20%（1段階目） */
+body.download-page[data-level="1"] .level-dot {
+  top: 162px;   /* 仮：後で微調整 */
+  left: 148px;  /* 仮：後で微調整 */
+}

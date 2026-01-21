@@ -1281,7 +1281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       >
       <!-- ★ テスト用：レベルドット -->
       <img
-        class="level-dot-test"
+        class="level-dot"
         src="../img/level/level-dot.svg"
         alt="level dot"
       >
@@ -1314,7 +1314,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // ★ レベルドットを初期化（確実に非表示）
       requestAnimationFrame(() => {
-        const dot = document.querySelector('.level-dot-test');
+        const dot = document.querySelector('.level-dot');
         if (dot) {
           dot.classList.remove('is-visible');
         }
@@ -1358,7 +1358,7 @@ function animateAgmlLabel(targetLevel, speed = 300) {
   if (!gauge) return;
 
   // ★ レベルドットを初期化（確実に非表示）
-  const dot = document.querySelector('.level-dot-test');
+  const dot = document.querySelector('.level-dot');
   if (dot) {
     dot.classList.remove('is-visible');
   }
@@ -1400,7 +1400,24 @@ function animateAgmlLabel(targetLevel, speed = 300) {
           
           // ★ 100％と同じ待機時間（0.5秒）を経て●を表示
           setTimeout(() => {
-            const dot = document.querySelector('.level-dot-test');
+            const dot = document.querySelector('.level-dot');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+          }, 500);
+        }
+
+        // ★ 3 / 2 / 1 段階目（60 / 40 / 20％）でもレベルドットを表示
+        if (
+          currentLevel >= safeTarget &&
+          (safeTarget === 3 || safeTarget === 2 || safeTarget === 1)
+        ) {
+          // body に data-level を設定（CSSで位置制御）
+          document.body.setAttribute('data-level', String(safeTarget));
+
+          // ★ 100％・80％と同じ待機時間（0.5秒）
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot');
             if (dot) {
               dot.classList.add('is-visible');
             }
@@ -1411,7 +1428,7 @@ function animateAgmlLabel(targetLevel, speed = 300) {
         if (currentLevel >= safeTarget && safeTarget === 5) {
           // 円ゲージ完了後 0.5秒待ってドット表示
           setTimeout(() => {
-            const dot = document.querySelector('.level-dot-test');
+            const dot = document.querySelector('.level-dot');
             if (dot) {
               dot.classList.add('is-visible');
             }
