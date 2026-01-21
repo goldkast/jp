@@ -919,6 +919,19 @@ contents.forEach(section => {
 /* =========================================================
    AGML 判定結果表示（Step3）＋ ラベル枠（仮）
 ========================================================= */
+
+// ステップナビを画面内に表示するスクロール制御
+function scrollToAgmlStepper() {
+  const stepper = document.getElementById('agml-stepper');
+  if (!stepper) return;
+
+  const y = stepper.getBoundingClientRect().top + window.pageYOffset - 80;
+  window.scrollTo({
+    top: y,
+    behavior: 'auto'
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const judgeBtn = document.getElementById('generate-result');
@@ -1003,6 +1016,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       step3.classList.add('is-active');
 
+      requestAnimationFrame(() => {
+        scrollToAgmlStepper();
+      });
+
       // ステップナビを強制表示（キャッシュ表示時）
       const stepperCached = document.getElementById('agml-stepper');
       if (stepperCached) {
@@ -1059,6 +1076,10 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('is-active');
       });
       step3.classList.add('is-active');
+
+      requestAnimationFrame(() => {
+        scrollToAgmlStepper();
+      });
 
       // ステップナビを強制表示（判定結果表示時）
       const stepper = document.getElementById('agml-stepper');
@@ -1186,12 +1207,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <style>
       .agml-percent-display {
         position: absolute;
-        top: var(--percent-top, 24px);
+        top: var(--percent-top, 36px); /* ★ ここで調整: デフォルトは36px */
         left: var(--percent-left, 40px);
 
         display: flex;
         align-items: center;
-        gap: var(--percent-gap, 4px);
+        /* gapは個別のmarginで制御 */
 
         opacity: 0;
         z-index: 5;
@@ -1199,7 +1220,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       .agml-percent-display .num {
-        width: var(--percent-size, 18px);
         height: auto;
 
         opacity: 0;
@@ -1207,6 +1227,38 @@ document.addEventListener('DOMContentLoaded', () => {
         transition:
           opacity 0.2s ease,
           transform 0.2s ease;
+      }
+
+      /* ★ 1桁のサイズ調整: --percent-size-1 (デフォルト: 5.5px = 0と見た目を合わせる) */
+      /* num-1.svg の viewBox幅 11.71 を考慮したサイズ調整 */
+      .agml-percent-display .num-1 {
+        width: var(--percent-size-1, 6px); /* ★ ここで調整: デフォルトは5.5px */
+        height: auto;
+        margin-right: var(--percent-gap-1-2, 0px); /* 1桁と2桁の間のgap */
+      }
+
+      /* ★ 2桁のサイズ調整: --percent-size-2 (デフォルト: 18px = 基準サイズ) */
+      /* num-0.svg の viewBox幅 35.63 を基準とする */
+      .agml-percent-display .num-0a {
+        width: var(--percent-size-2, 18px); /* ★ ここで調整: デフォルトは18px */
+        height: auto;
+        margin-right: var(--percent-gap-2-3, 0px); /* 2桁と3桁の間のgap */
+      }
+
+      /* ★ 3桁のサイズ調整: --percent-size-3 (デフォルト: 18px = 基準サイズ) */
+      /* num-0.svg の viewBox幅 35.63 を基準とする */
+      .agml-percent-display .num-0b {
+        width: var(--percent-size-3, 18px); /* ★ ここで調整: デフォルトは18px */
+        height: auto;
+        margin-right: var(--percent-gap-3-p, 1px); /* 3桁と%の間のgap */
+      }
+
+      /* ★ %のサイズ調整: --percent-size-p (デフォルト: 12px = 0と見た目を合わせる) */
+      /* num-percent.svg の viewBox幅 25.23 を考慮したサイズ調整 */
+      .agml-percent-display .num-p {
+        width: var(--percent-size-p, 10px); /* ★ ここで調整: デフォルトは12px */
+        height: auto;
+        margin-right: 0; /* %の後ろはgapなし */
       }
 
       .agml-percent-display .num.is-visible {

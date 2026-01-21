@@ -631,8 +631,8 @@ body.download-page .agml-label-bg {
 
 .agml-percent-display {
   position: absolute;
-  top: var(--percent-top, 28px);
-  left: var(--percent-left, 40px);
+  top: var(--percent-top, 36px); /* ★ ここで調整: デフォルトは36px */
+  left: var(--percent-left, 30px);
   display: flex;
   gap: var(--percent-gap, 4px);
   color: #ffffff;
