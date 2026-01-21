@@ -1318,6 +1318,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dot) {
           dot.classList.remove('is-visible');
         }
+        // ★ bodyのdata-levelをリセット
+        document.body.removeAttribute('data-level');
         // ★ ラインを初期化（確実に非表示）
         const lineObj = document.querySelector('.level-line-test');
         if (lineObj) {
@@ -1361,6 +1363,9 @@ function animateAgmlLabel(targetLevel, speed = 300) {
     dot.classList.remove('is-visible');
   }
 
+  // ★ bodyのdata-levelをリセット
+  document.body.removeAttribute('data-level');
+
   // ★ ラインを初期化（確実に非表示）
   const lineObj = document.querySelector('.level-line-test');
   if (lineObj) {
@@ -1387,6 +1392,20 @@ function animateAgmlLabel(targetLevel, speed = 300) {
       gauge.src = `../img/level/agml-gauge-${currentLevel}.svg`;
       requestAnimationFrame(() => {
         gauge.classList.add('is-visible');
+
+        // ★ 4段階目（80%）に到達したらレベルドットを表示
+        if (currentLevel >= safeTarget && safeTarget === 4) {
+          // bodyにdata-levelを設定（CSSで位置制御用）
+          document.body.setAttribute('data-level', '4');
+          
+          // ★ 100％と同じ待機時間（0.5秒）を経て●を表示
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot-test');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+          }, 500);
+        }
 
         // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
         if (currentLevel >= safeTarget && safeTarget === 5) {

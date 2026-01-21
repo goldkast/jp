@@ -579,6 +579,12 @@ body.download-page .agml-label-stage .level-dot-test.is-visible {
   /* visibilityも表示 */
 }
 
+/* 80%（4段階目）用の●位置（4番目ブロックの中心） */
+body.download-page[data-level="4"] .level-dot-test {
+  top: 104px;
+  left: 118px;
+}
+
 /* =========================
    Level Line（スーッと表示）
 ========================= */
