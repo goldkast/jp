@@ -1040,11 +1040,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Step2をアクティブ表示にする（念押し）
-      if (typeof setActiveStep === 'function') {
-        setActiveStep(2);
-      }
-
       // 判定結果（キャッシュ）表示時もページトップ付近にスクロール
       const stepperTopCached = document.getElementById('agml-stepper');
       if (stepperTopCached) {
@@ -1102,11 +1097,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
-
-      // Step2をアクティブ表示にする（念押し）
-      if (typeof setActiveStep === 'function') {
-        setActiveStep(2);
-      }
 
       // 判定結果（初回表示時）にもページトップ付近へスクロール
       const stepperTopInitial = document.getElementById('agml-stepper');
