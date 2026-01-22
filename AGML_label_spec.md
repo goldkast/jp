@@ -197,3 +197,100 @@ function renderAgmlLabel(percent) {
 
 この方針は **暫定案ではなく確定仕様** とする。  
 将来、表現要件が変わった場合は **別フェーズ・別MDで再設計** する。
+
+# AGML｜判定結果ラベル表示 実装方針（更新版）
+
+## 更新概要（2026-01）
+本更新は以下を目的とする。
+- **●（レベルドット）とラインを完全に分離管理**
+- 100%の既存挙動を一切破壊しない
+- 80 / 60 / 40 / 20% を安全に横展開できる構造を明文化
+
+---
+
+## 確定前提（変更禁止）
+- 100%（safeTarget === 5）の表示・タイミング・CSS・JSは**完全固定**
+- HTML構造は既存の agml-label-stage を使用
+- JS は animateAgmlLabel() を唯一の制御点とする
+
+---
+
+## 表示シーケンス（全％共通）
+
+1. 円形ゲージ（5段階画像）を段階的に表示
+2. 最終ブロック到達
+3. **待機時間 500ms（全％共通）**
+4. ●（level-dot）表示
+5. **さらに待機 500ms（全％共通）**
+6. ライン表示（SVG）
+
+※ 100% / 80% / 60% / 40% / 20% すべてこの順序を厳守
+
+---
+
+## ●（Level Dot）仕様（確定）
+
+### JS制御
+- 表示トリガー：最終ブロック到達後 + 500ms
+- 表示制御：`.level-dot.is-visible`
+- JSでは**位置・サイズを一切扱わない**
+
+### CSS制御（％別完全分離）
+```css
+body[data-level="5"] .level-dot { /* 100% */ }
+body[data-level="4"] .level-dot { /* 80% */ }
+body[data-level="3"] .level-dot { /* 60% */ }
+body[data-level="2"] .level-dot { /* 40% */ }
+body[data-level="1"] .level-dot { /* 20% */ }
+```
+
+---
+
+## ライン仕様（今回追加・重要）
+
+### SVGファイル
+- 100%：100-line.svg（既存・変更禁止）
+- 80%：80-line.svg
+- 60%：60-line.svg
+- 40%：40-line.svg
+- 20%：20-line.svg
+
+### 表示ルール
+- ● 表示完了後 **500ms 待機**して表示
+- SVGは `<object class="level-line">` を使用
+- data 属性で SVG を切り替える
+
+---
+
+## ラインCSS（％別完全分離・将来拡張前提）
+```css
+body[data-level="5"] .level-line { /* 100% */ }
+body[data-level="4"] .level-line { /* 80% */ }
+body[data-level="3"] .level-line { /* 60% */ }
+body[data-level="2"] .level-line { /* 40% */ }
+body[data-level="1"] .level-line { /* 20% */ }
+```
+
+※ JSで位置やサイズを制御することは禁止
+
+---
+
+## 禁止事項（再確認）
+- 100%のJS/CSSを変更すること
+- %ごとにif文を乱立させること
+- inline styleの使用
+- SVG内部DOMの操作
+
+---
+
+## 実装判断フロー
+- **仕様確定・構造整理：このMD**
+- **差分実装：cursor**
+- antigravityは新規設計フェーズのみ使用
+
+---
+
+## このMDは最新版基準
+以後、AGMLラベル表示の修正・追加は
+**必ず本MDに追記する形で行うこと。**
+

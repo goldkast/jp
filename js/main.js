@@ -1379,7 +1379,6 @@ function animateAgmlLabel(targetLevel, speed = 300) {
     percentContainer.style.opacity = '0';
     percentContainer.querySelectorAll('.num').forEach(el => el.classList.remove('is-visible'));
   }
-
   const safeTarget = Math.min(5, Math.max(1, targetLevel));
   let currentLevel = 0;
 
@@ -1404,6 +1403,32 @@ function animateAgmlLabel(targetLevel, speed = 300) {
             if (dot) {
               dot.classList.add('is-visible');
             }
+
+            // ★ ライン表示（●表示後、同一待機時間）
+            setTimeout(() => {
+              // HTML構造は変更せず、.level-line を動的に付与して利用
+              let line = document.querySelector('.level-line');
+              if (!line) {
+                line = document.querySelector('.level-line-test');
+                if (line && !line.classList.contains('level-line')) {
+                  line.classList.add('level-line');
+                }
+              }
+              if (!line) return;
+
+              // %ごとに使用するラインSVGを切り替え（80%）
+              line.setAttribute('data', '../img/level/80-line.svg');
+
+              // 表示
+              line.classList.add('is-visible');
+
+              // SVG読み込み後に描画開始（100%と同一挙動）
+              line.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                  line.classList.add('draw-line');
+                });
+              });
+            }, 500); // ← 必ず100%と同一の待機時間（dot後500ms）
           }, 500);
         }
 
@@ -1421,6 +1446,44 @@ function animateAgmlLabel(targetLevel, speed = 300) {
             if (dot) {
               dot.classList.add('is-visible');
             }
+
+            // ★ ライン表示（●表示後、同一待機時間）
+            setTimeout(() => {
+              // HTML構造は変更せず、.level-line を動的に付与して利用
+              let line = document.querySelector('.level-line');
+              if (!line) {
+                line = document.querySelector('.level-line-test');
+                if (line && !line.classList.contains('level-line')) {
+                  line.classList.add('level-line');
+                }
+              }
+              if (!line) return;
+
+              // %ごとに使用するラインSVGを切り替え
+              switch (safeTarget) {
+                case 3: // 60%
+                  line.setAttribute('data', '../img/level/60-line.svg');
+                  break;
+                case 2: // 40%
+                  line.setAttribute('data', '../img/level/40-line.svg');
+                  break;
+                case 1: // 20%
+                  line.setAttribute('data', '../img/level/20-line.svg');
+                  break;
+                default:
+                  return;
+              }
+
+              // 表示
+              line.classList.add('is-visible');
+
+              // SVG読み込み後に描画開始（100%と同一挙動）
+              line.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                  line.classList.add('draw-line');
+                });
+              });
+            }, 500); // ← 必ず100%と同一の待機時間（dot後500ms）
           }, 500);
         }
 

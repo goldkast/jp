@@ -603,6 +603,17 @@ body.download-page .level-line-test {
   /* ★ 初期は表示しない */
 }
 
+/* .level-line は .level-line-test へのエイリアス（HTML構造は変更しない） */
+body.download-page .level-line {
+  position: absolute;
+  z-index: 9;
+  display: none;
+}
+
+body.download-page .level-line.is-visible {
+  display: block;
+}
+
 /* 表示トリガー */
 body.download-page .level-line-test.is-visible {
   display: block;
@@ -618,6 +629,39 @@ body.download-page .level-line-test line {
 /* 描画開始 */
 body.download-page .level-line-test.draw-line line {
   stroke-dashoffset: 0;
+}
+
+/* =========================
+   Line Position by %
+   ========================= */
+
+/* 80% */
+body.download-page[data-level="4"] .level-line {
+  top: 96px;
+  left: 24px;
+  width: 180px;
+  transform: scaleX(2.0);
+}
+
+/* 60% */
+body.download-page[data-level="3"] .level-line {
+  top: 120px;
+  left: 36px;
+  width: 160px;
+}
+
+/* 40% */
+body.download-page[data-level="2"] .level-line {
+  top: 144px;
+  left: 48px;
+  width: 140px;
+}
+
+/* 20% */
+body.download-page[data-level="1"] .level-line {
+  top: 168px;
+  left: 60px;
+  width: 120px;
 }
 
 /* 背景（必ず下） */
