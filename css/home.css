@@ -457,7 +457,7 @@ body.download-page .ai-level-form {
 body.download-page .ai-question-group {
   border: 1px solid rgba(0, 204, 255, 0.6);
   border-radius: 10px;
-  padding: 20px 22px;
+  padding: 0px 22px 20px 22px;
   background: rgba(0, 204, 255, 0.18);
 }
 
