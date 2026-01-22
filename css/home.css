@@ -548,181 +548,57 @@ body.download-page .agml-label-stage {
   margin: 40px auto;
 }
 
-/* =========================
-   Level Dot（5段階目用）
-========================= */
 
-body.download-page .agml-label-stage {
-  position: relative;
-}
-
-body.download-page .agml-label-stage .level-dot {
-  position: absolute;
-  top: 88px;
-  /* 仮 */
-  left: 106px;
-  /* 仮 */
-  width: 16px;
-  height: 16px;
-  z-index: 10;
-  display: none !important;
-  /* ★ 初期は表示しない（!importantで上書き） */
-  visibility: hidden !important;
-  /* 念のためvisibilityも非表示 */
-}
-
-/* 表示トリガー */
-body.download-page .agml-label-stage .level-dot.is-visible {
-  display: block !important;
-  /* !importantで表示制御 */
-  visibility: visible !important;
-  /* visibilityも表示 */
-}
-
-/* 80%（4段階目）用の●位置（4番目ブロックの中心） */
-body.download-page[data-level="4"] .level-dot {
-  top: 104px;
-  left: 118px;
-}
-
-/* =========================
-   Level Line（スーッと表示）
-========================= */
-
-body.download-page .level-line-test {
-  position: absolute;
-  top: 60px;
-  /* 仮 */
-  left: -2px;
-  /* 仮 */
-  width: 200px;
-  /* SVGに合わせる */
-  height: 40px;
-  z-index: 9;
-  display: none;
-  /* ★ 初期は表示しない */
-}
-
-/* .level-line は .level-line-test へのエイリアス（HTML構造は変更しない） */
-body.download-page .level-line {
-  position: absolute;
-  z-index: 9;
-  display: none;
-}
-
-body.download-page .level-line.is-visible {
-  display: block;
-}
-
-/* 表示トリガー */
-body.download-page .level-line-test.is-visible {
-  display: block;
-}
-
-/* ライン描画準備（SVG内部） */
-body.download-page .level-line-test line {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  transition: stroke-dashoffset 2s ease;
-}
-
-/* 描画開始 */
-body.download-page .level-line-test.draw-line line {
-  stroke-dashoffset: 0;
-}
-
-/* =========================
-   Line Position by %
-   ========================= */
-
-/* 80% */
-body.download-page[data-level="4"] .level-line {
-  top: 96px;
-  left: 24px;
-  width: 180px;
-  transform: scaleX(2.0);
-}
-
-/* 60% */
-body.download-page[data-level="3"] .level-line {
-  top: 120px;
-  left: 36px;
-  width: 160px;
-}
-
-/* 40% */
-body.download-page[data-level="2"] .level-line {
-  top: 144px;
-  left: 48px;
-  width: 140px;
-}
-
-/* 20% */
-body.download-page[data-level="1"] .level-line {
-  top: 168px;
-  left: 60px;
-  width: 120px;
-}
-
-/* 背景（必ず下） */
+/* 背景（上レイヤー） */
 body.download-page .agml-label-bg {
   position: relative;
-  /* ★ 重要 */
   width: 100%;
   height: 100%;
   display: block;
   z-index: 1;
-  /* ★ 重要 */
 }
 
 /* =========================
-   Percent Display (100%)
+   AGML Minimal Circular Gauge
 ========================= */
 
-.agml-percent-display {
-  position: absolute;
-  top: var(--percent-top, 36px); /* ★ ここで調整: デフォルトは36px */
-  left: var(--percent-left, 30px);
-  display: flex;
-  gap: var(--percent-gap, 4px);
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  /* Add pointer-events none just in case */
-  z-index: 12;
-}
+body.download-page .agml-minimal-gauge {
+  --percent: 0;
 
-.agml-percent-display .num {
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.agml-percent-display .num.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ゲージ（必ず上） */
-body.download-page .agml-label-gauge {
   position: absolute;
   inset: 0;
   margin: auto;
+
   width: 200px;
   height: 200px;
-  z-index: 2;
-  /* ★ これが無いと絶対に出ない */
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  border-radius: 50%;
+  z-index: 0;
+
+  /* 円ゲージ本体 */
+  background:
+    conic-gradient(
+      #00CCFF calc(var(--percent) * 1%),
+      rgba(0, 204, 255, 0.2) 0
+    );
+
+  /* 中央を抜いてリング状にする */
+  -webkit-mask:
+    radial-gradient(
+      farthest-side,
+      transparent 68%,
+      #000 69%
+    );
+  mask:
+    radial-gradient(
+      farthest-side,
+      transparent 68%,
+      #000 69%
+    );
+
+  /* アニメーション */
+  transition: background 1.2s ease-out;
 }
 
-body.download-page .agml-label-gauge.is-visible {
-  opacity: 1;
-  transform: scale(1);
-}
 
 /* 念のための保険（今はOK） */
 body.download-page .agml-label-stage img {

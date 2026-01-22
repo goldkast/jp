@@ -1171,9 +1171,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="../img/info-icon.png" alt="案内アラート">
       </div>
       <div class="alert-box-text">
-以下は、入力された制作プロセスをもとに算出された<span class="bold-spot">オリジナリティ評価</span>です。<br>
-
-下部の <span class="bold-spot">AI生成音楽ラベル（AGML）</span> は、創作主体（オリジナリティ）を<span class="bold-spot">ブロックゲージで示した結論表示</span>です。
+以下は、入力された制作プロセスに基づく <strong>AI利用率の判定結果</strong>です。<br>
+円形ゲージは、楽曲制作におけるAIの関与度を <strong>視覚的に示した指標</strong>であり、
+創作全体の透明性を第三者にも直感的に伝えるためのものです。
       </div>
     </div>
 
@@ -1202,103 +1202,21 @@ document.addEventListener('DOMContentLoaded', () => {
       <p>${originalityComment}</p>
     </div>
 
-    <!-- AGML ラベル表示（背景＋ゲージ重ね） -->
-    <!-- 100%表示用CSS (JS注入) -->
-    <style>
-      .agml-percent-display {
-        position: absolute;
-        top: var(--percent-top, 36px); /* ★ ここで調整: デフォルトは36px */
-        left: var(--percent-left, 40px);
-
-        display: flex;
-        align-items: center;
-        /* gapは個別のmarginで制御 */
-
-        opacity: 0;
-        z-index: 5;
-        pointer-events: none;
-      }
-
-      .agml-percent-display .num {
-        height: auto;
-
-        opacity: 0;
-        transform: translateY(2px);
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      /* ★ 1桁のサイズ調整: --percent-size-1 (デフォルト: 5.5px = 0と見た目を合わせる) */
-      /* num-1.svg の viewBox幅 11.71 を考慮したサイズ調整 */
-      .agml-percent-display .num-1 {
-        width: var(--percent-size-1, 6px); /* ★ ここで調整: デフォルトは5.5px */
-        height: auto;
-        margin-right: var(--percent-gap-1-2, 0px); /* 1桁と2桁の間のgap */
-      }
-
-      /* ★ 2桁のサイズ調整: --percent-size-2 (デフォルト: 18px = 基準サイズ) */
-      /* num-0.svg の viewBox幅 35.63 を基準とする */
-      .agml-percent-display .num-0a {
-        width: var(--percent-size-2, 18px); /* ★ ここで調整: デフォルトは18px */
-        height: auto;
-        margin-right: var(--percent-gap-2-3, 0px); /* 2桁と3桁の間のgap */
-      }
-
-      /* ★ 3桁のサイズ調整: --percent-size-3 (デフォルト: 18px = 基準サイズ) */
-      /* num-0.svg の viewBox幅 35.63 を基準とする */
-      .agml-percent-display .num-0b {
-        width: var(--percent-size-3, 18px); /* ★ ここで調整: デフォルトは18px */
-        height: auto;
-        margin-right: var(--percent-gap-3-p, 1px); /* 3桁と%の間のgap */
-      }
-
-      /* ★ %のサイズ調整: --percent-size-p (デフォルト: 12px = 0と見た目を合わせる) */
-      /* num-percent.svg の viewBox幅 25.23 を考慮したサイズ調整 */
-      .agml-percent-display .num-p {
-        width: var(--percent-size-p, 10px); /* ★ ここで調整: デフォルトは12px */
-        height: auto;
-        margin-right: 0; /* %の後ろはgapなし */
-      }
-
-      .agml-percent-display .num.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
+    <!-- AGML ラベル表示（背景＋円ゲージ） -->
     <div class="agml-label-stage" id="agmlLabelStage">
-      <!-- 既存：背景 -->
+      <!-- 円ゲージ（下レイヤー） -->
+      <div
+        class="agml-minimal-gauge"
+        id="agmlMinimalGauge"
+        data-percent="0">
+      </div>
+
+      <!-- ラベル背景（上レイヤー） -->
       <img
         class="agml-label-bg"
         src="../img/level/label-display-back.png"
         alt=""
       >
-      <!-- 既存：円ゲージ -->
-      <img
-        class="agml-label-gauge"
-        src=""
-        alt=""
-      >
-      <!-- ★ テスト用：レベルドット -->
-      <img
-        class="level-dot"
-        src="../img/level/level-dot.svg"
-        alt="level dot"
-      >
-      <!-- ライン（5段階目で表示・アニメーション） -->
-      <object
-        class="level-line-test"
-        type="image/svg+xml"
-        data="../img/level/100-line.svg">
-      </object>
-
-      <!-- 100% 数値表示 (画像アニメーション) -->
-      <div class="agml-percent-display" aria-hidden="true">
-        <img class="num num-1" src="../img/level/num-1.svg" alt="">
-        <img class="num num-0a" src="../img/level/num-0.svg" alt="">
-        <img class="num num-0b" src="../img/level/num-0.svg" alt="">
-        <img class="num num-p" src="../img/level/num-percent.svg" alt="">
-      </div>
     </div>
 
     <div class="agml-label-action">
@@ -1312,36 +1230,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       step3.dataset.rendered = 'true';
 
-      // ★ レベルドットを初期化（確実に非表示）
-      requestAnimationFrame(() => {
-        const dot = document.querySelector('.level-dot');
-        if (dot) {
-          dot.classList.remove('is-visible');
-        }
-        // ★ bodyのdata-levelをリセット
-        document.body.removeAttribute('data-level');
-        // ★ ラインを初期化（確実に非表示）
-        const lineObj = document.querySelector('.level-line-test');
-        if (lineObj) {
-          lineObj.classList.remove('is-visible');
-          lineObj.classList.remove('draw-line');
-        }
-        // ★ 100%表示を初期化
-        const percentContainer = document.querySelector('.agml-percent-display');
-        if (percentContainer) {
-          percentContainer.style.opacity = '0';
-          percentContainer.querySelectorAll('.num').forEach(el => el.classList.remove('is-visible'));
-        }
-      });
-
       // Step1をクリック可能にする（過去ページへの戻りリンク）
       const step1Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="1"]');
       if (step1Wrapper) {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // AGML ラベル表示（レベルを計算）: IntersectionObserverで監視開始
-      observeAgmlLabelAnimation(originalityLevel);
+      // AGML Minimal 円ゲージ表示（アニメーション）
+      renderAgmlMinimalGauge(overallPct);
+
 
       // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
     }, 2000);
@@ -1350,9 +1247,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// アニメーション設定
-const ANIMATION_INTERVAL = 300; // ms
+// ========================================
+// SVG操作ロジックは削除（minimal方式に統一）
+// ========================================
 
+/* 削除: SVG操作ロジック（minimal方式に統一のため不要）
 function animateAgmlLabel(targetLevel, speed = 300) {
   const gauge = document.querySelector('.agml-label-gauge');
   if (!gauge) return;
@@ -1525,7 +1424,9 @@ function animateAgmlLabel(targetLevel, speed = 300) {
     }
   }, speed);
 }
+*/
 
+/* 削除: IntersectionObserverロジック（minimal方式に統一のため不要）
 function observeAgmlLabelAnimation(level) {
   const target = document.getElementById('agmlLabelStage');
   if (!target) return;
@@ -1550,8 +1451,9 @@ function observeAgmlLabelAnimation(level) {
 
   observer.observe(target);
 }
+*/
 
-// 100%画像表示アニメーション
+/* 削除: 100%画像表示アニメーション（minimal方式に統一のため不要）
 function showAgmlPercentImage() {
   const container = document.querySelector('.agml-percent-display');
   // img.num を取得
@@ -1566,7 +1468,9 @@ function showAgmlPercentImage() {
     }, i * 120);
   });
 }
+*/
 
+/* 削除: 旧SVG版renderAgmlLabel（minimal方式に統一のため不要）
 function renderAgmlLabel(aiPct) {
   // 静的表示用（古いロジックだが、念のため残すなら更新が必要。
   // 今回の要件では animateAgmlLabel への完全移行が指定されているため、
@@ -1574,4 +1478,24 @@ function renderAgmlLabel(aiPct) {
   // 指示にない削除は避ける。ただし、呼び出し元は animateAgmlLabel に変わったので
   // この関数は実質使われない。）
 }
+*/
 
+/* ============================
+   AGML Minimal 円ゲージ描画
+============================ */
+
+function renderAgmlMinimalGauge(percent) {
+  const gauge = document.getElementById('agmlMinimalGauge');
+  if (!gauge) return;
+
+  // 0〜100 に制限
+  const value = Math.max(0, Math.min(100, percent));
+
+  // 初期化（0%）
+  gauge.style.setProperty('--percent', 0);
+
+  // 次フレームでアニメーション開始
+  requestAnimationFrame(() => {
+    gauge.style.setProperty('--percent', value);
+  });
+}
