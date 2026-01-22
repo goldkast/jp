@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
   <link rel="stylesheet" href="../css/home.css?v=20260107">
+  <link rel="stylesheet" href="../css/agml-label.css">
 </head>
 <body class="download-page">
 
@@ -198,7 +199,7 @@
 </h2>
 
     <p>
-      楽曲の制作プロセスについて、該当する項目を選択してください。
+      楽曲の制作プロセスについて、該当する項目を選択してください。<br><br>
     </p>
 
     <!-- AGML Step Indicator -->
@@ -254,9 +255,9 @@
         </div>
         <div class="alert-box-text">
           <span class="bold-spot">AI利用率の判定について</span><br>
-          このステップでは、楽曲制作におけるAIの関与度を確認するため、
-          歌詞および作曲（楽曲）の制作プロセスについて該当する項目を選択してください。
-          選択内容は、後続の判定結果およびラベル生成に反映されます。
+          このステップでは、楽曲制作における<span class="bold-spot">AIの関与度を確認するための質問</span>に回答していただきます。<br>
+
+歌詞および作曲（楽曲）の制作プロセスについて、実際の制作状況に最も近い項目を選択してください。
         </div>
       </div>
       <section id="ai-level-form" class="ai-level-form">
@@ -331,7 +332,24 @@
 
     <!-- Step2以降（今は空でOK） -->
     <section id="step-content-2" class="step-content"></section>
-    <section id="step-content-3" class="step-content"></section>
+   <!-- Step3：ラベル表示 -->
+   <section id="step-content-3" class="step-content">
+
+<div class="agml-label-stage" id="agmlLabelStage">
+  <img
+    class="agml-label-bg"
+    src="../img/level/label-display-back.png"
+    alt=""
+  >
+
+  <object
+    class="agml-label-gauge"
+    type="image/svg+xml"
+    data="../img/level/agml-gauge-5step.svg">
+  </object>
+</div>
+
+   </section>
     <section id="step-content-4" class="step-content"></section>
     <section id="step-content-5" class="step-content"></section>
     <!-- Label-Attachment画像 -->

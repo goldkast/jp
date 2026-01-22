@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/theme-dark.css?v=20260106">
-  <link rel="stylesheet" href="../css/home.css?v=20260106">
+  <link rel="stylesheet" href="../css/home.css?v=20260107">
+  <link rel="stylesheet" href="../css/agml-label.css">
 </head>
 <body class="download-page">
 
@@ -198,7 +199,7 @@
 </h2>
 
     <p>
-      楽曲の制作プロセスについて、該当する項目を選択してください。
+      楽曲の制作プロセスについて、該当する項目を選択してください。<br><br><br>
     </p>
 
     <!-- AGML Step Indicator -->
@@ -209,7 +210,7 @@
             <img src="../img/number/step1-1.svg" class="step-icon" alt="Step 1">
           </div>
         </div>
-        <div class="step-label">利用規約</div>
+        <div class="step-label">制作フロー</div>
       </div>
       <div class="step-wrapper" data-step="2">
         <div class="step-circle">
@@ -217,7 +218,7 @@
             <img src="../img/number/step2-2.svg" class="step-icon" alt="Step 2">
           </div>
         </div>
-        <div class="step-label">AIレベル判定</div>
+        <div class="step-label">判定結果</div>
       </div>
       <div class="step-wrapper" data-step="3">
         <div class="step-circle">
@@ -225,7 +226,7 @@
             <img src="../img/number/step3-2.svg" class="step-icon" alt="Step 3">
           </div>
         </div>
-        <div class="step-label">判定結果</div>
+        <div class="step-label">サムネイル作成</div>
       </div>
       <div class="step-wrapper" data-step="4">
         <div class="step-circle">
@@ -233,7 +234,7 @@
             <img src="../img/number/step4-2.svg" class="step-icon" alt="Step 4">
           </div>
         </div>
-        <div class="step-label">ラベルDL</div>
+        <div class="step-label">ショートURL発行</div>
       </div>
       <div class="step-wrapper" data-step="5">
         <div class="step-circle">
@@ -248,6 +249,17 @@
     <!-- Step1 Content -->
     <section id="step-content-1" class="step-content is-active">
       <!-- AI利用率アンケート（Step1） -->
+      <div class="alert-box" id="alert-step1">
+        <div class="alert-inline-icon">
+          <img src="../img/info-icon.png" alt="案内アラート">
+        </div>
+        <div class="alert-box-text">
+          <span class="bold-spot">AI利用率の判定について</span><br>
+          このステップでは、楽曲制作における<span class="bold-spot">AIの関与度を確認するための質問</span>に回答していただきます。<br>
+
+歌詞および作曲（楽曲）の制作プロセスについて、実際の制作状況に最も近い項目を選択してください。
+        </div>
+      </div>
       <section id="ai-level-form" class="ai-level-form">
 
         <!-- 歌詞 -->
@@ -320,7 +332,24 @@
 
     <!-- Step2以降（今は空でOK） -->
     <section id="step-content-2" class="step-content"></section>
-    <section id="step-content-3" class="step-content"></section>
+   <!-- Step3：ラベル表示 -->
+   <section id="step-content-3" class="step-content is-active">
+
+<div class="agml-label-stage" id="agmlLabelStage">
+  <img
+    class="agml-label-bg"
+    src="../img/level/label-display-back.png"
+    alt=""
+  >
+
+  <object
+    class="agml-label-gauge"
+    type="image/svg+xml"
+    data="../img/level/agml-gauge-5step.svg">
+  </object>
+</div>
+
+   </section>
     <section id="step-content-4" class="step-content"></section>
     <section id="step-content-5" class="step-content"></section>
     <!-- Label-Attachment画像 -->
@@ -460,7 +489,7 @@
 })();
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=20260108"></script>
 <script>
   function setActiveStep(stepNumber) {
     document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {

@@ -1134,9 +1134,9 @@ body.download-page .agml-go-download:hover {
 
 /* 全体の余白を広げる */
 #alert-step1 {
-  margin-top: 16px;
+  margin-top: 4px;
   margin-bottom: 28px;
-  padding: 18px 20px;
+  padding: 10px 0 20px 0 26px;
 }
 
 /* 中のテキスト行間を少し広げる */
@@ -1147,8 +1147,9 @@ body.download-page .agml-go-download:hover {
 
 /* アイコンとテキストの距離を調整 */
 #alert-step1 .alert-inline-icon {
-  margin-right: 14px;
-}
+  margin-right: -2px;
+  margin-left: -10px;
+} 
 
 /* モバイル時は少し詰める */
 @media (max-width: 768px) {

@@ -3,76 +3,76 @@
 ========================================================= */
 // 言語情報の定義
 const languageData = {
-    jp: { flag: 'jp', name: '日本語' },
-    en: { flag: 'us', name: 'English' },
-    cn: { flag: 'cn', name: '简体中文' },
-    tw: { flag: 'tw', name: '繁體中文' },
-    kr: { flag: 'kr', name: '한국어' },
-    id: { flag: 'id', name: 'Bahasa Indonesia' },
-    vn: { flag: 'vn', name: 'Tiếng Việt' },
-    es: { flag: 'es', name: 'Español' },
-    fr: { flag: 'fr', name: 'Français' },
-    de: { flag: 'de', name: 'Deutsch' },
-    ru: { flag: 'ru', name: 'Русский' }
+  jp: { flag: 'jp', name: '日本語' },
+  en: { flag: 'us', name: 'English' },
+  cn: { flag: 'cn', name: '简体中文' },
+  tw: { flag: 'tw', name: '繁體中文' },
+  kr: { flag: 'kr', name: '한국어' },
+  id: { flag: 'id', name: 'Bahasa Indonesia' },
+  vn: { flag: 'vn', name: 'Tiếng Việt' },
+  es: { flag: 'es', name: 'Español' },
+  fr: { flag: 'fr', name: 'Français' },
+  de: { flag: 'de', name: 'Deutsch' },
+  ru: { flag: 'ru', name: 'Русский' }
 };
 
 // 現在のURLパスから言語コードを取得
 function getCurrentLanguage() {
-    const path = window.location.pathname;
-    // /en/, /cn/, /tw/ などの形式を検出
-    const match = path.match(/^\/([a-z]{2})\//);
-    if (match && languageData[match[1]]) {
-        return match[1];
-    }
-    // デフォルトは日本語
-    return 'jp';
+  const path = window.location.pathname;
+  // /en/, /cn/, /tw/ などの形式を検出
+  const match = path.match(/^\/([a-z]{2})\//);
+  if (match && languageData[match[1]]) {
+    return match[1];
+  }
+  // デフォルトは日本語
+  return 'jp';
 }
 
 // 言語表示を更新する関数
 function updateLanguageDisplay() {
-    const currentLang = getCurrentLanguage();
-    const langInfo = languageData[currentLang];
-    
-    if (!langInfo) return;
-    
-    // PC用の言語表示を更新
-    const langToggle = document.getElementById("langToggle");
-    if (langToggle) {
-        const flagSpan = langToggle.querySelector('.fi');
-        const allSpans = langToggle.querySelectorAll('span');
-        
-        if (flagSpan) {
-            flagSpan.className = `fi fi-${langInfo.flag}`;
-        }
-        // .fi でも .arrow でもない最初のspanが言語名
-        allSpans.forEach(span => {
-            if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
-                span.textContent = langInfo.name;
-            }
-        });
+  const currentLang = getCurrentLanguage();
+  const langInfo = languageData[currentLang];
+
+  if (!langInfo) return;
+
+  // PC用の言語表示を更新
+  const langToggle = document.getElementById("langToggle");
+  if (langToggle) {
+    const flagSpan = langToggle.querySelector('.fi');
+    const allSpans = langToggle.querySelectorAll('span');
+
+    if (flagSpan) {
+      flagSpan.className = `fi fi-${langInfo.flag}`;
     }
-    
-    // モバイル用の言語表示を更新
-    const mobileLangToggle = document.getElementById("mobileLangToggle");
-    if (mobileLangToggle) {
-        const mobileFlagSpan = mobileLangToggle.querySelector('.fi');
-        const mobileAllSpans = mobileLangToggle.querySelectorAll('span');
-        
-        if (mobileFlagSpan) {
-            mobileFlagSpan.className = `fi fi-${langInfo.flag}`;
-        }
-        // .fi でも .arrow でもない最初のspanが言語名
-        mobileAllSpans.forEach(span => {
-            if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
-                span.textContent = langInfo.name;
-            }
-        });
+    // .fi でも .arrow でもない最初のspanが言語名
+    allSpans.forEach(span => {
+      if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
+        span.textContent = langInfo.name;
+      }
+    });
+  }
+
+  // モバイル用の言語表示を更新
+  const mobileLangToggle = document.getElementById("mobileLangToggle");
+  if (mobileLangToggle) {
+    const mobileFlagSpan = mobileLangToggle.querySelector('.fi');
+    const mobileAllSpans = mobileLangToggle.querySelectorAll('span');
+
+    if (mobileFlagSpan) {
+      mobileFlagSpan.className = `fi fi-${langInfo.flag}`;
     }
+    // .fi でも .arrow でもない最初のspanが言語名
+    mobileAllSpans.forEach(span => {
+      if (!span.classList.contains('fi') && !span.classList.contains('arrow')) {
+        span.textContent = langInfo.name;
+      }
+    });
+  }
 }
 
 // ページ読み込み時に言語表示を更新
-document.addEventListener("DOMContentLoaded", function() {
-    updateLanguageDisplay();
+document.addEventListener("DOMContentLoaded", function () {
+  updateLanguageDisplay();
 });
 
 const langToggle = document.getElementById("langToggle");
@@ -80,19 +80,19 @@ const langDropdown = document.getElementById("langDropdown");
 const langMenu = document.querySelector(".lang-menu");
 
 if (langToggle && langDropdown && langMenu) {
-    langToggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        langDropdown.classList.toggle("show");
-    });
+  langToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    langDropdown.classList.toggle("show");
+  });
 
-    langMenu.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
+  langMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 
-    document.addEventListener("click", function () {
-        langDropdown.classList.remove("show");
-    });
+  document.addEventListener("click", function () {
+    langDropdown.classList.remove("show");
+  });
 }
 
 // モバイル用の言語プルダウン
@@ -100,18 +100,18 @@ const mobileLangToggle = document.getElementById("mobileLangToggle");
 const mobileLangDropdown = document.getElementById("mobileLangDropdown");
 
 if (mobileLangToggle && mobileLangDropdown) {
-    mobileLangToggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        mobileLangDropdown.classList.toggle("show");
-    });
+  mobileLangToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    mobileLangDropdown.classList.toggle("show");
+  });
 
-    document.addEventListener("click", function (e) {
-        const mobileLang = document.querySelector(".mobile-lang");
-        if (mobileLang && !mobileLang.contains(e.target)) {
-            mobileLangDropdown.classList.remove("show");
-        }
-    });
+  document.addEventListener("click", function (e) {
+    const mobileLang = document.querySelector(".mobile-lang");
+    if (mobileLang && !mobileLang.contains(e.target)) {
+      mobileLangDropdown.classList.remove("show");
+    }
+  });
 }
 
 /* =========================================================
@@ -205,7 +205,7 @@ topButtons.forEach((btn) => {
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.getElementById("darkToggle");   // 新トグル
-  const knob   = document.getElementById("toggleKnob");   // ノブ画像
+  const knob = document.getElementById("toggleKnob");   // ノブ画像
 
   if (!toggle || !knob) return;
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ノブ画像切り替え
     // STEP1: Darkモードを常に有効に固定するため、常にdark-mode用のノブを表示
     // if (document.body.classList.contains("dark-mode")) {
-      knob.src = "./img/toggle-knob-on.png";      // ★ ダークモード用ノブ
+    knob.src = "./img/toggle-knob-on.png";      // ★ ダークモード用ノブ
     // } else {
     //   knob.src = "./img/toggle-knob-off.png";     // ★ 通常モード用ノブ
     // }
@@ -289,66 +289,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
-    
+
     // タイムライン全体の位置
     const timelineRect = timeline.getBoundingClientRect();
     const timelineTop = timelineRect.top + scrollTop;
-    
+
     // ★ 色変化の開始ポイント調整（この数値を変更してください）
     // 1.0 = 画面の一番下、0.75 = 3/4、0.5 = 中央、0.25 = 1/4、0.0 = 一番上
     const TRIGGER_POSITION = 0.75;
-    
+
     // ★ マウスの動きより早く反応させる倍率（1.0 = 同じ速度、1.2 = 20%早い、1.5 = 50%早い）
     const SPEED_MULTIPLIER = 1.1;
-    
+
     // 1番のステップボックスの位置を取得
     const firstNumberBox = timelineNumbers[0];
     if (!firstNumberBox) return;
-    
+
     const firstBoxRect = firstNumberBox.getBoundingClientRect();
     const firstBoxTop = firstBoxRect.top + scrollTop;
-    
+
     // 終端丸の位置を取得
     let endPosition = timelineTop + timelineRect.height;
     if (timelineEnd) {
       const endRect = timelineEnd.getBoundingClientRect();
       endPosition = endRect.top + scrollTop + endRect.height; // 終端丸の下端
     }
-    
+
     // 色変化のトリガー位置
     const viewportTrigger = scrollTop + (windowHeight * TRIGGER_POSITION);
-    
+
     // 色変化の開始：1番のステップがトリガー位置に来たとき
     const colorChangeStart = firstBoxTop;
-    
+
     // 色変化の終了：終端丸がトリガー位置に来たとき
     const colorChangeEnd = endPosition;
-    
+
     // 色変化の全体の範囲（距離）
     const totalDistance = colorChangeEnd - colorChangeStart;
-    
+
     // 現在のスクロール進行度（0～1以上）
     const scrollProgress = (viewportTrigger - colorChangeStart) / totalDistance;
-    
+
     // マウスの動きより早く反応させる（進行度を倍率で加速）
     const acceleratedProgress = scrollProgress * SPEED_MULTIPLIER;
-    
+
     // 縦線上での色変化の進行度（0～1にクランプ）
     const lineScrollProgress = Math.max(0, Math.min(1, acceleratedProgress));
-    
+
     // 縦線上の絶対位置（ピクセル）- 実際の色変化位置
     const currentLinePosition = firstBoxTop + (totalDistance * lineScrollProgress);
-    
+
     // 各番号ボックスの処理
     timelineNumbers.forEach((numberBox, index) => {
       const boxRect = numberBox.getBoundingClientRect();
       const boxTop = boxRect.top + scrollTop;
       const boxBottom = boxTop + boxRect.height;
       const boxMiddle = boxTop + (boxRect.height / 2);
-      
+
       // ボックスの中心位置での色変化の進行度
       let boxProgress = 0;
-      
+
       // 現在のライン位置がボックスのどの位置にあるか
       if (currentLinePosition < boxTop) {
         // ラインがボックスの上にある場合
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ラインがボックスを通過した場合
         boxProgress = 1;
       }
-      
+
       // ボックス内のグラデーション（上から下へ滑らかに色が変わる）
       const gradientPercent = Math.round(boxProgress * 100);
       const numberGradient = `linear-gradient(to bottom, 
@@ -368,9 +368,9 @@ document.addEventListener("DOMContentLoaded", () => {
         #00ccff ${gradientPercent}%, 
         #b5d7ff ${gradientPercent}%, 
         #b5d7ff 100%)`;
-      
+
       numberBox.style.setProperty('--number-gradient', numberGradient);
-      
+
       // バブルアニメーション：ボックスが色で満たされ始めたら（60%以上）バブルを表示
       if (boxProgress >= 0.6) {
         numberBox.classList.add('bubble-active');
@@ -378,22 +378,22 @@ document.addEventListener("DOMContentLoaded", () => {
         numberBox.classList.remove('bubble-active');
       }
     });
-    
+
     // 縦線のグラデーション（0%から100%まで）
     const currentScrollPercent = lineScrollProgress * 100;
-    
+
     const lineGradient = `linear-gradient(to bottom, 
       #00ccff 0%, 
       #00ccff ${currentScrollPercent}%, 
       #b5d7ff ${currentScrollPercent}%, 
       #b5d7ff 100%)`;
-    
+
     timeline.style.setProperty('--timeline-gradient', lineGradient);
-    
+
     // 終端丸の色を更新（縦線の色が100%到達したら変わる）
     if (timelineEnd) {
       let endProgress = 0;
-      
+
       // 縦線の進行度が100%に達したら終端丸の色を変える
       if (lineScrollProgress >= 1) {
         endProgress = 1;
@@ -401,18 +401,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // 95%～100%の間で徐々に色を変える
         endProgress = (lineScrollProgress - 0.95) / 0.05;
       }
-      
+
       const startColor = { r: 181, g: 215, b: 255 }; // #b5d7ff
       const endColor = { r: 0, g: 204, b: 255 };     // #00ccff
-      
+
       const r = Math.round(startColor.r + (endColor.r - startColor.r) * endProgress);
       const g = Math.round(startColor.g + (endColor.g - startColor.g) * endProgress);
       const b = Math.round(startColor.b + (endColor.b - startColor.b) * endProgress);
-      
+
       const color = `rgb(${r}, ${g}, ${b})`;
       timelineEnd.style.backgroundColor = color;
     }
-    
+
     // デバッグログ
     console.log('Timeline Debug:', {
       'トリガー位置': viewportTrigger.toFixed(1),
@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", updateTimelineColors);
-  
+
   // ダークモード切り替え時にも更新
   const darkToggle = document.getElementById("darkToggle");
   if (darkToggle) {
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
    - current 判定
 =============================== */
 
-(function() {
+(function () {
   'use strict';
 
   // ページパスから現在のページを判定
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getRelativePath(targetPath, currentLevel) {
     // パスを正規化（末尾のスラッシュを除去）
     targetPath = targetPath.replace(/\/$/, '') || '/';
-    
+
     // ルート（/）へのパス
     if (targetPath === '/') {
       if (currentLevel === 0) return './index.html';
@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const relativePath = '../'.repeat(currentLevel) + targetSegments.join('/') + '/index.html';
     return relativePath;
   }
-  
+
   // パスを正規化して比較する関数
   function normalizePath(path) {
     return path.replace(/\/$/, '') || '/';
@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // グローバルナビメニューのリンクを更新
   function updateGlobalNavLinks() {
     const navLinks = document.querySelectorAll('.nav-menu a[data-original-path]');
-    
+
     navLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -515,14 +515,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // パスを正規化
       let targetPath = normalizePath(originalPath);
-      
+
       // 相対パスを生成
       const relativePath = getRelativePath(targetPath, currentLevel);
       link.setAttribute('href', relativePath);
 
       // currentクラスの設定（既存のcurrentクラスを一度削除）
       link.classList.remove('current');
-      
+
       // 現在のパスと一致する場合のみcurrentクラスを追加
       const normalizedCurrentPath = normalizePath(currentPath);
       if (targetPath === normalizedCurrentPath) {
@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // モバイルメニューのリンクを更新
   function updateMobileMenuLinks() {
     const mobileLinks = document.querySelectorAll('.mobile-menu-list a[data-original-path]');
-    
+
     mobileLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // フッターメニューのリンクを更新
   function updateFooterLinks() {
     const footerLinks = document.querySelectorAll('.footer-menu a[data-original-path]');
-    
+
     footerLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -569,7 +569,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // モバイルサブメニュー（利用規約など）のリンクを更新
   function updateMobileSubmenuLinks() {
     const submenuLinks = document.querySelectorAll('.mobile-submenu a[data-original-path]');
-    
+
     submenuLinks.forEach(link => {
       const originalPath = link.getAttribute('data-original-path');
       if (!originalPath) return;
@@ -583,7 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ロゴのリンクを更新
   function updateLogoLinks() {
     const logoLinks = document.querySelectorAll('.nav-logo a, .logo-center a');
-    
+
     logoLinks.forEach(link => {
       if (currentLevel === 0) {
         link.setAttribute('href', './index.html');
@@ -595,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOMContentLoadedで実行
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       updateGlobalNavLinks();
       updateMobileMenuLinks();
       updateFooterLinks();
@@ -616,17 +616,17 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================================================
    FAQアコーディオン
 ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const faqButtons = document.querySelectorAll('.faq-btn[data-toggle="collapse"]');
-  
-  faqButtons.forEach(function(button) {
-    button.addEventListener('click', function(e) {
+
+  faqButtons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
       e.preventDefault();
-      
+
       const targetId = this.getAttribute('data-target');
       const target = document.querySelector(targetId);
       if (!target) return;
-      
+
       // 現在のアイテムをトグル
       const isExpanded = target.classList.contains('show');
       if (isExpanded) {
@@ -645,49 +645,49 @@ document.addEventListener('DOMContentLoaded', function() {
 // Go to Top
 $(function () {
 
-	const progressPath = document.querySelector('.progress-wrap path');
-	if (!progressPath) return;
-	
-	const pathLength = progressPath.getTotalLength();
+  const progressPath = document.querySelector('.progress-wrap path');
+  if (!progressPath) return;
 
-	progressPath.style.strokeDasharray = pathLength;
-	progressPath.style.strokeDashoffset = pathLength;
+  const pathLength = progressPath.getTotalLength();
 
-	const updateProgress = () => {
-		const scroll = $(window).scrollTop();
-		const height = $(document).height() - $(window).height();
-		const progress = pathLength - (scroll * pathLength / height);
-		progressPath.style.strokeDashoffset = progress;
-	};
+  progressPath.style.strokeDasharray = pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
 
-	updateProgress();
-	$(window).on('scroll', updateProgress);
+  const updateProgress = () => {
+    const scroll = $(window).scrollTop();
+    const height = $(document).height() - $(window).height();
+    const progress = pathLength - (scroll * pathLength / height);
+    progressPath.style.strokeDashoffset = progress;
+  };
 
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 100) {
-			$('.progress-wrap').addClass('active-progress');
-		} else {
-			$('.progress-wrap').removeClass('active-progress');
-		}
-		
-		// ページ最下部時の位置調整
-		const windowHeight = $(window).height();
-		const documentHeight = $(document).height();
-		const scrollTop = $(window).scrollTop();
-		const scrollBottom = scrollTop + windowHeight;
-		
-		// ページの最下部に近づいたら（footerの上に配置）
-		if (scrollBottom >= documentHeight - 10) {
-			$('.progress-wrap').addClass('at-bottom');
-		} else {
-			$('.progress-wrap').removeClass('at-bottom');
-		}
-	});
+  updateProgress();
+  $(window).on('scroll', updateProgress);
 
-	$('.progress-wrap').on('click', function (e) {
-		e.preventDefault();
-		$('html, body').animate({ scrollTop: 0 }, 500);
-	});
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 100) {
+      $('.progress-wrap').addClass('active-progress');
+    } else {
+      $('.progress-wrap').removeClass('active-progress');
+    }
+
+    // ページ最下部時の位置調整
+    const windowHeight = $(window).height();
+    const documentHeight = $(document).height();
+    const scrollTop = $(window).scrollTop();
+    const scrollBottom = scrollTop + windowHeight;
+
+    // ページの最下部に近づいたら（footerの上に配置）
+    if (scrollBottom >= documentHeight - 10) {
+      $('.progress-wrap').addClass('at-bottom');
+    } else {
+      $('.progress-wrap').removeClass('at-bottom');
+    }
+  });
+
+  $('.progress-wrap').on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 500);
+  });
 });
 
 /* =========================================================
@@ -700,6 +700,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const judgeBtn = document.getElementById('generate-result');
 
   if (!formSection || !judgeBtn) return;
+
+  // ページ読み込み時にステップナビを確実に表示
+  if (stepper) {
+    stepper.style.display = 'flex';
+    stepper.style.visibility = 'visible';
+    stepper.style.opacity = '1';
+  }
 
   // ステップ1を明示的にアクティブ
   if (typeof setActiveStep === 'function') {
@@ -718,6 +725,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!lyric || !composition) {
       alert('歌詞・作曲の両方を選択してください。');
+      // Step1に戻す処理を追加
+      const step1 = document.getElementById('step-content-1');
+      const step3 = document.getElementById('step-content-3');
+      if (step1 && step3) {
+        // Step3を非アクティブに
+        step3.classList.remove('is-active');
+        // Step1をアクティブに
+        step1.classList.add('is-active');
+        // ステップナビをStep1のみアクティブにリセット
+        document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
+          const step = wrapper.dataset.step;
+          const img = wrapper.querySelector('.step-icon');
+          const circle = wrapper.querySelector('.step-circle');
+          if (!img) return;
+          if (step === '1') {
+            img.src = `../img/number/step1-1.svg`;
+            wrapper.classList.add('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#00CCFF';
+            }
+          } else {
+            img.src = `../img/number/step${step}-2.svg`;
+            wrapper.classList.remove('is-active');
+            if (circle) {
+              circle.style.backgroundColor = '#CCCCCC';
+            }
+          }
+        });
+      }
       return;
     }
 
@@ -753,9 +789,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setStep(stepNumber) {
     // Step content切替
-    contents.forEach(section => {
-      section.classList.remove('is-active');
-    });
+contents.forEach(section => {
+  section.classList.remove('is-active');
+});
 
     const active = document.getElementById(`step-content-${stepNumber}`);
     if (active) active.classList.add('is-active');
@@ -764,7 +800,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (stepNumber === '1') {
       const judgeBtn = document.getElementById('generate-result');
       const originalButtonText = judgeBtn ? judgeBtn.getAttribute('data-original-text') || '判定開始' : '判定開始';
-      
+
       // ボタンをリセット（○判定中から判定開始に戻す）
       if (judgeBtn) {
         // innerHTMLをクリアしてからテキストを設定
@@ -829,7 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 初回アクセス時（Step1表示中）はリンク不要
       if (step === '1' && hasResult) {
         setStep(1);
-        
+
         // ボタンを確実にリセット（○判定中から判定開始に戻す）
         const judgeBtn = document.getElementById('generate-result');
         if (judgeBtn) {
@@ -838,7 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
           judgeBtn.textContent = originalButtonText;
           judgeBtn.disabled = false;
         }
-        
+
         // Step2をクリック可能にする（判定結果に戻れるように）
         const step2Wrapper = document.querySelector('#agml-stepper .step-wrapper[data-step="2"]');
         if (step2Wrapper && hasResult) {
@@ -874,9 +910,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         });
-
-        // Step3へスクロール
-        step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       // Step3, Step4, Step5: クリック不可（何もしない）
     });
@@ -886,6 +919,19 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================================================
    AGML 判定結果表示（Step3）＋ ラベル枠（仮）
 ========================================================= */
+
+// ステップナビを画面内に表示するスクロール制御
+function scrollToAgmlStepper() {
+  const stepper = document.getElementById('agml-stepper');
+  if (!stepper) return;
+
+  const y = stepper.getBoundingClientRect().top + window.pageYOffset - 80;
+  window.scrollTo({
+    top: y,
+    behavior: 'auto'
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const judgeBtn = document.getElementById('generate-result');
@@ -936,7 +982,31 @@ document.addEventListener('DOMContentLoaded', () => {
     5: 20
   };
 
+  const AGML_ORIGINALITY_COMMENTS = {
+    1: '創作の構想や方向性は主にAIによって形成されており、人間は生成結果の確認や選択といった限定的な判断にとどまっています。作品全体の発想源や表現の核はAI側にあり、人間の創作的関与は補助的な位置づけとなります。',
+    2: '作品の基礎的な構想や素材はAIによって提示され、人間はその内容を取捨選択しながら部分的な修正や調整を行っています。創作判断はAIを起点として進められており、人間の関与は方向修正や仕上げ工程に重点があります。',
+    3: '人間が一定の創作意図や構想を持ちながら制作を進めており、AIは発想補助や表現展開の支援として活用されています。作品には人間とAI双方の判断が反映されており、共同制作的なプロセスとして位置づけられます。',
+    4: '創作の発想、構成、方向性は人間が主導しており、AIは表現の補助や検討材料の提示といった支援的役割にとどまっています。作品の中心的なアイデアや表現選択には制作者の意図が明確に反映されています。',
+    5: '創作の構想立案から表現選択、完成形の判断に至るまで、すべて人間の意思と判断によって制作されています。AIは補助的ツールとして使用されていますが、作品の思想や表現の核は完全に人間に帰属しています。'
+  };
+
+  const AGML_ORIGINALITY_PERCENT_MAP = {
+    1: 20,
+    2: 40,
+    3: 60,
+    4: 80,
+    5: 100
+  };
+
   judgeBtn.addEventListener('click', () => {
+    // ラジオボタンのバリデーション（2つ目のリスナーでもチェック）
+    const lyric = document.querySelector('input[name="lyrics"]:checked');
+    const composition = document.querySelector('input[name="composition"]:checked');
+
+    if (!lyric || !composition) {
+      // 既にアラートが表示されているので、ここでは何もしない
+      return;
+    }
 
     // すでに結果がある場合は、即座にStep3を表示（待機時間なし）
     if (step3.dataset.rendered === 'true') {
@@ -945,6 +1015,25 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('is-active');
       });
       step3.classList.add('is-active');
+
+      requestAnimationFrame(() => {
+        scrollToAgmlStepper();
+      });
+
+      // ステップナビを強制表示（キャッシュ表示時）
+      const stepperCached = document.getElementById('agml-stepper');
+      if (stepperCached) {
+        // 即座に表示
+        stepperCached.style.display = 'flex';
+        stepperCached.style.visibility = 'visible';
+        stepperCached.style.opacity = '1';
+        // requestAnimationFrameで念押し
+        requestAnimationFrame(() => {
+          stepperCached.style.display = 'flex';
+          stepperCached.style.visibility = 'visible';
+          stepperCached.style.opacity = '1';
+        });
+      }
 
       // Stepper を Step2 までアクティブに
       document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
@@ -968,8 +1057,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Step3へスクロール
-      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // 判定結果（キャッシュ）表示時もページトップ付近にスクロール
+      const stepperTopCached = document.getElementById('agml-stepper');
+      if (stepperTopCached) {
+        // offsetTop 基準で確実に位置を計算（調整用オフセット: -100px★）
+        const topPosCached = Math.max(0, stepperTopCached.offsetTop - 100); 
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       return;
     }
 
@@ -981,6 +1076,25 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('is-active');
       });
       step3.classList.add('is-active');
+
+      requestAnimationFrame(() => {
+        scrollToAgmlStepper();
+      });
+
+      // ステップナビを強制表示（判定結果表示時）
+      const stepper = document.getElementById('agml-stepper');
+      if (stepper) {
+        // 即座に表示
+        stepper.style.display = 'flex';
+        stepper.style.visibility = 'visible';
+        stepper.style.opacity = '1';
+        // requestAnimationFrameで念押し
+        requestAnimationFrame(() => {
+          stepper.style.display = 'flex';
+          stepper.style.visibility = 'visible';
+          stepper.style.opacity = '1';
+        });
+      }
 
       // Stepper を Step2 までアクティブに（Step1とStep2の両方をアクティブ）
       document.querySelectorAll('#agml-stepper .step-wrapper').forEach(wrapper => {
@@ -1004,6 +1118,15 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
+
+      // 判定結果（初回表示時）にもページトップ付近へスクロール
+      const stepperTopInitial = document.getElementById('agml-stepper');
+      if (stepperTopInitial) {
+        // offsetTop 基準で確実に位置を計算（調整用オフセット: -300px★）
+        const topPosInitial = Math.max(0, stepperTopInitial.offsetTop - 0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
       // 選択値を取得
       const lyric = document.querySelector('input[name="lyrics"]:checked');
@@ -1033,55 +1156,77 @@ document.addEventListener('DOMContentLoaded', () => {
       // 著作権主張割合（AI使用割合の逆）
       const copyrightPct = 100 - overallPct;
 
-      // 判定結果HTML（※ラベル画像は保留）
+      // オリジナリティ算出（新規追加）
+      const originalityLevel = Math.round((lyricsLv + compLv) / 2);
+      const originalityPct = AGML_ORIGINALITY_PERCENT_MAP[originalityLevel] || 20;
+      const originalityComment = AGML_ORIGINALITY_COMMENTS[originalityLevel] || '';
+
+      // 判定結果HTML（AGMLラベル表示を含める）
       step3.innerHTML = `
-        <div class="agml-result-wrap">
+  <div class="agml-result-wrap">
 
-          <!-- リード文（alert-box） -->
-          <div class="alert-box">
-            <div class="alert-inline-icon">
-              <img src="../img/info-icon.png" alt="案内アラート">
-            </div>
-            <div class="alert-box-text">
-              以下は、入力された制作プロセスに基づくAI利用率の判定結果です。<br>
-              本結果は、楽曲制作におけるAIの関与度を第三者に伝えるための指標として整理されています。<br>
-              この判定結果をもとに、<span class="bold-spot">AI生成音楽ラベル（AGML）</span>作成します。
-            </div>
-          </div>
+    <!-- リード文（alert-box） -->
+    <div class="alert-box" id="alert-result">
+      <div class="alert-inline-icon">
+        <img src="../img/info-icon.png" alt="案内アラート">
+      </div>
+      <div class="alert-box-text">
+以下は、入力された制作プロセスに基づく <strong>AI利用率の判定結果</strong>です。<br>
+円形ゲージは、楽曲制作におけるAIの関与度を <strong>視覚的に示した指標</strong>であり、
+創作全体の透明性を第三者にも直感的に伝えるためのものです。
+      </div>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>作詞AI使用割合：${lyricsPct}%</strong></p>
-            <p>${lyricsComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>作詞AI使用割合：${lyricsPct}%</strong></p>
+      <p>${lyricsComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>作曲AI使用割合：${compPct}%</strong></p>
-            <p>${compositionComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>作曲AI使用割合：${compPct}%</strong></p>
+      <p>${compositionComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>総合AI使用割合：${overallPct}%</strong></p>
-            <p>${overallComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>総合AI使用割合：${overallPct}%</strong></p>
+      <p>${overallComment}</p>
+    </div>
 
-          <div class="agml-result-box">
-            <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
-            <p>${copyrightComment}</p>
-          </div>
+    <div class="agml-result-box">
+      <p><strong>著作権主張割合：${copyrightPct}%</strong></p>
+      <p>${copyrightComment}</p>
+    </div>
 
-          <!-- AGML ラベル表示（背景画像版） -->
-          <div class="agml-label-image">
-            <img src="../img/level/label-display-back.png" alt="AGMLラベル">
-          </div>
+    <div class="agml-result-box">
+      <p><strong>オリジナリティ評価：${originalityPct}%</strong></p>
+      <p>${originalityComment}</p>
+    </div>
 
-          <div class="agml-label-action">
-            <button class="agml-go-download">
-              サムネイルを作成する ▶
-            </button>
-          </div>
+    <!-- AGML ラベル表示（背景＋円ゲージ） -->
+    <div class="agml-label-stage" id="agmlLabelStage">
+      <!-- 円ゲージ（下レイヤー） -->
+      <div
+        class="agml-minimal-gauge"
+        id="agmlMinimalGauge"
+        data-percent="0">
+      </div>
 
-        </div>
-      `;
+      <!-- ラベル背景（上レイヤー） -->
+      <img
+        class="agml-label-bg"
+        src="../img/level/label-display-back.png"
+        alt=""
+      >
+    </div>
+
+    <div class="agml-label-action">
+      <button class="agml-go-download">
+        サムネイルを作成する ▶
+      </button>
+    </div>
+
+  </div>
+`;
 
       step3.dataset.rendered = 'true';
 
@@ -1091,11 +1236,266 @@ document.addEventListener('DOMContentLoaded', () => {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // Step3 へスクロール
-      step3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // AGML Minimal 円ゲージ表示（アニメーション）
+      renderAgmlMinimalGauge(overallPct);
 
+
+      // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
     }, 2000);
 
   });
 
 });
+
+// ========================================
+// SVG操作ロジックは削除（minimal方式に統一）
+// ========================================
+
+/* 削除: SVG操作ロジック（minimal方式に統一のため不要）
+function animateAgmlLabel(targetLevel, speed = 300) {
+  const gauge = document.querySelector('.agml-label-gauge');
+  if (!gauge) return;
+
+  // ★ レベルドットを初期化（確実に非表示）
+  const dot = document.querySelector('.level-dot');
+  if (dot) {
+    dot.classList.remove('is-visible');
+  }
+
+  // ★ bodyのdata-levelをリセット
+  document.body.removeAttribute('data-level');
+
+  // ★ ラインを初期化（確実に非表示）
+  const lineObj = document.querySelector('.level-line-test');
+  if (lineObj) {
+    lineObj.classList.remove('is-visible');
+    lineObj.classList.remove('draw-line');
+  }
+
+  // ★ 100%表示を初期化
+  const percentContainer = document.querySelector('.agml-percent-display');
+  if (percentContainer) {
+    percentContainer.style.opacity = '0';
+    percentContainer.querySelectorAll('.num').forEach(el => el.classList.remove('is-visible'));
+  }
+  const safeTarget = Math.min(5, Math.max(1, targetLevel));
+  let currentLevel = 0;
+
+  const timer = setInterval(() => {
+    currentLevel++;
+
+    gauge.classList.remove('is-visible');
+
+    setTimeout(() => {
+      gauge.src = `../img/level/agml-gauge-${currentLevel}.svg`;
+      requestAnimationFrame(() => {
+        gauge.classList.add('is-visible');
+
+        // ★ 4段階目（80%）に到達したらレベルドットを表示
+        if (currentLevel >= safeTarget && safeTarget === 4) {
+          // bodyにdata-levelを設定（CSSで位置制御用）
+          document.body.setAttribute('data-level', '4');
+          
+          // ★ 100％と同じ待機時間（0.5秒）を経て●を表示
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+
+            // ★ ライン表示（●表示後、同一待機時間）
+            setTimeout(() => {
+              // HTML構造は変更せず、.level-line を動的に付与して利用
+              let line = document.querySelector('.level-line');
+              if (!line) {
+                line = document.querySelector('.level-line-test');
+                if (line && !line.classList.contains('level-line')) {
+                  line.classList.add('level-line');
+                }
+              }
+              if (!line) return;
+
+              // %ごとに使用するラインSVGを切り替え（80%）
+              line.setAttribute('data', '../img/level/80-line.svg');
+
+              // 表示
+              line.classList.add('is-visible');
+
+              // SVG読み込み後に描画開始（100%と同一挙動）
+              line.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                  line.classList.add('draw-line');
+                });
+              });
+            }, 500); // ← 必ず100%と同一の待機時間（dot後500ms）
+          }, 500);
+        }
+
+        // ★ 3 / 2 / 1 段階目（60 / 40 / 20％）でもレベルドットを表示
+        if (
+          currentLevel >= safeTarget &&
+          (safeTarget === 3 || safeTarget === 2 || safeTarget === 1)
+        ) {
+          // body に data-level を設定（CSSで位置制御）
+          document.body.setAttribute('data-level', String(safeTarget));
+
+          // ★ 100％・80％と同じ待機時間（0.5秒）
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+
+            // ★ ライン表示（●表示後、同一待機時間）
+            setTimeout(() => {
+              // HTML構造は変更せず、.level-line を動的に付与して利用
+              let line = document.querySelector('.level-line');
+              if (!line) {
+                line = document.querySelector('.level-line-test');
+                if (line && !line.classList.contains('level-line')) {
+                  line.classList.add('level-line');
+                }
+              }
+              if (!line) return;
+
+              // %ごとに使用するラインSVGを切り替え
+              switch (safeTarget) {
+                case 3: // 60%
+                  line.setAttribute('data', '../img/level/60-line.svg');
+                  break;
+                case 2: // 40%
+                  line.setAttribute('data', '../img/level/40-line.svg');
+                  break;
+                case 1: // 20%
+                  line.setAttribute('data', '../img/level/20-line.svg');
+                  break;
+                default:
+                  return;
+              }
+
+              // 表示
+              line.classList.add('is-visible');
+
+              // SVG読み込み後に描画開始（100%と同一挙動）
+              line.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                  line.classList.add('draw-line');
+                });
+              });
+            }, 500); // ← 必ず100%と同一の待機時間（dot後500ms）
+          }, 500);
+        }
+
+        // ★ 5段階目に到達し、円ゲージの表示が完了したらレベルドットを表示
+        if (currentLevel >= safeTarget && safeTarget === 5) {
+          // 円ゲージ完了後 0.5秒待ってドット表示
+          setTimeout(() => {
+            const dot = document.querySelector('.level-dot');
+            if (dot) {
+              dot.classList.add('is-visible');
+            }
+
+            // ドット表示からさらに1秒待ってライン開始
+            setTimeout(() => {
+              const lineObj = document.querySelector('.level-line-test');
+              if (lineObj) {
+                lineObj.classList.add('is-visible');
+
+                // SVG読込後に描画
+                lineObj.addEventListener('load', () => {
+                  requestAnimationFrame(() => {
+                    lineObj.classList.add('draw-line');
+
+                    // ★ ライン描画開始から 0.3秒後に 100%表示
+                    setTimeout(() => {
+                      showAgmlPercentImage();
+                    }, 300);
+                  });
+                });
+              }
+            }, 500); // ドット表示から1秒後にライン開始
+          }, 500);  // 円ゲージ完了から0.5秒後にドット表示
+        }
+      });
+    }, 40);
+
+    if (currentLevel >= safeTarget) {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+*/
+
+/* 削除: IntersectionObserverロジック（minimal方式に統一のため不要）
+function observeAgmlLabelAnimation(level) {
+  const target = document.getElementById('agmlLabelStage');
+  if (!target) return;
+
+  let started = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          animateAgmlLabel(level); // 既存アニメーション開始
+          observer.disconnect();   // 一度だけ実行
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.4 // ラベルが40%見えたら開始
+    }
+  );
+
+  observer.observe(target);
+}
+*/
+
+/* 削除: 100%画像表示アニメーション（minimal方式に統一のため不要）
+function showAgmlPercentImage() {
+  const container = document.querySelector('.agml-percent-display');
+  // img.num を取得
+  const nums = container?.querySelectorAll('.num');
+  if (!container || !nums || !nums.length) return;
+
+  container.style.opacity = '1';
+
+  nums.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add('is-visible');
+    }, i * 120);
+  });
+}
+*/
+
+/* 削除: 旧SVG版renderAgmlLabel（minimal方式に統一のため不要）
+function renderAgmlLabel(aiPct) {
+  // 静的表示用（古いロジックだが、念のため残すなら更新が必要。
+  // 今回の要件では animateAgmlLabel への完全移行が指定されているため、
+  // 混乱を避けるため最小限にするか、削除が望ましいが、
+  // 指示にない削除は避ける。ただし、呼び出し元は animateAgmlLabel に変わったので
+  // この関数は実質使われない。）
+}
+*/
+
+/* ============================
+   AGML Minimal 円ゲージ描画
+============================ */
+
+function renderAgmlMinimalGauge(percent) {
+  const gauge = document.getElementById('agmlMinimalGauge');
+  if (!gauge) return;
+
+  // 0〜100 に制限
+  const value = Math.max(0, Math.min(100, percent));
+
+  // 初期化（0%）
+  gauge.style.setProperty('--percent', 0);
+
+  // 次フレームでアニメーション開始
+  requestAnimationFrame(() => {
+    gauge.style.setProperty('--percent', value);
+  });
+}

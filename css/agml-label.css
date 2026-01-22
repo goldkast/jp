@@ -1,0 +1,98 @@
+/* ===== AGML LABEL (ISOLATED) ===== */
+
+.agml-label-wrap {
+  position: relative;
+  width: 360px;
+  margin: 30px auto;
+}
+
+.agml-label-base {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ブロック重ね用 */
+.agml-label-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* 共通ブロック */
+.agml-label-overlay .block {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  opacity: 0.2; /* 非アクティブは20% */
+}
+
+/* アクティブブロック */
+.agml-label-wrap[data-level="1"] .block-1,
+.agml-label-wrap[data-level="2"] .block-1,
+.agml-label-wrap[data-level="3"] .block-1,
+.agml-label-wrap[data-level="4"] .block-1,
+.agml-label-wrap[data-level="5"] .block-1 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="2"] .block-2,
+.agml-label-wrap[data-level="3"] .block-2,
+.agml-label-wrap[data-level="4"] .block-2,
+.agml-label-wrap[data-level="5"] .block-2 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="3"] .block-3,
+.agml-label-wrap[data-level="4"] .block-3,
+.agml-label-wrap[data-level="5"] .block-3 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="4"] .block-4,
+.agml-label-wrap[data-level="5"] .block-4 {
+  opacity: 1;
+}
+
+.agml-label-wrap[data-level="5"] .block-5 {
+  opacity: 1;
+}
+
+/* ===========================
+   判定結果 Step3 alert-box 専用調整
+   =========================== */
+body.download-page #alert-result {
+  max-width: 100%;
+  width: 100%;
+  margin-top: -6px;
+  margin-bottom: 0px;
+}
+
+/* =========================
+   Level Dot Position by %
+   ========================= */
+
+/* 80%（4段階目） */
+body.download-page[data-level="4"] .level-dot {
+  top: 176px;   /* 仮：後で微調整 */
+  left: 76px;  /* 仮：後で微調整 */
+}
+
+/* 60%（3段階目） */
+body.download-page[data-level="3"] .level-dot {
+  top: 230px;   /* 仮：後で微調整 */
+  left: 150px;  /* 仮：後で微調整 */
+}
+
+/* 40%（2段階目） */
+body.download-page[data-level="2"] .level-dot {
+  top: 176px;   /* 仮：後で微調整 */
+  left: 227px;  /* 仮：後で微調整 */
+}
+
+/* 20%（1段階目） */
+body.download-page[data-level="1"] .level-dot {
+  top: 87px;   /* 仮：後で微調整 */
+  left: 198px;  /* 仮：後で微調整 */
+}
