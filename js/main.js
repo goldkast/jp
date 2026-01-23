@@ -1599,13 +1599,22 @@ function showAgmlLevelDot(percent) {
 ============================ */
 
 function showAgmlLevelLine(percent) {
-  if (percent !== 100) return;
-
   const line = document.getElementById('agmlLevelLine');
   if (!line) return;
 
-  // 表示遅延（白●の直後）
-  const delay = 120; // ms（必要なら調整）
+  // 対応％のみ表示（100%ロジックはそのまま生かす）
+  if (![100, 80, 60, 40, 20].includes(percent)) return;
+
+  // 表示遅延（100%と同等 or わずかに短く）
+  const delayMap = {
+    100: 120, // ★ 既存値そのまま
+    80: 110,
+    60: 100,
+    40: 90,
+    20: 80
+  };
+
+  const delay = delayMap[percent] ?? 100;
 
   setTimeout(() => {
     line.classList.add('is-visible');

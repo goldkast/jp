@@ -270,3 +270,35 @@ body.download-page[data-originality="100"] .agml-level-line {
   left: 60px;               /* ドットの位置に合わせる */
   --line-rotate: 40deg;
 }
+
+/* ===== 80% 用ライン（追加） ===== */
+body.download-page[data-originality="80"] .agml-level-line {
+  top: 184px;
+  left: 4px;
+  --line-rotate: -78deg;
+  width: 80px;
+}
+
+/* ===== 60% 用ライン（追加） ===== */
+body.download-page[data-originality="60"] .agml-level-line {
+  top: 150px;
+  left: 95px;
+  --line-rotate: 0deg;
+  width: 130px;
+}
+
+/* ===== 40% 用ライン（追加） ===== */
+body.download-page[data-originality="40"] .agml-level-line {
+  top: 215px;
+  left: 120px;
+  --line-rotate: 20deg;
+  width: 120px;
+}
+
+/* ===== 20% 用ライン（追加） ===== */
+body.download-page[data-originality="20"] .agml-level-line {
+  top: 235px;
+  left: 175px;
+  --line-rotate: 40deg;
+  width: 100px;
+}
