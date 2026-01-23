@@ -1228,6 +1228,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- レイヤー④：評価確定ドット -->
       <div class="agml-level-dot" id="agmlLevelDot"></div>
+
+      <!-- レイヤー⑤：100%評価用ライン -->
+      <div class="agml-level-line" id="agmlLevelLine"></div>
     </div>
 
     <div class="agml-label-action">
@@ -1585,5 +1588,26 @@ function showAgmlLevelDot(percent) {
 
   setTimeout(() => {
     dot.classList.add('is-visible');
+
+    // ★ 100% の場合のみライン表示
+    showAgmlLevelLine(percentNum);
+  }, delay);
+}
+
+/* ============================
+   AGML 評価確定ライン表示（100%専用）
+============================ */
+
+function showAgmlLevelLine(percent) {
+  if (percent !== 100) return;
+
+  const line = document.getElementById('agmlLevelLine');
+  if (!line) return;
+
+  // 表示遅延（白●の直後）
+  const delay = 120; // ms（必要なら調整）
+
+  setTimeout(() => {
+    line.classList.add('is-visible');
   }, delay);
 }

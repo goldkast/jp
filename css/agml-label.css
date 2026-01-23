@@ -230,6 +230,43 @@ body.download-page[data-originality="40"] .agml-level-dot {
 
 /* 20%（1ブロック目） */
 body.download-page[data-originality="20"] .agml-level-dot {
-  top: 88px;
-  left: 198px;
+  top: 70px;
+  left: 210px;
+}
+
+/* =========================
+   評価確定ライン（100%専用）
+   ========================= */
+
+/* レイヤー⑤：評価確定ライン */
+body.download-page .agml-level-line {
+  position: absolute;
+  width: 54px;
+  height: 2px;
+  background: #ffffff;
+  z-index: 5;
+
+  opacity: 0;
+
+  /* 回転は初期状態で確定させる */
+  /* 右端（●側）を基準にして伸びる */
+  transform-origin: right center;
+  transform: rotate(var(--line-rotate, 0deg)) scaleX(0);
+
+  transition:
+    opacity 0.1s ease,
+    transform 0.25s ease;
+}
+
+/* 表示状態：scaleX だけを伸ばす */
+body.download-page .agml-level-line.is-visible {
+  opacity: 1;
+  transform: rotate(var(--line-rotate, 0deg)) scaleX(1);
+}
+
+/* ===== 100%ライン位置・角度 ===== */
+body.download-page[data-originality="100"] .agml-level-line {
+  top: 98px;                 /* ドットの位置に合わせる */
+  left: 60px;               /* ドットの位置に合わせる */
+  --line-rotate: 40deg;
 }
