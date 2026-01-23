@@ -1225,6 +1225,9 @@ document.addEventListener('DOMContentLoaded', () => {
         src="../img/level/label-display-back.png"
         alt=""
       >
+
+      <!-- レイヤー④：評価確定ドット -->
+      <div class="agml-level-dot" id="agmlLevelDot"></div>
     </div>
 
     <div class="agml-label-action">
@@ -1499,8 +1502,9 @@ function renderAgmlTestGauge(targetPercent) {
   const target = Math.max(0, Math.min(100, targetPercent));
 
   let current = 0;
-  const duration = 4000; // アニメーション時間(ms)
+  const duration = 2200; // アニメーション時間(ms)
   const startTime = performance.now();
+  let dotPrepared = false;
 
   function animate(now) {
     const elapsed = now - startTime;
@@ -1513,10 +1517,20 @@ function renderAgmlTestGauge(targetPercent) {
     gauge.style.setProperty('--percent', current);
 
     if (progress < 1) {
+      // 90%を超えたらドット準備（円ゲージ完了とほぼ同時に表示）
+      if (progress > 0.92 && !dotPrepared) {
+        dotPrepared = true;
+        showAgmlLevelDot(target);
+      }
       requestAnimationFrame(animate);
     } else {
       // 念のため最終値を固定
       gauge.style.setProperty('--percent', target);
+
+      // ドットがまだ表示されていない場合は表示
+      if (!dotPrepared) {
+        showAgmlLevelDot(target);
+      }
     }
   }
 
@@ -1552,4 +1566,24 @@ function observeAgmlGaugeOnScroll(targetPercent) {
   );
 
   observer.observe(stage);
+}
+
+/* ============================
+   AGML 評価確定ドット表示
+============================ */
+
+function showAgmlLevelDot(percent) {
+  const dot = document.getElementById('agmlLevelDot');
+  if (!dot) return;
+
+  // body に評価値をセット（CSSで位置制御）
+  const percentNum = Number(percent);
+  document.body.setAttribute('data-originality', String(percentNum));
+
+  // 表示遅延（全％共通：80ms - 同時だが視認できる最小遅延）
+  const delay = 80;
+
+  setTimeout(() => {
+    dot.classList.add('is-visible');
+  }, delay);
 }

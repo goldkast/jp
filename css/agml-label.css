@@ -175,3 +175,61 @@ body.download-page .agml-label-bg {
   z-index: 3;
   pointer-events: none;
 }
+
+/* =========================
+   評価確定ドット（白●）
+   ========================= */
+
+/* レイヤー④：評価確定ドット */
+body.download-page .agml-level-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 4;
+
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.1s ease,
+    transform 0.1s ease;
+}
+
+/* 表示状態 */
+body.download-page .agml-level-dot.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== ドット位置：％別 ===== */
+
+/* 100%（5ブロック目） */
+body.download-page[data-originality="100"] .agml-level-dot {
+  top: 52px;
+  left: 150px;
+}
+
+/* 80%（4ブロック目） */
+body.download-page[data-originality="80"] .agml-level-dot {
+  top: 92px;
+  left: 78px;
+}
+
+/* 60%（3ブロック目） */
+body.download-page[data-originality="60"] .agml-level-dot {
+  top: 160px;
+  left: 56px;
+}
+
+/* 40%（2ブロック目） */
+body.download-page[data-originality="40"] .agml-level-dot {
+  top: 228px;
+  left: 110px;
+}
+
+/* 20%（1ブロック目） */
+body.download-page[data-originality="20"] .agml-level-dot {
+  top: 200px;
+  left: 200px;
+}
