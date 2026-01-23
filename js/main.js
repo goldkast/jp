@@ -1212,14 +1212,14 @@ document.addEventListener('DOMContentLoaded', () => {
         alt=""
       >
 
-      <!-- レイヤー②：円ゲージ（既存のJS/CSSをそのまま使用） -->
+      <!-- レイヤー②：円ゲージ（CSS） -->
       <div
         class="agml-test-gauge"
         id="agmlTestGauge"
         data-percent="0">
       </div>
 
-      <!-- レイヤー③：最前面 背景フレーム -->
+      <!-- レイヤー③：最前面フレーム -->
       <img
         class="agml-label-bg"
         src="../img/level/label-display-back.png"

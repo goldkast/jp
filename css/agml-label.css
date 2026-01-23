@@ -137,8 +137,8 @@ body.download-page .agml-test-gauge {
 
   background:
     conic-gradient(
-      #00CCFF calc(var(--percent) * 1%),
-      #1a3a4a calc(var(--percent) * 1%)  /* 未塗り部分：不透明な暗い色（フェードなし） */
+      rgba(0, 204, 255, 1) calc(var(--percent) * 1%),
+      rgba(0, 204, 255, 0.2) calc(var(--percent) * 1%)  /* 未達成部分：#00CCFF の 20% 透過 */
     );
 
   /* 中央を抜いてリング化（外形81%は固定、内側を調整して太さ変更） */
