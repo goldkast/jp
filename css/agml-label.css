@@ -230,8 +230,8 @@ body.download-page[data-originality="40"] .agml-level-dot {
 
 /* 20%（1ブロック目） */
 body.download-page[data-originality="20"] .agml-level-dot {
-  top: 70px;
-  left: 210px;
+  top: 90px;
+  left: 198px;
 }
 
 /* =========================
@@ -281,24 +281,24 @@ body.download-page[data-originality="80"] .agml-level-line {
 
 /* ===== 60% 用ライン（追加） ===== */
 body.download-page[data-originality="60"] .agml-level-line {
-  top: 150px;
-  left: 95px;
-  --line-rotate: 0deg;
-  width: 130px;
+  top: 238px;
+  left: 104px;
+  --line-rotate: -25deg;
+  width: 60px;
 }
 
 /* ===== 40% 用ライン（追加） ===== */
 body.download-page[data-originality="40"] .agml-level-line {
-  top: 215px;
-  left: 120px;
-  --line-rotate: 20deg;
-  width: 120px;
+  top: 182px;
+  left: 158px;
+  --line-rotate: -100deg;
+  width: 78px;
 }
 
 /* ===== 20% 用ライン（追加） ===== */
 body.download-page[data-originality="20"] .agml-level-line {
-  top: 235px;
-  left: 175px;
-  --line-rotate: 40deg;
-  width: 100px;
+  top: 90px;
+  left: 170px;
+  --line-rotate: 130deg;
+  width: 42px;
 }
