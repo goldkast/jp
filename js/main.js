@@ -1171,9 +1171,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="../img/info-icon.png" alt="案内アラート">
       </div>
       <div class="alert-box-text">
-以下は、入力された制作プロセスに基づく <strong>AI利用率の判定結果</strong>です。<br>
-円形ゲージは、楽曲制作におけるAIの関与度を <strong>視覚的に示した指標</strong>であり、
-創作全体の透明性を第三者にも直感的に伝えるためのものです。
+以下は、入力された制作プロセスに基づく
+<strong>オリジナリティ評価の判定結果</strong>です。<br>
+円形インジケーターは、創作における人間主体性の度合いを
+<strong>時間的変化を伴う視覚表現</strong>として示しています。
       </div>
     </div>
 
@@ -1204,14 +1205,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- AGML ラベル表示（背景＋円ゲージ） -->
     <div class="agml-label-stage" id="agmlLabelStage">
-      <!-- 円ゲージ（下レイヤー） -->
+      <!-- レイヤー①：最下層 背景 -->
+      <img
+        class="agml-label-base"
+        src="../img/level/label-back.png"
+        alt=""
+      >
+
+      <!-- レイヤー②：円ゲージ（既存のJS/CSSをそのまま使用） -->
       <div
-        class="agml-minimal-gauge"
-        id="agmlMinimalGauge"
+        class="agml-test-gauge"
+        id="agmlTestGauge"
         data-percent="0">
       </div>
 
-      <!-- ラベル背景（上レイヤー） -->
+      <!-- レイヤー③：最前面 背景フレーム -->
       <img
         class="agml-label-bg"
         src="../img/level/label-display-back.png"
@@ -1236,8 +1244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         step1Wrapper.style.cursor = 'pointer';
       }
 
-      // AGML Minimal 円ゲージ表示（アニメーション）
-      renderAgmlMinimalGauge(overallPct);
+      // AGML テスト用円ゲージ表示（スクロール到達時にアニメーション）
+      observeAgmlGaugeOnScroll(originalityPct);
 
 
       // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
@@ -1481,21 +1489,67 @@ function renderAgmlLabel(aiPct) {
 */
 
 /* ============================
-   AGML Minimal 円ゲージ描画
+   AGML テスト用円ゲージ描画
 ============================ */
 
-function renderAgmlMinimalGauge(percent) {
-  const gauge = document.getElementById('agmlMinimalGauge');
+function renderAgmlTestGauge(targetPercent) {
+  const gauge = document.getElementById('agmlTestGauge');
   if (!gauge) return;
 
-  // 0〜100 に制限
-  const value = Math.max(0, Math.min(100, percent));
+  const target = Math.max(0, Math.min(100, targetPercent));
 
-  // 初期化（0%）
+  let current = 0;
+  const duration = 4000; // アニメーション時間(ms)
+  const startTime = performance.now();
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // ease-out（最後ゆっくり）
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    current = Math.round(eased * target);
+    gauge.style.setProperty('--percent', current);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      // 念のため最終値を固定
+      gauge.style.setProperty('--percent', target);
+    }
+  }
+
+  // 初期化
   gauge.style.setProperty('--percent', 0);
+  requestAnimationFrame(animate);
+}
 
-  // 次フレームでアニメーション開始
-  requestAnimationFrame(() => {
-    gauge.style.setProperty('--percent', value);
-  });
+/* ============================
+   AGML 円ゲージスクロール検知
+============================ */
+
+function observeAgmlGaugeOnScroll(targetPercent) {
+  const stage = document.getElementById('agmlLabelStage');
+  if (!stage) return;
+
+  let played = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !played) {
+          played = true;
+          renderAgmlTestGauge(targetPercent);
+          observer.disconnect();
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 1.0  // ラベル表示エリアが完全に表示されてからアニメーション開始
+    }
+  );
+
+  observer.observe(stage);
 }

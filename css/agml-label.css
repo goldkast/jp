@@ -96,3 +96,82 @@ body.download-page[data-level="1"] .level-dot {
   top: 87px;   /* 仮：後で微調整 */
   left: 198px;  /* 仮：後で微調整 */
 }
+
+/* =========================
+   ラベル表示エリア（3レイヤー構成）
+   ========================= */
+
+body.download-page .agml-label-stage {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 40px auto;
+}
+
+/* レイヤー①：最下層 */
+body.download-page .agml-label-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* =========================
+   円ゲージ（テスト用）
+   ========================= */
+
+/* レイヤー②：円ゲージ */
+body.download-page .agml-test-gauge {
+  --percent: 0;
+
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      #00CCFF calc(var(--percent) * 1%),
+      #1a3a4a calc(var(--percent) * 1%)  /* 未塗り部分：不透明な暗い色（フェードなし） */
+    );
+
+  /* 中央を抜いてリング化（外形81%は固定、内側を調整して太さ変更） */
+  /* フェード無し：同じ位置で切り替えてシャープなエッジ */
+  -webkit-mask:
+    radial-gradient(
+      farthest-side,
+      transparent 50%,  /* 内側：小さくするとリングが太くなる */
+      #000 50%,         /* 同じ位置で不透明に（フェード無し） */
+      #000 81%          /* 外形：固定 */
+    );
+  mask:
+    radial-gradient(
+      farthest-side,
+      transparent 50%,  /* 内側：小さくするとリングが太くなる */
+      #000 50%,         /* 同じ位置で不透明に（フェード無し） */
+      #000 81%          /* 外形：固定 */
+    );
+
+  /* ★ transition は使わない */
+  transition: none;
+}
+
+/* =========================
+   ラベル背景画像（最前面）
+   ========================= */
+
+/* レイヤー③：最前面フレーム */
+body.download-page .agml-label-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
