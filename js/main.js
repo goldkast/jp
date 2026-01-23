@@ -1517,8 +1517,8 @@ function renderAgmlTestGauge(targetPercent) {
     gauge.style.setProperty('--percent', current);
 
     if (progress < 1) {
-      // 90%を超えたらドット準備（円ゲージ完了とほぼ同時に表示）
-      if (progress > 0.92 && !dotPrepared) {
+      // 80%を超えたらドット準備（さらに早く表示）
+      if (progress > 0.80 && !dotPrepared) {
         dotPrepared = true;
         showAgmlLevelDot(target);
       }
@@ -1580,8 +1580,8 @@ function showAgmlLevelDot(percent) {
   const percentNum = Number(percent);
   document.body.setAttribute('data-originality', String(percentNum));
 
-  // 表示遅延（全％共通：80ms - 同時だが視認できる最小遅延）
-  const delay = 80;
+  // 表示遅延（全％共通：即座に表示）
+  const delay = 0;
 
   setTimeout(() => {
     dot.classList.add('is-visible');
