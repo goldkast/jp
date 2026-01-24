@@ -1068,7 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 判定中 → 結果表示までの猶予（2秒）
+    // 判定中 → 結果表示までの猶予（4秒）
     setTimeout(() => {
 
       // Step3 をアクティブに
@@ -1255,7 +1255,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       // 自動スクロールは廃止 (ユーザーの自発的なスクロールを待つ)
-    }, 2000);
+    }, 4000);
 
   });
 
