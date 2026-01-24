@@ -411,8 +411,8 @@ body.download-page .agml-percent-display[data-percent="60"] .agml-digit.d1 {
 
 /* 40%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="40"] {
-  --agml-percent-x: 252px;
-  --agml-percent-y: 87%;
+  --agml-percent-x: 248px;
+  --agml-percent-y: 86.4%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
   --agml-digit-gap: 1px;
