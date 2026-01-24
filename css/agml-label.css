@@ -426,7 +426,7 @@ body.download-page .agml-percent-display[data-percent="40"] .agml-digit.d1 {
 
 /* 20%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="20"] {
-  --agml-percent-x: 248px;
+  --agml-percent-x: 239px;
   --agml-percent-y: 14%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
