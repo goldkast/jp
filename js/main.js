@@ -1239,6 +1239,34 @@ ${originalityPct === 100 ? `
         <span class="agml-digit d3">0</span>
         <span class="agml-percent-symbol">%</span>
       </div>
+` : originalityPct === 80 ? `
+      <!-- レイヤー⑥：数値表示（80%専用） -->
+      <div class="agml-percent-display" data-percent="80">
+        <span class="agml-digit d1">8</span>
+        <span class="agml-digit d2">0</span>
+        <span class="agml-percent-symbol">%</span>
+      </div>
+` : originalityPct === 60 ? `
+      <!-- レイヤー⑥：数値表示（60%専用） -->
+      <div class="agml-percent-display" data-percent="60">
+        <span class="agml-digit d1">6</span>
+        <span class="agml-digit d2">0</span>
+        <span class="agml-percent-symbol">%</span>
+      </div>
+` : originalityPct === 40 ? `
+      <!-- レイヤー⑥：数値表示（40%専用） -->
+      <div class="agml-percent-display" data-percent="40">
+        <span class="agml-digit d1">4</span>
+        <span class="agml-digit d2">0</span>
+        <span class="agml-percent-symbol">%</span>
+      </div>
+` : originalityPct === 20 ? `
+      <!-- レイヤー⑥：数値表示（20%専用） -->
+      <div class="agml-percent-display" data-percent="20">
+        <span class="agml-digit d1">2</span>
+        <span class="agml-digit d2">0</span>
+        <span class="agml-percent-symbol">%</span>
+      </div>
 ` : ''}    </div>
 
     <div class="agml-label-action">
@@ -1627,19 +1655,24 @@ function showAgmlLevelLine(percent) {
   setTimeout(() => {
     line.classList.add('is-visible');
 
-    // ★ 100% の場合のみ数値表示
-    if (percent === 100) {
-      showAgmlPercent100();
+    // ★ 対応％の場合に数値表示
+    if ([100, 80, 60, 40, 20].includes(percent)) {
+      showAgmlPercent(percent);
     }
   }, delay);
 }
 
 /* ============================
-   AGML 数値表示（100%専用）
+   AGML 数値表示（汎用関数）
 ============================ */
 
-function showAgmlPercent100() {
-  const items = document.querySelectorAll(
+function showAgmlPercent(value) {
+  const container = document.querySelector(
+    `.agml-percent-display[data-percent="${value}"]`
+  );
+  if (!container) return;
+
+  const items = container.querySelectorAll(
     '.agml-digit, .agml-percent-symbol'
   );
 
@@ -1650,4 +1683,12 @@ function showAgmlPercent100() {
       el.style.transform = 'translateY(0)';
     }, i * 120);
   });
+}
+
+/* ============================
+   AGML 数値表示（100%専用・後方互換用）
+============================ */
+
+function showAgmlPercent100() {
+  showAgmlPercent(100);
 }

@@ -281,9 +281,9 @@ body.download-page[data-originality="80"] .agml-level-line {
 
 /* ===== 60% 用ライン（追加） ===== */
 body.download-page[data-originality="60"] .agml-level-line {
-  top: 238px;
-  left: 104px;
-  --line-rotate: -25deg;
+  top: 236px;
+  left: 100px;
+  --line-rotate: -38deg;
   width: 60px;
 }
 
@@ -358,4 +358,68 @@ body.download-page .agml-percent-symbol {
   opacity: 0;
   transform: translateY(6px);
   transition: none;
+}
+
+/* =========================
+   各％値ごとの個別調整
+   ========================= */
+
+/* 80%専用の個別調整 */
+body.download-page .agml-percent-display[data-percent="80"] {
+  --agml-percent-x: 70px;
+  --agml-percent-y: 88%;
+  --agml-digit-size: 24px;
+  --agml-percent-size: 22px;
+  --agml-digit-gap: 1px;
+  --agml-percent-gap: 2px;
+}
+
+/* 80%の8と0の間隔は gap で調整（margin-right を削除して gap を有効化） */
+body.download-page .agml-percent-display[data-percent="80"] .agml-digit.d1 {
+  margin-right: 0; /* gap プロパティを有効にするため margin-right を削除 */
+}
+
+/* 60%専用の個別調整 */
+body.download-page .agml-percent-display[data-percent="60"] {
+  --agml-percent-x: 116px;
+  --agml-percent-y: 92%;
+  --agml-digit-size: 24px;
+  --agml-percent-size: 22px;
+  --agml-digit-gap: 2px;
+  --agml-percent-gap: 2px;
+}
+
+/* 60%の6と0の間隔を個別調整 */
+body.download-page .agml-percent-display[data-percent="60"] .agml-digit.d1 {
+  margin-right: 0;
+}
+
+/* 40%専用の個別調整 */
+body.download-page .agml-percent-display[data-percent="40"] {
+  --agml-percent-x: 70px;
+  --agml-percent-y: 15%;
+  --agml-digit-size: 24px;
+  --agml-percent-size: 22px;
+  --agml-digit-gap: 1px;
+  --agml-percent-gap: 2px;
+}
+
+/* 40%の4と0の間隔を個別調整 */
+body.download-page .agml-percent-display[data-percent="40"] .agml-digit.d1 {
+  margin-right: var(--agml-digit-1-gap, -7px);
+}
+
+/* 20%専用の個別調整 */
+body.download-page .agml-percent-display[data-percent="20"] {
+  --agml-percent-x: 70px;
+  --agml-percent-y: 15%;
+  --agml-digit-size: 24px;
+  --agml-percent-size: 22px;
+  --agml-digit-gap: 1px;
+  --agml-percent-gap: 2px;
+}
+
+/* 20%の2と0の間隔を個別調整 */
+body.download-page .agml-percent-display[data-percent="20"] .agml-digit.d1 {
+  margin-right: var(--agml-digit-1-gap, -7px);
 }
