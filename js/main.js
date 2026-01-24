@@ -1231,7 +1231,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- レイヤー⑤：100%評価用ライン -->
       <div class="agml-level-line" id="agmlLevelLine"></div>
-    </div>
+${originalityPct === 100 ? `
+      <!-- レイヤー⑥：数値表示（100%専用） -->
+      <div class="agml-percent-display" data-percent="100">
+        <span class="agml-digit d1">1</span>
+        <span class="agml-digit d2">0</span>
+        <span class="agml-digit d3">0</span>
+        <span class="agml-percent-symbol">%</span>
+      </div>
+` : ''}    </div>
 
     <div class="agml-label-action">
       <button class="agml-go-download">
@@ -1618,5 +1626,28 @@ function showAgmlLevelLine(percent) {
 
   setTimeout(() => {
     line.classList.add('is-visible');
+
+    // ★ 100% の場合のみ数値表示
+    if (percent === 100) {
+      showAgmlPercent100();
+    }
   }, delay);
+}
+
+/* ============================
+   AGML 数値表示（100%専用）
+============================ */
+
+function showAgmlPercent100() {
+  const items = document.querySelectorAll(
+    '.agml-digit, .agml-percent-symbol'
+  );
+
+  items.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, i * 120);
+  });
 }

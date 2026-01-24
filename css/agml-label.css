@@ -302,3 +302,60 @@ body.download-page[data-originality="20"] .agml-level-line {
   --line-rotate: 130deg;
   width: 42px;
 }
+
+/* =========================
+   AGML 数値表示（100%専用）
+   ========================= */
+
+/* フォント定義 */
+@font-face {
+  font-family: 'AGML-FearRobot';
+  src: url('../img/fonts/FearRobot-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AGML-Impact';
+  src: url('../img/fonts/impact.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* 数値表示ベース */
+body.download-page .agml-percent-display {
+  position: absolute;
+  /* X,Y は調整可能にする */
+  left: var(--agml-percent-x, 70px);
+  top: var(--agml-percent-y, 15%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+  gap: var(--agml-digit-gap, 1px);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* 数字 */
+body.download-page .agml-digit {
+  font-family: 'AGML-FearRobot', sans-serif;
+  font-size: var(--agml-digit-size, 24px);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: none;
+}
+
+/* 1と0の間隔を個別調整 */
+body.download-page .agml-digit.d1 {
+  margin-right: var(--agml-digit-1-gap, -7px); /* 1と0の間隔を狭く（負の値でさらに狭く） */
+}
+
+/* % 記号 */
+body.download-page .agml-percent-symbol {
+  font-family: 'AGML-Impact', sans-serif;
+  font-size: var(--agml-percent-size, 22px);
+  color: #ffffff;
+  margin-left: var(--agml-percent-gap, 2px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: none;
+}
