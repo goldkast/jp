@@ -282,9 +282,9 @@ body.download-page[data-originality="80"] .agml-level-line {
 /* ===== 60% 用ライン（追加） ===== */
 body.download-page[data-originality="60"] .agml-level-line {
   top: 236px;
-  left: 100px;
-  --line-rotate: -38deg;
-  width: 60px;
+  left: 122px;
+  --line-rotate: -90deg;
+  width: 38px;
 }
 
 /* ===== 40% 用ライン（追加） ===== */
@@ -364,10 +364,25 @@ body.download-page .agml-percent-symbol {
    各％値ごとの個別調整
    ========================= */
 
+/* 100%専用の個別調整 */
+body.download-page .agml-percent-display[data-percent="100"] {
+  --agml-percent-x: 70px;
+  --agml-percent-y: 16%;
+  --agml-digit-size: 24px;
+  --agml-percent-size: 22px;
+  --agml-digit-gap: 1px;
+  --agml-percent-gap: 2px;
+}
+
+/* 100%の1と0の間隔を個別調整 */
+body.download-page .agml-percent-display[data-percent="100"] .agml-digit.d1 {
+  margin-right: var(--agml-digit-1-gap, -7px);
+}
+
 /* 80%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="80"] {
-  --agml-percent-x: 70px;
-  --agml-percent-y: 88%;
+  --agml-percent-x: 65px;
+  --agml-percent-y: 87.4%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
   --agml-digit-gap: 1px;
@@ -381,8 +396,8 @@ body.download-page .agml-percent-display[data-percent="80"] .agml-digit.d1 {
 
 /* 60%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="60"] {
-  --agml-percent-x: 116px;
-  --agml-percent-y: 92%;
+  --agml-percent-x: 160px;
+  --agml-percent-y: 91.2%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
   --agml-digit-gap: 2px;
@@ -396,8 +411,8 @@ body.download-page .agml-percent-display[data-percent="60"] .agml-digit.d1 {
 
 /* 40%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="40"] {
-  --agml-percent-x: 70px;
-  --agml-percent-y: 15%;
+  --agml-percent-x: 252px;
+  --agml-percent-y: 87%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
   --agml-digit-gap: 1px;
@@ -406,13 +421,13 @@ body.download-page .agml-percent-display[data-percent="40"] {
 
 /* 40%の4と0の間隔を個別調整 */
 body.download-page .agml-percent-display[data-percent="40"] .agml-digit.d1 {
-  margin-right: var(--agml-digit-1-gap, -7px);
+  margin-right: 0;
 }
 
 /* 20%専用の個別調整 */
 body.download-page .agml-percent-display[data-percent="20"] {
-  --agml-percent-x: 70px;
-  --agml-percent-y: 15%;
+  --agml-percent-x: 248px;
+  --agml-percent-y: 14%;
   --agml-digit-size: 24px;
   --agml-percent-size: 22px;
   --agml-digit-gap: 1px;
@@ -421,5 +436,5 @@ body.download-page .agml-percent-display[data-percent="20"] {
 
 /* 20%の2と0の間隔を個別調整 */
 body.download-page .agml-percent-display[data-percent="20"] .agml-digit.d1 {
-  margin-right: var(--agml-digit-1-gap, -7px);
+  margin-right: 0;
 }
